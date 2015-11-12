@@ -20,3 +20,19 @@ rule "TextDefinition first character case"
     then
         invalidContent.add(new org.ihtsdo.drools.response.InvalidContent(d, "The system has detected a contradiction of the following convention: the first character of a text definition must be upper case.", Severity.WARNING));
 end
+
+rule "All Active TextDefinitions preferred in en-US"
+    dialect "mvel"
+    when
+        d : Description(active && textDefinition && acceptabilityMap.get(Constants.US_EN_LANG_REFSET) != Constants.ACCEPTABILITY_PREFERRED)
+    then
+        invalidContent.add(new org.ihtsdo.drools.response.InvalidContent(d, "The system has detected a contraindication of the following convention: active text definitions must have an acceptability of Preferred in the en-US dialect."));
+end
+
+rule "All Active TextDefinitions preferred in en-GB"
+    dialect "mvel"
+    when
+        d : Description(active && textDefinition && acceptabilityMap.get(Constants.GB_EN_LANG_REFSET) != Constants.ACCEPTABILITY_PREFERRED)
+    then
+        invalidContent.add(new org.ihtsdo.drools.response.InvalidContent(d, "The system has detected a contraindication of the following convention: active text definitions must have an acceptability of Preferred in the en-GB dialect."));
+end
