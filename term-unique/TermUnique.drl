@@ -1,0 +1,26 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.helper.DescriptionHelper
+import org.ihtsdo.drools.service.DescriptionService
+import org.ihtsdo.drools.response.InvalidContent
+
+global java.util.List invalidContent
+global DescriptionService descriptionService
+
+rule "Term unique in concept"
+    dialect "mvel"
+    when
+    	c : Concept(DescriptionHelper.isAnyDuplicateActiveDescriptionsWithinAConcept(c))
+    then
+        invalidContent.add(new org.ihtsdo.drools.response.InvalidContent(c, "The system has detected a contradiction of the following convention: active descriptions must be unique in a concept."));
+end
+
+
+// TODO: verify this logic - another rule mentions lang refsets
+//rule "Term unique"
+//    dialect "mvel"
+//    when
+//        d : Description(active && !descriptionService.isUniqueActiveTerm(term))
+//    then
+//        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: active descriptions must not match other description already committed."));
+//end

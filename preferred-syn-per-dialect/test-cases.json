@@ -1,0 +1,91 @@
+{
+    "assertConceptsPass": [
+        {
+            "id": "1",
+            "descriptions": [
+                {
+                    "id": "1a",
+                    "term": "Organism (organism)",
+                    "typeId": "900000000000003001" // FSN
+                },
+                {
+                    "id": "1b",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007",
+                        "900000000000508004": "900000000000548007"
+                    }
+                }
+            ]
+        }
+    ],
+    "assertConceptsFail": [
+        {
+            "id": "1",
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "acceptabilityMap": {
+                        "900000000000508004": "900000000000548007"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "descriptions": [
+                {
+                    "id": "3",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "acceptabilityMap": {
+                    }
+                }
+            ]
+        },
+        {
+            "id": "4",
+            "descriptions": [
+                {
+                    "id": "4",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000549004",
+                        "900000000000508004": "900000000000548007"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "5",
+            "descriptions": [
+                {
+                    "id": "5",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007",
+                        "900000000000508004": "900000000000549004"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.response.InvalidContent
+
+global java.util.List invalidContent
+
+rule "Term parenthesis spaces"
+    dialect "mvel"
+    when
+		// Failure cases:
+		// 1 no space before (
+		// 2 space after (
+		// 3 space before )
+		// 4 space after ) if end
+		// 5 no space after ) if not end
+        d : Description(active == true && typeId == Constants.FSN && (
+        	term matches ".*[^ ]\\(.*"
+        	|| term matches ".*\\( .*"
+        	|| term matches ".* \\).*"
+        	|| term matches ".*\\) "
+        	|| term matches ".*\\)[^ ].*"
+        	))
+    then
+        invalidContent.add(new org.ihtsdo.drools.response.InvalidContent(d, "The system has detected a contradiction of the following convention: a space must be placed in front of an opening parenthesis and after a closing parenthesis (unless it is at the end of the product’s name), but not within parentheses e.g. aaaa (bbbb) cccc."));
+end

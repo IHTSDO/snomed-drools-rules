@@ -1,0 +1,30 @@
+{
+    "assertConceptsPass": [
+        {
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Atropine sulphate 600micrograms/1mL prefilled syringe"
+                }
+            ]
+        }
+    ],
+    "assertConceptsFail": [
+        {
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Hypodermic insulin needles for pre-filled / reusable pen injectors screw on 28gauge/12mm"
+                }
+            ]
+        },
+        {
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "Hypodermic insulin needles for (pre-filled) / reusable pen injectors screw on 28gauge/12mm"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,66 @@
+{
+    "assertConceptsPass": [
+        {
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "SNOMED CT Concept (SNOMED RT+CTV3)"
+                },
+                {
+                    "id": "2",
+                    "term": "Haemoglobin F-Kuala Lumpur"
+                }
+            ]
+        }
+    ],
+    "assertConceptsFail": [
+        {
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "SNOMED CT  Concept (SNOMED RT+CTV3)"
+                }
+            ]
+        },
+        {
+            "descriptions": [
+                {
+                    "id": "3",
+                    "term": " SNOMED CT Concept (SNOMED RT+CTV3)"
+                }
+            ]
+        },
+        {
+            "descriptions": [
+                {
+                    "id": "4",
+                    "term": "SNOMED CT Concept (SNOMED RT+CTV3) "
+                }
+            ]
+        },
+        {
+            "descriptions": [
+                {
+                    "id": "5",
+                    "term": "Foreman - caretaking/cleaning"
+                }
+            ]
+        },
+        {
+            "descriptions": [
+                {
+                    "id": "6",
+                    "term": "Bone -drill biopsy"
+                }
+            ]
+        },
+        {
+            "descriptions": [
+                {
+                    "id": "7",
+                    "term": "Bone- drill biopsy"
+                }
+            ]
+        }
+    ]
+}

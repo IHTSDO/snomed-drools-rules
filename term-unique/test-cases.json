@@ -1,0 +1,64 @@
+{
+    "assertConceptsPass": [
+        {
+            "id": "1",
+            "descriptions": [
+                {
+                    "id": "1a",
+                    "term": "Organism (organism)"
+                },
+                {
+                    "id": "1b",
+                    "term": "Organism"
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "descriptions": [
+                {
+                    "id": "2a",
+                    "active": "true",
+                    "term": "Body structure (body structure)"
+                },
+                {
+                    "id": "2b",
+                    "active": "false",
+                    "term": "Body structure (body structure)"
+                }
+            ]
+        }
+    ],
+    "assertConceptsFail": [
+        {
+            "id": "1",
+            "descriptions": [
+                {
+                    "id": "1a",
+                    "term": "Body structure (body structure)"
+                },
+                {
+                    "id": "1b",
+                    "term": "Body structure (body structure)"
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "descriptions": [
+                {
+                    "id": "2a",
+                    "term": "Organism (organism)"
+                },
+                {
+                    "id": "2b",
+                    "term": "Organism"
+                },
+                {
+                    "id": "2c",
+                    "term": "Organism (organism)"
+                }
+            ]
+        }
+    ]
+}

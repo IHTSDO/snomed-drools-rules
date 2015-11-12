@@ -1,0 +1,22 @@
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.response.Severity
+
+global java.util.List invalidContent
+
+rule "TextDefinition case significance"
+    dialect "mvel"
+    when
+        d : Description(active && textDefinition && caseSignificanceId != Constants.ENTIRE_TERM_CASE_SENSITIVE)
+    then
+        invalidContent.add(new org.ihtsdo.drools.response.InvalidContent(d, "The system has detected a contradiction of the following convention: text definitions must be case-sensitive.", Severity.WARNING));
+end
+
+rule "TextDefinition first character case"
+    dialect "mvel"
+    when
+        d : Description(active && textDefinition && term matches "[^A-Z].*")
+    then
+        invalidContent.add(new org.ihtsdo.drools.response.InvalidContent(d, "The system has detected a contradiction of the following convention: the first character of a text definition must be upper case.", Severity.WARNING));
+end

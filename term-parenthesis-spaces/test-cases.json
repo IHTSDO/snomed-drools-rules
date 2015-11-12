@@ -1,0 +1,100 @@
+{
+    "assertConceptsPass": [
+        {
+            "descriptions": [
+                {
+                    "id": "1",
+                    "typeId": "900000000000003001",
+                    "term": "SNOMED CT Concept (SNOMED RT+CTV3)" // Good FSN
+                }
+            ]
+        },
+        {
+            "descriptions": [
+                {
+                    "id": "2",
+                    "typeId": "900000000000003001",
+                    "term": "SNOMED CT Concept (SNOMED RT+CTV3) something" // Good FSN
+                }
+            ]
+        },
+        {
+            "descriptions": [
+                {
+                    "id": "3",
+                    "typeId": "900000000000013009", // Synonym
+                    "term": "SNOMED CT Concept( SNOMED RT+CTV3 ) "
+                }
+            ]
+        },
+        {
+            "descriptions": [
+                {
+                    "id": "4",
+                    "typeId": "900000000000003001",
+                    "active": false, // Not active
+                    "term": "SNOMED CT Concept (SNOMED RT+CTV3 )"
+                }
+            ]
+        }
+    ],
+    // Failure cases:
+    // 1 no space before (
+    // 2 space after (
+    // 3 space before )
+    // 4 space after ) if end
+    // 5 no space after ) if not end
+    "assertConceptsFail": [
+        {
+            "id": "1",
+            "descriptions": [
+                {
+                    "id": "1",
+                    "typeId": "900000000000003001",
+                    "active": true,
+                    "term": "SNOMED CT Concept(SNOMED RT+CTV3)"
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "descriptions": [
+                {
+                    "id": "2",
+                    "typeId": "900000000000003001",
+                    "term": " SNOMED CT Concept ( SNOMED RT+CTV3)"
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "descriptions": [
+                {
+                    "id": "3",
+                    "typeId": "900000000000003001",
+                    "term": "SNOMED CT Concept (SNOMED RT+CTV3 )"
+                }
+            ]
+        },
+        {
+            "id": "4",
+            "descriptions": [
+                {
+                    "id": "4",
+                    "typeId": "900000000000003001",
+                    "term": "SNOMED CT Concept (SNOMED RT+CTV3) "
+                }
+            ]
+        },
+        {
+            "id": "5",
+            "descriptions": [
+                {
+                    "id": "5",
+                    "typeId": "900000000000003001",
+                    "term": "SNOMED CT Concept (SNOMED RT+CTV3)something"
+                }
+            ]
+        }
+    ]
+}
