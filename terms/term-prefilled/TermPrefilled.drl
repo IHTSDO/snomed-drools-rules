@@ -8,5 +8,5 @@ rule "Term prefilled"
     when
         d : Description(term.toLowerCase matches ".*[ \\(]pre-filled[ \\)].*")
     then
-        invalidContent.add(new org.ihtsdo.drools.response.InvalidContent(d, "The system has detected a contradiction of the following convention: FSNs containing the word “pre-filled” must be changed to prefilled."));
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: FSNs containing the word “pre-filled” must be changed to prefilled."));
 end

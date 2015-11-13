@@ -12,7 +12,7 @@ rule "Term unique in concept"
     when
     	c : Concept(DescriptionHelper.isAnyDuplicateActiveDescriptionsWithinAConcept(c))
     then
-        invalidContent.add(new org.ihtsdo.drools.response.InvalidContent(c, "The system has detected a contradiction of the following convention: active descriptions must be unique in a concept."));
+        invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: active descriptions must be unique in a concept."));
 end
 
 
