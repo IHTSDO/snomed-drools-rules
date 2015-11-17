@@ -1,0 +1,21 @@
+{
+    "assertConceptsPass": [
+        {
+            "id": "1",
+            "active" : true,
+            "definitionStatusId": "900000000000073002" // DEFINED
+        },
+        {
+            "id": "2",
+            "active" : false,
+            "definitionStatusId": "900000000000074008" // PRIMITIVE
+        }
+    ],
+    "assertConceptsFail": [
+        {
+            "id": "1",
+            "active" : false,
+            "definitionStatusId": "900000000000073002" // DEFINED
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "givenConcepts": [
+        {
+            "id": "a1",
+            "active" : true
+        },
+        {
+            "id": "a2",
+            "active" : false
+        }
+    ],
+    "assertConceptsPass": [
+        {
+            "id": "1",
+            "relationships": [
+                {
+                    "typeId": "116680003", // is-a
+                    "destinationId": "a1"
+                    // active defaults to true
+                }
+            ]
+        }
+    ],
+    "assertConceptsFail": [
+        {
+            "id": "2",
+            "relationships": [
+                {
+                    "typeId": "116680003", // is-a
+                    "destinationId": "a2"
+                }
+            ]
+        }
+    ]
+}

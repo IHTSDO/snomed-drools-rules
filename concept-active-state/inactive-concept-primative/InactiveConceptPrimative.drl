@@ -1,0 +1,16 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.domain.Relationship
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.service.RelationshipService
+
+global java.util.List invalidContent
+global RelationshipService relationshipService
+
+rule "Inactive concept must be primative"
+    dialect "mvel"
+    when
+    	c : Concept(!active && definitionStatusId != Constants.PRIMITIVE)
+    then
+        invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: inactive concepts must be defined as primitive."));
+end

@@ -1,0 +1,28 @@
+{
+    "assertConceptsPass": [
+        {
+            "id": "1",
+            "relationships": [
+                {
+                    "active": true,
+                    "relationshipGroup": "3"
+                },
+                {
+                    "active": false,
+                    "relationshipGroup": "0"
+                }
+            ]
+        }
+    ],
+    "assertConceptsFail": [
+        {
+            "id": "2",
+            "relationships": [
+                {
+                    "active": false,
+                    "relationshipGroup": "2"
+                }
+            ]
+        }
+    ]
+}

@@ -26,7 +26,7 @@ rule "All Active TextDefinitions preferred in en-US"
     when
         d : Description(active && textDefinition && acceptabilityMap.get(Constants.US_EN_LANG_REFSET) != Constants.ACCEPTABILITY_PREFERRED)
     then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contraindication of the following convention: active text definitions must have an acceptability of Preferred in the en-US dialect."));
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: active text definitions must have an acceptability of Preferred in the en-US dialect."));
 end
 
 rule "All Active TextDefinitions preferred in en-GB"
@@ -34,5 +34,5 @@ rule "All Active TextDefinitions preferred in en-GB"
     when
         d : Description(active && textDefinition && acceptabilityMap.get(Constants.GB_EN_LANG_REFSET) != Constants.ACCEPTABILITY_PREFERRED)
     then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contraindication of the following convention: active text definitions must have an acceptability of Preferred in the en-GB dialect."));
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: active text definitions must have an acceptability of Preferred in the en-GB dialect."));
 end

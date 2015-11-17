@@ -1,0 +1,13 @@
+import org.ihtsdo.drools.domain.Relationship
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.response.InvalidContent
+
+global java.util.List invalidContent
+
+rule "Is-a relationship must not be grouped"
+    dialect "mvel"
+    when
+    	r : Relationship(typeId == Constants.IS_A && relationshipGroup != 0)
+    then
+        invalidContent.add(new InvalidContent(r, "The system has detected a contradiction of the following convention: an “Is-a” relationships must not be grouped."));
+end

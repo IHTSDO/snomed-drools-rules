@@ -1,0 +1,14 @@
+import org.ihtsdo.drools.domain.Relationship
+import org.ihtsdo.drools.service.ConceptService
+import org.ihtsdo.drools.response.InvalidContent
+
+global java.util.List invalidContent
+global ConceptService conceptService
+
+rule "Active relationship must not have inactive type"
+    dialect "mvel"
+    when
+    	r : Relationship(active && !conceptService.isActive(typeId))
+    then
+        invalidContent.add(new InvalidContent(r, "The system has detected a contradiction of the following convention: concepts must not have inactive relationship types."));
+end

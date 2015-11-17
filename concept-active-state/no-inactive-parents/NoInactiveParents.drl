@@ -1,0 +1,15 @@
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.domain.Relationship
+import org.ihtsdo.drools.service.ConceptService
+import org.ihtsdo.drools.response.InvalidContent
+
+global java.util.List invalidContent
+global ConceptService conceptService
+
+rule "A concept can not have inactive ancestors"
+    dialect "mvel"
+    when
+    	r : Relationship(active && typeId == Constants.IS_A && !conceptService.isActive(destinationId))
+    then
+        invalidContent.add(new InvalidContent(r, "The system has detected a contradiction of the following convention: a concept must not be descendant of inactive concepts."));
+end

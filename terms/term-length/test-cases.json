@@ -1,0 +1,22 @@
+{
+    "assertConceptsPass": [
+        {
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Something very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very longg (Finding)" // 255 chars
+                }
+            ]
+        }
+    ],
+    "assertConceptsFail": [
+        {
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "Something very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very longgg (Finding)" // 256 chars
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "assertConceptsPass": [
+        {
+            "id": "1",
+            "relationships": [
+                {
+                    "typeId": "116680003" // Is-a
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "active": false,
+            "relationships": []
+        }
+    ],
+    "assertConceptsFail": [
+        {
+            "id": "1",
+            "active" : true,
+            "relationships": [
+                {
+                    "typeId": "363698007" // Finding site
+                }
+            ]
+        }
+    ]}

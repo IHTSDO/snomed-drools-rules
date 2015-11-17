@@ -1,0 +1,52 @@
+{
+    "assertConceptsPass": [
+        {
+            "id": "1",
+            "relationships": [
+                {
+                    "id": "1",
+                    "relationshipGroup": "3",
+                    "typeId": "363698007", // Finding site
+                    "destinationId": "123"
+                },
+                {
+                    "id": "2",
+                    "relationshipGroup": "3",
+                    "typeId": "363698007", // Finding site
+                    "destinationId": "124"
+                }
+            ]
+        }
+    ],
+    "assertConceptsFail": [
+        {
+            "id": "2",
+            "relationships": [
+                {
+                    "id": "1",
+                    "relationshipGroup": "0",
+                    "typeId": "116680003", // is-a
+                    "destinationId": "100"
+                },
+                {
+                    "id": "2",
+                    "relationshipGroup": "3",
+                    "typeId": "363698007", // Finding site
+                    "destinationId": "123"
+                },
+                {
+                    "id": "3",
+                    "relationshipGroup": "3",
+                    "typeId": "363698007", // Finding site
+                    "destinationId": "124"
+                },
+                {
+                    "id": "4",
+                    "relationshipGroup": "3",
+                    "typeId": "363698007", // Finding site
+                    "destinationId": "123"
+                }
+            ]
+        }
+    ]
+}
