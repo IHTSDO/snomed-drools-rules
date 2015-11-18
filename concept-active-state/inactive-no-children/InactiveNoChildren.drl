@@ -10,7 +10,7 @@ global RelationshipService relationshipService
 rule "Inactive concept cannot have children"
     dialect "mvel"
     when
-    	c : Concept(!active && relationshipService.hasActiveInboundRelationship(c.id, Constants.IS_A))
+    	c : Concept(!active && relationshipService.hasActiveInboundStatedRelationship(c.id, Constants.IS_A))
     then
         invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: inactive concepts must not have children."));
 end

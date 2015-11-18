@@ -1,0 +1,33 @@
+{
+    "givenConcepts": [
+        {
+            "id": "a1",
+            "active" : true,
+            "relationships": [
+                {
+                    "destinationId": "1",
+                    "active": true
+                },
+                {
+                    "destinationId": "2",
+                    "active": false
+                }
+            ]
+        }
+    ],
+    "assertConceptsPass": [
+        {
+            "id": "1",
+            "active" : true
+        },
+        {
+            "id": "2",
+            "active" : false
+        }
+    ],
+    "assertConceptsFail": [
+        {
+            "id": "1",
+            "active" : false
+        }
+    ]}

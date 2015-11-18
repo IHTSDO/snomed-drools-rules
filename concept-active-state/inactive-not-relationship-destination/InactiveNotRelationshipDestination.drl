@@ -1,0 +1,16 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.domain.Relationship
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.service.RelationshipService
+
+global java.util.List invalidContent
+global RelationshipService relationshipService
+
+rule "Inactive concept cannot be the destination of any active relationship"
+    dialect "mvel"
+    when
+    	c : Concept(!active && relationshipService.hasActiveInboundStatedRelationship(c.id))
+    then
+        invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept must not be inactivated if it is the target of an active relationship."));
+end
