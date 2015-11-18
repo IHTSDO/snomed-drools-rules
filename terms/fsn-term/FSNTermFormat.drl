@@ -53,18 +53,10 @@ rule "FSN space around plus character"
         invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active FSN containing a + symbol, must include a single space placed at either side of the symbol e.g. Ibuprofen + oxycodone (product)"));
 end
 
-rule "FSN do not contain dashes"
+rule "FSN special characters"
     dialect "mvel"
     when
-        d : Description(active == true && typeId == Constants.FSN && term matches ".*–.*")// En dash here
+        d : Description(active == true && typeId == Constants.FSN && term matches ".*[&%$@#].*")
     then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: FSNs must not not contain dashes."));
-end
-
-rule "Active FSN starting lowercase should be case sensitive"
-    dialect "mvel"
-    when
-        d : Description(active == true && typeId == Constants.FSN && term matches "[a-z].*" && caseSignificanceId != Constants.ENTIRE_TERM_CASE_SENSITIVE)
-    then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an FSN beginning with a lowercase character must have case sensitivity of \"sensitive\".", Severity.WARNING));
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active FSN must not contain the special characters &, %, $, @ or #.", Severity.WARNING));
 end

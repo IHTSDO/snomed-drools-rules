@@ -1,0 +1,15 @@
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.helper.DescriptionHelper
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.response.Severity
+
+global java.util.List invalidContent
+
+rule "Active FSNs must be preferred in at least one dialect"
+    dialect "mvel"
+    when
+        d : Description(active == true && typeId == Constants.FSN && !DescriptionHelper.isPreferredInAnyDialect(d))
+    then
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an FSN must be represented in at least one dialect."));
+end

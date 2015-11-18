@@ -1,0 +1,71 @@
+{
+    "assertConceptsPass": [
+        {
+            "id": "1",
+            "descriptions": [
+                {
+                    "id": "1a",
+                    "term": "Organism (organism)",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007", // Preferred
+                        "900000000000508004": "900000000000548007" // Preferred
+                    }
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "descriptions": [
+                {
+                    "id": "2a",
+                    "term": "Thing (organism)",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // Preferred
+                    }
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "descriptions": [
+                {
+                    "id": "3a",
+                    "term": "Thing (organism)",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                    },
+                    "active": false
+                }
+            ]
+        }
+    ],
+    "assertConceptsFail": [
+        {
+            "id": "1",
+            "descriptions": [
+                {
+                    "id": "1a",
+                    "term": "Organism (organism)",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000549004" // Acceptable
+                    }
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "descriptions": [
+                {
+                    "id": "2a",
+                    "term": "Organism (organism)",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                    }
+                }
+            ]
+        }
+    ]
+}

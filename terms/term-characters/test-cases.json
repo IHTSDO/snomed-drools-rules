@@ -1,0 +1,36 @@
+{
+    "assertConceptsPass": [
+        {
+            "id": "1",
+            "descriptions": [
+                {
+                    "id": "1",
+                    "typeId": "900000000000003001",
+                    "term": "Ibuprofen & oxycodone (product)"
+                }
+            ]
+        }
+    ],
+    "assertConceptsFail": [
+        {
+            "id": "1",
+            "descriptions": [
+                {
+                    "id": "1",
+                    "typeId": "900000000000003001",
+                    "term": "Ibuprofen $ oxycodone (product)"
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "descriptions": [
+                {
+                    "id": "2",
+                    "typeId": "900000000000003001",
+                    "term": "Ibuprofen $ oxycodone (product)"
+                }
+            ]
+        }
+    ]
+}

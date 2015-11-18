@@ -18,6 +18,7 @@
     // 5 includes comma
     // 6 no space around "+"
     // 7 starts with (
+    // 8-12 contains &, %, $, @ or #
     "assertConceptsFail": [
         {
             "id": "1",
@@ -87,6 +88,56 @@
                     "id": "7",
                     "typeId": "900000000000003001",
                     "term": "(Ibuprofen, oxycodone product)"
+                }
+            ]
+        },
+        {
+            "id": "8",
+            "descriptions": [
+                {
+                    "id": "8",
+                    "typeId": "900000000000003001",
+                    "term": "Ibuprofen & oxycodone (product)"
+                }
+            ]
+        },
+        {
+            "id": "9",
+            "descriptions": [
+                {
+                    "id": "9",
+                    "typeId": "900000000000003001",
+                    "term": "Ibuprofen % oxycodone (product)"
+                }
+            ]
+        },
+        {
+            "id": "10",
+            "descriptions": [
+                {
+                    "id": "10",
+                    "typeId": "900000000000003001",
+                    "term": "Ibuprofen $ oxycodone (product)"
+                }
+            ]
+        },
+        {
+            "id": "11",
+            "descriptions": [
+                {
+                    "id": "11",
+                    "typeId": "900000000000003001",
+                    "term": "Ibuprofen @ oxycodone (product)"
+                }
+            ]
+        },
+        {
+            "id": "12",
+            "descriptions": [
+                {
+                    "id": "11",
+                    "typeId": "900000000000003001",
+                    "term": "#Ibuprofen oxycodone (product)"
                 }
             ]
         }
