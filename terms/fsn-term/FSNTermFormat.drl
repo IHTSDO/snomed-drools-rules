@@ -42,7 +42,7 @@ rule "FSN Comma"
     when
         d : Description(active == true && typeId == Constants.FSN && term matches ".*,.*")
     then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: FSNs must not include commas."));
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: FSNs must not include commas.", Severity.WARNING));
 end
 
 rule "FSN space around plus character"
