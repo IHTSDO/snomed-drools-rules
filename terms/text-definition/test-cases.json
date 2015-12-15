@@ -33,9 +33,6 @@
     // 1 caseSignificance Only initial character case insensitive
     // 2 caseSignificance Entire term case insensitive
     // 3 term first character lower
-    // 4 not en-US Preferred
-    // 5 not en-UK Preferred
-    // 6 not Preferred in any lang
     "assertConceptsFail": [
         {
             "id": "1",
@@ -82,43 +79,6 @@
                         "900000000000509007": "900000000000548007", // en-US Preferred
                         "900000000000508004": "900000000000548007" // en-GB Preferred
                     }
-                }
-            ]
-        },
-        {
-            "id": "4",
-            "descriptions": [
-                {
-                    "textDefinition": true,
-                    "term": "Liaising with any member of the health care team regarding the patient's dietary regime.",
-                    "caseSignificanceId": "900000000000017005", // Entire term case sensitive
-                    "acceptabilityMap": {
-                        "900000000000508004": "900000000000548007" // en-GB Preferred
-                    }
-                }
-            ]
-        },
-        {
-            "id": "5",
-            "descriptions": [
-                {
-                    "textDefinition": true,
-                    "term": "Liaising with any member of the health care team regarding the patient's dietary regime.",
-                    "caseSignificanceId": "900000000000017005", // Entire term case sensitive
-                    "acceptabilityMap": {
-                        "900000000000509007": "900000000000548007", // en-US Preferred
-                        "900000000000508004": "900000000000549004" // en-GB Acceptable
-                    }
-                }
-            ]
-        },
-        {
-            "id": "6",
-            "descriptions": [
-                {
-                    "textDefinition": true,
-                    "term": "Liaising with any member of the health care team regarding the patient's dietary regime.",
-                    "caseSignificanceId": "900000000000017005" // Entire term case sensitive
                 }
             ]
         }
