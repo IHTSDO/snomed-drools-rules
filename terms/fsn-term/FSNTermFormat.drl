@@ -10,7 +10,7 @@ rule "Active FSNs cannot start with open parentheses"
     when
         d : Description(active == true && typeId == Constants.FSN && term matches "\\(.*")
     then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: FSNs must not start with open parentheses."));
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: FSNs must not start with open parentheses.", Severity.WARNING));
 end
 
 rule "FSN ends in closing parentheses"
