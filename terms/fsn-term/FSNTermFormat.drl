@@ -21,14 +21,6 @@ rule "FSN ends in closing parentheses"
         invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: FSNs must end in closing parentheses."));
 end
 
-rule "Active FSNs must have a space before semantic tag"
-    dialect "mvel"
-    when
-        d : Description(active == true && typeId == Constants.FSN && term not matches ".*[^ ] \\(.+\\).*")
-    then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: a single space must be included before a semantic tag."));
-end
-
 rule "Active FSN must end with a semantic tag"
     dialect "mvel"
     when

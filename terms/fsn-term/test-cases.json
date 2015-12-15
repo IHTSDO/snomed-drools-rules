@@ -1,4 +1,6 @@
 {
+    //
+    // 2 no space before semantic tag - rule removed
     "assertConceptsPass": [
         {
             "descriptions": [
@@ -8,12 +10,21 @@
                     "term": "Ibuprofen + oxycodone (product)" // Good FSN
                 }
             ]
+        },
+        {
+            "id": "2",
+            "descriptions": [
+                {
+                    "id": "3",
+                    "typeId": "900000000000003001",
+                    "term": "Ibuprofen oxycodone(product)"
+                }
+            ]
         }
     ],
     // Failure cases:
     // 1 does not end in )
     // 2 does not end in )
-    // 3 no space before semantic tag
     // 4 not end with a semantic tag
     // 5 includes comma
     // 6 no space around "+"
@@ -37,17 +48,7 @@
                 {
                     "id": "2",
                     "typeId": "900000000000003001",
-                    "term": "Ibuprofen, oxycodone (product) something"
-                }
-            ]
-        },
-        {
-            "id": "3",
-            "descriptions": [
-                {
-                    "id": "3",
-                    "typeId": "900000000000003001",
-                    "term": "Ibuprofen, oxycodone(product)"
+                    "term": "Ibuprofen oxycodone (product) something"
                 }
             ]
         },
@@ -57,7 +58,7 @@
                 {
                     "id": "4",
                     "typeId": "900000000000003001",
-                    "term": "Ibuprofen, oxycodone"
+                    "term": "Ibuprofen oxycodone"
                 }
             ]
         },
@@ -87,7 +88,7 @@
                 {
                     "id": "7",
                     "typeId": "900000000000003001",
-                    "term": "(Ibuprofen, oxycodone product)"
+                    "term": "(Ibuprofen oxycodone product)"
                 }
             ]
         },
