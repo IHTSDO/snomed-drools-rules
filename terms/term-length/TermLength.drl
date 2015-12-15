@@ -4,10 +4,18 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "Term length"
+rule "Description length"
     dialect "mvel"
     when
-        d : Description(term.length > 255)
+        d : Description(active && typeId != "900000000000550004" && term.length > 255)
     then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active description must not be longer than 255 characters.", Severity.WARNING));
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active description must not be longer than 255 characters."));
+end
+
+rule "Text Definition length"
+    dialect "mvel"
+    when
+        d : Description(active && typeId == "900000000000550004" && term.length > 4096)
+    then
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active text definition must not be longer than 4096 characters."));
 end
