@@ -15,5 +15,5 @@ rule "Preferred synonym per dialect"
     		|| DescriptionHelper.filterByActiveTypeAndDialectPreferred(c, true, Constants.SYNONYM, Constants.GB_EN_LANG_REFSET).size() != 1)
 		)
     then
-        invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: concepts may only have one Preferred Synonym in each dialect"));
+        invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept may only have one Preferred Synonym in each dialect."));
 end

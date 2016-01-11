@@ -25,5 +25,5 @@ rule "Semantic Tag of FSN compatible with concept parents"
         								Constants.GB_EN_LANG_REFSET
         								)))
     then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: A concept's semantic tags should be compatible with those of the active parents.", Severity.WARNING));
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: a concept's semantic tags should be compatible with those of the active parents.", Severity.WARNING));
 end
