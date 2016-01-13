@@ -16,5 +16,5 @@ rule "FSN per dialect"
     		|| DescriptionHelper.filterByActiveTypeAndDialectPreferred(c, true, Constants.FSN, Constants.GB_EN_LANG_REFSET).size() != 1)
 		)
     then
-        invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: an active concept must have one active preferred FSN per dialect.", Severity.WARNING));
+        invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: an active concept should have one active preferred FSN per dialect.", Severity.WARNING));
 end

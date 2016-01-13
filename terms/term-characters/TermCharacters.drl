@@ -10,5 +10,5 @@ rule "Term special characters"
     when
         d : Description(active == true && term matches ".*[$@].*")
     then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active term must not contain the special characters $ or @.", Severity.WARNING));
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active term should not contain the special characters $ or @.", Severity.WARNING));
 end

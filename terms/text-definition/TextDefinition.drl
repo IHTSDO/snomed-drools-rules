@@ -10,7 +10,7 @@ rule "TextDefinition case significance"
     when
         d : Description(active && textDefinition && caseSignificanceId != Constants.ENTIRE_TERM_CASE_SENSITIVE)
     then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: text definitions must be case-sensitive.", Severity.WARNING));
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: text definitions should be case-sensitive.", Severity.WARNING));
 end
 
 rule "TextDefinition first character case"
@@ -18,5 +18,5 @@ rule "TextDefinition first character case"
     when
         d : Description(active && textDefinition && term matches "[^A-Z].*")
     then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: the first character of a text definition must be upper case.", Severity.WARNING));
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: the first character of a text definition should be upper case.", Severity.WARNING));
 end

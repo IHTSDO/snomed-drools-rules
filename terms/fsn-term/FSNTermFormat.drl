@@ -10,7 +10,7 @@ rule "Active FSNs cannot start with open parentheses"
     when
         d : Description(active == true && typeId == Constants.FSN && term matches "\\(.*")
     then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an FSN must not start with open parentheses.", Severity.WARNING));
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an FSN should not start with open parentheses.", Severity.WARNING));
 end
 
 rule "FSN ends in closing parentheses"
@@ -34,7 +34,7 @@ rule "FSN Comma"
     when
         d : Description(active == true && typeId == Constants.FSN && term matches ".*,.*")
     then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an FSN must not include commas.", Severity.WARNING));
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an FSN should not include commas.", Severity.WARNING));
 end
 
 rule "FSN space around plus character"
@@ -42,7 +42,7 @@ rule "FSN space around plus character"
     when
         d : Description(active == true && typeId == Constants.FSN && (term matches ".*[^ ]\\+.*" || term matches ".*\\+[^ ].*"))
     then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active FSN containing a + symbol, must include a single space placed at either side of the symbol e.g. Ibuprofen + oxycodone (product).", Severity.WARNING));
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active FSN containing a + symbol should include a single space placed at either side of the symbol e.g. Ibuprofen + oxycodone (product).", Severity.WARNING));
 end
 
 rule "FSN special characters"
@@ -50,5 +50,5 @@ rule "FSN special characters"
     when
         d : Description(active == true && typeId == Constants.FSN && term matches ".*[&%$@#].*")
     then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active FSN must not contain the special characters &, %, $, @ or #.", Severity.WARNING));
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active FSN should not contain the special characters &, %, $, @ or #.", Severity.WARNING));
 end

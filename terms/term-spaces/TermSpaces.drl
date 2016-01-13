@@ -17,5 +17,5 @@ rule "Active descriptions do not have spaces, either before or after, hyphens."
     when
         d : Description(active && (term matches ".* -.*" || term matches ".*- .*"))
     then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: active descriptions must not have spaces, either before or after, hyphens.", Severity.WARNING));
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: active descriptions should not have spaces, either before or after, hyphens.", Severity.WARNING));
 end
