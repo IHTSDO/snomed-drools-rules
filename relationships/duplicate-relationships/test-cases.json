@@ -16,11 +16,28 @@
                     "destinationId": "124"
                 }
             ]
+        },
+        {
+            "id": "2",
+            "relationships": [
+                {
+                    "id": "1",
+                    "relationshipGroup": "1",
+                    "typeId": "363698007", // Finding site
+                    "destinationId": "123"
+                },
+                {
+                    "id": "2",
+                    "relationshipGroup": "2",
+                    "typeId": "363698007", // Finding site
+                    "destinationId": "123"
+                }
+            ]
         }
     ],
     "assertConceptsFail": [
         {
-            "id": "2",
+            "id": "3",
             "relationships": [
                 {
                     "id": "1",
@@ -42,6 +59,30 @@
                 },
                 {
                     "id": "4",
+                    "relationshipGroup": "3",
+                    "typeId": "363698007", // Finding site
+                    "destinationId": "123"
+                }
+            ]
+        },
+        {
+            "id": "4",
+            "relationships": [
+                {
+                    "id": "1",
+                    "relationshipGroup": "0",
+                    "typeId": "116680003", // is-a
+                    "destinationId": "100"
+                },
+                {
+                    "id": "2",
+                    "active": false,
+                    "relationshipGroup": "3",
+                    "typeId": "363698007", // Finding site
+                    "destinationId": "123"
+                },
+                {
+                    "id": "3",
                     "relationshipGroup": "3",
                     "typeId": "363698007", // Finding site
                     "destinationId": "123"
