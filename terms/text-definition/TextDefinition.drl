@@ -1,5 +1,8 @@
+import org.ihtsdo.drools.domain.Concept
 import org.ihtsdo.drools.domain.Description
 import org.ihtsdo.drools.domain.Constants
+import java.util.Collection
+import org.ihtsdo.drools.helper.DescriptionHelper
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
 
@@ -19,4 +22,15 @@ rule "TextDefinition first character case"
         d : Description(active && textDefinition && term matches "[^A-Z].*")
     then
         invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: the first character of a text definition should be upper case.", Severity.WARNING));
+end
+
+rule "Preferred TextDefinition per dialect"
+    dialect "mvel"
+    when
+    	c : Concept(active && (
+    		DescriptionHelper.filterByActiveTypeAndDialectPreferred(c, true, Constants.TEXT_DEFINITION, Constants.US_EN_LANG_REFSET).size() > 1
+    		|| DescriptionHelper.filterByActiveTypeAndDialectPreferred(c, true, Constants.TEXT_DEFINITION, Constants.GB_EN_LANG_REFSET).size() > 1)
+		)
+    then
+        invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept may only have one Preferred text definition in each dialect.").ignorePublishedCheck());
 end

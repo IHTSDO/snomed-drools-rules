@@ -86,6 +86,58 @@
                     }
                 }
             ]
+        },
+        {
+            "id": "6",
+            "published": true,
+            "descriptions": [
+                {
+                    "id": "6",
+                    "published": true,
+                    "term": "Organism (A)",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007",
+                        "900000000000508004": "900000000000548007"
+                    }
+                },
+                {
+                    "id": "7",
+                    "published": true,
+                    "term": "Organism (B)",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007",
+                        "900000000000508004": "900000000000549004"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "7",
+            "published": true,
+            "descriptions": [
+                {
+                    "id": "8",
+                    "published": true,
+                    "term": "Organism (A)",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007",
+                        "900000000000508004": "900000000000548007"
+                    }
+                },
+                {
+                    "id": "9",
+                    "published": true,
+                    "term": "Organism (B)",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "acceptabilityMap": {
+                        "900000000000508004": "900000000000548007",
+                        "900000000000509007": "900000000000549004"
+                    }
+                }
+            ]
         }
     ]
 }
