@@ -1,0 +1,16 @@
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.service.DescriptionService
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.response.Severity
+
+global java.util.List invalidContent
+global DescriptionService descriptionService
+
+rule "Active FSNs must be unique"
+    dialect "mvel"
+    when
+        d : Description(active == true && typeId == Constants.FSN && descriptionService.findActiveDescriptionByExactTerm(term).size() > 0)
+    then
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an FSN must be unique within all active FSNs across all concepts.", Severity.ERROR));
+end
