@@ -39,6 +39,16 @@
                     "term": "Ibuprofen (product)" // other term not active
                 }
             ]
+        },
+        {
+            "id": "4",
+            "descriptions": [
+                {
+                    "id": "1",
+                    "typeId": "900000000000003001",
+                    "term": "Ibuprofen + oxycodone (product)" // updating existing description
+                }
+            ]
         }
     ],
     "assertConceptsFail": [
@@ -46,10 +56,10 @@
             "id": "1",
             "descriptions": [
                 {
-                    "id": "1",
+                    "id": "5",
                     "typeId": "900000000000003001",
                     "active": true,
-                    "term": "Ibuprofen + oxycodone (product)"
+                    "term": "Ibuprofen + oxycodone (product)" // Same term, different description .. should fail
                 }
             ]
         }

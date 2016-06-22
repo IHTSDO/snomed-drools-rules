@@ -10,7 +10,8 @@ global DescriptionService descriptionService
 rule "Active FSNs must be unique"
     dialect "mvel"
     when
-        d : Description(active == true && typeId == Constants.FSN && descriptionService.findActiveDescriptionByExactTerm(term).size() > 0)
+		d : Description(active == true && typeId == Constants.FSN)
+		$duplicate : Description(id != d.id) from descriptionService.findActiveDescriptionByExactTerm(d.term)
     then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an FSN must be unique within all active FSNs across all concepts.", Severity.ERROR));
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an FSN must be unique within all active FSNs across all concepts. This term already exists against concept " + $duplicate.getConceptId() + ".", Severity.ERROR));
 end
