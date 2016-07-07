@@ -1,0 +1,16 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Constants
+import java.util.Collection
+import org.ihtsdo.drools.helper.DescriptionHelper
+import org.ihtsdo.drools.response.InvalidContent
+
+global java.util.List invalidContent
+
+rule "Preferred synonym per dialect"
+    dialect "mvel"
+    when
+    	c : Concept(active && DescriptionHelper.filterByActiveTypeAndDialectPreferred(c, true, Constants.SYNONYM, "554461000005103").size() != 1)
+    then
+        invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept must have one Preferred Synonym in the DK dialect.").ignorePublishedCheck());
+end
