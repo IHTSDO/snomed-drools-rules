@@ -8,8 +8,9 @@ global java.util.List invalidContent
 rule "Term unique in concept"
     dialect "mvel"
     when
-    	c : Concept()
-    	d : Description(active && conceptId == c.id && !DescriptionHelper.isUniqueWithinConcept(d, c))
+        d1 : Description(active)
+        d2 : Description(conceptId == d1.conceptId && id != d1.id && term.equals(d1.term) && (typeId.equals(d1.typeId) || active))
     then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: active descriptions must be unique in a concept."));
+        invalidContent.add(new InvalidContent(d1, "The system has detected a contradiction of the following convention: active descriptions must be unique in a concept. " +
+         "Two descriptions may have the same term only if they are of different types and one is inactive."));
 end

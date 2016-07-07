@@ -5,10 +5,33 @@
             "descriptions": [
                 {
                     "id": "1a",
+                    "typeId": "1",
                     "term": "Organism (organism)"
                 },
                 {
                     "id": "1b",
+                    "typeId": "1",
+                    "term": "Organism"
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "descriptions": [
+                {
+                    "id": "1a",
+                    "typeId": "1",
+                    "term": "Organism (organism)"
+                },
+                {
+                    "id": "1b",
+                    "typeId": "1",
+                    "active": false,
+                    "term": "Organism"
+                },
+                {
+                    "id": "1c",
+                    "typeId": "2",
                     "term": "Organism"
                 }
             ]
@@ -20,10 +43,12 @@
             "descriptions": [
                 {
                     "id": "1a",
+                    "typeId": "1",
                     "term": "Body structure (body structure)"
                 },
                 {
                     "id": "1b",
+                    "typeId": "1",
                     "term": "Body structure (body structure)"
                 }
             ]
@@ -33,14 +58,17 @@
             "descriptions": [
                 {
                     "id": "2a",
+                    "typeId": "1",
                     "term": "Organism (organism)"
                 },
                 {
                     "id": "2b",
+                    "typeId": "1",
                     "term": "Organism"
                 },
                 {
                     "id": "2c",
+                    "typeId": "1",
                     "term": "Organism (organism)"
                 }
             ]
@@ -51,12 +79,35 @@
                 {
                     "id": "3a",
                     "active": true,
+                    "typeId": "1",
                     "term": "Body structure (body structure)"
                 },
                 {
                     "id": "3b",
                     "active": false,
+                    "typeId": "1",
                     "term": "Body structure (body structure)"
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "descriptions": [
+                {
+                    "id": "1a",
+                    "typeId": "1",
+                    "term": "Organism (organism)"
+                },
+                {
+                    "id": "1b",
+                    "typeId": "1",
+                    "active": true,
+                    "term": "Organism"
+                },
+                {
+                    "id": "1c",
+                    "typeId": "2",
+                    "term": "Organism"
                 }
             ]
         }
