@@ -14,7 +14,7 @@
                 {
                     "id": "2",
                     "typeId": "900000000000003001",
-                    "term": "SNOMED CT Concept (SNOMED RT+CTV3) something" // Good FSN
+                    "term": "D-Alanine-alanyl-poly(glycerolphosphate) ligase (substance)" // Good FSN
                 }
             ]
         },
@@ -39,11 +39,9 @@
         }
     ],
     // Failure cases:
-    // 1 no space before (
-    // 2 space after (
-    // 3 space before )
-    // 4 space after ) if end
-    // 5 no space after ) if not end
+    // 1 no space before last (
+    // 2 space after last (
+    // 3 space before last )
     "assertConceptsFail": [
         {
             "id": "1",
@@ -53,6 +51,17 @@
                     "typeId": "900000000000003001",
                     "active": true,
                     "term": "SNOMED CT Concept(SNOMED RT+CTV3)"
+                }
+            ]
+        },
+        {
+            "id": "1a",
+            "descriptions": [
+                {
+                    "id": "1",
+                    "typeId": "900000000000003001",
+                    "active": true,
+                    "term": "SNOMED CT (thing) Concept(SNOMED RT+CTV3)"
                 }
             ]
         },
@@ -67,6 +76,16 @@
             ]
         },
         {
+            "id": "2a",
+            "descriptions": [
+                {
+                    "id": "2",
+                    "typeId": "900000000000003001",
+                    "term": " SNOMED CT (thing) Concept ( SNOMED RT+CTV3)"
+                }
+            ]
+        },
+        {
             "id": "3",
             "descriptions": [
                 {
@@ -77,22 +96,12 @@
             ]
         },
         {
-            "id": "4",
+            "id": "3a",
             "descriptions": [
                 {
-                    "id": "4",
+                    "id": "3",
                     "typeId": "900000000000003001",
-                    "term": "SNOMED CT Concept (SNOMED RT+CTV3) "
-                }
-            ]
-        },
-        {
-            "id": "5",
-            "descriptions": [
-                {
-                    "id": "5",
-                    "typeId": "900000000000003001",
-                    "term": "SNOMED CT Concept (SNOMED RT+CTV3)something"
+                    "term": "SNOMED CT (thing) Concept (SNOMED RT+CTV3 )"
                 }
             ]
         }

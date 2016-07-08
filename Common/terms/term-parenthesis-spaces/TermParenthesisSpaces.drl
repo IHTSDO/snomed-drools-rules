@@ -1,6 +1,7 @@
 import org.ihtsdo.drools.domain.Description
 import org.ihtsdo.drools.domain.Constants
 import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
@@ -8,18 +9,14 @@ rule "Term parenthesis spaces"
     dialect "mvel"
     when
 		// Failure cases:
-		// 1 no space before (
-		// 2 space after (
-		// 3 space before )
-		// 4 space after ) if end
-		// 5 no space after ) if not end
+		// 1 no space before last (
+		// 2 space after last (
+		// 3 space before last )
         d : Description(active == true && typeId == Constants.FSN && (
-        	term matches ".*[^ ]\\(.*"
-        	|| term matches ".*\\( .*"
-        	|| term matches ".* \\).*"
-        	|| term matches ".*\\) "
-        	|| term matches ".*\\)[^ ].*"
+        	term matches ".*[^ ]\\([^\\(]*"
+        	|| term matches ".*\\( [^\\(]*"
+        	|| term matches ".* \\)"
         	))
     then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: a space must be placed in front of an opening parenthesis and after a closing parenthesis (unless it is at the end of the product’s name), but not within parentheses e.g. aaaa (bbbb) cccc."));
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: there should be a space before but not after the last opening parenthesis. There should not be a space before the last closing parentheses e.g. D-Alanine-alanyl-poly(glycerolphosphate) ligase (substance).", Severity.WARNING));
 end
