@@ -3,15 +3,17 @@ import org.ihtsdo.drools.domain.Relationship
 import org.ihtsdo.drools.helper.RelationshipHelper
 import org.ihtsdo.drools.domain.Constants
 import org.ihtsdo.drools.response.InvalidContent
+import java.util.ArrayList
 
 global java.util.List invalidContent
 
-rule "Relationship group must have as least two concepts"
+rule "Relationship group must have as least two active relationships"
     dialect "mvel"
     when
     	c : Concept()
-    	r : Relationship(sourceId == c.id && relationshipGroup != 0
-    			&& RelationshipHelper.countRelationshipsInGroup(c, relationshipGroup) < 2)
+    	$group: ArrayList( size == 1 ) from collect (
+    		Relationship(active && sourceId == c.id && relationshipGroup != 0)
+    	)
     then
-        invalidContent.add(new InvalidContent(r, "The system has detected a contradiction of the following convention: a role group must have at least two relationships."));
+        invalidContent.add(new InvalidContent((Relationship)$group.get(0), "The system has detected a contradiction of the following convention: a role group must have at least two relationships."));
 end
