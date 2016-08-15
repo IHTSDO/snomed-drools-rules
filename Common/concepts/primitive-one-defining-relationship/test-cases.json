@@ -1,0 +1,51 @@
+{
+    "assertConceptsPass": [
+        {
+            "id": "1",
+             "definitionStatusId": "900000000000074008", // PRIMITIVE
+            "relationships": [
+                {
+                    "typeId": "116680003" // Is-a
+                }
+            ]
+        }
+    ],
+    "assertConceptsFail": [
+        {
+            "id": "2",
+            "definitionStatusId": "900000000000074008", // PRIMITIVE
+            "active" : true,
+            "relationships": [
+                {
+                    "typeId": "363698007" // Finding site
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "definitionStatusId": "900000000000074008", // PRIMITIVE
+            "active" : true,
+            "relationships": [
+                {
+                    "typeId": "363698007" // Finding site
+                },
+                {
+                	"typeId": "116680003" // Is-a
+            	}
+            ]
+        },
+        {
+            "id": "4",
+            "definitionStatusId": "900000000000074008", // PRIMITIVE
+            "active" : true,
+            "relationships": [
+                {
+                    "typeId": "116680003" // Is-a
+                },
+                {
+                	"typeId": "116680003" // Is-a
+                }
+            ]
+        }
+        
+    ]}

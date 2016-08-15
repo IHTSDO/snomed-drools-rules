@@ -1,0 +1,17 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Constants
+import java.util.Collection
+import org.ihtsdo.drools.helper.RelationshipHelper
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.response.Severity
+
+global java.util.List invalidContent
+
+rule "Primitive for one defining relationship"
+    dialect "mvel"
+    when
+    	c : Concept(active && definitionStatusId == Constants.PRIMITIVE && (relationships.size() > 1 || RelationshipHelper.hasActiveRelationshipNotOfType(c, Constants.IS_A)))
+   	then
+        invalidContent.add(new InvalidContent(c, c.relationships.size() + ": The system has detected a contradiction of the following convention: a primitive concept must not contain ??attribute relationship?? ??more than one relationship??").ignorePublishedCheck());
+end
