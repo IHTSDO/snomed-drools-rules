@@ -1,0 +1,22 @@
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.response.Severity
+
+global java.util.List invalidContent
+
+rule "Term Case Significance: Only initial character case sensitive"
+    dialect "mvel"
+    when
+        d : Description(active == true && caseSignificanceId == Constants.ONLY_INITIAL_CHARACTER_CASE_SENSITIVE && term matches ".^[A-Z]*$")
+    then
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active term with case significance 'only initial character case sensitive' should not contain capital letters after the first character", Severity.WARNING));
+end
+
+rule "Term Case Significance: entire term case sensitive"
+    dialect "mvel"
+    when
+        d : Description(active == true && caseSignificanceId == Constants.ONLY_INITIAL_CHARACTER_CASE_SENSITIVE && term matches ".^[A-Z]*$")
+    then
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active term with case significance 'only initial character case sensitive' should not contain capital letters after the first character", Severity.WARNING));
+end
