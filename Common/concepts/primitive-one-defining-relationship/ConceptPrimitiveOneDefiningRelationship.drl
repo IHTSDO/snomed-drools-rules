@@ -8,7 +8,7 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "Primitive for one defining relationship"
+rule "Primitive concepts must have one defining relationship"
     dialect "mvel"
     when
     	c : Concept(active && definitionStatusId == Constants.PRIMITIVE && (relationships.size() > 1 || RelationshipHelper.hasActiveRelationshipNotOfType(c, Constants.IS_A)))

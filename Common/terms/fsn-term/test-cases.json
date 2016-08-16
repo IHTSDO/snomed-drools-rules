@@ -30,6 +30,7 @@
     // 6 no space around "+"
     // 7 starts with (
     // 8-12 contains &, %, $, @ or #
+    // 13 starts with lower case letter
     "assertConceptsFail": [
         {
             "id": "1",
@@ -136,9 +137,19 @@
             "id": "12",
             "descriptions": [
                 {
-                    "id": "11",
+                    "id": "12",
                     "typeId": "900000000000003001",
                     "term": "#Ibuprofen oxycodone (product)"
+                }
+            ]
+        },
+        {
+            "id": "13",
+            "descriptions": [
+                {
+                    "id": "13",
+                    "typeId": "900000000000003001",
+                    "term": "ibuprofen oxycodone (product)"
                 }
             ]
         }

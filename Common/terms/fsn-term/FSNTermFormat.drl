@@ -52,3 +52,11 @@ rule "FSN special characters"
     then
         invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active FSN should not contain the special characters &, %, $, @ or #.", Severity.WARNING));
 end
+
+rule "FSN capitalized"
+	dialect "mvel"
+	when
+	    d : Description(active == true && typeId == Constants.FSN && term matches "[a-z].*")
+	then
+		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: the first letter of an active FSN should be capitalized", Severity.WARNING));
+end
