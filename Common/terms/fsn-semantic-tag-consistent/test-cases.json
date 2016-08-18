@@ -1,0 +1,37 @@
+{
+    "assertConceptsPass": [
+        {
+            "descriptions": [
+                {
+                    "id": "1",
+                    "typeId": "900000000000003001",
+                    "term": "Ibuprofen + oxycodone (product)"
+                },
+           
+                {
+                    "id": "2",
+                    "typeId": "900000000000003001",
+                    "term": "Ibuprofen (product)"
+                }
+            ]
+        }
+    ],
+    "assertConceptsFail": [
+        {
+            "descriptions": [
+                {
+                	"active":"true",
+                    "id": "1",
+                    "typeId": "900000000000003001",
+                    "term": "Ibuprofen + oxycodone (product)"
+                } ,
+                {
+                	"active":"true",
+                    "id": "2",
+                    "typeId": "900000000000003001",
+                    "term": "Ibuprofen (not a product)"
+                }
+            ]
+        }
+    ]
+}
