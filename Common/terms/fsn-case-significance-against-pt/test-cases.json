@@ -1,215 +1,273 @@
 {
-	// 1 - single fsn against single pt, one dialect
-	// 2 - single fsn against single pt, multiple dialects
-	// 3 - single fsn against multiple pts, multiple dialects
-	// 4 - multiple fsns against multiple pts, multiple dialects
+	// 1 - single FSN, single PT
+	// 2 - single FSN, multiple PTs
+	// 3 - multiple FSNs, single PT
+	// 4 - multiple FSNs, multiple PTs
     "assertConceptsPass": [
         {
-             "id": "1",
+            "id": "1",
             "descriptions": [
                 {
-                    "id": "11",
-                    "caseSignificanceId": "900000000000448009",
-                    "typeId": "900000000000003001",
-                    "term": "Ibuprofen & oxycodone (product)",
+                    "id": "1a",
+                    "term": "Organism (organism)",
+                    "caseSignificanceId":"900000000000448009",
+                    "typeId": "900000000000003001", // FSN
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007"
                     }
                 },
-                 {
-                    "id": "12",
-                    "caseSignificanceId": "900000000000448009",
-                    "typeId": "900000000000013009",
-                    "term": "Ibuprofen & oxycodone",
+                {
+                    "id": "1b",
+                    "term": "Organism",
+                    "caseSignificanceId":"900000000000448009",
+                    "typeId": "900000000000013009", // SYNONYM
                     "acceptabilityMap": {
-                        "900000000000509007": "900000000000548007"
+                        "900000000000509007": "900000000000548007" // PREFERRED
                     }
                 }
             ]
-        }, {
-             "id": "2",
+        },
+        {
+            "id": "2",
             "descriptions": [
                 {
-                    "id": "21",
-                    "caseSignificanceId": "900000000000448009",
-                    "typeId": "900000000000003001",
-                    "term": "Ibuprofen & oxycodone (product)",
+                    "id": "2a",
+                    "term": "Organism (organism)",
+                    "caseSignificanceId":"900000000000448009",
+                    "typeId": "900000000000003001", // FSN
                     "acceptabilityMap": {
-                        "900000000000509007": "900000000000548007",
-                        "900000000000508004": "900000000000548007"
+                        "900000000000509007": "900000000000548007", // PREFERRED
+                        "900000000000508004": "900000000000548007" // PREFERRED
                     }
                 },
-                 {
-                    "id": "22",
-                    "caseSignificanceId": "900000000000448009",
-                    "typeId": "900000000000013009",
-                    "term": "Ibuprofen & oxycodone",
+                {
+                    "id": "2b",
+                    "term": "Organism",
+                    "caseSignificanceId":"900000000000448009",
+                    "typeId": "900000000000013009", // SYNONYM
                     "acceptabilityMap": {
-                        "900000000000509007": "900000000000548007",
-                        "900000000000508004": "900000000000548007"
+                        "900000000000509007": "900000000000548007" // PREFERRED
+                    }
+                },
+                {
+                    "id": "2c",
+                    "term": "Organism",
+                    "caseSignificanceId":"900000000000448009",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "acceptabilityMap": {
+                        "900000000000508004": "900000000000548007" // PREFERRED
                     }
                 }
             ]
-        }, {
-             "id": "3",
+        },
+        
+        {
+            "id": "3",
             "descriptions": [
                 {
-                    "id": "31",
-                    "caseSignificanceId": "900000000000448009",
-                    "typeId": "900000000000003001",
-                    "term": "Ibuprofen & oxycodone (product)",
+                    "id": "3a",
+                    "term": "Organism (organism)",
+                    "caseSignificanceId":"900000000000448009",
+                    "typeId": "900000000000003001", // FSN
                     "acceptabilityMap": {
-                        "900000000000509007": "900000000000548007",
-                        "900000000000508004": "900000000000548007"
-                    }
-                },
-                 {
-                    "id": "32",
-                    "caseSignificanceId": "900000000000017005",
-                    "typeId": "900000000000013009",
-                    "term": "Ibuprofen & oxycodone",
-                    "acceptabilityMap": {
-                        "900000000000509007": "900000000000548007"
-                    }
-                },
-                 {
-                    "id": "33",
-                    "caseSignificanceId": "900000000000448009",
-                    "typeId": "900000000000013009",
-                    "term": "Ibuprofen & oxycodone",
-                    "acceptabilityMap": {
-                        "900000000000508004": "900000000000548007"
-                    }
-                }
-            ]
-        }, {
-             "id": "4",
-            "descriptions": [
-                {
-                    "id": "41",
-                    "caseSignificanceId": "900000000000448009",
-                    "typeId": "900000000000003001",
-                    "term": "Ibuprofen & oxycodone (product)",
-                    "acceptabilityMap": {
-                        "900000000000508004": "900000000000548007"
+                        "900000000000509007": "900000000000548007" // PREFERRED
                     }
                 }, {
-                    "id": "42",
-                    "caseSignificanceId": "900000000000448009",
-                    "typeId": "900000000000003001",
-                    "term": "Ibuprofen & oxycodone (product)",
+                    "id": "3b",
+                    "term": "Organism (organism)",
+                    "caseSignificanceId":"900000000000448009",
+                    "typeId": "900000000000003001", // FSN
                     "acceptabilityMap": {
-                        "900000000000508004": "900000000000548007"
+                        "900000000000508004": "900000000000548007" // PREFERRED
                     }
                 },
-                 {
-                    "id": "43",
-                    "caseSignificanceId": "900000000000017005",
-                    "typeId": "900000000000013009",
-                    "term": "Ibuprofen & oxycodone",
+                {
+                    "id": "3c",
+                    "term": "Organism",
+                    "caseSignificanceId":"900000000000448009",
+                    "typeId": "900000000000013009", // SYNONYM
                     "acceptabilityMap": {
-                        "900000000000509007": "900000000000548007"
+                        "900000000000509007": "900000000000548007", // PREFERRED
+                   		"900000000000508004": "900000000000548007" // PREFERRED
+                    
+                    }
+                }
+            ]
+        },
+        
+        {
+            "id": "4",
+            "descriptions": [
+                {
+                    "id": "4a",
+                    "term": "Organism (organism)",
+                    "caseSignificanceId":"900000000000448009",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // PREFERRED
+                    }
+                }, {
+                    "id": "4b",
+                    "term": "Organism (organism)",
+                    "caseSignificanceId":"900000000000448009",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000508004": "900000000000548007" // PREFERRED
                     }
                 },
-                 {
-                    "id": "44",
-                    "caseSignificanceId": "900000000000448009",
-                    "typeId": "900000000000013009",
-                    "term": "Ibuprofen & oxycodone",
+                {
+                    "id": "4c",
+                    "term": "Organism",
+                    "caseSignificanceId":"900000000000448009",
+                    "typeId": "900000000000013009", // SYNONYM
                     "acceptabilityMap": {
-                        "900000000000508004": "900000000000548007"
+                   		"900000000000508004": "900000000000548007" // PREFERRED
+                    
+                    }
+                },
+                {
+                    "id": "4d",
+                    "term": "Organism",
+                    "caseSignificanceId":"900000000000448009",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // PREFERRED
+                     
                     }
                 }
             ]
         }
     ],
-    // 1 - only initial character case insensitive
-	// 2 - entire term case sensitive - NO FAILURE CASE
-	// 3 - entire term case insensitive
     "assertConceptsFail": [
-     	{
+        {
             "id": "1",
             "descriptions": [
                 {
-                    "id": "11",
-                    "caseSignificanceId": "900000000000448009",
-                    "typeId": "900000000000003001",
-                    "term": "Ibuprofen & oxycodone (product)",
+                    "id": "1a",
+                    "term": "Organism (organism)",
+                    "caseSignificanceId":"900000000000017005",
+                    "typeId": "900000000000003001", // FSN
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007"
                     }
                 },
-                 {
-                    "id": "12",
-                    "caseSignificanceId": "900000000000017005",
-                    "typeId": "900000000000013009",
-                    "term": "Ibuprofen & oxycodone",
+                {
+                    "id": "1b",
+                    "term": "Organism",
+                    "caseSignificanceId":"900000000000448009",
+                    "typeId": "900000000000013009", // SYNONYM
                     "acceptabilityMap": {
-                        "900000000000509007": "900000000000548007"
+                        "900000000000509007": "900000000000548007" // PREFERRED
                     }
                 }
             ]
-        }, {
-             "id": "3",
+        },
+        {
+            "id": "2",
             "descriptions": [
                 {
-                    "id": "31",
-                    "caseSignificanceId": "900000000000448009",
-                    "typeId": "900000000000003001",
-                    "term": "Ibuprofen & oxycodone (product)",
+                    "id": "2a",
+                    "term": "Organism (organism)",
+                    "caseSignificanceId":"900000000000017005",
+                    "typeId": "900000000000003001", // FSN
                     "acceptabilityMap": {
-                        "900000000000509007": "900000000000548007",
-                        "900000000000508004": "900000000000548007"
+                        "900000000000509007": "900000000000548007", // PREFERRED
+                        "900000000000508004": "900000000000548007" // PREFERRED
                     }
                 },
-                 {
-                    "id": "32",
-                    "caseSignificanceId": "900000000000017005",
-                    "typeId": "900000000000013009",
-                    "term": "Ibuprofen & oxycodone",
+                {
+                    "id": "2b",
+                    "term": "Organism",
+                    "caseSignificanceId":"900000000000448009",
+                    "typeId": "900000000000013009", // SYNONYM
                     "acceptabilityMap": {
-                        "900000000000509007": "900000000000548007"
+                        "900000000000509007": "900000000000548007" // PREFERRED
                     }
                 },
-                 {
-                    "id": "33",
-                    "caseSignificanceId": "900000000000448009",
-                    "typeId": "900000000000013009",
-                    "term": "Ibuprofen & oxycodone",
+                {
+                    "id": "2c",
+                    "term": "Organism",
+                    "caseSignificanceId":"900000000000448009",
+                    "typeId": "900000000000013009", // SYNONYM
                     "acceptabilityMap": {
-                        "900000000000508004": "900000000000548007"
+                        "900000000000508004": "900000000000548007" // PREFERRED
                     }
                 }
             ]
-        }, {
-             "id": "4",
+        },
+        
+        {
+            "id": "3",
             "descriptions": [
                 {
-                    "id": "41",
-                    "caseSignificanceId": "900000000000448009",
-                    "typeId": "900000000000003001",
-                    "term": "Ibuprofen & oxycodone (product)",
+                    "id": "3a",
+                    "term": "Organism (organism)",
+                    "caseSignificanceId":"900000000000017005",
+                    "typeId": "900000000000003001", // FSN
                     "acceptabilityMap": {
-                        "900000000000509007": "900000000000548007",
-                        "900000000000508004": "900000000000548007"
+                        "900000000000509007": "900000000000548007" // PREFERRED
+                    }
+                }, {
+                    "id": "3b",
+                    "term": "Organism (organism)",
+                    "caseSignificanceId":"900000000000448009",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000508004": "900000000000548007" // PREFERRED
                     }
                 },
-                 {
-                    "id": "42",
-                    "caseSignificanceId": "900000000000448009",
-                    "typeId": "900000000000013009",
-                    "term": "Ibuprofen & oxycodone",
+                {
+                    "id": "3c",
+                    "term": "Organism",
+                    "caseSignificanceId":"900000000000448009",
+                    "typeId": "900000000000013009", // SYNONYM
                     "acceptabilityMap": {
-                        "900000000000509007": "900000000000548007"
+                        "900000000000509007": "900000000000548007", // PREFERRED
+                   		"900000000000508004": "900000000000548007" // PREFERRED
+                    
+                    }
+                }
+            ]
+        },
+        
+        {
+            "id": "4",
+            "descriptions": [
+                {
+                    "id": "4a",
+                    "term": "Organism (organism)",
+                    "caseSignificanceId":"900000000000017005",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // PREFERRED
+                    }
+                }, {
+                    "id": "4b",
+                    "term": "Organism (organism)",
+                    "caseSignificanceId":"900000000000448009",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000508004": "900000000000548007" // PREFERRED
                     }
                 },
-                 {
-                    "id": "43",
-                    "caseSignificanceId": "900000000000017005",
-                    "typeId": "900000000000013009",
-                    "term": "Ibuprofen & oxycodone",
+                {
+                    "id": "4c",
+                    "term": "Organism",
+                    "caseSignificanceId":"900000000000448009",
+                    "typeId": "900000000000013009", // SYNONYM
                     "acceptabilityMap": {
-                        "900000000000508004": "900000000000548007"
+                   		"900000000000508004": "900000000000548007" // PREFERRED
+                    
+                    }
+                },
+                {
+                    "id": "4d",
+                    "term": "Organism",
+                    "caseSignificanceId":"900000000000448009",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // PREFERRED
+                     
                     }
                 }
             ]
