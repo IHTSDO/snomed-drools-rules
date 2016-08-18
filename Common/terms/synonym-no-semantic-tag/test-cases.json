@@ -1,0 +1,23 @@
+{
+    "assertConceptsPass": [
+        {
+            "descriptions": [
+                {
+                    "id": "1",
+                    "typeId": "900000000000013009", // SYN
+                    "term": "Some term"
+                }
+            ]
+        }
+    ],
+    "assertConceptsFail": [
+        {
+            "descriptions": [
+                {
+                    "id": "1",
+                    "typeId": "900000000000013009", //SYN
+                    "term": "Some term (semantic tag)"
+               }
+            ]
+        }
+    ]}
