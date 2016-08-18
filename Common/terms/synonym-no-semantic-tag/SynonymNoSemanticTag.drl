@@ -1,0 +1,17 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.response.Severity
+import org.ihtsdo.drools.helper.DescriptionHelper
+
+global java.util.List invalidContent
+
+rule "Active synonyms on active concepts do not have semantic tags"
+    dialect "mvel"
+    when
+    	c : Concept(active)
+        d : Description(active && typeId == Constants.SYNONYM && term matches ".*\\(.+\\)")
+    then
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active synonym on an active concept must not have a semantic tag."));
+end
