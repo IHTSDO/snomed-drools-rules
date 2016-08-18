@@ -1,4 +1,7 @@
 {
+	// 1 - primitive with one relationship
+	// 2 - primitive with two relationships
+	// 3 - defined with two relationships
     "assertConceptsPass": [
         {
             "id": "1",
@@ -8,42 +11,40 @@
                     "typeId": "116680003" // Is-a
                 }
             ]
-        }
-    ],
-    "assertConceptsFail": [
-        {
+        }, {
             "id": "2",
-            "definitionStatusId": "900000000000074008", // PRIMITIVE
-            "active" : true,
+             "definitionStatusId": "900000000000074008", // PRIMITIVE
             "relationships": [
                 {
-                    "typeId": "363698007" // Finding site
+                    "typeId": "116680003" // Is-a
+                }, {
+                    "typeId": "116680003" // Is-a
                 }
             ]
-        },
-        {
+        },  {
             "id": "3",
-            "definitionStatusId": "900000000000074008", // PRIMITIVE
-            "active" : true,
-            "relationships": [
-                {
-                    "typeId": "363698007" // Finding site
-                },
-                {
-                	"typeId": "116680003" // Is-a
-            	}
-            ]
-        },
-        {
-            "id": "4",
-            "definitionStatusId": "900000000000074008", // PRIMITIVE
+            "definitionStatusId": "900000000000073002", // DEFINED
             "active" : true,
             "relationships": [
                 {
                     "typeId": "116680003" // Is-a
-                },
+                }, {
+                    "typeId": "116680003" // Is-a
+                }
+            ]
+        }
+    ],
+    
+    // 1 - defined with one relationship
+    "assertConceptsFail": [  
+       
+        {
+            "id": "1",
+            "definitionStatusId": "900000000000073002", // DEFINED
+            "active" : true,
+            "relationships": [
                 {
-                	"typeId": "116680003" // Is-a
+                    "typeId": "116680003" // Is-a
                 }
             ]
         }
