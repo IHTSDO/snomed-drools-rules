@@ -34,3 +34,20 @@ rule "Preferred TextDefinition per dialect"
     then
         invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept may only have one Preferred text definition in each dialect.").ignorePublishedCheck());
 end
+
+rule "TextDefinition preferred"
+	dialect "mvel"
+	when
+		d : Description(active && textDefinition && DescriptionHelper.isAcceptabilityValuePresentOnDescription(d, Constants.ACCEPTABILITY_ACCEPTABLE))
+	then
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: text definitions must always be preferred.").ignorePublishedCheck());
+end
+
+rule "TextDefinition has acceptability map"
+	dialect "mvel"
+	when
+		d : Description(active && textDefinition && !DescriptionHelper.hasAcceptabilityMap(d))
+	then
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: text definitions must be preferred in at least one dialect.").ignorePublishedCheck());
+end
+		
