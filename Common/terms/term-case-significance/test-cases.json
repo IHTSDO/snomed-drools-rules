@@ -2,8 +2,6 @@
 	// 1 - only initial character case insensitive
 	// 2 - entire term case sensitive
 	// 3 - entire term case insensitive
-	// 4 - fsn and single preferred term share case significance
-	// 5 - multiple fsns and preferred terms share case significance
     "assertConceptsPass": [
         {
             "id": "1",
