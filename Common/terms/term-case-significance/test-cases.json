@@ -1,34 +1,59 @@
 {
+	// 1 - only initial character case insensitive
+	// 2 - entire term case sensitive
+	// 3 - entire term case insensitive
+	// 4 - fsn and single preferred term share case significance
+	// 5 - multiple fsns and preferred terms share case significance
     "assertConceptsPass": [
         {
             "id": "1",
             "descriptions": [
                 {
                     "id": "1",
-                    "typeId": "900000000000003001",
-                    "term": "Ibuprofen & oxycodone (product)"
+                    "caseSignificanceId": "900000000000020002",
+                    "term": "ibuprofen & Oxycodone (product)"
                 }
             ]
-        }
-    ],
-    "assertConceptsFail": [
-        {
-            "id": "1",
-            "descriptions": [
-                {
-                    "id": "1",
-                    "typeId": "900000000000003001",
-                    "term": "Ibuprofen $ oxycodone (product)"
-                }
-            ]
-        },
-        {
+        }, {
             "id": "2",
             "descriptions": [
                 {
                     "id": "2",
-                    "typeId": "900000000000003001",
-                    "term": "Ibuprofen $ oxycodone (product)"
+                    "caseSignificanceId": "900000000000017005",
+                    "term": "Ibuprofen & Oxycodone (product)"
+                }
+            ]
+        }, {
+            "id": "3",
+            "descriptions": [
+                {
+                    "id": "3",
+                    "caseSignificanceId": "900000000000448009",
+                    "term": "ibuprofen & oxycodone (product)"
+                }
+            ]
+        }
+    ],
+    // 1 - only initial character case insensitive
+	// 2 - entire term case sensitive - NO FAILURE CASE
+	// 3 - entire term case insensitive
+    "assertConceptsFail": [
+       {
+            "id": "1",
+            "descriptions": [
+                {
+                    "id": "1",
+                    "caseSignificanceId": "900000000000020002",
+                    "term": "Ibuprofen & Oxycodone (product)"
+                }
+            ]
+        }, {
+            "id": "3",
+            "descriptions": [
+                {
+                    "id": "3",
+                    "caseSignificanceId": "900000000000448009",
+                    "term": "Ibuprofen & Oxycodone (product)"
                 }
             ]
         }
