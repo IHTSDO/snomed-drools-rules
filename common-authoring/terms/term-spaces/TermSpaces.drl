@@ -7,7 +7,7 @@ global java.util.List invalidContent
 rule "Term double, leading or trailing spaces"
     dialect "mvel"
     when
-        d : Description(term matches ".*  .*" || term matches " .*" || term matches ".* ")
+        d : Description(active && term matches ".*  .*" || term matches " .*" || term matches ".* ")
     then
         invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: terms must not contain double, leading or trailing spaces."));
 end
