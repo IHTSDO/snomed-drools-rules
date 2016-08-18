@@ -1,0 +1,218 @@
+{
+	// 1 - single fsn against single pt, one dialect
+	// 2 - single fsn against single pt, multiple dialects
+	// 3 - single fsn against multiple pts, multiple dialects
+	// 4 - multiple fsns against multiple pts, multiple dialects
+    "assertConceptsPass": [
+        {
+             "id": "1",
+            "descriptions": [
+                {
+                    "id": "11",
+                    "caseSignificanceId": "900000000000448009",
+                    "typeId": "900000000000003001",
+                    "term": "Ibuprofen & oxycodone (product)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007"
+                    }
+                },
+                 {
+                    "id": "12",
+                    "caseSignificanceId": "900000000000448009",
+                    "typeId": "900000000000013009",
+                    "term": "Ibuprofen & oxycodone",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007"
+                    }
+                }
+            ]
+        }, {
+             "id": "2",
+            "descriptions": [
+                {
+                    "id": "21",
+                    "caseSignificanceId": "900000000000448009",
+                    "typeId": "900000000000003001",
+                    "term": "Ibuprofen & oxycodone (product)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007",
+                        "900000000000508004": "900000000000548007"
+                    }
+                },
+                 {
+                    "id": "22",
+                    "caseSignificanceId": "900000000000448009",
+                    "typeId": "900000000000013009",
+                    "term": "Ibuprofen & oxycodone",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007",
+                        "900000000000508004": "900000000000548007"
+                    }
+                }
+            ]
+        }, {
+             "id": "3",
+            "descriptions": [
+                {
+                    "id": "31",
+                    "caseSignificanceId": "900000000000448009",
+                    "typeId": "900000000000003001",
+                    "term": "Ibuprofen & oxycodone (product)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007",
+                        "900000000000508004": "900000000000548007"
+                    }
+                },
+                 {
+                    "id": "32",
+                    "caseSignificanceId": "900000000000017005",
+                    "typeId": "900000000000013009",
+                    "term": "Ibuprofen & oxycodone",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007"
+                    }
+                },
+                 {
+                    "id": "33",
+                    "caseSignificanceId": "900000000000448009",
+                    "typeId": "900000000000013009",
+                    "term": "Ibuprofen & oxycodone",
+                    "acceptabilityMap": {
+                        "900000000000508004": "900000000000548007"
+                    }
+                }
+            ]
+        }, {
+             "id": "4",
+            "descriptions": [
+                {
+                    "id": "41",
+                    "caseSignificanceId": "900000000000448009",
+                    "typeId": "900000000000003001",
+                    "term": "Ibuprofen & oxycodone (product)",
+                    "acceptabilityMap": {
+                        "900000000000508004": "900000000000548007"
+                    }
+                }, {
+                    "id": "42",
+                    "caseSignificanceId": "900000000000448009",
+                    "typeId": "900000000000003001",
+                    "term": "Ibuprofen & oxycodone (product)",
+                    "acceptabilityMap": {
+                        "900000000000508004": "900000000000548007"
+                    }
+                },
+                 {
+                    "id": "43",
+                    "caseSignificanceId": "900000000000017005",
+                    "typeId": "900000000000013009",
+                    "term": "Ibuprofen & oxycodone",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007"
+                    }
+                },
+                 {
+                    "id": "44",
+                    "caseSignificanceId": "900000000000448009",
+                    "typeId": "900000000000013009",
+                    "term": "Ibuprofen & oxycodone",
+                    "acceptabilityMap": {
+                        "900000000000508004": "900000000000548007"
+                    }
+                }
+            ]
+        }
+    ],
+    // 1 - only initial character case insensitive
+	// 2 - entire term case sensitive - NO FAILURE CASE
+	// 3 - entire term case insensitive
+    "assertConceptsFail": [
+     	{
+            "id": "1",
+            "descriptions": [
+                {
+                    "id": "11",
+                    "caseSignificanceId": "900000000000448009",
+                    "typeId": "900000000000003001",
+                    "term": "Ibuprofen & oxycodone (product)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007"
+                    }
+                },
+                 {
+                    "id": "12",
+                    "caseSignificanceId": "900000000000017005",
+                    "typeId": "900000000000013009",
+                    "term": "Ibuprofen & oxycodone",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007"
+                    }
+                }
+            ]
+        }, {
+             "id": "3",
+            "descriptions": [
+                {
+                    "id": "31",
+                    "caseSignificanceId": "900000000000448009",
+                    "typeId": "900000000000003001",
+                    "term": "Ibuprofen & oxycodone (product)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007",
+                        "900000000000508004": "900000000000548007"
+                    }
+                },
+                 {
+                    "id": "32",
+                    "caseSignificanceId": "900000000000017005",
+                    "typeId": "900000000000013009",
+                    "term": "Ibuprofen & oxycodone",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007"
+                    }
+                },
+                 {
+                    "id": "33",
+                    "caseSignificanceId": "900000000000448009",
+                    "typeId": "900000000000013009",
+                    "term": "Ibuprofen & oxycodone",
+                    "acceptabilityMap": {
+                        "900000000000508004": "900000000000548007"
+                    }
+                }
+            ]
+        }, {
+             "id": "4",
+            "descriptions": [
+                {
+                    "id": "41",
+                    "caseSignificanceId": "900000000000448009",
+                    "typeId": "900000000000003001",
+                    "term": "Ibuprofen & oxycodone (product)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007",
+                        "900000000000508004": "900000000000548007"
+                    }
+                },
+                 {
+                    "id": "42",
+                    "caseSignificanceId": "900000000000448009",
+                    "typeId": "900000000000013009",
+                    "term": "Ibuprofen & oxycodone",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007"
+                    }
+                },
+                 {
+                    "id": "43",
+                    "caseSignificanceId": "900000000000017005",
+                    "typeId": "900000000000013009",
+                    "term": "Ibuprofen & oxycodone",
+                    "acceptabilityMap": {
+                        "900000000000508004": "900000000000548007"
+                    }
+                }
+            ]
+        }
+    ]
+}
