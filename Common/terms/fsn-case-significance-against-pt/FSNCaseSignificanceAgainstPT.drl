@@ -10,9 +10,8 @@ global java.util.List invalidContent
 rule "FSN and matching PT share case sensitivity"
 	dialect "mvel"
 	when
-		c : Concept()
-		dFsn : Description(active == true && typeId == Constants.FSN)
-		forall ( dPt : Description( caseSignificanceId != dFsn.caseSignificanceId ) from DescriptionHelper.getActivePreferredTermsForFsn(dFsn, c))
+	    c : Concept()
+		d : Description(active == true && typeId == Constants.SYNONYM && DescriptionHelper.isPreferredInAnyDialect(d) && !DescriptionHelper.isPreferredTermCaseSignificanceValid(c, d))
 	then
-		 invalidContent.add(new InvalidContent(dFsn, "The system has detected a contradiction of the following convention: an active preferred term matching the FSN must have same case significance", Severity.WARNING));
+		 invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active preferred term matching a FSN must have same case significance", Severity.WARNING));
 end
