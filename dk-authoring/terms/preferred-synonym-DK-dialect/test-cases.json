@@ -7,13 +7,27 @@
                 {
                     "id": "1a",
                     "term": "Organism (organism)",
-                    "typeId": "900000000000003001" // FSN
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
                 },
                 {
                     "id": "1b",
                     "term": "Organism",
                     "typeId": "900000000000013009", // SYNONYM
-                    "languageCode": "dk",
+                    "moduleId": "554471000005108", // DK module
+                    "languageCode": "en",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                },
+                {
+                    "id": "1c",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "moduleId": "554471000005108", // DK module
+                    "languageCode": "da",
                     "acceptabilityMap": {
                         "554461000005103": "900000000000548007" // DK Preferred
                     }
@@ -66,7 +80,7 @@
                     "id": "3",
                     "term": "Organism",
                     "typeId": "900000000000013009", // SYNONYM
-                    "languageCode": "dk",
+                    "languageCode": "da",
                     "acceptabilityMap": {
                     }
                 }
@@ -88,7 +102,7 @@
                     "id": "7",
                     "term": "Organism (B)",
                     "typeId": "900000000000013009", // SYNONYM
-                    "languageCode": "dk",
+                    "languageCode": "da",
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007"
                     }
@@ -110,7 +124,7 @@
                     "published": true,
                     "term": "Organism (B)",
                     "typeId": "900000000000013009", // SYNONYM
-                    "languageCode": "dk",
+                    "languageCode": "da",
                     "acceptabilityMap": {
                         "554461000005103": "900000000000549004" // DK Acceptable
                     }
