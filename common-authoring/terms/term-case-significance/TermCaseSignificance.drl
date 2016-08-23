@@ -1,32 +1,18 @@
 import org.ihtsdo.drools.domain.Concept
 import org.ihtsdo.drools.domain.Description
 import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.helper.DescriptionHelper
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "Term Case Significance: Only initial character case sensitive"
-    dialect "mvel"
-    when
-        d : Description(active == true && caseSignificanceId == Constants.ONLY_INITIAL_CHARACTER_CASE_INSENSITIVE && term matches "[A-Z].*$")
-    then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active term with case significance 'only initial character case sensitive' should not contain capital letters after the first character", Severity.WARNING));
-end
 
-rule "Term Case Significance: Entire term case sensitive"
-    dialect "mvel"
-    when
-    	// no test case -- included for completeness
-    then
-        // no invalid content -- included for completeness
+rule "Terms with matching first word share case significance"
+	dialect "mvel"
+	when
+		c : Concept()
+		d : Description(active && caseSignificanceId == Constants.ENTIRE_TERM_CASE_SENSITIVE && !DescriptionHelper.isCaseSignificanceValidBetweenTerms(c, d))
+		then
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: active terms sharing first words should share case sensitivity", Severity.WARNING));
 end
-
-rule "Term Case Significance: Entire term case insensitive"
-    dialect "mvel"
-    when
-    	 d : Description(active == true && caseSignificanceId == Constants.ENTIRE_TERM_CASE_INSENSITIVE && term matches "^.*[A-Z].*$")
-    then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active term with case significance 'entire term case insensitive' should not contain capital letters", Severity.WARNING));
-end
-
