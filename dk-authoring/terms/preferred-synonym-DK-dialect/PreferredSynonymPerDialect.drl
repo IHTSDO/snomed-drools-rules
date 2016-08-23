@@ -13,10 +13,10 @@ rule "Preferred synonym per dialect"
     when
 		c : Concept(active)
 		ArrayList(size > 0 || c.moduleId contains "1000005") from collect (
-			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "dk")
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "da")
 		)
 		ArrayList(size != 1) from collect (
-			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "dk", acceptabilityMap["554461000005103"] == Constants.ACCEPTABILITY_PREFERRED)
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "da", acceptabilityMap["554461000005103"] == Constants.ACCEPTABILITY_PREFERRED)
 		)
     then
         invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept must have one Preferred Synonym in the DK dialect.").ignorePublishedCheck());
