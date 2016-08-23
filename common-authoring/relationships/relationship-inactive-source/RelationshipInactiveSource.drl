@@ -1,0 +1,17 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Relationship
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.service.ConceptService
+import org.ihtsdo.drools.response.InvalidContent
+
+global java.util.List invalidContent
+global ConceptService conceptService
+
+rule "Inactive concepts must not contain active stated relationships"
+    dialect "mvel"
+    when
+    	c : Concept(!active)
+    	r : Relationship(active && characteristicTypeId == Constants.STATED_RELATIONSHIP)
+    then
+        invalidContent.add(new InvalidContent(r, "The system has detected a contradiction of the following convention: inactive concepts must not have active stated relationships."));
+end
