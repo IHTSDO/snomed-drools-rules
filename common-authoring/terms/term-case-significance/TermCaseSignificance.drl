@@ -14,5 +14,5 @@ rule "Terms with matching first word share case significance"
 		c : Concept()
 		d : Description(active && caseSignificanceId == Constants.ENTIRE_TERM_CASE_SENSITIVE && !DescriptionHelper.isCaseSignificanceValidBetweenTerms(c, d))
 		then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: active terms sharing first words should share case sensitivity", Severity.WARNING));
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: active terms sharing first word with case-sensitive term should share case sensitivity", Severity.WARNING));
 end
