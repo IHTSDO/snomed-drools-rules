@@ -2,6 +2,7 @@
     "assertConceptsPass": [
         {
             "id": "1",
+            "moduleId": "554471000005108", // DK module
             "descriptions": [
                 {
                     "id": "1a",
@@ -12,9 +13,21 @@
                     "id": "1b",
                     "term": "Organism",
                     "typeId": "900000000000013009", // SYNONYM
+                    "languageCode": "dk",
                     "acceptabilityMap": {
-                        "554461000005103": "900000000000548007"
+                        "554461000005103": "900000000000548007" // DK Preferred
                     }
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "moduleId": "900000000000445007", // INT module
+            "descriptions": [
+                {
+                    "id": "2a",
+                    "term": "Organism (organism)",
+                    "typeId": "900000000000003001" // FSN
                 }
             ]
         }
@@ -22,6 +35,7 @@
     "assertConceptsFail": [
         {
             "id": "1",
+            "moduleId": "554471000005108", // DK module
             "descriptions": [
                 {
                     "id": "1",
@@ -32,6 +46,7 @@
         },
         {
             "id": "2",
+            "moduleId": "554471000005108", // DK module
             "descriptions": [
                 {
                     "id": "2",
@@ -45,11 +60,13 @@
         },
         {
             "id": "3",
+            "moduleId": "554471000005108", // DK module
             "descriptions": [
                 {
                     "id": "3",
                     "term": "Organism",
                     "typeId": "900000000000013009", // SYNONYM
+                    "languageCode": "dk",
                     "acceptabilityMap": {
                     }
                 }
@@ -57,11 +74,10 @@
         },
         {
             "id": "6",
-            "published": true,
+            "moduleId": "554471000005108", // DK module
             "descriptions": [
                 {
                     "id": "6",
-                    "published": true,
                     "term": "Organism (A)",
                     "typeId": "900000000000013009", // SYNONYM
                     "acceptabilityMap": {
@@ -70,11 +86,33 @@
                 },
                 {
                     "id": "7",
+                    "term": "Organism (B)",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "languageCode": "dk",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "6",
+            "moduleId": "900000000000445007", // INT module
+            "descriptions": [
+                {
+                    "id": "6",
+                    "published": true,
+                    "term": "Organism (A)",
+                    "typeId": "900000000000013009" // SYNONYM
+                },
+                {
+                    "id": "7",
                     "published": true,
                     "term": "Organism (B)",
                     "typeId": "900000000000013009", // SYNONYM
+                    "languageCode": "dk",
                     "acceptabilityMap": {
-                        "900000000000509007": "900000000000548007"
+                        "554461000005103": "900000000000549004" // DK Acceptable
                     }
                 }
             ]
