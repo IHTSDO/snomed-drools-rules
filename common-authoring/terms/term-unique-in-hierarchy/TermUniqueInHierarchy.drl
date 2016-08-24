@@ -1,25 +1,27 @@
 import org.ihtsdo.drools.domain.Concept
 import org.ihtsdo.drools.domain.Description
 import org.ihtsdo.drools.helper.DescriptionHelper
-import org.ihtsdo.drools.service.DescriptionService
+import org.ihtsdo.drools.service.ConceptService
 import org.ihtsdo.drools.response.InvalidContent
 
 global java.util.List invalidContent
-global DescriptionService descriptionService
+global ConceptService conceptService
 
 rule "Active term unique in hierarchy"
     dialect "mvel"
     when
-    	c : Concept(active)
-        d : Description(active)
+    	d : Description(active)
+       
         forall (
+        	// TODO Removing this always-pass check causes the check to fail. Unsure why
+        	// Note: works with concepts as well
+        	dNull : Description()
         	
-        	d2 : Description(DescriptionHelper.logFn(d2) == true)
-        	c2 : Concept()
-   		
-        	
-        	from descriptionService.findActiveDescriptionByExactTerm(d.term))
-   		
+        	// actual check
+        	$concept : Concept(active) from conceptService.findConceptsByActiveExactTerm(d.term, true)
+        	c : Concept(active && DescriptionHelper.getTagForConcept(c) == DescriptionHelper.getTagForConcept($concept) && DescriptionHelper.hasMatchingDescriptionByTypeTermLanguage($concept, d))
+        )
+        
     then
         invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: active descriptions must be unique in a hierarchy. " +
          "Two descriptions in the same hierarchy may have the same term only if they have different language codes or if they are of different types and one is inactive."));
