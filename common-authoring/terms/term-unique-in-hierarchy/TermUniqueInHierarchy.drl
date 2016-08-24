@@ -1,11 +1,11 @@
 import org.ihtsdo.drools.domain.Concept
 import org.ihtsdo.drools.domain.Description
 import org.ihtsdo.drools.helper.DescriptionHelper
-import org.ihtsdo.drools.service.ConceptService
+import org.ihtsdo.drools.service.DescriptionService
 import org.ihtsdo.drools.response.InvalidContent
 
 global java.util.List invalidContent
-global ConceptService conceptService
+global DescriptionService descriptionService
 
 rule "Active term unique in hierarchy"
     dialect "mvel"
@@ -18,7 +18,7 @@ rule "Active term unique in hierarchy"
         	dNull : Description()
         	
         	// actual check
-        	$concept : Concept(active) from conceptService.findConceptsByActiveExactTerm(d.term, true)
+        	$concept : Concept(active) from descriptionService.findConceptsByActiveExactTerm(d.term, true)
         	c : Concept(active && DescriptionHelper.getTagForConcept(c) == DescriptionHelper.getTagForConcept($concept) && DescriptionHelper.hasMatchingDescriptionByTypeTermLanguage($concept, d))
         )
         
