@@ -8,6 +8,14 @@
                     "term": "Some term"
                 }
             ]
+        }, {
+            "descriptions": [
+                {
+                    "id": "2",
+                    "typeId": "900000000000013009", // SYN
+                    "term": "Some (parenthetical) term"
+                }
+            ]
         }
     ],
     "assertConceptsFail": [
