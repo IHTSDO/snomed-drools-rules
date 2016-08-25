@@ -24,6 +24,20 @@
                     "term": "SNOMED CT Concept (SNOMED RT+CTV3)"
                 }
             ]
+        },{
+            "descriptions": [
+                {
+                	"active":"true",
+                    "id": "1",
+                    "term": "SNOMED CT Concept  (SNOMED RT+CTV3)"
+                },
+                {
+                	"active":"true",
+                    "id": "2",
+                    "term": "SNOMED CT Concept (SNOMED RT+CTV3)"
+                }
+            ],
+            "active":"false"
         }
     ],
     "assertConceptsFail": [

@@ -1,4 +1,5 @@
 import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Concept
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
 
@@ -7,6 +8,7 @@ global java.util.List invalidContent
 rule "Term double, leading or trailing spaces"
     dialect "mvel"
     when
+    	c : Concept(active)
         d : Description(active && term matches ".*  .*" || term matches " .*" || term matches ".* ")
     then
         invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: terms must not contain double, leading or trailing spaces."));
