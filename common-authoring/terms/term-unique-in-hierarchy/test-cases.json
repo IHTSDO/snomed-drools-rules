@@ -138,23 +138,6 @@
             ],
             "active":"true"
         },{
-  			"id":"p5",
-            "descriptions": [
-                {
-                    "typeId": "900000000000003001",
-                    "term": "Ibuprofen new (product)", // new fsn
-                    "languageCode": "en",
-                    "active": "true"
-                }, {
-                 
-                    "typeId": "900000000000550004",
-                    "term": "Ibuprofen", // same term, different type
-                    "languageCode": "en",
-                    "active": "true"
-                }
-            ],
-            "active":"true"
-        },{
   			"id":"p6",
             "descriptions": [
                 {

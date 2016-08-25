@@ -10,17 +10,8 @@ global DescriptionService descriptionService
 rule "Active term unique in hierarchy"
     dialect "mvel"
     when
-    	d : Description(active)
-       
-        forall (
-        	// TODO Removing this always-pass check causes the check to fail. Unsure why
-        	// Note: works with concepts as well
-        	dNull : Description()
-        	
-        	// actual check
-        	$concept : Concept(active) from descriptionService.findConceptsByActiveExactTerm(d.term, true)
-        	c : Concept(active && DescriptionHelper.getTagForConcept(c) == DescriptionHelper.getTagForConcept($concept) && DescriptionHelper.hasMatchingDescriptionByTypeTermLanguage($concept, d))
-        )
+    	c : Concept(active)
+    	d : Description(active && !descriptionService.isActiveDescriptionUniqueWithinHierarchy(d, DescriptionHelper.getTagForConcept(c)))
         
     then
         invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: active descriptions must be unique in a hierarchy. " +
