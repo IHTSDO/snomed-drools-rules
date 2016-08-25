@@ -7,7 +7,7 @@ import org.ihtsdo.drools.response.Severity
 global java.util.List invalidContent
 global DescriptionService descriptionService
 
-rule "Active FSNs must be unique"
+rule "Active FSN must not exist as inactive term on another concept"
     dialect "mvel"
     when
 		d : Description(active == true && typeId == Constants.FSN)
