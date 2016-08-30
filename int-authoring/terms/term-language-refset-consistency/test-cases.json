@@ -1,0 +1,62 @@
+{
+	// see TestSignificanceService for list of words marked case significant
+	// 1 - term contains no words in significance list
+	// 2 - word contains text found in list but full word not in list
+	// 3 - term contains word but is properly marked
+    "assertConceptsPass": [
+        {
+            "id": "1",
+            "descriptions": [
+                {
+                    "id": "1p",
+                    "term": "foetal",
+                    "typeId": "900000000000013009",
+                    "acceptabilityMap": {
+                        "900000000000508004": "900000000000548007"
+                    }
+          		}
+            ]
+        }, {
+            "id": "2",
+            "descriptions": [
+                {
+                    "id": "2p",
+                    "term": "fetal",
+                    "typeId": "900000000000013009",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007"
+                    }
+          		}
+            ]
+        }
+    ],
+    // 1 - word in case significance list -- see TestDescriptionService
+    // 2 - non-first word fails
+    "assertConceptsFail": [
+       {
+            "id": "1",
+            "descriptions": [
+                {
+                    "id": "1f",
+                    "term": "fetal",
+                    "typeId": "900000000000013009",
+                    "acceptabilityMap": {
+                        "900000000000508004": "900000000000548007"
+                    }
+          		}
+            ]
+        }, {
+            "id": "2",
+            "descriptions": [
+                {
+                    "id": "2f",
+                    "term": "foetal",
+                    "typeId": "900000000000013009",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007"
+                    }
+          		}
+            ]
+        }
+    ]
+}
