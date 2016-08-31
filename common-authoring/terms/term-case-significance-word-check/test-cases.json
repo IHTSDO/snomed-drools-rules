@@ -1,196 +1,38 @@
 {
-	// 1 - Active concept, Active FSN, SYN, Inactive SYN
-	// 2 - Inactive concept, Active FSN, SYN, Inactive SYN
-    "givenConcepts": [
-       
-        {
+	
+    "assertConceptsPass": [
+       {
         	"id" : "1",
             "descriptions": [
                 {
                     "id": "1a",
-                    "conceptId":"1",
-                    "typeId": "900000000000003001",
-                    "term": "Ibuprofen (product)",
-                    "languageCode": "en",
-                    "active": "true"
-                }, {
-                    "id": "1b",
-                    "conceptId":"1",
-                    "typeId": "900000000000013009",
-                    "term": "Ibuprofen",
-                    "languageCode": "en",
-                    "active": "true"
-                }, {
-                    "id": "1c",
-                    "conceptId":"1",
-                    "typeId": "900000000000013009",
-                    "term": "Ibuprofen tablet",
-                    "languageCode": "en",
-                    "active": "false"
+                 	"term" : "Zyflo",
+                 	"caseSignificanceId": "900000000000448009"
                 }
             ],
             "active":"true"
-        },  {
+        }, {
         	"id" : "2",
             "descriptions": [
                 {
                     "id": "2a",
-                    "conceptId":"2",
-                    "typeId": "900000000000003001",
-                    "term": "Ibuprofen inactive (product)",
-                    "languageCode": "en",
-                    "active": "true"
-                }, {
-                    "id": "2b",
-                    "conceptId":"2",
-                    "typeId": "900000000000013009",
-                    "term": "Ibuprofen inactive",
-                    "languageCode": "en",
-                    "active": "true"
-                }, {
-                    "id": "2c",
-                    "conceptId":"2",
-                    "typeId": "900000000000013009",
-                    "term": "Ibuprofen tablet inactive",
-                    "languageCode": "en",
-                    "active": "false"
-                }
-            ],
-            "active":"false"
-        }
-    ],
-    //"assertConceptsPass": [],
-    
-    // p1 - no term conflict
-    // p2 - term conflict with inactive description
-    // p3 - term conflict with inactive concept
-    // p4 - term conflict with different language code
-    // p5 - term conflict with different type
-    // p6 - term conflict with different hierarchy
-    
-    "assertConceptsPass": [
-        {
-  			"id":"p1",
-            "descriptions": [
-                {
-                    "typeId": "900000000000003001",
-                    "term": "Ibuprofen new (product)", // new fsn
-                    "languageCode": "en",
-                    "active": "true"
-                }, {
-                 
-                    "typeId": "900000000000013009",
-                    "term": "Ibuprofen new", // new term
-                    "languageCode": "en",
-                    "active": "true"
-                }
-            ],
-            "active":"true"
-        },{
-  			"id":"p2",
-            "descriptions": [
-                {
-                    "typeId": "900000000000003001",
-                    "term": "Ibuprofen new (product)", // new fsn
-                    "languageCode": "en",
-                    "active": "true"
-                }, {
-                  
-                    "typeId": "900000000000013009",
-                    "term": "Ibuprofen tablet", // same term, inactive
-                    "languageCode": "en",
-                    "active": "true"
-                }
-            ],
-            "active":"true"
-        },{
-  			"id":"p3",
-            "descriptions": [
-                {
-                    "typeId": "900000000000003001",
-                    "term": "Ibuprofen inactive(product)", // same fsn as inactive concept
-                    "languageCode": "en",
-                    "active": "true"
-                }, {
-                  
-                    "typeId": "900000000000013009",
-                    "term": "Ibuprofen inactive", // same term as inactive concept
-                    "languageCode": "en",
-                    "active": "true"
-                }
-            ],
-            "active":"true"
-        },{
-  			"id":"p4",
-            "descriptions": [
-                {
-                    "typeId": "900000000000003001",
-                    "term": "Ibuprofen (product)", // same fsn, different language
-                    "languageCode": "da",
-                    "active": "true"
-                }, {
-                 
-                    "typeId": "900000000000013009",
-                    "term": "Ibuprofen", // same term, different language
-                    "languageCode": "da",
-                    "active": "true"
-                }
-            ],
-            "active":"true"
-        },{
-  			"id":"p6",
-            "descriptions": [
-                {
-                    "typeId": "900000000000003001",
-                    "term": "Ibuprofen (substance)", // new semantic tag
-                    "languageCode": "en",
-                    "active": "true"
-                }, {
-                 
-                    "typeId": "900000000000013009",
-                    "term": "Ibuprofen", // same term, different hierarchy
-                    "languageCode": "en",
-                    "active": "true"
+                 	"term" : "words not in list",
+                 	"caseSignificanceId": "900000000000448009"
                 }
             ],
             "active":"true"
         }
     ],
     
-    // 1 - existing FSN and non-existent term in hierarchy
-    // 2 - non-existent FSN and existing term in hierarchy
     "assertConceptsFail": [
     {
-  			"id":"f1",
+  			 
+        	"id" : "1",
             "descriptions": [
                 {
-                    "typeId": "900000000000003001",
-                    "term": "Ibuprofen (product)", // same fsn
-                    "languageCode": "en",
-                    "active": "true"
-                }, {
-                 
-                    "typeId": "900000000000013009",
-                    "term": "Ibuprofen new", // new term
-                    "languageCode": "en",
-                    "active": "true"
-                }
-            ],
-            "active":"true"
-        },{
-  			"id":"f2",
-            "descriptions": [
-                {
-                    "typeId": "900000000000003001",
-                    "term": "Ibuprofen new (product)", // new fsn
-                    "languageCode": "en",
-                    "active": "true"
-                }, {
-                  
-                    "typeId": "900000000000013009",
-                    "term": "Ibuprofen", // same term
-                    "languageCode": "en",
-                    "active": "true"
+                    "id": "1a",
+                 	"term" : "zyflo",
+                 	"caseSignificanceId": "900000000000448009"
                 }
             ],
             "active":"true"
