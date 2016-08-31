@@ -13,8 +13,8 @@ rule "Terms with case sensitive terms are not case insensitive"
     dialect "mvel"
     when
     	c : Concept(active)
-    	d : Description(active && descriptionService.getCaseSensitiveWordsFromTerm(d.term).length > 0 && d.caseSignificanceId == Constants.ENTIRE_TERM_CASE_INSENSITIVE)
+    	d : Description(active && descriptionService.getCaseSensitiveWordsErrorMessage(d).length > 0)
         
     then
-        invalidContent.add(new InvalidContent(d, "Terms containing case sensitive words must not be case insensitive: " + descriptionService.getCaseSensitiveWordsFromTerm(d.term), Severity.WARNING))
+        invalidContent.add(new InvalidContent(d, "Terms containing case sensitive words must not be case insensitive: " + descriptionService.getCaseSensitiveWordsErrorMessage(d), Severity.WARNING))
 end
