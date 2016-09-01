@@ -11,7 +11,7 @@ rule "Active term unique in hierarchy"
     dialect "mvel"
     when
     	c : Concept(active)
-    	d : Description(active && !descriptionService.isActiveDescriptionUniqueWithinHierarchy(d))        
+    	d : Description(active && !descriptionService.isActiveDescriptionUniqueWithinHierarchy(d, null))        
     then
         invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: active descriptions must be unique in a hierarchy. " +
          "Two active descriptions in the same hierarchy may have the same term only if they have different language codes"));
