@@ -16,5 +16,5 @@ rule "Terms with case sensitive terms are not case insensitive"
     	d : Description(active && descriptionService.getCaseSensitiveWordsErrorMessage(d).length > 0)
         
     then
-        invalidContent.add(new InvalidContent(d, "Terms containing case sensitive words should have case significance entire-term-case-sensitive: " + descriptionService.getCaseSensitiveWordsErrorMessage(d), Severity.WARNING))
+        invalidContent.add(new InvalidContent(d, descriptionService.getCaseSensitiveWordsErrorMessage(d), Severity.WARNING))
 end
