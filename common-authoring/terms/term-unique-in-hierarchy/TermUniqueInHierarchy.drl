@@ -12,7 +12,7 @@ rule "Active term unique in hierarchy"
     when
     	c : Concept(active)
     	d : Description(active)
-    	$duplicate : Description(active && id != d.id) from descriptionService.findMatchingDescriptionInHierarchy(c, d))        
+    	$duplicate : Description(active && id != d.id) from descriptionService.findMatchingDescriptionInHierarchy(c, d)
     then
         invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: active term already exists within this hierarchy on concept " + $duplicate.conceptId +
          "Two active descriptions in the same hierarchy may have the same term only if they have different language codes"));
