@@ -2,13 +2,14 @@
 	// 1 - case sensitive, properly capitalized
 	// 2 - initial character case insensitive, contains uncapitalized version of word
 	// 3 - case insensitive, no matching words
+	// 4 - words not in cache
     "assertConceptsPass": [
        {
         	"id" : "1",
             "descriptions": [
                 {
                     "id": "1a",
-                 	"term" : "Zyflo",
+                 	"term" : "Testing Zyflo",
                  	"caseSignificanceId": "900000000000017005" // ENTIRE_TERM_CASE_SENSITIVE
                 }
             ],
@@ -38,8 +39,8 @@
             "descriptions": [
                 {
                     "id": "4a",
-                 	"term" : "words not in list",
-                 	"caseSignificanceId": "900000000000448009" // ENTIRE_TERM_CASE_INSENSITIVE
+                 	"term" : "words not in cache",
+                 	"caseSignificanceId": "900000000000020002" // ONLY_INITIAL_CHARACTER_CASE_INSENSITIVE
                 }
             ],
             "active":"true"
@@ -66,7 +67,7 @@
             "descriptions": [
                 {
                     "id": "2a",
-                 	"term" : "testing Zyflo",
+                 	"term" : "Testing Zyflo",
                  	"caseSignificanceId": "900000000000448009" // ENTIRE_TERM_CASE_INSENSITIVE
                 }
             ],
