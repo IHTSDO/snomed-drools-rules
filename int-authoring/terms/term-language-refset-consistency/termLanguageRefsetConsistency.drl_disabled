@@ -13,7 +13,7 @@ rule "Terms are consistent in en-us and en-gb language refsets"
 	dialect "mvel"
 	when
 		c : Concept(active)
-		d : Description(active && descriptionService.getLanguageSpecificErrorMessage(d).length > 0)
-		then
-        invalidContent.add(new InvalidContent(d, descriptionService.getLanguageSpecificErrorMessage(d), Severity.WARNING));
+		d : Description(active && descriptionService.getLanguageSpecificErrorMessage(d) != "")
+	then
+		invalidContent.add(new InvalidContent(d, descriptionService.getLanguageSpecificErrorMessage(d), Severity.WARNING));
 end
