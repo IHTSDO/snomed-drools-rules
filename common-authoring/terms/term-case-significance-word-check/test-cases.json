@@ -1,8 +1,7 @@
 {
 	// 1 - case sensitive, properly capitalized
-	// 2 - initial character case insensitive, starts with properly capitalized word
-	// 3 - initial character insensitive, properly capitalized word not at start
-	// 4 - case insensitive, no matching words
+	// 2 - initial character case insensitive, contains uncapitalized version of word
+	// 3 - case insensitive, no matching words
     "assertConceptsPass": [
        {
         	"id" : "1",
@@ -15,12 +14,22 @@
             ],
             "active":"true"
         },{
+        	"id" : "2",
+            "descriptions": [
+                {
+                    "id": "2a",
+                 	"term" : "Testing zyflo",
+                 	"caseSignificanceId": "900000000000020002" // ONLY_INITIAL_CHARACTER_CASE_INSENSITIVE
+                }
+            ],
+            "active":"true"
+        },{
         	"id" : "3",
             "descriptions": [
                 {
                     "id": "3a",
-                 	"term" : "testing Zyflo",
-                 	"caseSignificanceId": "900000000000020002" // ONLY_INITIAL_CHARACTER_CASE_INSENSITIVE
+                 	"term" : "Testing zyflo",
+                 	"caseSignificanceId": "900000000000448009" // ENTIRE_TERM_CASE_INSENSITIVE
                 }
             ],
             "active":"true"
@@ -37,52 +46,32 @@
         }
     ],
     
-    // 1 - case sensitive, not properly capitalized
-    // 2 - initial character insensitive, but starts with capitalized word
-    // 3 - initial character insensitive, but has improperly capitalized words not at start
-    // 4 - case insensitive, but contains a case-sensitive word
+    
+    // 1 - initial character insensitive, but contains case-sensitive word
+    // 2 - entire term case insensitive, but contains case-sensitive word
    
     "assertConceptsFail": [
-    {
+  		{
         	"id" : "1",
             "descriptions": [
                 {
                     "id": "1a",
-                 	"term" : "zyflo",
-                 	"caseSignificanceId": "900000000000017005" // ENTIRE_TERM_CASE_SENSITIVE
+                 	"term" : "Testing Zyflo",
+                 	"caseSignificanceId": "900000000000020002" // ONLY_INITIAL_CHARACTER_CASE_INSENSITIVE
                 }
             ],
             "active":"true"
-        },{
+        }, {
         	"id" : "2",
             "descriptions": [
                 {
                     "id": "2a",
-                 	"term" : "Zyflo",
-                 	"caseSignificanceId": "900000000000020002" // ONLY_INITIAL_CHARACTER_CASE_INSENSITIVE
-                }
-            ],
-            "active":"true"
-        }, {
-        	"id" : "3",
-            "descriptions": [
-                {
-                    "id": "3a",
-                 	"term" : "testing zyflo",
-                 	"caseSignificanceId": "900000000000020002" // ONLY_INITIAL_CHARACTER_CASE_INSENSITIVE
-                }
-            ],
-            "active":"true"
-        }, {
-        	"id" : "4",
-            "descriptions": [
-                {
-                    "id": "4a",
-                 	"term" : "Zyflo",
+                 	"term" : "testing Zyflo",
                  	"caseSignificanceId": "900000000000448009" // ENTIRE_TERM_CASE_INSENSITIVE
                 }
             ],
             "active":"true"
         }
+        
     ]
 }
