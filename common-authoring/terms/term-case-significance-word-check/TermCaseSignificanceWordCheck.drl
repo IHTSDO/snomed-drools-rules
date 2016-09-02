@@ -9,7 +9,7 @@ import org.ihtsdo.drools.response.Severity
 global java.util.List invalidContent
 global DescriptionService descriptionService
 
-rule "Terms with case sensitive terms are not case insensitive"
+rule "Terms with case sensitive words should be marked entire term case sensitive"
     dialect "mvel"
     when
     	c : Concept(active)
