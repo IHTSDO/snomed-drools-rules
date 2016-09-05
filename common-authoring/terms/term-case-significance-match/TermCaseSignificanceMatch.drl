@@ -12,7 +12,7 @@ rule "Terms with matching first word share case significance"
 	dialect "mvel"
 	when
 		c : Concept()
-		d : Description(active && caseSignificanceId == Constants.ENTIRE_TERM_CASE_SENSITIVE && !DescriptionHelper.isCaseSignificanceValidBetweenTerms(c, d))
+		d : Description(active && !DescriptionHelper.isCaseSignificanceValidBetweenTerms(c, d))
 		then
         invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: active terms sharing first word with case-sensitive term should share case sensitivity", Severity.WARNING));
 end

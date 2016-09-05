@@ -1,5 +1,10 @@
 {
-	// 1 - case sensitive terms with matching first word share case significance
+	// case sensitive terms with matching first word share case significance
+	// descriptions:
+	// 1 - starting term
+	// 2 - term starting with same word, shares case significance
+	// 3 - another term starting with same word, but different capitalization
+	// 4 - text definition with different case significance
     "assertConceptsPass": [
         {
             "id": "1",
@@ -18,12 +23,13 @@
                 {
                     "id": "3",
                     "caseSignificanceId": "900000000000017005",
-                    "term": "Greece (country)"
+                    "term": "greece (country)"
                 },
                 {
-                    "id": "4",
+                "id": "4",
                     "caseSignificanceId": "900000000000448009",
-                    "term": "greece (country)"
+                    "term": "Greece (country)",
+                	"typeId" : "900000000000550004"
                 }
             ]
         }
