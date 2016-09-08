@@ -12,17 +12,38 @@
                 }
             ],
             "active":"false"
+        },{
+        	"id" : "2",
+            "descriptions": [
+                {
+                    "id": "2a",
+                    "typeId": "900000000000013009",
+                    "term": "Aspirin (product)",
+                    "active": false
+                }
+            ],
+            "active":"false"
         }
     ],
     "assertConceptsPass": [
         {
-        	"id" : "2",
+        	"id" : "1p",
         	"active" : "true",
             "descriptions": [
                 {
-                    "id": "2a",
+                    "id": "1pa",
                     "typeId": "900000000000003001",
-                    "term": "Oxycodone (product)" // different term
+                    "term": "Aspirin (product)" // matches inactive synonym but not fsn
+                }
+            ]
+        },{
+        	"id" : "2p",
+        	"active" : "true",
+            "descriptions": [
+                {
+                    "id": "2pa",
+                    "typeId": "900000000000003001",
+                    "term": "Oxycodone (product)" // does not match any synonym
                 }
             ]
         }
@@ -30,13 +51,14 @@
     "assertConceptsFail": [
        
         {
-            "id": "3",
+            "id": "1f",
             "active" : "true",
             "descriptions": [
                 {
-                    "id": "3a",
+                    "id": "1f",
                     "typeId": "900000000000003001",
-                    "term": "Ibuprofen (product)" // other term not active
+                    "active": "true",
+                    "term": "Ibuprofen (product)" // has matching inactive fsn
                 }
             ]
         }
