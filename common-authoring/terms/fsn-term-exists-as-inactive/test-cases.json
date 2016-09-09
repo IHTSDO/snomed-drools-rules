@@ -7,8 +7,8 @@
                 {
                     "id": "1a",
                     "typeId": "900000000000003001",
-                    "term": "Ibuprofen (product)",
-                    "active": false
+                    "term": "Ibuprofen1 (product)",
+                    "active": "false"
                 }
             ],
             "active":"false"
@@ -17,12 +17,12 @@
             "descriptions": [
                 {
                     "id": "2a",
-                    "typeId": "900000000000013009",
-                    "term": "Aspirin (product)",
-                    "active": false
+                    "typeId": "900000000000003001",
+                    "term": "Ibuprofen2 (product)",
+                    "active": "false"
                 }
             ],
-            "active":"false"
+            "active":"true"
         }
     ],
     "assertConceptsPass": [
@@ -33,19 +33,20 @@
                 {
                     "id": "1pa",
                     "typeId": "900000000000003001",
-                    "term": "Aspirin (product)" // matches inactive synonym but not fsn
+                    "term": "Ibuprofen (product)" // does not match
                 }
             ]
         },{
-        	"id" : "2p",
-        	"active" : "true",
+        	"id" : "2",
             "descriptions": [
                 {
-                    "id": "2pa",
-                    "typeId": "900000000000003001",
-                    "term": "Oxycodone (product)" // does not match any synonym
+                    "id": "2a",
+                    "typeId": "900000000000013009", // synonym, not fsn
+                    "term": "Ibuprofen2 (product)",
+                    "active": "false"
                 }
-            ]
+            ],
+            "active":"true"
         }
     ],
     "assertConceptsFail": [
@@ -55,10 +56,21 @@
             "active" : "true",
             "descriptions": [
                 {
-                    "id": "1f",
+                    "id": "1fa",
                     "typeId": "900000000000003001",
                     "active": "true",
-                    "term": "Ibuprofen (product)" // has matching inactive fsn
+                    "term": "Ibuprofen1 (product)" // has matching inactive fsn
+                }
+            ]
+        }, {
+            "id": "2f",
+            "active" : "true",
+            "descriptions": [
+                {
+                    "id": "2fa",
+                    "typeId": "900000000000003001",
+                    "active": "true",
+                    "term": "Ibuprofen2 (product)" // has matching inactive fsn
                 }
             ]
         }
