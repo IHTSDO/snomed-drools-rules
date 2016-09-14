@@ -1,0 +1,41 @@
+{
+    "assertConceptsPass": [
+        {
+            "descriptions": [
+                {
+                    "id": "1",
+                    "typeId": "900000000000013009", // SYN
+                    "term": "Some term"
+                }
+            ]
+        }, {
+            "descriptions": [
+                {
+                    "id": "2",
+                    "typeId": "900000000000013009", // SYN
+                    "term": "Some (parenthetical) term"
+                }
+            ]
+        }, {
+            "descriptions": [
+                {
+                    "id": "3",
+                    "typeId": "900000000000013009", // SYN
+                    "term": "Some term with semantic tag (organism)"
+                }
+            ]
+        }
+        
+    ],
+    "assertConceptsFail": [
+        {
+            "descriptions": [
+                {
+                	"active" : "true",
+                    "id": "1",
+                    "typeId": "900000000000013009", //SYN
+                    "term": "Some term (some closing tag)"
+               }
+            ]
+        }
+    ]}
