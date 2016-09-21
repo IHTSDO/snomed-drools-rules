@@ -26,6 +26,7 @@
                     "typeId": "363698007", // Finding site
                     "relationshipGroup": "3"
                 },
+                
                 {
                     "typeId": "116680003", // is-a
                     "relationshipGroup": "0"
@@ -43,6 +44,23 @@
                     "typeId": "363698007", // Finding site
                     "active": false,
                     "relationshipGroup": "3"
+                },
+                {
+                    "typeId": "116680003", // is-a
+                    "relationshipGroup": "0"
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "relationships": [
+                {
+                    "typeId": "363698007", // Finding site
+                    "relationshipGroup": "3"
+                },
+                {
+                    "typeId": "363698007", // Finding site
+                    "relationshipGroup": "2"
                 },
                 {
                     "typeId": "116680003", // is-a

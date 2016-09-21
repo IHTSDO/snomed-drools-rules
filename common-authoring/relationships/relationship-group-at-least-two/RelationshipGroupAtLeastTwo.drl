@@ -11,9 +11,8 @@ rule "Relationship group must have as least two active relationships"
     dialect "mvel"
     when
     	c : Concept()
-    	$group: ArrayList( size == 1 ) from collect (
-    		Relationship(active && sourceId == c.id && relationshipGroup != 0)
-    	)
+    	r : Relationship(active && relationshipGroup != 0)
+    	not (exists(Relationship(active && id != r.id && relationshipGroup == r.relationshipGroup)))
     then
-        invalidContent.add(new InvalidContent((Relationship)$group.get(0), "The system has detected a contradiction of the following convention: a role group must have at least two relationships."));
+        invalidContent.add(new InvalidContent(r, "The system has detected a contradiction of the following convention: a role group must have at least two relationships."));
 end
