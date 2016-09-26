@@ -1,27 +1,35 @@
 {
     "givenConcepts": [
         {
+        	"id": "c1",
+        	"active" : "true",
+        	"moduleId": "some id",
             "descriptions": [
                 {
                     "id": "1",
                     "typeId": "900000000000003001",
-                    "term": "Ibuprofen + oxycodone (product)"
+                    "term": "Ibuprofen + oxycodone (product)",
+                    "active": true,
+                    "conceptId": "c1"
                 }
             ]
         },
         {
+        	"id": "c2",
             "descriptions": [
                 {
                     "id": "2",
                     "typeId": "900000000000003001",
                     "term": "Ibuprofen (product)",
-                    "active": false
+                    "active": false,
+                    "conceptId": "c2"
                 }
             ]
         }
     ],
     "assertConceptsPass": [
         {
+        	"id": "1",
             "descriptions": [
                 {
                     "id": "1",
@@ -53,7 +61,7 @@
     ],
     "assertConceptsFail": [
         {
-            "id": "1",
+            "id": "f1",
             "descriptions": [
                 {
                     "id": "5",

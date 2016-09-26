@@ -1,17 +1,21 @@
+import org.ihtsdo.drools.domain.Concept
 import org.ihtsdo.drools.domain.Description
 import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.service.ConceptService
 import org.ihtsdo.drools.service.DescriptionService
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 global DescriptionService descriptionService
+global ConceptService conceptService
 
 rule "Active FSNs must be unique"
     dialect "mvel"
     when
 		d : Description(active == true && typeId == Constants.FSN)
-		$duplicate : Description(id != d.id) from descriptionService.findActiveDescriptionByExactTerm(d.term)
+		d2 : Description(id != d.id) from descriptionService.findActiveDescriptionByExactTerm(d.term)
+   		
     then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an FSN must be unique within all active FSNs across all concepts. This term already exists against concept " + $duplicate.getConceptId() + ".", Severity.WARNING));
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an FSN must be unique within all active FSNs across all concepts. This term already exists against " + (conceptService.isActive(d2.getConceptId()) ? "active" : "inactive") + " concept " + d2.getConceptId() + ".", conceptService.isActive(d2.getConceptId()) ? Severity.ERROR : Severity.WARNING));
 end
