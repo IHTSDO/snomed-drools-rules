@@ -5,15 +5,18 @@
             "relationships": [
                 {
                     "typeId": "363698007", // Finding site
-                    "relationshipGroup": "3"
+                    "relationshipGroup": "3",
+                    "characteristicTypeId": "900000000000010007"
                 },
                 {
                     "typeId": "363698007", // Finding site
-                    "relationshipGroup": "3"
+                    "relationshipGroup": "3",
+                    "characteristicTypeId": "900000000000010007"
                 },
                 {
                     "typeId": "116680003", // is-a
-                    "relationshipGroup": "0"
+                    "relationshipGroup": "0",
+                    "characteristicTypeId": "900000000000010007"
                 }
             ]
         }
@@ -24,12 +27,14 @@
             "relationships": [
                 {
                     "typeId": "363698007", // Finding site
-                    "relationshipGroup": "3"
+                    "relationshipGroup": "3",
+                    "characteristicTypeId": "900000000000010007"
                 },
                 
                 {
                     "typeId": "116680003", // is-a
-                    "relationshipGroup": "0"
+                    "relationshipGroup": "0",
+                    "characteristicTypeId": "900000000000010007"
                 }
             ]
         },
@@ -38,16 +43,19 @@
             "relationships": [
                 {
                     "typeId": "363698007", // Finding site
-                    "relationshipGroup": "3"
+                    "relationshipGroup": "3",
+                    "characteristicTypeId": "900000000000010007"
                 },
                 {
                     "typeId": "363698007", // Finding site
                     "active": false,
-                    "relationshipGroup": "3"
+                    "relationshipGroup": "3",
+                    "characteristicTypeId": "900000000000010007"
                 },
                 {
                     "typeId": "116680003", // is-a
-                    "relationshipGroup": "0"
+                    "relationshipGroup": "0",
+                    "characteristicTypeId": "900000000000010007"
                 }
             ]
         },
@@ -56,15 +64,38 @@
             "relationships": [
                 {
                     "typeId": "363698007", // Finding site
-                    "relationshipGroup": "3"
+                    "relationshipGroup": "3",
+                    "characteristicTypeId": "900000000000010007"
                 },
                 {
                     "typeId": "363698007", // Finding site
-                    "relationshipGroup": "2"
+                    "relationshipGroup": "2",
+                    "characteristicTypeId": "900000000000010007"
                 },
                 {
                     "typeId": "116680003", // is-a
-                    "relationshipGroup": "0"
+                    "relationshipGroup": "0",
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "4",
+            "relationships": [
+                {
+                    "typeId": "363698007", // Finding site
+                    "relationshipGroup": "2",
+                    "characteristicTypeId": "900000000000010007" // Stated
+                },
+                {
+                    "typeId": "363698007", // Finding site
+                    "relationshipGroup": "2",
+                    "characteristicTypeId": "900000000000011006" // Inferred
+                },
+                {
+                    "typeId": "116680003", // is-a
+                    "relationshipGroup": "0",
+                    "characteristicTypeId": "900000000000010007"
                 }
             ]
         }
