@@ -71,6 +71,16 @@
                     "term": "Ibuprofen + oxycodone (product)" // updating existing description
                 }
             ]
+        },
+        {
+            "id": "5",
+            "descriptions": [
+                {
+                    "id": "1",
+                    "typeId": "900000000000003001",
+                    "term": "A" // Would trigger single character search
+                }
+            ]
         }
     ],
     "assertConceptsFail": [

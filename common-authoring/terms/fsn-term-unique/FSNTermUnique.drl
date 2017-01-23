@@ -11,9 +11,9 @@ global DescriptionService descriptionService
 global ConceptService conceptService
 
 rule "Active FSNs must be unique"
-	dialect "mvel"
-	when
-		d : Description(active == true && typeId == Constants.FSN)
+    dialect "mvel"
+    when
+		d : Description(active == true && typeId == Constants.FSN && term.length > 1)
 		d2 : Description(id != d.id) from descriptionService.findActiveDescriptionByExactTerm(d.term)
    		
 	then

@@ -1,7 +1,21 @@
 {
 	// Cannot be tested without framework for determining hierarchical relationship
     "assertConceptsPass": [
-       
+        {
+            "id": "1",
+            "descriptions": [
+                {
+                    "id": "1",
+                    "typeId": "1",
+                    "term": "Organism"
+                },
+                {
+                    "id": "2",
+                    "typeId": "1",
+                    "term": "A" // Would trigger single character search
+                }
+            ]
+        }
     ],
     
     "assertConceptsFail": [

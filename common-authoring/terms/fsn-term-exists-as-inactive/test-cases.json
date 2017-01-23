@@ -37,13 +37,24 @@
                 }
             ]
         },{
-        	"id" : "2",
+            "id" : "2",
             "descriptions": [
                 {
                     "id": "2a",
                     "typeId": "900000000000013009", // synonym, not fsn
                     "term": "Ibuprofen2 (product)",
                     "active": "false"
+                }
+            ],
+            "active":"true"
+        },
+        {
+            "id" : "3",
+            "descriptions": [
+                {
+                    "id": "2a",
+                    "typeId": "900000000000003001",
+                    "term": "A" // Would trigger single character search
                 }
             ],
             "active":"true"
