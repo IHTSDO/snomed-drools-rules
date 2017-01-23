@@ -1,0 +1,56 @@
+{
+	// case sensitive terms with matching first word share case significance
+	// descriptions:
+	// 1 - starting term
+	// 2 - term starting with same word, shares case significance
+	// 3 - another term starting with same word, but different capitalization
+	// 4 - text definition with different case significance
+    "assertConceptsPass": [
+        {
+            "id": "1",
+            "descriptions": [
+                {
+                    "id": "1",
+                    "caseSignificanceId": "900000000000017005",
+                    "term": "Greece"
+          		},
+                {
+                    "id": "2",
+                    "caseSignificanceId": "900000000000017005",
+                    "term": "Greece and surrounding islands"
+       
+                },
+                {
+                    "id": "3",
+                    "caseSignificanceId": "900000000000017005",
+                    "term": "greece (country)"
+                },
+                {
+                "id": "4",
+                    "caseSignificanceId": "900000000000448009",
+                    "term": "Greece (country)",
+                	"typeId" : "900000000000550004"
+                }
+            ]
+        }
+    ],
+    // 1 - case sensitive terms do not share case sensitivity
+    "assertConceptsFail": [
+        {
+            "id": "1",
+            "descriptions": [
+                {
+                    "id": "1a",
+                    "caseSignificanceId": "900000000000017005",
+                    "term": "Greece"
+                },
+                
+                {
+                    "id": "1b",
+                    "caseSignificanceId": "900000000000448009",
+                    "term": "Greece without case sensitivity"
+                }
+            ]
+         }
+    ]
+}

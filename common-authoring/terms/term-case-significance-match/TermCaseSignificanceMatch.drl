@@ -1,0 +1,18 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.helper.DescriptionHelper
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.response.Severity
+
+global java.util.List invalidContent
+
+
+rule "Terms with matching first word share case significance"
+	dialect "mvel"
+	when
+		c : Concept()
+		d : Description(active && !DescriptionHelper.isCaseSignificanceValidBetweenTerms(c, d))
+		then
+        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: active terms sharing first word with case-sensitive term should share case sensitivity", Severity.WARNING));
+end

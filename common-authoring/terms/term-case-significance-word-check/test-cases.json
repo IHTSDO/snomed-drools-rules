@@ -1,0 +1,78 @@
+{
+	// 1 - case sensitive, properly capitalized
+	// 2 - initial character case insensitive, contains uncapitalized version of word
+	// 3 - case insensitive, no matching words
+	// 4 - words not in cache
+    "assertConceptsPass": [
+       {
+        	"id" : "1",
+            "descriptions": [
+                {
+                    "id": "1a",
+                 	"term" : "Testing Zyflo",
+                 	"caseSignificanceId": "900000000000017005" // ENTIRE_TERM_CASE_SENSITIVE
+                }
+            ],
+            "active":"true"
+        },{
+        	"id" : "2",
+            "descriptions": [
+                {
+                    "id": "2a",
+                 	"term" : "Testing zyflo",
+                 	"caseSignificanceId": "900000000000020002" // ONLY_INITIAL_CHARACTER_CASE_INSENSITIVE
+                }
+            ],
+            "active":"true"
+        },{
+        	"id" : "3",
+            "descriptions": [
+                {
+                    "id": "3a",
+                 	"term" : "Testing zyflo",
+                 	"caseSignificanceId": "900000000000448009" // ENTIRE_TERM_CASE_INSENSITIVE
+                }
+            ],
+            "active":"true"
+        },{
+        	"id" : "4",
+            "descriptions": [
+                {
+                    "id": "4a",
+                 	"term" : "words not in cache",
+                 	"caseSignificanceId": "900000000000020002" // ONLY_INITIAL_CHARACTER_CASE_INSENSITIVE
+                }
+            ],
+            "active":"true"
+        }
+    ],
+    
+    
+    // 1 - initial character insensitive, but contains case-sensitive word
+    // 2 - entire term case insensitive, but contains case-sensitive word
+   
+    "assertConceptsFail": [
+  		{
+        	"id" : "1",
+            "descriptions": [
+                {
+                    "id": "1a",
+                 	"term" : "Testing Zyflo",
+                 	"caseSignificanceId": "900000000000020002" // ONLY_INITIAL_CHARACTER_CASE_INSENSITIVE
+                }
+            ],
+            "active":"true"
+        }, {
+        	"id" : "2",
+            "descriptions": [
+                {
+                    "id": "2a",
+                 	"term" : "Testing Zyflo",
+                 	"caseSignificanceId": "900000000000448009" // ENTIRE_TERM_CASE_INSENSITIVE
+                }
+            ],
+            "active":"true"
+        }
+        
+    ]
+}

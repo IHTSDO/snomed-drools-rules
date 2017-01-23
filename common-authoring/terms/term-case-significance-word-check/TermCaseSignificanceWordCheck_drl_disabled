@@ -1,0 +1,20 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.helper.DescriptionHelper
+import org.ihtsdo.drools.service.DescriptionService
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.response.Severity
+
+global java.util.List invalidContent
+global DescriptionService descriptionService
+
+rule "Terms with case sensitive words should be marked entire term case sensitive"
+    dialect "mvel"
+    when
+    	c : Concept(active)
+    	d : Description(active && descriptionService.getCaseSensitiveWordsErrorMessage(d).length > 0)
+        
+    then
+        invalidContent.add(new InvalidContent(d, descriptionService.getCaseSensitiveWordsErrorMessage(d), Severity.WARNING))
+end

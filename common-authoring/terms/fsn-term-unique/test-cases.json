@@ -1,27 +1,49 @@
 {
     "givenConcepts": [
         {
+        	"id": "c1",
+        	"active" : "true",
+        	"moduleId": "some id",
             "descriptions": [
                 {
                     "id": "1",
                     "typeId": "900000000000003001",
-                    "term": "Ibuprofen + oxycodone (product)"
+                    "term": "Ibuprofen + oxycodone (product)",
+                    "active": true,
+                    "conceptId": "c1"
                 }
             ]
         },
         {
+        	"id": "c2",
+        	"active" : "false",
+        	"moduleId": "some id",
+            "descriptions": [
+                {
+                    "id": "1",
+                    "typeId": "900000000000003001",
+                    "term": "Ibuprofen + aspirin (product)",
+                    "active": true,
+                    "conceptId": "c2"
+                }
+            ]
+        },
+        {
+        	"id": "c3",
             "descriptions": [
                 {
                     "id": "2",
                     "typeId": "900000000000003001",
                     "term": "Ibuprofen (product)",
-                    "active": false
+                    "active": false,
+                    "conceptId": "c3"
                 }
             ]
         }
     ],
     "assertConceptsPass": [
         {
+        	"id": "1",
             "descriptions": [
                 {
                     "id": "1",
@@ -59,7 +81,17 @@
                     "id": "5",
                     "typeId": "900000000000003001",
                     "active": true,
-                    "term": "Ibuprofen + oxycodone (product)" // Same term, different description .. should fail
+                    "term": "Ibuprofen + oxycodone (product)" // Same term, different description .. should fail against active concept
+                }
+            ]
+        },{
+            "id": "2",
+            "descriptions": [
+                {
+                    "id": "6",
+                    "typeId": "900000000000003001",
+                    "active": true,
+                    "term": "Ibuprofen + aspirin (product)" // Same term, different description .. should fail against inactive concept
                 }
             ]
         }

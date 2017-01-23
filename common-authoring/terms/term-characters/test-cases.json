@@ -6,7 +6,7 @@
                 {
                     "id": "1",
                     "typeId": "900000000000003001",
-                    "term": "Ibuprofen & oxycodone (product)"
+                    "term": "Ibuprofen and oxycodone (product)"
                 }
             ]
         }
@@ -20,9 +20,18 @@
     // 7 - @
     // 8 - #
     "assertConceptsFail": [
-    
         {
-            "id": "2",
+            "id": "1",
+            "descriptions": [
+                {
+                    "id": "2",
+                    "typeId": "900000000000003001",
+                    "term": "Ibuprofen\\\\oxycodone (product)"
+                }
+            ]
+        },
+        {
+            "id": "7",
             "descriptions": [
                 {
                     "id": "2",
@@ -48,8 +57,16 @@
                     "term": "Ibuprofen \n oxycodone (product)"
                 }
             ]
-        },
-        {
+        },{
+            "id": "5",
+            "descriptions": [
+                {
+                    "id": "2",
+                    "typeId": "900000000000003001",
+                    "term": "Ibuprofen \\\Z oxycodone (product)"
+                }
+            ]
+        },        {
             "id": "6",
             "descriptions": [
                 {

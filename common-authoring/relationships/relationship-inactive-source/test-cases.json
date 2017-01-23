@@ -1,0 +1,46 @@
+{
+    "assertConceptsPass": [
+        {
+            "id": "1",
+            "active" : false,
+            "relationships": [
+                {
+                	"active" : "false",
+                	"characteristicTypeId": "900000000000010007" // stated
+                }
+            ]
+        }, {
+            "id": "2",
+            "active" : true,
+            "relationships": [
+                {
+                	"active" : "false",
+                	"characteristicTypeId": "900000000000010007" // stated
+                }
+            ]
+        }, {
+            "id": "3",
+            "active" : false,
+            "relationships": [
+                {
+                	"active" : "true",
+                	"characteristicTypeId": "900000000000011006" // inferred
+                }
+            ]
+        }
+    ],
+    "assertConceptsFail": [
+
+        {
+            "id": "1",
+            "active" : "false",
+            "relationships": [
+                {
+                	"active" : "true",
+                	"characteristicTypeId": "900000000000010007" // stated
+
+                }
+            ]
+        }
+    ]
+}
