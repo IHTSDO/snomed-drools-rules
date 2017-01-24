@@ -13,6 +13,20 @@
                     }
                 }
             ]
+        },
+        {
+            "id": "64572001",
+            "descriptions": [
+                {
+                    "id": "3",
+                    "term": "Disease (disorder)",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007", // PREFERRED
+                        "900000000000508004": "900000000000548007" // PREFERRED
+                    }
+                }
+            ]
         }
     ],
     "assertConceptsPass": [
@@ -35,10 +49,9 @@
                     "destinationId": "404684003" // Clinical finding (finding)
                 }
             ]
-        }
-    ],
-    "assertConceptsFail": [
+        },
         {
+            // This is a special case
             "id": "2",
             "descriptions": [
                 {
@@ -58,6 +71,27 @@
                 }
             ]
         }
-
+    ],
+    "assertConceptsFail": [
+        {
+            "id": "2",
+            "descriptions": [
+                {
+                    "id": "2a",
+                    "term": "Drug action (finding)",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007", // PREFERRED
+                        "900000000000508004": "900000000000548007" // PREFERRED
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // is-a
+                    "destinationId": "64572001" // Disease (disorder)
+                }
+            ]
+        }
     ]
 }
