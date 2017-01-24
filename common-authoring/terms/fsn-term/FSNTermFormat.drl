@@ -6,57 +6,57 @@ import org.ihtsdo.drools.response.Severity
 global java.util.List invalidContent
 
 rule "Active FSNs cannot start with open parentheses"
-    dialect "mvel"
-    when
-        d : Description(active == true && typeId == Constants.FSN && term matches "\\(.*")
-    then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an FSN should not start with open parentheses.", Severity.WARNING));
+	dialect "mvel"
+	when
+		d : Description(active == true && typeId == Constants.FSN && term matches "\\(.*")
+	then
+		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an FSN should not start with open parentheses.", Severity.WARNING));
 end
 
 rule "FSN ends in closing parentheses"
-    dialect "mvel"
-    when
-        d : Description(active == true && typeId == Constants.FSN && term matches ".*[^\\)]")
-    then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an FSN must end in closing parentheses."));
+	dialect "mvel"
+	when
+		d : Description(active == true && typeId == Constants.FSN && term matches ".*[^\\)]")
+	then
+		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an FSN must end in closing parentheses."));
 end
 
 rule "Active FSN must end with a semantic tag"
-    dialect "mvel"
-    when
-        d : Description(active == true && typeId == Constants.FSN && term not matches ".*\\(.+\\)")
-    then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an FSN must end with a semantic tag."));
+	dialect "mvel"
+	when
+		d : Description(active == true && typeId == Constants.FSN && term not matches ".*\\(.+\\)")
+	then
+		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an FSN must end with a semantic tag."));
 end
 
 rule "FSN Comma"
-    dialect "mvel"
-    when
-        d : Description(active == true && typeId == Constants.FSN && term matches ".*,.*")
-    then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an FSN should not include commas.", Severity.WARNING));
+	dialect "mvel"
+	when
+		d : Description(active == true && typeId == Constants.FSN && term matches ".*,.*")
+	then
+		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an FSN should not include commas.", Severity.WARNING));
 end
 
 rule "FSN space around plus character"
-    dialect "mvel"
-    when
-        d : Description(active == true && typeId == Constants.FSN && (term matches ".*[^ ]\\+.*" || term matches ".*\\+[^ ].*"))
-    then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active FSN containing a + symbol should include a single space placed at either side of the symbol e.g. Ibuprofen + oxycodone (product).", Severity.WARNING));
+	dialect "mvel"
+	when
+		d : Description(active == true && typeId == Constants.FSN && (term matches ".*[^ ]\\+.*" || term matches ".*\\+[^ ].*"))
+	then
+		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active FSN containing a + symbol should include a single space placed at either side of the symbol e.g. Ibuprofen + oxycodone (product).", Severity.WARNING));
 end
 
 rule "FSN special characters"
-    dialect "mvel"
-    when
-        d : Description(active == true && typeId == Constants.FSN && term matches ".*[&%$@#].*")
-    then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active FSN should not contain the special characters &, %, $, @ or #.", Severity.WARNING));
+	dialect "mvel"
+	when
+		d : Description(active == true && typeId == Constants.FSN && term matches ".*[&%$@#].*")
+	then
+		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active FSN should not contain the special characters &, %, $, @ or #.", Severity.WARNING));
 end
 
 rule "FSN capitalized"
 	dialect "mvel"
 	when
-	    d : Description(active == true && typeId == Constants.FSN && term matches "[a-z].*")
+		d : Description(active == true && typeId == Constants.FSN && term matches "[a-z].*")
 	then
 		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: the first letter of an active FSN should be capitalized", Severity.WARNING));
 end

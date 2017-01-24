@@ -9,8 +9,8 @@ import org.ihtsdo.drools.response.InvalidContent
 global java.util.List invalidContent
 
 rule "Preferred synonym per dialect"
-    dialect "mvel"
-    when
+	dialect "mvel"
+	when
 		c : Concept(active)
 		ArrayList(size > 0 || c.moduleId contains "1000005") from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "da")
@@ -18,6 +18,6 @@ rule "Preferred synonym per dialect"
 		ArrayList(size != 1) from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "da", acceptabilityMap["554461000005103"] == Constants.ACCEPTABILITY_PREFERRED)
 		)
-    then
-        invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept must have one Preferred Synonym in the DK dialect.").ignorePublishedCheck());
+	then
+		invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept must have one Preferred Synonym in the DK dialect.").ignorePublishedCheck());
 end

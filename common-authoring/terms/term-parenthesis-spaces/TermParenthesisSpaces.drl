@@ -6,17 +6,17 @@ import org.ihtsdo.drools.response.Severity
 global java.util.List invalidContent
 
 rule "Term parenthesis spaces"
-    dialect "mvel"
-    when
+	dialect "mvel"
+	when
 		// Failure cases:
 		// 1 no space before last (
 		// 2 space after last (
 		// 3 space before last )
-        d : Description(active == true && typeId == Constants.FSN && (
-        	term matches ".*[^ ]\\([^\\(]*"
-        	|| term matches ".*\\( [^\\(]*"
-        	|| term matches ".* \\)"
-        	))
-    then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: there should be a space before but not after the last opening parenthesis. There should not be a space before the last closing parentheses e.g. D-Alanine-alanyl-poly(glycerolphosphate) ligase (substance).", Severity.WARNING));
+		d : Description(active == true && typeId == Constants.FSN && (
+			term matches ".*[^ ]\\([^\\(]*"
+			|| term matches ".*\\( [^\\(]*"
+			|| term matches ".* \\)"
+			))
+	then
+		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: there should be a space before but not after the last opening parenthesis. There should not be a space before the last closing parentheses e.g. D-Alanine-alanyl-poly(glycerolphosphate) ligase (substance).", Severity.WARNING));
 end

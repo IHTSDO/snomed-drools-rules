@@ -6,18 +6,18 @@ import org.ihtsdo.drools.response.Severity
 global java.util.List invalidContent
 
 rule "Term double, leading or trailing spaces"
-    dialect "mvel"
-    when
-    	c : Concept(active)
-        d : Description(active && term matches ".*  .*" || term matches " .*" || term matches ".* ")
-    then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: terms must not contain double, leading or trailing spaces."));
+	dialect "mvel"
+	when
+		c : Concept(active)
+		d : Description(active && term matches ".*  .*" || term matches " .*" || term matches ".* ")
+	then
+		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: terms must not contain double, leading or trailing spaces."));
 end
 
 rule "Active descriptions do not have spaces, either before or after, hyphens."
-    dialect "mvel"
-    when
-        d : Description(active && (term matches ".* -.*" || term matches ".*- .*"))
-    then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: active descriptions should not have spaces, either before or after, hyphens.", Severity.WARNING));
+	dialect "mvel"
+	when
+		d : Description(active && (term matches ".* -.*" || term matches ".*- .*"))
+	then
+		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: active descriptions should not have spaces, either before or after, hyphens.", Severity.WARNING));
 end

@@ -6,11 +6,11 @@ import org.ihtsdo.drools.response.InvalidContent
 global java.util.List invalidContent
 
 rule "Active Concepts should not have two relationships with the same type, target and group"
-    dialect "mvel"
-    when
-    	c : Concept(active)
-    	r1 : Relationship(r1.sourceId == c.id)
-    	r2 : Relationship(sourceId == c.id && r1.id != id && typeId == r1.typeId && destinationId == r1.destinationId && relationshipGroup == r1.relationshipGroup)
-    then
-        invalidContent.add(new InvalidContent(r1, "The system has detected a contradiction of the following convention: an active concept must not have two relationships (including inactive) with values that are identical." + ((!r1.active || !r2.active) ? " Please check inactive relationships." : "")));
+	dialect "mvel"
+	when
+		c : Concept(active)
+		r1 : Relationship(r1.sourceId == c.id)
+		r2 : Relationship(sourceId == c.id && r1.id != id && typeId == r1.typeId && destinationId == r1.destinationId && relationshipGroup == r1.relationshipGroup)
+	then
+		invalidContent.add(new InvalidContent(r1, "The system has detected a contradiction of the following convention: an active concept must not have two relationships (including inactive) with values that are identical." + ((!r1.active || !r2.active) ? " Please check inactive relationships." : "")));
 end

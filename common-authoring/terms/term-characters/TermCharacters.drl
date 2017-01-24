@@ -6,9 +6,9 @@ import org.ihtsdo.drools.response.Severity
 global java.util.List invalidContent
 
 rule "Term special characters"
-    dialect "mvel"
-    when
-        d : Description(active == true && term matches ".*[\\\\\t\r\n@$#].*")
-    then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active term should not contain tabs, newlines, or characters @, $, #, \\\\.", Severity.WARNING));
+	dialect "mvel"
+	when
+		d : Description(active == true && term matches ".*[\\\\\t\r\n@$#].*")
+	then
+		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active term should not contain tabs, newlines, or characters @, $, #, \\\\.", Severity.WARNING));
 end

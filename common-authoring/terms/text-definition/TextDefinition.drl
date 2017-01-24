@@ -9,30 +9,30 @@ import org.ihtsdo.drools.response.Severity
 global java.util.List invalidContent
 
 rule "TextDefinition case significance"
-    dialect "mvel"
-    when
-        d : Description(active && textDefinition && caseSignificanceId != Constants.ENTIRE_TERM_CASE_SENSITIVE)
-    then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: text definitions should be case-sensitive.", Severity.WARNING));
+	dialect "mvel"
+	when
+		d : Description(active && textDefinition && caseSignificanceId != Constants.ENTIRE_TERM_CASE_SENSITIVE)
+	then
+		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: text definitions should be case-sensitive.", Severity.WARNING));
 end
 
 rule "TextDefinition first character case"
-    dialect "mvel"
-    when
-        d : Description(active && textDefinition && term matches "[^A-Z].*")
-    then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: the first character of a text definition should be upper case.", Severity.WARNING));
+	dialect "mvel"
+	when
+		d : Description(active && textDefinition && term matches "[^A-Z].*")
+	then
+		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: the first character of a text definition should be upper case.", Severity.WARNING));
 end
 
 rule "Preferred TextDefinition per dialect"
-    dialect "mvel"
-    when
-    	c : Concept(active && (
-    		DescriptionHelper.filterByActiveTypeAndDialectPreferred(c, true, Constants.TEXT_DEFINITION, Constants.US_EN_LANG_REFSET).size() > 1
-    		|| DescriptionHelper.filterByActiveTypeAndDialectPreferred(c, true, Constants.TEXT_DEFINITION, Constants.GB_EN_LANG_REFSET).size() > 1)
+	dialect "mvel"
+	when
+		c : Concept(active && (
+			DescriptionHelper.filterByActiveTypeAndDialectPreferred(c, true, Constants.TEXT_DEFINITION, Constants.US_EN_LANG_REFSET).size() > 1
+			|| DescriptionHelper.filterByActiveTypeAndDialectPreferred(c, true, Constants.TEXT_DEFINITION, Constants.GB_EN_LANG_REFSET).size() > 1)
 		)
-    then
-        invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept may only have one Preferred text definition in each dialect.").ignorePublishedCheck());
+	then
+		invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept may only have one Preferred text definition in each dialect.").ignorePublishedCheck());
 end
 
 rule "TextDefinition preferred"
@@ -40,7 +40,7 @@ rule "TextDefinition preferred"
 	when
 		d : Description(active && textDefinition && DescriptionHelper.isAcceptabilityValuePresentOnDescription(d, Constants.ACCEPTABILITY_ACCEPTABLE))
 	then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: text definitions must always be preferred.").ignorePublishedCheck());
+		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: text definitions must always be preferred.").ignorePublishedCheck());
 end
 
 rule "TextDefinition has acceptability map"
@@ -48,6 +48,6 @@ rule "TextDefinition has acceptability map"
 	when
 		d : Description(active && textDefinition && !DescriptionHelper.hasAcceptabilityMap(d))
 	then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: text definitions must be preferred in at least one dialect.").ignorePublishedCheck());
+		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: text definitions must be preferred in at least one dialect.").ignorePublishedCheck());
 end
 		

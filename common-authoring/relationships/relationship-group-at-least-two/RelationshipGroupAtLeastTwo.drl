@@ -8,11 +8,11 @@ import java.util.ArrayList
 global java.util.List invalidContent
 
 rule "Relationship group must have as least two active relationships"
-    dialect "mvel"
-    when
-    	c : Concept()
-    	r : Relationship(active && relationshipGroup != 0 && characteristicTypeId == Constants.STATED_RELATIONSHIP)
-    	not (exists(Relationship(active == true && id != r.id && relationshipGroup == r.relationshipGroup && characteristicTypeId == Constants.STATED_RELATIONSHIP)))
-    then
-        invalidContent.add(new InvalidContent(r, "The system has detected a contradiction of the following convention: a role group must have at least two active relationships."));
+	dialect "mvel"
+	when
+		c : Concept()
+		r : Relationship(active && relationshipGroup != 0 && characteristicTypeId == Constants.STATED_RELATIONSHIP)
+		not (exists(Relationship(active == true && id != r.id && relationshipGroup == r.relationshipGroup && characteristicTypeId == Constants.STATED_RELATIONSHIP)))
+	then
+		invalidContent.add(new InvalidContent(r, "The system has detected a contradiction of the following convention: a role group must have at least two active relationships."));
 end

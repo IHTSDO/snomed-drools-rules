@@ -8,11 +8,11 @@ import org.ihtsdo.drools.response.Severity
 global java.util.List invalidContent
 
 rule "All FSNs for concept share semantic tag"
-    dialect "mvel"
-    when
-    	c : Concept()
+	dialect "mvel"
+	when
+		c : Concept()
 		d : Description(active == true && typeId == Constants.FSN)
 		d1 : Description(DescriptionHelper.getTag(d.term) != DescriptionHelper.getTag(term)) from DescriptionHelper.filterByActiveAndType(c, true, Constants.FSN)
-    then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: all FSNs on a concept must share semantic tag", Severity.ERROR));
+	then
+		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: all FSNs on a concept must share semantic tag", Severity.ERROR));
 end

@@ -7,9 +7,9 @@ global java.util.List invalidContent
 global ConceptService conceptService
 
 rule "A concept can not have inactive ancestors"
-    dialect "mvel"
-    when
-    	r : Relationship(active && typeId == Constants.IS_A && !conceptService.isActive(destinationId))
-    then
-        invalidContent.add(new InvalidContent(r, "The system has detected a contradiction of the following convention: a concept must not be the descendant of an inactive concept."));
+	dialect "mvel"
+	when
+		r : Relationship(active && typeId == Constants.IS_A && !conceptService.isActive(destinationId))
+	then
+		invalidContent.add(new InvalidContent(r, "The system has detected a contradiction of the following convention: a concept must not be the descendant of an inactive concept."));
 end

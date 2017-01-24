@@ -6,9 +6,9 @@ global java.util.List invalidContent
 global ConceptService conceptService
 
 rule "Active relationship must not have inactive destination"
-    dialect "mvel"
-    when
-    	r : Relationship(active && !conceptService.isActive(destinationId))
-    then
-        invalidContent.add(new InvalidContent(r, "The system has detected a contradiction of the following convention: concepts must not have relationships to inactive concepts."));
+	dialect "mvel"
+	when
+		r : Relationship(active && !conceptService.isActive(destinationId))
+	then
+		invalidContent.add(new InvalidContent(r, "The system has detected a contradiction of the following convention: concepts must not have relationships to inactive concepts."));
 end

@@ -7,26 +7,26 @@ import org.ihtsdo.drools.response.Severity
 global java.util.List invalidContent
 
 rule "Term Case Significance: Only initial character case sensitive"
-    dialect "mvel"
-    when
-        d : Description(active == true && caseSignificanceId == Constants.ONLY_INITIAL_CHARACTER_CASE_INSENSITIVE && term matches "[A-Z].*$")
-    then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active term with case significance 'only initial character case sensitive' should not contain capital letters after the first character", Severity.WARNING));
+	dialect "mvel"
+	when
+		d : Description(active == true && caseSignificanceId == Constants.ONLY_INITIAL_CHARACTER_CASE_INSENSITIVE && term matches "[A-Z].*$")
+	then
+		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active term with case significance 'only initial character case sensitive' should not contain capital letters after the first character", Severity.WARNING));
 end
 
 rule "Term Case Significance: Entire term case sensitive"
-    dialect "mvel"
-    when
-    	// no test case -- included for completeness
-    then
-        // no invalid content -- included for completeness
+	dialect "mvel"
+	when
+		// no test case -- included for completeness
+	then
+		// no invalid content -- included for completeness
 end
 
 rule "Term Case Significance: Entire term case insensitive"
-    dialect "mvel"
-    when
-    	 d : Description(active == true && caseSignificanceId == Constants.ENTIRE_TERM_CASE_INSENSITIVE && term matches "^.*[A-Z].*$")
-    then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active term with case significance 'entire term case insensitive' should not contain capital letters", Severity.WARNING));
+	dialect "mvel"
+	when
+		 d : Description(active == true && caseSignificanceId == Constants.ENTIRE_TERM_CASE_INSENSITIVE && term matches "^.*[A-Z].*$")
+	then
+		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active term with case significance 'entire term case insensitive' should not contain capital letters", Severity.WARNING));
 end
 

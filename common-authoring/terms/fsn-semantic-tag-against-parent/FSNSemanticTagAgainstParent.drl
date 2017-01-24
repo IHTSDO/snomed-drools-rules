@@ -12,22 +12,22 @@ global DescriptionService descriptionService
 
 // Note - this rule uses international edition language refsets
 rule "Semantic Tag of FSN compatible with concept parents"
-    dialect "mvel"
-    when
-        c : Concept(active)
-        d : Description(conceptId == c.id
-        				&& active
-        				&& typeId == Constants.FSN
-        				&& !DescriptionHelper.isSemanticTagEquivalentToAnother(
-        						term, descriptionService.getFSNs(
-        								RelationshipHelper.getActiveStatedParentConceptIds(c),
-        								Constants.US_EN_LANG_REFSET,
-        								Constants.GB_EN_LANG_REFSET
-        								),
-        								new String[][]{
-        									// Pairs of special cases
-        									{"disorder", "finding"}
-        								}))
-    then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: a concept's semantic tags should be compatible with those of the active parents.", Severity.WARNING));
+	dialect "mvel"
+	when
+		c : Concept(active)
+		d : Description(conceptId == c.id
+						&& active
+						&& typeId == Constants.FSN
+						&& !DescriptionHelper.isSemanticTagEquivalentToAnother(
+								term, descriptionService.getFSNs(
+										RelationshipHelper.getActiveStatedParentConceptIds(c),
+										Constants.US_EN_LANG_REFSET,
+										Constants.GB_EN_LANG_REFSET
+										),
+										new String[][]{
+											// Pairs of special cases
+											{"disorder", "finding"}
+										}))
+	then
+		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: a concept's semantic tags should be compatible with those of the active parents.", Severity.WARNING));
 end

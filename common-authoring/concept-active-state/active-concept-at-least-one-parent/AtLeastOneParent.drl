@@ -6,9 +6,9 @@ import org.ihtsdo.drools.helper.RelationshipHelper
 global java.util.List invalidContent
 
 rule "Active concept must have a parent"
-    dialect "mvel"
-    when
-    	c : Concept(active && !RelationshipHelper.hasActiveRelationshipOfType(c, Constants.IS_A))
-    then
-        invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: active concepts must have at least one ISA relationship."));
+	dialect "mvel"
+	when
+		c : Concept(active && !RelationshipHelper.hasActiveRelationshipOfType(c, Constants.IS_A))
+	then
+		invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: active concepts must have at least one ISA relationship."));
 end

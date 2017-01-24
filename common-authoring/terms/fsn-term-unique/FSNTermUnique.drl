@@ -11,11 +11,11 @@ global DescriptionService descriptionService
 global ConceptService conceptService
 
 rule "Active FSNs must be unique"
-    dialect "mvel"
-    when
+	dialect "mvel"
+	when
 		d : Description(active == true && typeId == Constants.FSN)
 		d2 : Description(id != d.id) from descriptionService.findActiveDescriptionByExactTerm(d.term)
    		
-    then
-        invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an FSN must be unique within all active FSNs across all concepts. This term already exists against " + (conceptService.isActive(d2.getConceptId()) ? "active" : "inactive") + " concept " + d2.getConceptId() + ".", conceptService.isActive(d2.getConceptId()) ? Severity.ERROR : Severity.WARNING));
+	then
+		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an FSN must be unique within all active FSNs across all concepts. This term already exists against " + (conceptService.isActive(d2.getConceptId()) ? "active" : "inactive") + " concept " + d2.getConceptId() + ".", conceptService.isActive(d2.getConceptId()) ? Severity.ERROR : Severity.WARNING));
 end
