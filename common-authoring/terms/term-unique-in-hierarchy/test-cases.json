@@ -1,24 +1,138 @@
 {
-	// Cannot be tested without framework for determining hierarchical relationship
-    "assertConceptsPass": [
+    "givenConcepts": [
         {
-            "id": "1",
+            "id": "c1",
+            "active" : "true",
             "descriptions": [
                 {
-                    "id": "1",
-                    "typeId": "1",
-                    "term": "Organism"
-                },
+                    "id": "c1d1",
+                    "term": "Ibuprofen + oxycodone (product)"
+                }
+            ],
+            "relationships": [
                 {
-                    "id": "2",
-                    "typeId": "1",
-                    "term": "A" // Would trigger single character search
+                    "typeId": "116680003", // Is a
+                    "destinationId": "parent1"
+                }
+            ]
+        },
+        {
+            "id": "c2",
+            "active" : "false",
+            "descriptions": [
+                {
+                    "id": "c2d1",
+                    "term": "Ibuprofen + aspirin (product)"
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // Is a
+                    "destinationId": "parent1"
+                }
+            ]
+        }
+    ],
+
+    "assertConceptsPass": [
+        {
+            "id": "f1",
+            "active" : "true",
+            "descriptions": [
+                {
+                    "id": "f1",
+                    // Term doesn't match
+                    "term": "aa Ibuprofen + oxycodone (product)"
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // Is a
+                    "destinationId": "parent1"
+                }
+            ]
+        },
+        {
+            "id": "f1",
+            "active" : "false", // Concept not active
+            "descriptions": [
+                {
+                    "id": "f1",
+                    "term": "Ibuprofen + oxycodone (product)"
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // Is a
+                    "destinationId": "parent1"
+                }
+            ]
+        },
+        {
+            "id": "f1",
+            "descriptions": [
+                {
+                    "id": "f1",
+                    "active" : "false", // description not active
+                    "term": "Ibuprofen + oxycodone (product)"
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // Is a
+                    "destinationId": "parent1"
+                }
+            ]
+        },
+        {
+            "id": "f1",
+            "descriptions": [
+                {
+                    "id": "f1",
+                    "term": "Ibuprofen + oxycodone (product)"
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // Is a
+                    "destinationId": "parent2" // Different hierarchy
+                }
+            ]
+        },
+        {
+            "id": "p1",
+            "active" : "true", // Other concept is not active
+            "descriptions": [
+                {
+                    "id": "pd11",
+                    "term": "Ibuprofen + aspirin (product)"
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // Is a
+                    "destinationId": "parent1"
                 }
             ]
         }
     ],
     
     "assertConceptsFail": [
-   
+        {
+            "id": "f1",
+            "active" : "true",
+            "descriptions": [
+                {
+                    "id": "f1",
+                    "term": "Ibuprofen + oxycodone (product)"
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // Is a
+                    "destinationId": "parent1"
+                }
+            ]
+        }
     ]
 }
