@@ -52,6 +52,23 @@
                     "term": "Organism"
                 }
             ]
+        },
+        {
+            "id": "4",
+            "descriptions": [
+                {
+                    "id": "4a",
+                    "typeId": "1",
+                    "term": "Body structure (body structure)",
+                    "published": true
+                },
+                {
+                    "id": "4b",
+                    "typeId": "1",
+                    "term": "Body structure (body structure)",
+                    "published": true
+                }
+            ]
         }
     ],
     "assertConceptsFail": [

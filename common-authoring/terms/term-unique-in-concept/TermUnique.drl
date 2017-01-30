@@ -9,7 +9,7 @@ global java.util.List invalidContent
 rule "Term unique in concept"
 	dialect "mvel"
 	when
-		d1 : Description(active)
+		d1 : Description(active && published == false)
 		d2 : Description(conceptId == d1.conceptId && id != d1.id && term.equals(d1.term) && (d1.languageCode == d2.languageCode && (typeId.equals(d1.typeId) || active)))
 
 	then
