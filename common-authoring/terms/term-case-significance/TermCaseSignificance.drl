@@ -9,9 +9,9 @@ global java.util.List invalidContent
 rule "Term Case Significance: Only initial character case sensitive"
 	dialect "mvel"
 	when
-		d : Description(active == true && caseSignificanceId == Constants.ONLY_INITIAL_CHARACTER_CASE_INSENSITIVE && term matches "^.+[A-Z].*$")
+		d : Description(active == true && caseSignificanceId == Constants.ONLY_INITIAL_CHARACTER_CASE_INSENSITIVE && (term matches "^.+[A-Z].*$") == false)
 	then
-		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active term with case significance 'only initial character case insensitive' should not contain capital letters after the first character", Severity.WARNING));
+		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active term with case significance 'only initial character case insensitive' should contain a capital letter after the first character", Severity.WARNING));
 end
 
 rule "Term Case Significance: Entire term case sensitive"
@@ -25,8 +25,8 @@ end
 rule "Term Case Significance: Entire term case insensitive"
 	dialect "mvel"
 	when
-		 d : Description(active == true && caseSignificanceId == Constants.ENTIRE_TERM_CASE_INSENSITIVE && term matches "^.*[A-Z].*$")
+		 d : Description(active == true && caseSignificanceId == Constants.ENTIRE_TERM_CASE_INSENSITIVE && term matches "^.+[A-Z].*$")
 	then
-		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active term with case significance 'entire term case insensitive' should not contain capital letters", Severity.WARNING));
+		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active term with case significance 'entire term case insensitive' should not contain capital letters after the first character", Severity.WARNING));
 end
 

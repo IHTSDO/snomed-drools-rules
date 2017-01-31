@@ -9,7 +9,7 @@
                 {
                     "id": "1",
                     "caseSignificanceId": "900000000000020002",
-                    "term": "Entire medial ligament of ankle joint"
+                    "term": "Entire medial Ligament of ankle joint"
                 }
             ]
         }, {
@@ -28,7 +28,12 @@
                     "id": "3",
                     "caseSignificanceId": "900000000000448009",
                     "term": "ibuprofen & oxycodone (product)"
+                }, {
+                    "id": "3b",
+                    "caseSignificanceId": "900000000000448009",
+                    "term": "Ibuprofen & oxycodone (product)"
                 }
+
             ]
         }
     ],
@@ -42,7 +47,7 @@
                 {
                     "id": "1",
                     "caseSignificanceId": "900000000000020002",
-                    "term": "Ibuprofen & Oxycodone (product)"
+                    "term": "Ibuprofen & oxycodone (product)"
                 }
             ]
         }, {
