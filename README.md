@@ -1,8 +1,8 @@
-# Snomed Drools Rules (Beta)
+# Snomed Drools Rules
 
 This set of rules for SNOMED CT defined in an abstract way which can be used in any system using the Drools based engine available here: https://github.com/IHTSDO/snomed-drools
 
-These rules are used in the IHTSDO Single Concept Authoring tool to validate the parts of a concept which have changed during authoring.
+These rules are used in the SNOMED International Authoring Platform to validate the parts of a concept which have changed during authoring. We have made a concious effort to write this project in a way that the code can be reused in any SNOMED authoring tool.
 They could be used to validate all parts of every concept in a release.
 
 ## Test Coverage
