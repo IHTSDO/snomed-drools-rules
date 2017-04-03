@@ -19,6 +19,21 @@
                     "characteristicTypeId": "900000000000010007"
                 }
             ]
+        },
+        {
+            "id": "2",
+            "relationships": [
+                {
+                    "typeId": "363698007", // Finding site
+                    "relationshipGroup": "0",
+                    "characteristicTypeId": "900000000000010007"
+                },
+                {
+                    "typeId": "116680003", // is-a
+                    "relationshipGroup": "0",
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
         }
     ],
     "assertConceptsFail": [
