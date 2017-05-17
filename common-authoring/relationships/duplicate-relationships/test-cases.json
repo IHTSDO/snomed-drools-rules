@@ -1,4 +1,4 @@
-{
+ {
     "assertConceptsPass": [
         {
             "id": "1",
@@ -33,6 +33,37 @@
                     "destinationId": "123"
                 }
             ]
+        },
+        {
+            "id": "3",
+            "relationships": [
+                {
+                    "id": "1",
+                    "relationshipGroup": "0",
+                    "typeId": "116680003", // is-a
+                    "destinationId": "100"
+                },
+                {
+                    "id": "2",
+                    "relationshipGroup": "3",
+                    "typeId": "363698007", // Finding site
+                    "destinationId": "123",
+                    "published": true
+                },
+                {
+                    "id": "3",
+                    "relationshipGroup": "3",
+                    "typeId": "363698007", // Finding site
+                    "destinationId": "124"
+                },
+                {
+                    "id": "4",
+                    "relationshipGroup": "3",
+                    "typeId": "363698007", // Finding site
+                    "destinationId": "123",
+                    "published": true
+                }
+            ]
         }
     ],
     "assertConceptsFail": [
@@ -49,7 +80,8 @@
                     "id": "2",
                     "relationshipGroup": "3",
                     "typeId": "363698007", // Finding site
-                    "destinationId": "123"
+                    "destinationId": "123",
+                    "published": true
                 },
                 {
                     "id": "3",
@@ -61,7 +93,8 @@
                     "id": "4",
                     "relationshipGroup": "3",
                     "typeId": "363698007", // Finding site
-                    "destinationId": "123"
+                    "destinationId": "123",
+                    "published": false
                 }
             ]
         },
