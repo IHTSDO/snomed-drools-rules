@@ -1,6 +1,5 @@
 {
 	// 1 - only initial character case insensitive
-	// 2 - entire term case sensitive
 	// 3 - entire term case insensitive
     "assertConceptsPass": [
         {
@@ -10,15 +9,6 @@
                     "id": "1",
                     "caseSignificanceId": "900000000000020002",
                     "term": "ibuprofen & Oxycodone (product)"
-                }
-            ]
-        }, {
-            "id": "2",
-            "descriptions": [
-                {
-                    "id": "2",
-                    "caseSignificanceId": "900000000000017005",
-                    "term": "Ibuprofen & Oxycodone (product)"
                 }
             ]
         }, {
@@ -33,7 +23,6 @@
         }
     ],
     // 1 - only initial character case insensitive
-	// 2 - entire term case sensitive - NO FAILURE CASE
 	// 3 - entire term case insensitive
     "assertConceptsFail": [
        {
@@ -42,7 +31,7 @@
                 {
                     "id": "1",
                     "caseSignificanceId": "900000000000020002",
-                    "term": "Ibuprofen & Oxycodone (product)"
+                    "term": "Ibuprofen & oxycodone (product)"
                 }
             ]
         }, {
