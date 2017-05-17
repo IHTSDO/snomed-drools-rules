@@ -52,6 +52,25 @@
                     "term": "Organism"
                 }
             ]
+        },
+        {
+            "id": "4",
+            "descriptions": [
+                {
+                    "id": "4a",
+                    "languageCode": "en",
+                    "typeId": "1",
+                    "term": "Organism",
+                    "published": true
+                },
+                {
+                    "id": "4b",
+                    "languageCode": "en",
+                    "typeId": "1",
+                    "term": "Organism",
+                    "published": true
+                }
+            ]
         }
     ],
     "assertConceptsFail": [
@@ -142,6 +161,25 @@
                     "languageCode": "en",
                     "typeId": "2",
                     "term": "Organism"
+                }
+            ]
+        },
+        {
+            "id": "4",
+            "descriptions": [
+                {
+                    "id": "4a",
+                    "languageCode": "en",
+                    "typeId": "1",
+                    "term": "Organism",
+                    "published": false
+                },
+                {
+                    "id": "4b",
+                    "languageCode": "en",
+                    "typeId": "1",
+                    "term": "Organism",
+                    "published": true
                 }
             ]
         }
