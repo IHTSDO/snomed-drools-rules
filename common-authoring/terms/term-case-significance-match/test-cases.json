@@ -13,12 +13,12 @@
                     "id": "1",
                     "caseSignificanceId": "900000000000017005",
                     "term": "Greece"
-          		},
+                },
                 {
                     "id": "2",
                     "caseSignificanceId": "900000000000017005",
                     "term": "Greece and surrounding islands"
-       
+
                 },
                 {
                     "id": "3",
@@ -26,10 +26,28 @@
                     "term": "greece (country)"
                 },
                 {
-                "id": "4",
+                    "id": "4",
                     "caseSignificanceId": "900000000000448009",
                     "term": "Greece (country)",
-                	"typeId" : "900000000000550004"
+                    "typeId" : "900000000000550004"
+                }
+            ]
+        },
+        {
+            // Inactive concept ignored
+            "id": "2",
+            "active": false,
+            "descriptions": [
+                {
+                    "id": "1a",
+                    "caseSignificanceId": "900000000000017005",
+                    "term": "Greece"
+                },
+
+                {
+                    "id": "1b",
+                    "caseSignificanceId": "900000000000448009",
+                    "term": "Greece without case sensitivity"
                 }
             ]
         }
