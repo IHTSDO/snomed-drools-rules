@@ -68,7 +68,8 @@
                     "languageCode": "en",
                     "typeId": "1",
                     "term": "Organism",
-                    "published": true
+                    "published": true,
+                    "active": false
                 }
             ]
         }
@@ -86,6 +87,23 @@
                     "id": "1b",
                     "typeId": "1",
                     "term": "Body structure (body structure)"
+                }
+            ]
+        },
+        {
+            "id": "1a",
+            "descriptions": [
+                {
+                    "id": "1aa",
+                    "typeId": "1",
+                    "term": "Body structure (body structure)",
+                    "published": true
+                },
+                {
+                    "id": "1ab",
+                    "typeId": "1",
+                    "term": "Body structure (body structure)",
+                    "published": true
                 }
             ]
         },
@@ -180,6 +198,26 @@
                     "typeId": "1",
                     "term": "Organism",
                     "published": true
+                }
+            ]
+        },
+        {
+            "id": "5",
+            "descriptions": [
+                {
+                    "id": "4a",
+                    "languageCode": "en",
+                    "typeId": "1",
+                    "term": "Organism",
+                    "published": false
+                },
+                {
+                    "id": "4b",
+                    "languageCode": "en",
+                    "typeId": "1",
+                    "term": "Organism",
+                    "published": true,
+                    "active": false
                 }
             ]
         }
