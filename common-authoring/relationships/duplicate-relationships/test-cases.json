@@ -48,7 +48,7 @@
                     "relationshipGroup": "3",
                     "typeId": "363698007", // Finding site
                     "destinationId": "123",
-                    "published": true,
+                    "released": true,
                     "active": false
                 },
                 {
@@ -62,7 +62,7 @@
                     "relationshipGroup": "3",
                     "typeId": "363698007", // Finding site
                     "destinationId": "123",
-                    "published": true
+                    "released": true
                 }
             ]
         }
@@ -82,20 +82,14 @@
                     "relationshipGroup": "3",
                     "typeId": "363698007", // Finding site
                     "destinationId": "123",
-                    "published": true
-                },
-                {
-                    "id": "3",
-                    "relationshipGroup": "3",
-                    "typeId": "363698007", // Finding site
-                    "destinationId": "124"
+                    "released": true
                 },
                 {
                     "id": "4",
                     "relationshipGroup": "3",
                     "typeId": "363698007", // Finding site
                     "destinationId": "123",
-                    "published": true
+                    "released": true
                 }
             ]
         },
@@ -113,7 +107,7 @@
                     "relationshipGroup": "3",
                     "typeId": "363698007", // Finding site
                     "destinationId": "123",
-                    "published": true
+                    "released": true
                 },
                 {
                     "id": "3",
@@ -126,7 +120,7 @@
                     "relationshipGroup": "3",
                     "typeId": "363698007", // Finding site
                     "destinationId": "123",
-                    "published": false
+                    "released": false
                 }
             ]
         },

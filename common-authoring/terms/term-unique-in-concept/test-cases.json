@@ -61,14 +61,14 @@
                     "languageCode": "en",
                     "typeId": "1",
                     "term": "Organism",
-                    "published": true
+                    "released": true
                 },
                 {
                     "id": "4b",
                     "languageCode": "en",
                     "typeId": "1",
                     "term": "Organism",
-                    "published": true,
+                    "released": true,
                     "active": false
                 }
             ]
@@ -97,13 +97,13 @@
                     "id": "1aa",
                     "typeId": "1",
                     "term": "Body structure (body structure)",
-                    "published": true
+                    "released": true
                 },
                 {
                     "id": "1ab",
                     "typeId": "1",
                     "term": "Body structure (body structure)",
-                    "published": true
+                    "released": true
                 }
             ]
         },
@@ -190,14 +190,14 @@
                     "languageCode": "en",
                     "typeId": "1",
                     "term": "Organism",
-                    "published": false
+                    "released": false
                 },
                 {
                     "id": "4b",
                     "languageCode": "en",
                     "typeId": "1",
                     "term": "Organism",
-                    "published": true
+                    "released": true
                 }
             ]
         },
@@ -209,14 +209,14 @@
                     "languageCode": "en",
                     "typeId": "1",
                     "term": "Organism",
-                    "published": false
+                    "released": false
                 },
                 {
                     "id": "4b",
                     "languageCode": "en",
                     "typeId": "1",
                     "term": "Organism",
-                    "published": true,
+                    "released": true,
                     "active": false
                 }
             ]
