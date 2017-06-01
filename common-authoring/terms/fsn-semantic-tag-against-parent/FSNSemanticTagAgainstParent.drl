@@ -26,7 +26,8 @@ rule "Semantic Tag of FSN compatible with concept parents"
 										),
 										new String[][]{
 											// Pairs of special cases
-											{"disorder", "finding"}
+											{"disorder", "finding"},
+											{"*", "product"}
 										}))
 	then
 		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: a concept's semantic tags should be compatible with those of the active parents.", Severity.WARNING));

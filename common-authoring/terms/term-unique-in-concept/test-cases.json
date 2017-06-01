@@ -58,15 +58,18 @@
             "descriptions": [
                 {
                     "id": "4a",
+                    "languageCode": "en",
                     "typeId": "1",
-                    "term": "Body structure (body structure)",
-                    "published": true
+                    "term": "Organism",
+                    "released": true
                 },
                 {
                     "id": "4b",
+                    "languageCode": "en",
                     "typeId": "1",
-                    "term": "Body structure (body structure)",
-                    "published": true
+                    "term": "Organism",
+                    "released": true,
+                    "active": false
                 }
             ]
         }
@@ -84,6 +87,23 @@
                     "id": "1b",
                     "typeId": "1",
                     "term": "Body structure (body structure)"
+                }
+            ]
+        },
+        {
+            "id": "1a",
+            "descriptions": [
+                {
+                    "id": "1aa",
+                    "typeId": "1",
+                    "term": "Body structure (body structure)",
+                    "released": true
+                },
+                {
+                    "id": "1ab",
+                    "typeId": "1",
+                    "term": "Body structure (body structure)",
+                    "released": true
                 }
             ]
         },
@@ -114,7 +134,7 @@
                     "id": "3a",
                     "active": true,
                     "typeId": "1",
-                    "term": "Body structure (body structure)"
+                    "term": "Body Structure (body structure)"
                 },
                 {
                     "id": "3b",
@@ -159,6 +179,45 @@
                     "languageCode": "en",
                     "typeId": "2",
                     "term": "Organism"
+                }
+            ]
+        },
+        {
+            "id": "4",
+            "descriptions": [
+                {
+                    "id": "4a",
+                    "languageCode": "en",
+                    "typeId": "1",
+                    "term": "Organism",
+                    "released": false
+                },
+                {
+                    "id": "4b",
+                    "languageCode": "en",
+                    "typeId": "1",
+                    "term": "Organism",
+                    "released": true
+                }
+            ]
+        },
+        {
+            "id": "5",
+            "descriptions": [
+                {
+                    "id": "4a",
+                    "languageCode": "en",
+                    "typeId": "1",
+                    "term": "Organism",
+                    "released": false
+                },
+                {
+                    "id": "4b",
+                    "languageCode": "en",
+                    "typeId": "1",
+                    "term": "Organism",
+                    "released": true,
+                    "active": false
                 }
             ]
         }

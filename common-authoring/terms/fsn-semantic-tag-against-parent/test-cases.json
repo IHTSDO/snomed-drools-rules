@@ -27,6 +27,20 @@
                     }
                 }
             ]
+        },
+        {
+            "id": "123",
+            "descriptions": [
+                {
+                    "id": "4",
+                    "term": "Product (product)",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007", // PREFERRED
+                        "900000000000508004": "900000000000548007" // PREFERRED
+                    }
+                }
+            ]
         }
     ],
     "assertConceptsPass": [
@@ -68,6 +82,27 @@
                 {
                     "typeId": "116680003", // is-a
                     "destinationId": "404684003" // Clinical finding (finding)
+                }
+            ]
+        },
+        {
+            // Children of product may have any semantic tag
+            "id": "3",
+            "descriptions": [
+                {
+                    "id": "3a",
+                    "term": "Some Product (anything you like)",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007", // PREFERRED
+                        "900000000000508004": "900000000000548007" // PREFERRED
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // is-a
+                    "destinationId": "123" // Product (product)
                 }
             ]
         }
