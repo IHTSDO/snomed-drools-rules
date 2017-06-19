@@ -37,14 +37,6 @@ rule "FSN Comma"
 		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an FSN should not include commas.", Severity.WARNING));
 end
 
-rule "FSN space around plus character"
-	dialect "mvel"
-	when
-		d : Description(active == true && typeId == Constants.FSN && (term matches ".*[^ ]\\+.*" || term matches ".*\\+[^ ].*"))
-	then
-		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active FSN containing a + symbol should include a single space placed at either side of the symbol e.g. Ibuprofen + oxycodone (product).", Severity.WARNING));
-end
-
 rule "FSN special characters"
 	dialect "mvel"
 	when

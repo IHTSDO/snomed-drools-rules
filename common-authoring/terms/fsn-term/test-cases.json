@@ -79,7 +79,7 @@
                 {
                     "id": "6",
                     "typeId": "900000000000003001",
-                    "term": "SNOMED CT Concept (SNOMED RT+CTV3)"
+                    "term": "(Ibuprofen oxycodone product)"
                 }
             ]
         },
@@ -89,7 +89,7 @@
                 {
                     "id": "7",
                     "typeId": "900000000000003001",
-                    "term": "(Ibuprofen oxycodone product)"
+                    "term": "Ibuprofen & oxycodone (product)"
                 }
             ]
         },
@@ -99,7 +99,7 @@
                 {
                     "id": "8",
                     "typeId": "900000000000003001",
-                    "term": "Ibuprofen & oxycodone (product)"
+                    "term": "Ibuprofen % oxycodone (product)"
                 }
             ]
         },
@@ -109,7 +109,7 @@
                 {
                     "id": "9",
                     "typeId": "900000000000003001",
-                    "term": "Ibuprofen % oxycodone (product)"
+                    "term": "Ibuprofen $ oxycodone (product)"
                 }
             ]
         },
@@ -119,7 +119,7 @@
                 {
                     "id": "10",
                     "typeId": "900000000000003001",
-                    "term": "Ibuprofen $ oxycodone (product)"
+                    "term": "Ibuprofen @ oxycodone (product)"
                 }
             ]
         },
@@ -129,7 +129,7 @@
                 {
                     "id": "11",
                     "typeId": "900000000000003001",
-                    "term": "Ibuprofen @ oxycodone (product)"
+                    "term": "#Ibuprofen oxycodone (product)"
                 }
             ]
         },
@@ -138,16 +138,6 @@
             "descriptions": [
                 {
                     "id": "12",
-                    "typeId": "900000000000003001",
-                    "term": "#Ibuprofen oxycodone (product)"
-                }
-            ]
-        },
-        {
-            "id": "13",
-            "descriptions": [
-                {
-                    "id": "13",
                     "typeId": "900000000000003001",
                     "term": "ibuprofen oxycodone (product)"
                 }
