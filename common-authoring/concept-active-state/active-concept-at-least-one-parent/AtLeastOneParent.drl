@@ -10,5 +10,5 @@ rule "Active concept must have a parent"
 	when
 		c : Concept(active && !RelationshipHelper.hasActiveRelationshipOfType(c, Constants.IS_A))
 	then
-		invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: active concepts must have at least one ISA relationship."));
+		invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: active concepts must have at least one ISA relationship.").ignorePublishedCheck());
 end

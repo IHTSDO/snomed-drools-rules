@@ -23,5 +23,11 @@
                     "typeId": "363698007" // Finding site
                 }
             ]
+        },
+        {
+            "id": "3",
+            "published": true,
+            "relationships": []
         }
-    ]}
+    ]
+}
