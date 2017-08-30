@@ -10,11 +10,12 @@ global java.util.List invalidContent
 global DescriptionService descriptionService
 global ConceptService conceptService
 
+// "Correlation ID" is a special case where duplicates are expected
 rule "Active term unique in hierarchy"
     dialect "mvel"
     when
     	c : Concept(active)
-    	d : Description(c.id == d.conceptId && active && term.length > 1)
+    	d : Description(c.id == d.conceptId && active && term.length > 1 && !term.startsWith("Correlation ID"))
     	$duplicate : Description(active && id != d.id && conceptService.isActive(conceptId) == true) from descriptionService.findMatchingDescriptionInHierarchy(c, d)
     then
         invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: term already exists within this hierarchy on concept " + $duplicate.conceptId +
