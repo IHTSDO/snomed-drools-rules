@@ -1,0 +1,180 @@
+{
+    "assertConceptsPass": [
+        {
+            "id": "1",
+            "moduleId": "11000172109", // BE module
+            "descriptions": [
+                {
+                    "id": "1a",
+                    "term": "Organism (organism)",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                },
+                {
+                    "id": "1b",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "moduleId": "11000172109", // BE module
+                    "languageCode": "en",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                },
+                {
+                    "id": "1c",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "moduleId": "11000172109", // BE module
+                    "languageCode": "fr",
+                    "acceptabilityMap": {
+                        "21000172104": "900000000000548007" // BE-FR Preferred
+                    }
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "moduleId": "11000172109", // BE module
+            "descriptions": [
+                {
+                    "id": "2a",
+                    "term": "Organism (organism)",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                },
+                {
+                    "id": "2b",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "moduleId": "11000172109", // BE module
+                    "languageCode": "en",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                },
+                {
+                    "id": "2c",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "moduleId": "11000172109", // BE module
+                    "languageCode": "nl",
+                    "acceptabilityMap": {
+                        "31000172101": "900000000000548007" // BE-NL Preferred
+                    }
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "moduleId": "11000172109", // BE module
+            "descriptions": [
+                {
+                    "id": "3a",
+                    "term": "Organism (organism)",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                },
+                {
+                    "id": "3b",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "moduleId": "11000172109", // BE module
+                    "languageCode": "en",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                },
+                {
+                    "id": "3c",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "moduleId": "11000172109", // BE module
+                    "languageCode": "nl",
+                    "acceptabilityMap": {
+                        "31000172101": "900000000000548007" // BE-NL Preferred
+                    }
+                },
+                {
+                    "id": "3d",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "moduleId": "11000172109", // BE module
+                    "languageCode": "fr",
+                    "acceptabilityMap": {
+                        "21000172104": "900000000000548007" // BE-FR Preferred
+                    }
+                }
+            ]
+        }
+    ],
+    "assertConceptsFail": [
+        {
+            "id": "1",
+            "moduleId": "11000172109", // BE module
+            "descriptions": [
+                {
+                    "id": "1a",
+                    "term": "Organism (organism)",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                },
+                {
+                    "id": "1b",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "moduleId": "11000172109", // BE module
+                    "languageCode": "en",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                },
+                {
+                    "id": "1c",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "moduleId": "11000172109", // BE module
+                    "languageCode": "fr"
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "moduleId": "11000172109", // BE module
+            "descriptions": [
+                {
+                    "id": "2a",
+                    "term": "Organism (organism)",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                },
+                {
+                    "id": "2b",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "moduleId": "11000172109", // BE module
+                    "languageCode": "en",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                },
+                {
+                    "id": "2c",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "moduleId": "11000172109", // BE module
+                    "languageCode": "nl"
+                }
+            ]
+        }
+    ]
+}
