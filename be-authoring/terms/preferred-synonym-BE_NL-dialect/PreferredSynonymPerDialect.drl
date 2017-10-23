@@ -9,11 +9,11 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "Preferred synonym per dialect"
+rule "Preferred synonym in BE_NL dialect"
 	dialect "mvel"
 	when
 		c : Concept(active)
-		ArrayList(size > 0 || c.moduleId contains "11000172109") from collect (
+		ArrayList(size > 0 || c.moduleId == "11000172109") from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "nl")
 		)
 		ArrayList(size != 1) from collect (
