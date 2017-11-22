@@ -6,14 +6,35 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "Term unique in concept"
+rule "Term already exists in concept with same case - both active."
 	dialect "mvel"
 	when
-		c : Concept(active)
-		d1 : Description(active && conceptId == c.id)
-		d2 : Description(conceptId == c.id && id != d1.id && term.equalsIgnoreCase(d1.term)
-							&& (d1.languageCode == d2.languageCode && (active || (!d1.released && typeId.equals(d1.typeId)))))
-
+		d1 : Description(active)
+		d2 : Description(active && conceptId == d1.conceptId && id != d1.id && d1.languageCode == d2.languageCode && term.equals(d1.term))
 	then
-		invalidContent.add(new InvalidContent(d1, "The system has detected a contradiction of the following convention: active descriptions must be unique in a concept. Character case is ignored. Two descriptions may have the same term only if they have different language codes or if one is inactive.", Severity.ERROR));
+		invalidContent.add(new InvalidContent(d1, "The system has detected a contradiction of the following convention: " +
+		    "active descriptions must not have the same term as another within the concept unless the language code is different. " +
+		    "Please remove one of the descriptions.", Severity.ERROR));
+end
+
+rule "Term already exists in concept with same case - the other description is released and inactive, this one is not released."
+	dialect "mvel"
+	when
+		d1 : Description(!active && released)
+		d2 : Description(active && !released && conceptId == d1.conceptId && id != d1.id && d1.languageCode == d2.languageCode && term.equals(d1.term))
+	then
+		invalidContent.add(new InvalidContent(d1, "The system has detected a contradiction of the following convention: " +
+		    "active descriptions must not have the same term as another within the concept unless the language code is different. " +
+		    "Please make the other description active and remove this one.", Severity.ERROR));
+end
+
+rule "Term already exists in concept with different case - both active"
+	dialect "mvel"
+	when
+		d1 : Description(active)
+		d2 : Description(active && conceptId == d1.conceptId && id != d1.id && d1.languageCode == d2.languageCode && term.equalsIgnoreCase(d1.term))
+	then
+		invalidContent.add(new InvalidContent(d1, "The system has detected a contradiction of the following convention: " +
+		    "active descriptions must not have the same term as another within the concept unless the language code is different. " +
+		    "There is another description with the same term but different case. Please remove the other description or make it inactive.", Severity.ERROR));
 end

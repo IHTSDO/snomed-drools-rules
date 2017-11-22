@@ -72,6 +72,27 @@
                     "active": false
                 }
             ]
+        },
+        {
+            "id": "5",
+            "descriptions": [
+                {
+                    "id": "3a",
+                    "active": true,
+                    "released": false,
+                    "typeId": "1",
+                    "languageCode": "en",
+                    "term": "Body Structure (body structure)"
+                },
+                {
+                    "id": "3b",
+                    "active": false,
+                    "released": true,
+                    "typeId": "1",
+                    "languageCode": "en",
+                    "term": "Body structure (body structure)"
+                }
+            ]
         }
     ],
     "assertConceptsFail": [
@@ -81,11 +102,13 @@
                 {
                     "id": "1a",
                     "typeId": "1",
+                    "languageCode": "en",
                     "term": "Body structure (body structure)"
                 },
                 {
                     "id": "1b",
                     "typeId": "1",
+                    "languageCode": "en",
                     "term": "Body structure (body structure)"
                 }
             ]
@@ -96,12 +119,14 @@
                 {
                     "id": "1aa",
                     "typeId": "1",
+                    "languageCode": "en",
                     "term": "Body structure (body structure)",
                     "released": true
                 },
                 {
                     "id": "1ab",
                     "typeId": "1",
+                    "languageCode": "en",
                     "term": "Body structure (body structure)",
                     "released": true
                 }
@@ -113,16 +138,19 @@
                 {
                     "id": "2a",
                     "typeId": "1",
+                    "languageCode": "en",
                     "term": "Organism (organism)"
                 },
                 {
                     "id": "2b",
                     "typeId": "1",
+                    "languageCode": "en",
                     "term": "Organism"
                 },
                 {
                     "id": "2c",
                     "typeId": "1",
+                    "languageCode": "en",
                     "term": "Organism (organism)"
                 }
             ]
@@ -133,13 +161,17 @@
                 {
                     "id": "3a",
                     "active": true,
+                    "released": false,
                     "typeId": "1",
+                    "languageCode": "en",
                     "term": "Body Structure (body structure)"
                 },
                 {
                     "id": "3b",
-                    "active": false,
+                    "active": true,
+                    "released": true,
                     "typeId": "1",
+                    "languageCode": "en",
                     "term": "Body structure (body structure)"
                 }
             ]
@@ -150,35 +182,37 @@
                 {
                     "id": "1a",
                     "typeId": "1",
+                    "languageCode": "en",
                     "term": "Organism (organism)"
                 },
                 {
                     "id": "1b",
                     "typeId": "1",
                     "active": true,
+                    "languageCode": "en",
                     "term": "Organism"
                 },
                 {
                     "id": "1c",
                     "typeId": "2",
+                    "active": true,
+                    "languageCode": "en",
                     "term": "Organism"
                 }
             ]
         },
         {
-            "id": "3",
+            "id": "f3",
             "descriptions": [
                 {
-                    "id": "1b",
+                    "id": "f3a",
                     "languageCode": "en",
-                    "typeId": "1",
                     "term": "Organism"
                 },
                 {
-                    "id": "1c",
+                    "id": "f3b",
                     "languageCode": "en",
-                    "typeId": "2",
-                    "term": "Organism"
+                    "term": "organism"
                 }
             ]
         },
