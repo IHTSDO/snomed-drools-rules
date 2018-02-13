@@ -1,0 +1,123 @@
+{
+  "assertConceptsPass": [
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 0.01 Mg trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 0.01Mg trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 0.01-0.02 Mg trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 0.05-0.2 Mg and 0.5-0.9 Mg trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 0.05-0.2 Mg and 0.5-0.9Mg trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 0.05 Mg - 0.2 Mg and 0.5-0.9Mg trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Text abbrev. such as V.G. .notANumber should not trigger this rule"
+        }
+      ]
+    }
+  ],
+  "assertConceptsFail": [
+   {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text .01 Mg trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text .01Mg trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text .01-0.02 Mg trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 0.05-.2 Mg and 0.5-0.9 Mg trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 0.05-0.2 Mg and .5-0.9Mg trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 0.05 Mg - 0.2 Mg and 0.5-.9Mg trailing text"
+        }
+      ]
+    }
+  ]
+}
