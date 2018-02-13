@@ -5,6 +5,60 @@
         {
           "id": "1",
           "active": true,
+          "term": "0.1"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "0.01"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "leading text 0.1"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "leading text 0.01"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "0.1 trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "0.01 trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
           "term": "Leading text 0.01 Mg trailing text"
         }
       ]
@@ -65,7 +119,61 @@
     }
   ],
   "assertConceptsFail": [
-   {
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": ".1"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": ".01"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "leading text .1"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "leading text .01"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": ".1 trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": ".01 trailing text"
+        }
+      ]
+    },
+    {
       "descriptions": [
         {
           "id": "1",
