@@ -27,7 +27,7 @@
                     "term": "Organism",
                     "typeId": "900000000000013009", // SYNONYM
                     "moduleId": "51000202101", // NO module
-                    "languageCode": "nr",
+                    "languageCode": "nb",
                     "acceptabilityMap": {
                         "61000202103": "900000000000548007" // NR Preferred
                     }
@@ -80,7 +80,7 @@
                     "id": "3",
                     "term": "Organism",
                     "typeId": "900000000000013009", // SYNONYM
-                    "languageCode": "nr",
+                    "languageCode": "nb",
                     "acceptabilityMap": {
                     }
                 }
@@ -102,7 +102,7 @@
                     "id": "7",
                     "term": "Organism (B)",
                     "typeId": "900000000000013009", // SYNONYM
-                    "languageCode": "nr",
+                    "languageCode": "nb",
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007"
                     }
@@ -124,7 +124,7 @@
                     "published": true,
                     "term": "Organism (B)",
                     "typeId": "900000000000013009", // SYNONYM
-                    "languageCode": "nr",
+                    "languageCode": "nb",
                     "acceptabilityMap": {
                         "61000202103": "900000000000549004" // NO Acceptable
                     }
