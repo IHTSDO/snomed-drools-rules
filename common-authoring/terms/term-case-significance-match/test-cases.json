@@ -69,6 +69,49 @@
                     "term": "Greece without case sensitivity"
                 }
             ]
+         },
+         {
+            "id": "2",
+            "descriptions": [
+                {
+                    "id": "2a",
+                    "caseSignificanceId": "900000000000017005",
+                    "typeId" : "900000000000013009",
+                    "term": "Zymophilus paucivorans"
+                },
+                
+                {
+                    "id": "2b",
+                    "caseSignificanceId": "900000000000448009",
+                    "typeId" : "900000000000013009",
+                    "term": "Zymophilus paucivorans something"
+                }
+            ]
+         },
+         
+         {
+            "id": "3",
+            "descriptions": [
+                {
+                    "id": "3a",
+                    "caseSignificanceId": "900000000000017005",
+                    "typeId" : "900000000000003001",                   
+                    "term": "Zymophilus paucivorans two (organism)"
+                },
+                
+                {
+                    "id": "3b",
+                    "caseSignificanceId": "900000000000017005",
+                    "typeId" : "900000000000013009",
+                    "term": "Zymophilus paucivorans two"
+                },
+                {
+                    "id": "3c",
+                    "caseSignificanceId": "900000000000448009",
+                    "typeId" : "900000000000013009",
+                    "term": "Zymophilus paucivorans two something"
+                }
+            ]
          }
     ]
 }
