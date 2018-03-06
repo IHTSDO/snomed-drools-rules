@@ -22,3 +22,13 @@ rule "Preferred synonym in BE_FR dialect"
 	then
 		invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept should have one Preferred Synonym in the BE-FR dialect with the 'fr' language code.", Severity.WARNING).ignorePublishedCheck());
 end
+
+
+rule "Only one Preferred term for each description in BE_FR dialect"
+	dialect "mvel"
+	when
+		c : Concept(active, moduleId == "11000172109")
+		d : Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "fr", acceptabilityMap["21000172104"] == Constants.ACCEPTABILITY_PREFERRED, acceptabilityMap["31000172101"] == Constants.ACCEPTABILITY_PREFERRED)
+	then
+		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active description should have one Preferred Synonym in the BE-FR dialect with the 'fr' language code.", Severity.WARNING).ignorePublishedCheck());
+end
