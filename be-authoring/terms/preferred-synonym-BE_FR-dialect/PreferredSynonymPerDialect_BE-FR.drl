@@ -20,5 +20,5 @@ rule "Preferred synonym in BE_FR dialect"
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "fr", acceptabilityMap["21000172104"] == Constants.ACCEPTABILITY_PREFERRED)
 		)
 	then
-		invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept should have one Preferred Synonym in the BE-FR dialect with the 'fr' language code.", Severity.WARNING).ignorePublishedCheck());
+		invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept should have one Preferred Synonym in the BE-FR dialect with the 'fr' language code.", Severity.ERROR).ignorePublishedCheck());
 end
