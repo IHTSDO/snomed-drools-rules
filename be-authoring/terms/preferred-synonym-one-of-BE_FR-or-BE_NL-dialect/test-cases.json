@@ -31,6 +31,16 @@
                     "acceptabilityMap": {
                         "21000172104": "900000000000548007" // BE-FR Preferred
                     }
+                },
+                {
+                    "id": "1d",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "moduleId": "11000172109", // BE module
+                    "languageCode": "nl",
+                    "acceptabilityMap": {
+                        "31000172101": "900000000000548007" // BE-NL Preferred
+                    }
                 }
             ]
         },
@@ -64,6 +74,16 @@
                     "languageCode": "nl",
                     "acceptabilityMap": {
                         "31000172101": "900000000000548007" // BE-NL Preferred
+                    }
+                },
+                {
+                    "id": "2d",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "moduleId": "11000172109", // BE module
+                    "languageCode": "fr",
+                    "acceptabilityMap": {
+                        "21000172104": "900000000000548007" // BE-NL Preferred
                     }
                 }
             ]
@@ -174,6 +194,74 @@
                     "moduleId": "11000172109", // BE module
                     "languageCode": "nl"
                 }
+            ]
+        },
+        {
+            "id": "3",
+            "moduleId": "11000172109", // BE module
+            "descriptions": [
+                {
+                    "id": "3a",
+                    "term": "Organism (organism)",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                },
+                {
+                    "id": "3b",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "moduleId": "11000172109", // BE module
+                    "languageCode": "en",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                },
+                {
+                    "id": "3c",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "moduleId": "11000172109", // BE module
+                    "languageCode": "fr",
+                    "acceptabilityMap": {
+                        "21000172104": "900000000000548007" // BE-FR Preferred
+                    }
+                }               
+            ]
+        },
+        {
+            "id": "4",
+            "moduleId": "11000172109", // BE module
+            "descriptions": [
+                {
+                    "id": "4a",
+                    "term": "Organism (organism)",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                },
+                {
+                    "id": "4b",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "moduleId": "11000172109", // BE module
+                    "languageCode": "en",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                },
+                {
+                    "id": "4c",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "moduleId": "11000172109", // BE module
+                    "languageCode": "nl",
+                    "acceptabilityMap": {
+                        "31000172101": "900000000000548007" // BE-NL Preferred
+                    }
+                }                
             ]
         }
     ]
