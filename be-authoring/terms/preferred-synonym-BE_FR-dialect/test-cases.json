@@ -130,6 +130,30 @@
                     }
                 }
             ]
+        },
+        {
+            "id": "10", 
+            "moduleId": "11000172109", // BE module
+            "descriptions": [
+                {
+                    "id": "11",
+                    "term": "Organism (A)",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "languageCode": "nl",
+                    "acceptabilityMap": {
+                        "21000172104": "900000000000548007" // ACCEPTABILITY_PREFERRED
+                    }
+                },
+                {
+                    "id": "12",
+                    "term": "Organism (B)",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "languageCode": "fr",
+                    "acceptabilityMap": {
+                        "21000172104": "900000000000548007" // ACCEPTABILITY_PREFERRED
+                    }
+                }
+            ]
         }
     ]
 }

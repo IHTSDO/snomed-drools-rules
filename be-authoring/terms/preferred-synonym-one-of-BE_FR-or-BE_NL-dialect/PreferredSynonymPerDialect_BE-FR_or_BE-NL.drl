@@ -5,6 +5,7 @@ import java.util.Collection
 import java.util.ArrayList
 import org.ihtsdo.drools.helper.DescriptionHelper
 import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
@@ -26,4 +27,34 @@ rule "Preferred synonym in BE_FR or BE_NL dialect"
         )
 	then
 		invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept must have one Preferred Synonym in either the BE-FR or BE-NL dialects.").ignorePublishedCheck());
+end
+
+rule "Preferred synonym in BE_NL dialect"
+	dialect "mvel"
+	when
+		c : Concept(active)
+		ArrayList(size > 0, c.moduleId == "11000172109") from collect (
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "fr", acceptabilityMap["21000172104"] == Constants.ACCEPTABILITY_PREFERRED)
+		)
+	
+        ArrayList(size == 0, c.moduleId == "11000172109") from collect (
+            Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "nl", acceptabilityMap["31000172101"] == Constants.ACCEPTABILITY_PREFERRED)
+        )        
+	then
+		invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept must have one Preferred Synonym in BE-NL dialect with the 'nl' language code.", Severity.WARNING).ignorePublishedCheck());
+end
+
+rule "Preferred synonym in BE_FR dialect"
+	dialect "mvel"
+	when
+		c : Concept(active)
+		ArrayList(size == 0, c.moduleId == "11000172109") from collect (
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "fr", acceptabilityMap["21000172104"] == Constants.ACCEPTABILITY_PREFERRED)
+		)
+		
+        ArrayList(size > 0, c.moduleId == "11000172109") from collect (
+            Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "nl", acceptabilityMap["31000172101"] == Constants.ACCEPTABILITY_PREFERRED)
+        )       
+	then
+		invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept must have one Preferred Synonym in BE-FR dialect with the 'fr' language code.", Severity.WARNING).ignorePublishedCheck());
 end
