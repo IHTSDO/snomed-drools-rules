@@ -9,20 +9,6 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "Preferred synonym in BE_NL dialect with the 'nl' language code"
-	dialect "mvel"
-	when
-		c : Concept(active)
-		ArrayList(size > 0 || c.moduleId == "11000172109") from collect (
-			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "nl")
-		)
-		ArrayList(size != 1) from collect (
-			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "nl", acceptabilityMap["31000172101"] == Constants.ACCEPTABILITY_PREFERRED)
-		)
-	then
-		invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept should have one Preferred Synonym in the BE-NL dialect with the 'nl' language code.", Severity.ERROR).ignorePublishedCheck());
-end
-
 rule "Only one preferred synonym in BE_NL dialect"
 	dialect "mvel"
 	when
@@ -30,7 +16,7 @@ rule "Only one preferred synonym in BE_NL dialect"
 		ArrayList(size > 0 || c.moduleId == "11000172109") from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM)
 		)
-		ArrayList(size != 1) from collect (
+		ArrayList(size > 0, size != 1) from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, acceptabilityMap["31000172101"] == Constants.ACCEPTABILITY_PREFERRED)
 		)
 	then
