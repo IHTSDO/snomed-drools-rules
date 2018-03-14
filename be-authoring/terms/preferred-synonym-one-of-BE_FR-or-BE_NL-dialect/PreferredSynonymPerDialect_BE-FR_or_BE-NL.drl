@@ -41,7 +41,7 @@ rule "Preferred synonym in BE_NL dialect"
             Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "nl", acceptabilityMap["31000172101"] == Constants.ACCEPTABILITY_PREFERRED)
         )        
 	then
-		invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept must have one Preferred Synonym in BE-NL dialect with the 'nl' language code.", Severity.WARNING).ignorePublishedCheck());
+		invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept should have one Preferred Synonym in BE-NL dialect with the 'nl' language code.", Severity.WARNING).ignorePublishedCheck());
 end
 
 rule "Preferred synonym in BE_FR dialect"
@@ -56,5 +56,5 @@ rule "Preferred synonym in BE_FR dialect"
             Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "nl", acceptabilityMap["31000172101"] == Constants.ACCEPTABILITY_PREFERRED)
         )       
 	then
-		invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept must have one Preferred Synonym in BE-FR dialect with the 'fr' language code.", Severity.WARNING).ignorePublishedCheck());
+		invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept should have one Preferred Synonym in BE-FR dialect with the 'fr' language code.", Severity.WARNING).ignorePublishedCheck());
 end
