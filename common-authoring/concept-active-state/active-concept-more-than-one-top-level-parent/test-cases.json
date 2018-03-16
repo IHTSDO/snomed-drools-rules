@@ -1,0 +1,108 @@
+{
+    "givenConcepts": [
+        {
+            "id": "138875005", // Root concept
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "description text 1 (product)",
+                    "conceptId": "138875005"
+                }
+            ]
+        },
+        {
+            "id": "373873005",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "description text 2 (physical object)",
+                    "conceptId": "373873005"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true
+                }
+            ]
+        },
+        {
+            "id": "260787004",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "description text 3 (environment)",
+                    "conceptId": "260787004"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "2",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true
+                }
+            ]
+        },
+        {
+            "id": "top3",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "3",
+                    "term": "description text 4 (other semantic tag)",
+                    "conceptId": "top3"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "2",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true
+                }
+            ]
+        }
+    ],
+    "assertConceptsPass": [
+        {
+            "id": "testCase3",
+            "active" : false,
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true
+                }
+            ]
+        }
+    ],
+    "assertConceptsFail": [
+    {
+            "id": "1",
+            "active" : true,
+            "relationships": [
+                {
+                    "id": "2",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                },
+                {
+                    "id": "3",
+                    "destinationId": "top3",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        }
+    ]
+}

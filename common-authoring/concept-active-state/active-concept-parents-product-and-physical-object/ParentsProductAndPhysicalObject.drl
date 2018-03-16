@@ -1,0 +1,23 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.helper.ConceptHelper
+import org.ihtsdo.drools.response.Severity
+import org.ihtsdo.drools.service.ConceptService
+import java.util.Collection
+import java.util.ArrayList
+
+global java.util.List invalidContent
+global ConceptService conceptService
+
+rule "Active concept has top level parents that are both (product) and (physical object)."
+	dialect "mvel"
+	when
+		c : Concept(active)
+		topLevelHierarchies : ArrayList() from collect (
+			Concept(id != c.id) from conceptService.findTopLevelHierachiesOfConcept(c)
+		)
+		Concept (ConceptHelper.containsAnyConcept(topLevelHierarchies,"373873005","260787004"))
+	then
+		invalidContent.add(new InvalidContent(c, "The system has detected a contravention of the following convention: a concept should not belong to more than one top-level hierarchy.", Severity.WARNING));
+end
