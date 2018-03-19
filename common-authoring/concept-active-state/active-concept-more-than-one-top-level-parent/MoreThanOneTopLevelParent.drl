@@ -16,8 +16,7 @@ rule "Active concept should not belong to more than one top-level hierarchy"
 		c : Concept(active)
 		topLevelHierarchies : ArrayList() from collect (
 			Concept(id != c.id) from conceptService.findTopLevelHierachiesOfConcept(c)
-		)
-		Concept (ConceptHelper.isMoreThanOneTopLevelHierarchy(topLevelHierarchies,"373873005","260787004"))
+		)		
 	then
-		invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: Concept should not belong to more than one top-level hierarchy.", Severity.ERROR));
+		invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: Concept should not belong to more than one top-level hierarchy : " + topLevelHierarchies, Severity.ERROR));
 end
