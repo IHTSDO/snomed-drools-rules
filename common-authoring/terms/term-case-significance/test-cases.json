@@ -46,7 +46,8 @@
                     "term": "Ibuprofen & Oxycodone (product)"
                 }
             ]
-        }, {
+        }, 
+        /* {
             "id": "4",
             "descriptions": [
                 {
@@ -64,7 +65,8 @@
                     "term": "ibuprofen & Oxycodone (product)"
                 }
             ]
-        }, {
+        }, */ 
+        {
             "id": "6",
             "descriptions": [
                 {

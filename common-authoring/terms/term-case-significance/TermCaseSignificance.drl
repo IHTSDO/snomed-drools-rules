@@ -24,6 +24,7 @@ rule "Term Case Significance: Entire term case insensitive"
 		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active term on an active concept with case significance 'entire term case insensitive' should not contain capital letters after the first character", Severity.WARNING));
 end
 
+/*
 rule "Term Case Significance: Terms starting with a lower case letter are expected to be marked CS"
 	dialect "mvel"
 	when
@@ -32,6 +33,7 @@ rule "Term Case Significance: Terms starting with a lower case letter are expect
 	then
 		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: Terms starting with a lower case letter are expected to be marked CS", Severity.WARNING));
 end
+*/
 
 rule "Term Case Significance: Terms containing a capital letter are expected to be marked cI or CS"
 	dialect "mvel"
