@@ -1,0 +1,16 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.response.Severity
+
+global java.util.List invalidContent
+
+rule "Term Case Significance: Terms starting with a lower case letter are expected to be marked CS"
+	dialect "mvel"
+	when
+		c : Concept(active == true)
+		d : Description(active == true && conceptId == c.id && (caseSignificanceId == Constants.ENTIRE_TERM_CASE_INSENSITIVE || caseSignificanceId == Constants.ONLY_INITIAL_CHARACTER_CASE_INSENSITIVE) && term matches "^[a-z].*$")
+	then
+		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: Terms starting with a lower case letter are expected to be marked CS", Severity.WARNING));
+end

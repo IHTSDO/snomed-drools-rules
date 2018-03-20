@@ -1,0 +1,49 @@
+{
+	// 1 - only initial character case insensitive
+	// 3 - entire term case insensitive
+    "assertConceptsPass": [
+        {
+            "id": "1",
+            "descriptions": [
+                {
+                    "id": "1",
+                    "caseSignificanceId": "900000000000020002",
+                    "term": "Entire medial Ligament of ankle joint"
+                }
+            ]
+        }, {
+            "id": "3",
+            "descriptions": [
+                {
+                    "id": "3",
+                    "caseSignificanceId": "900000000000448009",
+                    "term": "Ibuprofen & oxycodone (product)"
+                }
+
+            ]
+        }
+    ],
+    // 1 - Terms starting with a lower case letter are expected to be marked CS
+    "assertConceptsFail": [     
+         {
+            "id": "1",
+            "descriptions": [
+                {
+                    "id": "1",
+                    "caseSignificanceId": "900000000000448009",
+                    "term": "ibuprofen & Oxycodone (product)"
+                }
+            ]
+        }, {
+            "id": "2",
+            "descriptions": [
+                {
+                    "id": "2",
+                    "caseSignificanceId": "900000000000020002",
+                    "term": "ibuprofen & Oxycodone (product)"
+                }
+            ]
+        }
+       
+    ]
+}
