@@ -14,10 +14,8 @@ rule "Active concept has top level parents that are both (product) and (physical
 	dialect "mvel"
 	when
 		c : Concept(active)
-		topLevelHierarchies : ArrayList() from collect (
-			Concept(id != c.id) from conceptService.findTopLevelHierachiesOfConcept(c)
-		)
-		Concept (ConceptHelper.containsAnyConcept(topLevelHierarchies,"373873005","260787004"))
+		topLevelHierarchies : ArrayList() from collect( String() from conceptService.findTopLevelHierachiesOfConcept(c))
+        Concept(ConceptHelper.containsAnyConcept(topLevelHierarchies,"373873005","260787004"))         
 	then
 		invalidContent.add(new InvalidContent(c, "The system has detected a contravention of the following convention: a concept should not belong to more than one top-level hierarchy.", Severity.WARNING));
 end

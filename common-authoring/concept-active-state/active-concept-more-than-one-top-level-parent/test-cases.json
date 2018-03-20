@@ -26,12 +26,13 @@
                     "id": "1",
                     "destinationId": "138875005",
                     "typeId": "116680003", // is-a
-                    "active": true
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
                 }
             ]
         },
         {
-            "id": "260787004",
+            "id": "290787004",
             "active" : true,
             "descriptions": [
                 {
@@ -45,29 +46,11 @@
                     "id": "2",
                     "destinationId": "138875005",
                     "typeId": "116680003", // is-a
-                    "active": true
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
                 }
             ]
-        },
-        {
-            "id": "top3",
-            "active" : true,
-            "descriptions": [
-                {
-                    "id": "3",
-                    "term": "description text 4 (other semantic tag)",
-                    "conceptId": "top3"
-                }
-            ],
-            "relationships": [
-                {
-                    "id": "2",
-                    "destinationId": "138875005",
-                    "typeId": "116680003", // is-a
-                    "active": true
-                }
-            ]
-        }
+        }        
     ],
     "assertConceptsPass": [
         {
@@ -97,7 +80,7 @@
                 },
                 {
                     "id": "3",
-                    "destinationId": "top3",
+                    "destinationId": "290787004",
                     "typeId": "116680003", // is-a
                     "active": true,
                     "characteristicTypeId": "900000000000010007"

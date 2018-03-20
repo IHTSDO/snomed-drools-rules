@@ -26,7 +26,8 @@
                     "id": "1",
                     "destinationId": "138875005",
                     "typeId": "116680003", // is-a
-                    "active": true
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
                 }
             ]
         },
@@ -45,7 +46,8 @@
                     "id": "2",
                     "destinationId": "138875005",
                     "typeId": "116680003", // is-a
-                    "active": true
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
                 }
             ]
         },
