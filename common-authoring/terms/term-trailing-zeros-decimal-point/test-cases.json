@@ -1,0 +1,114 @@
+{
+  "assertConceptsPass": [
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 0.01 Mg trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 1.01Mg trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 0.01-1.02 Mg trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 1Mg trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 1 Mg and 1-5 Mg trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 2 Mg - 5 Mg and 7-10 Mg trailing text"
+        }
+      ]
+    }
+  ],
+  "assertConceptsFail": [
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 1.0 Mg trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 1.00 Mg trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 1.000 Mg trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 1.0Mg trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 1 Mg and 1.010-5 Mg trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 2 Mg - 5.05 Mg and 7-10.0 Mg trailing text"
+        }
+      ]
+    }
+  ]
+}
