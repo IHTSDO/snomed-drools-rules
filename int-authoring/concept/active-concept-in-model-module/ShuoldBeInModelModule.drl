@@ -1,0 +1,21 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Relationship
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.helper.RelationshipHelper
+import java.util.ArrayList
+import org.ihtsdo.drools.response.Severity
+import org.ihtsdo.drools.service.ConceptService
+
+global java.util.List invalidContent
+global ConceptService conceptService
+
+rule "Metadata concepts should be in the model module"
+	dialect "mvel"
+	when
+		c : Concept(active)
+		statedAncestors : ArrayList() from collect( String() from conceptService.findStatedAncestorsOfConcept(c))
+        Concept((statedAncestors contains "900000000000442005") || (statedAncestors contains "900000000000454005") || (statedAncestors contains "106237007") ||  (statedAncestors contains "370136006"))
+	then
+		invalidContent.add(new InvalidContent(c, "The system has detected a contravention of the following convention: Metadata concepts should be in the model module (not the core module).", Severity.WARNING).ignorePublishedCheck());
+end
