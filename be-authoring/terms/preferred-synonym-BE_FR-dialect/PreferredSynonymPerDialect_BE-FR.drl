@@ -20,5 +20,7 @@ rule "Only one preferred synonym in BE_FR dialect"
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, acceptabilityMap["21000172104"] == Constants.ACCEPTABILITY_PREFERRED)
 		)
 	then
-		invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept should have only one Preferred Synonym in the BE-FR dialect.", Severity.ERROR).ignorePublishedCheck());
+        InvalidContent invalid = new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept should have only one Preferred Synonym in the BE-FR dialect.", Severity.ERROR);
+        invalid.ignorePublishedCheck()
+        invalidContent.add(invalid);
 end

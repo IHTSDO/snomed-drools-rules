@@ -14,5 +14,7 @@ rule "Active concept must have a parent"
 		activeStatedIsA: ArrayList( size == 0 )
            from collect( Relationship(active, sourceId == c.id, typeId == Constants.IS_A, characteristicTypeId == Constants.STATED_RELATIONSHIP) )
 	then
-		invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: active concepts must have at least one ISA relationship.").ignorePublishedCheck());
+		InvalidContent invalid = new InvalidContent(c, "The system has detected a contradiction of the following convention: active concepts must have at least one ISA relationship.");
+        invalid.ignorePublishedCheck();
+        invalidContent.add(invalid);
 end

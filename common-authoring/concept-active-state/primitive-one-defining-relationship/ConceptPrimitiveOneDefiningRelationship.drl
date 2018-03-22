@@ -13,5 +13,7 @@ rule "Primitive concepts must have one defining relationship"
 	when
 		c : Concept(active && definitionStatusId == Constants.DEFINED && relationships.size() == 1)
    	then
-		invalidContent.add(new InvalidContent(c, c.relationships.size() + ": The system has detected a contradiction of the following convention: concept marked as DEFINED must have more than one definin").ignorePublishedCheck());
+		InvalidContent invalid = new InvalidContent(c, c.relationships.size() + ": The system has detected a contradiction of the following convention: concept marked as DEFINED must have more than one definin");
+        invalid.ignorePublishedCheck();
+        invalidContent.add(invalid);
 end
