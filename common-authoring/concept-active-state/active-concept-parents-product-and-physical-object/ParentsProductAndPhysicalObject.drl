@@ -17,5 +17,7 @@ rule "Active concept has top level parents that are both (product) and (physical
 		topLevelHierarchies : ArrayList() from collect( String() from conceptService.findTopLevelHierachiesOfConcept(c))
         Concept(ConceptHelper.containsAnyConcept(topLevelHierarchies,"373873005","260787004"))         
 	then
-		invalidContent.add(new InvalidContent(c, "The system has detected a contravention of the following convention: Active concept has parents that are both (product) and (physical object).", Severity.WARNING).ignorePublishedCheck());
+		InvalidContent w = new InvalidContent(c, "The system has detected a contravention of the following convention: Active concept has parents that are both (product) and (physical object).", Severity.WARNING)
+		w.ignorePublishedCheck()
+		invalidContent.add(w);
 end
