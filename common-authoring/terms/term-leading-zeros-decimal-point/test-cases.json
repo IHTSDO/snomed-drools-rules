@@ -1,6 +1,7 @@
 {
   "assertConceptsPass": [
     {
+      "id": "1",
       "descriptions": [
         {
           "id": "1",
@@ -10,116 +11,139 @@
       ]
     },
     {
+      "id": "2",
       "descriptions": [
         {
-          "id": "1",
+          "id": "2",
           "active": true,
           "term": "0.01"
         }
       ]
     },
     {
+      "id": "3",
       "descriptions": [
         {
-          "id": "1",
+          "id": "3",
           "active": true,
           "term": "leading text 0.1"
         }
       ]
     },
     {
+      "id": "4",
       "descriptions": [
         {
-          "id": "1",
+          "id": "4",
           "active": true,
           "term": "leading text 0.01"
         }
       ]
     },
     {
+      "id": "5",
       "descriptions": [
         {
-          "id": "1",
+          "id": "5",
           "active": true,
           "term": "0.1 trailing text"
         }
       ]
     },
     {
+      "id": "6",
       "descriptions": [
         {
-          "id": "1",
+          "id": "6",
           "active": true,
           "term": "0.01 trailing text"
         }
       ]
     },
     {
+      "id": "7",
       "descriptions": [
         {
-          "id": "1",
+          "id": "7",
           "active": true,
           "term": "Leading text 0.01 Mg trailing text"
         }
       ]
     },
     {
+      "id": "8",
       "descriptions": [
         {
-          "id": "1",
+          "id": "8",
           "active": true,
           "term": "Leading text 0.01Mg trailing text"
         }
       ]
     },
     {
+      "id": "9",
       "descriptions": [
         {
-          "id": "1",
+          "id": "9",
           "active": true,
           "term": "Leading text 0.01-0.02 Mg trailing text"
         }
       ]
     },
     {
+      "id": "10",
       "descriptions": [
         {
-          "id": "1",
+          "id": "10",
           "active": true,
           "term": "Leading text 0.05-0.2 Mg and 0.5-0.9 Mg trailing text"
         }
       ]
     },
     {
+      "id": "11",
       "descriptions": [
         {
-          "id": "1",
+          "id": "11",
           "active": true,
           "term": "Leading text 0.05-0.2 Mg and 0.5-0.9Mg trailing text"
         }
       ]
     },
     {
+      "id": "12",
       "descriptions": [
         {
-          "id": "1",
+          "id": "12",
           "active": true,
           "term": "Leading text 0.05 Mg - 0.2 Mg and 0.5-0.9Mg trailing text"
         }
       ]
     },
     {
+      "id": "13",
       "descriptions": [
         {
-          "id": "1",
+          "id": "13",
           "active": true,
           "term": "Text abbrev. such as V.G. .notANumber should not trigger this rule"
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "descriptions": [
+        {
+          "id": "14",
+          "active": true,
+          "term": "Text where a period before an integer represents abbreviation such as No.1 should not trigger this rule"
         }
       ]
     }
   ],
   "assertConceptsFail": [
     {
+      "id": "1",
       "descriptions": [
         {
           "id": "1",
@@ -129,99 +153,110 @@
       ]
     },
     {
+      "id": "2",
       "descriptions": [
         {
-          "id": "1",
+          "id": "2",
           "active": true,
           "term": ".01"
         }
       ]
     },
     {
+      "id": "3",
       "descriptions": [
         {
-          "id": "1",
+          "id": "3",
           "active": true,
           "term": "leading text .1"
         }
       ]
     },
     {
+      "id": "4",
       "descriptions": [
         {
-          "id": "1",
+          "id": "4",
           "active": true,
           "term": "leading text .01"
         }
       ]
     },
     {
+      "id": "5",
       "descriptions": [
         {
-          "id": "1",
+          "id": "5",
           "active": true,
           "term": ".1 trailing text"
         }
       ]
     },
     {
+      "id": "6",
       "descriptions": [
         {
-          "id": "1",
+          "id": "6",
           "active": true,
           "term": ".01 trailing text"
         }
       ]
     },
     {
+      "id": "7",
       "descriptions": [
         {
-          "id": "1",
+          "id": "7",
           "active": true,
           "term": "Leading text .01 Mg trailing text"
         }
       ]
     },
     {
+      "id": "8",
       "descriptions": [
         {
-          "id": "1",
+          "id": "8",
           "active": true,
           "term": "Leading text .01Mg trailing text"
         }
       ]
     },
     {
+      "id": "9",
       "descriptions": [
         {
-          "id": "1",
+          "id": "9",
           "active": true,
           "term": "Leading text .01-0.02 Mg trailing text"
         }
       ]
     },
     {
+      "id": "10",
       "descriptions": [
         {
-          "id": "1",
+          "id": "10",
           "active": true,
           "term": "Leading text 0.05-.2 Mg and 0.5-0.9 Mg trailing text"
         }
       ]
     },
     {
+      "id": "11",
       "descriptions": [
         {
-          "id": "1",
+          "id": "11",
           "active": true,
           "term": "Leading text 0.05-0.2 Mg and .5-0.9Mg trailing text"
         }
       ]
     },
     {
+      "id": "12",
       "descriptions": [
         {
-          "id": "1",
+          "id": "12",
           "active": true,
           "term": "Leading text 0.05 Mg - 0.2 Mg and 0.5-.9Mg trailing text"
         }

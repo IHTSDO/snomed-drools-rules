@@ -8,7 +8,7 @@ global java.util.List invalidContent
 rule "Lack of leading zero before a decimal point for decimal values less than one"
 	dialect "mvel"
 	when
-		d : Description(active && term matches "(^(.*\\D+)?\\.\\d+.*)")
+		d : Description(active && ((term matches "^\\.\\d+.*") || (term matches ".*[\\s-_]\\.\\d+.*")))
 	then
 		invalidContent.add(new InvalidContent(d, "Decimal values less than one should include a single leading zero before the decimal point.", Severity.WARNING));
 end
