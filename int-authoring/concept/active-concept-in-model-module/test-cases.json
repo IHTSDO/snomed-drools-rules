@@ -74,6 +74,7 @@
         {
             "id": "1",
             "active" : false,
+            "moduleId": "900000000000012004",
             "relationships": [
                 {
                     "id": "12",
@@ -88,6 +89,7 @@
     	{	
             "id": "1",
             "active" : true,
+            "moduleId": "900000000000207008",
             "relationships": [
                 {
                     "id": "11",
@@ -101,6 +103,7 @@
         {	
             "id": "2",
             "active" : true,
+            "moduleId": "900000000000207008",
             "relationships": [
                 {
                     "id": "22",
@@ -114,6 +117,7 @@
         {	
             "id": "3",
             "active" : true,
+            "moduleId": "900000000000207008",
             "relationships": [
                 {
                     "id": "33",
@@ -127,6 +131,7 @@
         {	
             "id": "4",
             "active" : true,
+            "moduleId": "900000000000207008",
             "relationships": [
                 {
                     "id": "44",
@@ -140,9 +145,24 @@
         {	
             "id": "5",
             "active" : true,
+            "moduleId": "900000000000207008",
             "relationships": [
                 {
                     "id": "55",
+                    "destinationId": "111111",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }                
+            ]
+        },
+        {	
+            "id": "6",
+            "active" : true,
+            "moduleId": "715515008",
+            "relationships": [
+                {
+                    "id": "66",
                     "destinationId": "111111",
                     "typeId": "116680003", // is-a
                     "active": true,
