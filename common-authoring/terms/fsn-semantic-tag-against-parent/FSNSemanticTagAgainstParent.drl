@@ -6,9 +6,12 @@ import org.ihtsdo.drools.helper.DescriptionHelper
 import org.ihtsdo.drools.helper.RelationshipHelper
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
+import org.ihtsdo.drools.service.ConceptService
+import java.util.ArrayList
 
 global java.util.List invalidContent
 global DescriptionService descriptionService
+global ConceptService conceptService
 
 // Note - this rule uses international edition language refsets
 rule "Semantic Tag of FSN compatible with concept parents"
@@ -31,4 +34,22 @@ rule "Semantic Tag of FSN compatible with concept parents"
 										}))
 	then
 		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: a concept's semantic tags should be compatible with those of the active parents.", Severity.WARNING));
+end
+
+
+rule "All Semantic Tag of concept parents does not match with Semantic Tag of FSN"
+	dialect "mvel"
+	when
+		c : Concept(active)
+		statedAncestors : ArrayList(size == 1) from collect( String() from conceptService.findTopLevelHierachiesOfConcept(c))
+		parents : ArrayList(size > 1) from collect( String() from descriptionService.getFSNs(RelationshipHelper.getActiveStatedParentConceptIds(c),Constants.US_EN_LANG_REFSET,Constants.GB_EN_LANG_REFSET))
+		d : Description(conceptId == c.id
+						&& active
+						&& typeId == Constants.FSN
+						&& !DescriptionHelper.isAllParentSemanticTagMatchWithTerm(term,parents)
+					   )
+	then
+		InvalidContent invalid = new InvalidContent(d, "The system has detected a contradiction of the following convention: a concept's semantic tags should be compatible with those of the active parents.", Severity.WARNING)
+		invalid.ignorePublishedCheck()
+		invalidContent.add(invalid);
 end

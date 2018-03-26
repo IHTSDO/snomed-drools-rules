@@ -26,8 +26,35 @@
                         "900000000000508004": "900000000000548007" // PREFERRED
                     }
                 }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // is-a
+                    "destinationId": "404684003" // Clinical finding (finding)
+                }
             ]
         },
+        {
+            "id": "106112009",
+            "descriptions": [
+                {
+                    "id": "5",
+                    "term": "Fetal finding (finding)",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007", // PREFERRED
+                        "900000000000508004": "900000000000548007" // PREFERRED
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // is-a
+                    "destinationId": "404684003" // Clinical finding (finding)
+                }
+            ]
+        },
+        
         {
             "id": "123",
             "descriptions": [
@@ -125,6 +152,33 @@
                 {
                     "typeId": "116680003", // is-a
                     "destinationId": "64572001" // Disease (disorder)
+                }
+            ]
+        },
+        
+        {
+            "id": "1",
+            "active" : true,
+            "bublished": true,
+            "descriptions": [
+                {
+                    "id": "1a",
+                    "term": "Testing (finding)",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007", // PREFERRED
+                        "900000000000508004": "900000000000548007" // PREFERRED
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // is-a
+                    "destinationId": "64572001" // Disease (disorder)
+                },
+                {
+                    "typeId": "106112009", // is-a
+                    "destinationId": "106112009" // Fetal finding (finding)
                 }
             ]
         }
