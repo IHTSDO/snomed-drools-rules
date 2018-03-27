@@ -12,7 +12,7 @@ rule "Preferred synonym per dialect"
 	when
 		c : Concept(active && DescriptionHelper.filterByActiveTypeAndDialectPreferred(c, true, Constants.SYNONYM, Constants.US_EN_LANG_REFSET).size() != 1)
 	then
-		InvalidContent invalid = new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept must have one Preferred Synonym in the US-EN dialect.");
+		InvalidContent invalid = new InvalidContent(c, "A concept must have one Preferred Synonym in the US-EN dialect.");
         invalid.ignorePublishedCheck();
         invalidContent.add(invalid);
 end

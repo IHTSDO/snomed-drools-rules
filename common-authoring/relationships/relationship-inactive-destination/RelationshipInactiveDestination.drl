@@ -10,5 +10,5 @@ rule "Active relationship must not have inactive destination"
 	when
 		r : Relationship(active && !conceptService.isActive(destinationId))
 	then
-		invalidContent.add(new InvalidContent(r, "The system has detected a contradiction of the following convention: concepts must not have relationships to inactive concepts."));
+		invalidContent.add(new InvalidContent(r, "Concepts must not have relationships to inactive concepts."));
 end

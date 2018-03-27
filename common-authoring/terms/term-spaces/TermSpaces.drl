@@ -11,7 +11,7 @@ rule "Term double, leading or trailing spaces"
 		c : Concept(active)
 		d : Description(active && term matches ".*  .*" || term matches " .*" || term matches ".* ")
 	then
-		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: terms must not contain double, leading or trailing spaces."));
+		invalidContent.add(new InvalidContent(d, "Terms must not contain double, leading or trailing spaces."));
 end
 
 rule "Active descriptions do not have spaces, either before or after, hyphens."
@@ -19,5 +19,5 @@ rule "Active descriptions do not have spaces, either before or after, hyphens."
 	when
 		d : Description(active && (term matches ".* -.*" || term matches ".*- .*"))
 	then
-		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: active descriptions should not have spaces, either before or after, hyphens.", Severity.WARNING));
+		invalidContent.add(new InvalidContent(d, "Active descriptions should not have spaces, either before or after, hyphens.", Severity.WARNING));
 end

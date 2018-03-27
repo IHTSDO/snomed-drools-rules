@@ -14,5 +14,5 @@ rule "Active FSN should not exist as inactive term on another concept"
 		d : Description(active == true && typeId == Constants.FSN && term.length > 1)
 		$duplicate : Description(id != d.id && typeId == Constants.FSN) from descriptionService.findInactiveDescriptionByExactTerm(d.term)
 	then
-		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: FSN exists as inactive on concept " + $duplicate.conceptId + ".", Severity.WARNING));
+		invalidContent.add(new InvalidContent(d, "FSN exists as inactive on concept " + $duplicate.conceptId + ".", Severity.WARNING));
 end

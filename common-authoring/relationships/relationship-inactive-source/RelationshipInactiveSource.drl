@@ -13,5 +13,5 @@ rule "Inactive concepts must not contain active stated relationships"
 		c : Concept(!active)
 		r : Relationship(active && characteristicTypeId == Constants.STATED_RELATIONSHIP)
 	then
-		invalidContent.add(new InvalidContent(r, "The system has detected a contradiction of the following convention: inactive concepts must not have active stated relationships."));
+		invalidContent.add(new InvalidContent(r, "Inactive concepts must not have active stated relationships."));
 end

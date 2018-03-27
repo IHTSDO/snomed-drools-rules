@@ -13,5 +13,5 @@ rule "Active synonyms on active concepts do not have semantic tags"
 		c : Concept(active)
 		d : Description(active && typeId == Constants.SYNONYM && DescriptionHelper.hasSemanticTag(d))
 	then
-		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active synonym on an active concept must not have a semantic tag.", Severity.WARNING));
+		invalidContent.add(new InvalidContent(d, "An active synonym on an active concept must not have a semantic tag.", Severity.WARNING));
 end

@@ -10,7 +10,7 @@ rule "Active FSNs cannot start with open parentheses"
 	when
 		d : Description(active == true && typeId == Constants.FSN && term matches "\\(.*")
 	then
-		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an FSN should not start with open parentheses.", Severity.WARNING));
+		invalidContent.add(new InvalidContent(d, "An FSN should not start with open parentheses.", Severity.WARNING));
 end
 
 rule "FSN ends in closing parentheses"
@@ -18,7 +18,7 @@ rule "FSN ends in closing parentheses"
 	when
 		d : Description(active == true && typeId == Constants.FSN && term matches ".*[^\\)]")
 	then
-		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an FSN must end in closing parentheses."));
+		invalidContent.add(new InvalidContent(d, "An FSN must end in closing parentheses."));
 end
 
 rule "Active FSN must end with a semantic tag"
@@ -26,7 +26,7 @@ rule "Active FSN must end with a semantic tag"
 	when
 		d : Description(active == true && typeId == Constants.FSN && term not matches ".*\\(.+\\)")
 	then
-		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an FSN must end with a semantic tag."));
+		invalidContent.add(new InvalidContent(d, "An FSN must end with a semantic tag."));
 end
 
 rule "FSN Comma"
@@ -34,7 +34,7 @@ rule "FSN Comma"
 	when
 		d : Description(active == true && typeId == Constants.FSN && term matches ".*,.*")
 	then
-		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an FSN should not include commas.", Severity.WARNING));
+		invalidContent.add(new InvalidContent(d, "An FSN should not include commas.", Severity.WARNING));
 end
 
 rule "FSN special characters"
@@ -42,7 +42,7 @@ rule "FSN special characters"
 	when
 		d : Description(active == true && typeId == Constants.FSN && term matches ".*[&%$@#].*")
 	then
-		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active FSN should not contain the special characters &, %, $, @ or #.", Severity.WARNING));
+		invalidContent.add(new InvalidContent(d, "An active FSN should not contain the special characters &, %, $, @ or #.", Severity.WARNING));
 end
 
 rule "FSN capitalized"
@@ -50,5 +50,5 @@ rule "FSN capitalized"
 	when
 		d : Description(active == true && typeId == Constants.FSN && term matches "[a-z].*")
 	then
-		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: the first letter of an active FSN should be capitalized", Severity.WARNING));
+		invalidContent.add(new InvalidContent(d, "The first letter of an active FSN should be capitalized.", Severity.WARNING));
 end

@@ -9,7 +9,7 @@ rule "Description length"
 	when
 		d : Description(active && typeId != "900000000000550004" && term.length > 255)
 	then
-		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active description must not be longer than 255 characters."));
+		invalidContent.add(new InvalidContent(d, "An active description must not be longer than 255 characters."));
 end
 
 rule "Text Definition length"
@@ -17,5 +17,5 @@ rule "Text Definition length"
 	when
 		d : Description(active && typeId == "900000000000550004" && term.length > 4096)
 	then
-		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an active text definition must not be longer than 4096 characters."));
+		invalidContent.add(new InvalidContent(d, "An active text definition must not be longer than 4096 characters."));
 end

@@ -26,7 +26,7 @@ rule "Preferred synonym in BE_FR or BE_NL dialect"
             Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "nl", acceptabilityMap["31000172101"] == Constants.ACCEPTABILITY_PREFERRED)
         )
 	then
-		InvalidContent invalid = new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept must have one Preferred Synonym in either the BE-FR or BE-NL dialects.");
+		InvalidContent invalid = new InvalidContent(c, "A concept must have one Preferred Synonym in either the BE-FR or BE-NL dialects.");
         invalid.ignorePublishedCheck();
         invalidContent.add(invalid);
 end
@@ -43,7 +43,7 @@ rule "Preferred synonym in BE_NL dialect"
             Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "nl", acceptabilityMap["31000172101"] == Constants.ACCEPTABILITY_PREFERRED)
         )        
 	then
-		InvalidContent invalid = new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept should have one Preferred Synonym in BE-NL dialect with the 'nl' language code.", Severity.WARNING);
+		InvalidContent invalid = new InvalidContent(c, "A concept should have one Preferred Synonym in BE-NL dialect with the 'nl' language code.", Severity.WARNING);
         invalid.ignorePublishedCheck();
         invalidContent.add(invalid);
 end
@@ -60,7 +60,7 @@ rule "Preferred synonym in BE_FR dialect"
             Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "nl", acceptabilityMap["31000172101"] == Constants.ACCEPTABILITY_PREFERRED)
         )       
 	then
-		InvalidContent invalid = new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept should have one Preferred Synonym in BE-FR dialect with the 'fr' language code.", Severity.WARNING);
+		InvalidContent invalid = new InvalidContent(c, "A concept should have one Preferred Synonym in BE-FR dialect with the 'fr' language code.", Severity.WARNING);
         invalid.ignorePublishedCheck();
         invalidContent.add(invalid);
 end

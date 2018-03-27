@@ -33,7 +33,7 @@ rule "Semantic Tag of FSN compatible with concept parents"
 											{"*", "product"}
 										}))
 	then
-		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: a concept's semantic tags should be compatible with those of the active parents.", Severity.WARNING));
+		invalidContent.add(new InvalidContent(d, "A concept's semantic tags should be compatible with those of the active parents.", Severity.WARNING));
 end
 
 
@@ -49,7 +49,7 @@ rule "All Semantic Tag of concept parents does not match with Semantic Tag of FS
 						&& !DescriptionHelper.isAllParentSemanticTagMatchWithTerm(term,parents)
 					   )
 	then
-		InvalidContent invalid = new InvalidContent(d, "The system has detected a contradiction of the following convention: a concept's semantic tags should be compatible with those of the active parents.", Severity.WARNING)
+		InvalidContent invalid = new InvalidContent(d, "A concept's semantic tags should be compatible with those of the active parents.", Severity.WARNING)
 		invalid.ignorePublishedCheck()
 		invalidContent.add(invalid);
 end

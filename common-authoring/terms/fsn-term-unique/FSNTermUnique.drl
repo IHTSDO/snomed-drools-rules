@@ -17,5 +17,5 @@ rule "Active FSNs must be unique"
 		d2 : Description(id != d.id) from descriptionService.findActiveDescriptionByExactTerm(d.term)
    		
 	then
-		invalidContent.add(new InvalidContent(d, "The system has detected a contradiction of the following convention: an FSN must be unique within all active FSNs across all concepts. This term already exists against " + (conceptService.isActive(d2.getConceptId()) ? "active" : "inactive") + " concept " + d2.getConceptId() + ".", conceptService.isActive(d2.getConceptId()) ? Severity.ERROR : Severity.WARNING));
+		invalidContent.add(new InvalidContent(d, "An FSN must be unique within all active FSNs across all concepts. This term already exists against " + (conceptService.isActive(d2.getConceptId()) ? "active" : "inactive") + " concept " + d2.getConceptId() + ".", conceptService.isActive(d2.getConceptId()) ? Severity.ERROR : Severity.WARNING));
 end

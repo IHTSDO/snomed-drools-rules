@@ -12,5 +12,5 @@ rule "Inactive concept cannot be the destination of any active relationship"
 	when
 		c : Concept(!active && relationshipService.hasActiveInboundStatedRelationship(c.id))
 	then
-		invalidContent.add(new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept must not be inactivated if it is the target of an active relationship."));
+		invalidContent.add(new InvalidContent(c, "A concept must not be inactivated if it is the target of an active relationship."));
 end

@@ -17,7 +17,7 @@ rule "Metadata concepts should be in the model module"
 		statedAncestors : ArrayList() from collect( String() from conceptService.findStatedAncestorsOfConcept(c))
         Concept((statedAncestors contains "900000000000442005") || (statedAncestors contains "900000000000454005") || (statedAncestors contains "106237007") ||  (statedAncestors contains "370136006"))
 	then
-		InvalidContent invalid = new InvalidContent(c, "The system has detected a contravention of the following convention: Metadata concepts should be in the model module (not the core module).", Severity.WARNING);
+		InvalidContent invalid = new InvalidContent(c, "Metadata concepts should be in the model module (not the core module).", Severity.WARNING);
         invalid.ignorePublishedCheck();
         invalidContent.add(invalid);
 end

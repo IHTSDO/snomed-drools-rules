@@ -19,7 +19,7 @@ rule "Preferred synonym per dialect"
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "sv", acceptabilityMap["46011000052107"] == Constants.ACCEPTABILITY_PREFERRED)
 		)
     then
-        InvalidContent invalid = new InvalidContent(c, "The system has detected a contradiction of the following convention: a concept must have one Preferred Synonym in the SE dialect.");
+        InvalidContent invalid = new InvalidContent(c, "A concept must have one Preferred Synonym in the SE dialect.");
         invalid.ignorePublishedCheck();
         invalidContent.add(invalid);
 end
