@@ -18,7 +18,5 @@ rule "Has manufactured dose form attribute can only appear once in a drug concep
         r1 : Relationship(active && typeId == "411116001" && (topLevelHierachies contains "373873005"))
         r2 : Relationship(active && typeId == "411116001" && id != r1.id)
 	then
-		InvalidContent invalid = new InvalidContent(r1, "“Has manufactured dose form” attribute can only appear once in a drug concept model.", Severity.WARNING);
-        invalid.ignorePublishedCheck();
-        invalidContent.add(invalid);
+		invalidContent.add(new InvalidContent(r1, "“Has manufactured dose form” attribute can only appear once in a drug concept model.", Severity.WARNING));
 end
