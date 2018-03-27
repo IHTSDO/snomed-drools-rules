@@ -1,0 +1,24 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Relationship
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.helper.RelationshipHelper
+import java.util.ArrayList
+import org.ihtsdo.drools.response.Severity
+import org.ihtsdo.drools.service.ConceptService
+
+global java.util.List invalidContent
+global ConceptService conceptService
+
+rule "Has manufactured dose form attribute can only appear once in a drug concept"
+	dialect "mvel"
+	when
+		c : Concept(active)
+		topLevelHierachies : ArrayList(size > 0) from collect( String() from conceptService.findTopLevelHierachiesOfConcept(c))
+        r1 : Relationship(active && typeId == "411116001" && (topLevelHierachies contains "373873005"))
+        r2 : Relationship(active && typeId == "411116001" && id != r1.id)
+	then
+		InvalidContent invalid = new InvalidContent(r1, "“Has manufactured dose form” attribute can only appear once in a drug concept model.", Severity.WARNING);
+        invalid.ignorePublishedCheck();
+        invalidContent.add(invalid);
+end

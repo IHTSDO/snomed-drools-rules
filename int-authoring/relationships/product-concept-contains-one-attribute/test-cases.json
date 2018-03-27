@@ -1,0 +1,111 @@
+{
+    "givenConcepts": [
+         {
+			"id": "138875005", // Root concept
+			"active" : true
+		 },
+         {
+			"id": "373873005", // Pharmaceutical / biologic product (product)
+			"active" : true,
+			"relationships": [
+                {
+                    "id": "1a",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true
+                }
+            ]
+		},
+		{
+			"id": "1111", // 
+			"active" : true,
+			"relationships": [
+                {
+                    "id": "1a",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true
+                }
+            ]
+		}		      
+    ],
+    "assertConceptsPass": [
+        {
+            "id": "1",
+            "active" : true,
+            "relationships": [
+                {
+                    "id": "1a",
+                    "destinationId": "373873005",
+                    "characteristicTypeId":"900000000000010007", // Stated
+                    "typeId": "116680003", // is-a
+                    "active": true
+                },
+                {
+                    "id": "1b",
+                    "destinationId": "109035006",
+                    "characteristicTypeId":"900000000000010007", // Stated
+                    "typeId": "411116001", // Has manufactured dose form
+                    "active": true
+                }
+            ]
+        }
+    ],
+    "assertConceptsFail": [
+    	{
+            "id": "1",
+            "active" : true,
+            "relationships": [
+                {
+                    "id": "1a",
+                    "destinationId": "1111",
+                    "characteristicTypeId":"900000000000010007", // Stated
+                    "typeId": "116680003", // is-a
+                    "active": true
+                },
+                {
+                    "id": "1b",
+                    "destinationId": "109035006",
+                    "characteristicTypeId":"900000000000010007", // Stated
+                    "typeId": "411116001", // Has manufactured dose form
+                    "active": true
+                },
+                {
+                    "id": "1c",
+                    "destinationId": "5776009",
+                    "characteristicTypeId":"900000000000010007", // Stated
+                    "typeId": "411116001", // Has manufactured dose form
+                    "active": true
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "active" : true,
+            "relationships": [
+                {
+                    "id": "2a",
+                    "destinationId": "1111",
+                    "characteristicTypeId":"900000000000010007", // Stated
+                    "typeId": "116680003", // is-a
+                    "active": true
+                },
+                {
+                    "id": "2b",
+                    "destinationId": "109035006",
+                    "characteristicTypeId":"900000000000010007", // Stated
+                    "typeId": "411116001", // Has manufactured dose form
+                    "active": true,
+                    "published": true
+                },
+                {
+                    "id": "2c",
+                    "destinationId": "5776009",
+                    "characteristicTypeId":"900000000000010007", // Stated
+                    "typeId": "411116001", // Has manufactured dose form
+                    "active": true
+                }
+            ]
+        }
+    ]
+}
