@@ -1,0 +1,64 @@
+{
+    "assertConceptsPass": [
+        {
+            "id": "1",
+            "active": true,
+            "moduleId": "900000000000207008", // core module
+            "descriptions": [
+                {
+                    "id": "1",
+                    "moduleId": "900000000000207008", // core module
+                    "active": true,
+                    "term": "Testing 1"
+                },
+                {
+                    "id": "2",
+                    "moduleId": "900000000000207008", // core module
+                    "active": true,
+                    "term": "Testing 2"
+                }
+            ]
+        }
+        
+    ],
+    "assertConceptsFail": [
+        {
+            "id": "1",
+            "active": true,
+            "moduleId": "900000000000207008", // core module
+            "descriptions": [
+                {
+                    "id": "1",
+                    "moduleId": "900000000000207008",  // core module
+                    "active": true,
+                    "term": "Testing 1"
+                },
+                {
+                    "id": "2",
+                    "moduleId": "900000000000012004", // model component
+                    "active": true,
+                    "term": "Testing 2"
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "active": true,
+            "published": true,
+            "moduleId": "900000000000207008", // core module
+            "descriptions": [
+                {
+                    "id": "1",
+                    "moduleId": "900000000000207008",  // core module
+                    "active": true,
+                    "term": "Testing 1"
+                },
+                {
+                    "id": "2",
+                    "moduleId": "900000000000012004", // model component
+                    "active": true,
+                    "term": "Testing 2"
+                }
+            ]
+        }
+    ]}

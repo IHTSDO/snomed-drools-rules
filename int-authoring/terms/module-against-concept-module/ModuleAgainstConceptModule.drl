@@ -1,0 +1,17 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.response.Severity
+
+global java.util.List invalidContent
+
+rule "Description should have the same module id as the concept"
+	dialect "mvel"
+	when
+		c : Concept(active)
+		d : Description(active && conceptId == c.id && moduleId != c.moduleId)
+	then
+		InvalidContent invalid = new InvalidContent(d, "Description does not have the same module id as the concept.", Severity.WARNING);
+        invalid.ignorePublishedCheck();
+        invalidContent.add(invalid);
+end
