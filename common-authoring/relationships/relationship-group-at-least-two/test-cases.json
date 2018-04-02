@@ -113,6 +113,25 @@
                     "characteristicTypeId": "900000000000010007"
                 }
             ]
+        },
+        {
+            "id": "5",
+            "published": true,
+            "relationships": [
+                
+                {
+                    "typeId": "363698007", // Finding site
+                    "relationshipGroup": "1",
+                    "published": true,
+                    "characteristicTypeId": "900000000000010007" // Inferred
+                },
+                {
+                    "typeId": "116680003", // is-a
+                    "relationshipGroup": "0",
+                    "published": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
         }
     ]
 }
