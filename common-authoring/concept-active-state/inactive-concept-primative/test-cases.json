@@ -16,6 +16,12 @@
             "id": "1",
             "active" : false,
             "definitionStatusId": "900000000000073002" // DEFINED
+        },
+        {
+            "id": "2",
+            "active" : false,
+            "published" : true,
+            "definitionStatusId": "900000000000073002" // DEFINED
         }
     ]
 }

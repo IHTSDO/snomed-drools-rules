@@ -12,5 +12,7 @@ rule "Inactive concept must be primative"
 	when
 		c : Concept(!active && definitionStatusId != Constants.PRIMITIVE)
 	then
-		invalidContent.add(new InvalidContent(c, "Inactive concepts must be defined as primitive."));
+		InvalidContent invalid = new InvalidContent(c, "Inactive concepts must be defined as primitive.");
+        invalid.ignorePublishedCheck();
+        invalidContent.add(invalid);
 end
