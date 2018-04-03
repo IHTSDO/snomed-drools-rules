@@ -13,7 +13,7 @@ rule "Primitive concepts must have one defining relationship"
 	when
 		c : Concept(active && definitionStatusId == Constants.DEFINED && relationships.size() == 1)
    	then
-		InvalidContent invalid = new InvalidContent(c, c.relationships.size() + ": Concept marked as DEFINED must have more than one definin.");
+		InvalidContent invalid = new InvalidContent(c, c.relationships.size() + ": Concept marked as DEFINED must have more than one defining relationship.");
         invalid.ignorePublishedCheck();
         invalidContent.add(invalid);
 end
