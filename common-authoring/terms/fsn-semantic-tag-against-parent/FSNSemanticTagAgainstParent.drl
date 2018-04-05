@@ -1,7 +1,9 @@
 import org.ihtsdo.drools.domain.Concept
 import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Relationship
 import org.ihtsdo.drools.domain.Constants
 import org.ihtsdo.drools.service.DescriptionService
+import org.ihtsdo.drools.service.RelationshipService
 import org.ihtsdo.drools.helper.DescriptionHelper
 import org.ihtsdo.drools.helper.RelationshipHelper
 import org.ihtsdo.drools.response.InvalidContent
@@ -11,6 +13,7 @@ import java.util.ArrayList
 
 global java.util.List invalidContent
 global DescriptionService descriptionService
+global RelationshipService relationshipService
 global ConceptService conceptService
 
 // Note - this rule uses international edition language refsets
@@ -50,6 +53,27 @@ rule "All Semantic Tag of concept parents does not match with Semantic Tag of FS
 					   )
 	then
 		InvalidContent invalid = new InvalidContent(d, "A concept's semantic tags should be compatible with those of the active parents.", Severity.WARNING)
+		invalid.ignorePublishedCheck()
+		invalidContent.add(invalid);
+end
+
+rule "Matching semantic tag should not allow adding a subtype as a parent"
+	dialect "mvel"
+	when
+		c : Concept(active)
+		statedAncestors : ArrayList(size == 1) from collect( String() from conceptService.findTopLevelHierachiesOfConcept(c))
+		parentFSNs : ArrayList() from collect( String() from descriptionService.getFSNs(RelationshipHelper.getActiveStatedParentConceptIds(c),Constants.US_EN_LANG_REFSET,Constants.GB_EN_LANG_REFSET))
+		d : Description(conceptId == c.id
+						&& active
+						&& typeId == Constants.FSN
+						&& !DescriptionHelper.isAllParentSemanticTagMatchWithTerm(term,parentFSNs)					    
+					    )
+		termSematicTag : String() from DescriptionHelper.getTag(d.term)					    
+		parentIds : ArrayList() from collect( String() from relationshipService.findParentsNotContainSematicTag(c, termSematicTag))
+		ancestorSematicTags : ArrayList() from collect( String() from conceptService.findSematicTagOfAncestors(parentIds))
+		eval(ancestorSematicTags contains termSematicTag)
+	then
+		InvalidContent invalid = new InvalidContent(d, "Matching semantic tag should not allow adding a subtype as a parent.")
 		invalid.ignorePublishedCheck()
 		invalidContent.add(invalid);
 end
