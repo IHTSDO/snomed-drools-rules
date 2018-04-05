@@ -1,0 +1,17 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Relationship
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.response.Severity
+import org.ihtsdo.drools.domain.Constants
+
+global java.util.List invalidContent
+
+rule "Relationship should have the same module id as the concept"
+	dialect "mvel"
+	when
+		c : Concept(active)
+		r : Relationship(active && published == false && characteristicTypeId == Constants.STATED_RELATIONSHIP && moduleId != c.moduleId)
+	then
+		InvalidContent invalid = new InvalidContent(r, "Relationship does not have the same module id as the concept.", Severity.WARNING);
+        invalidContent.add(invalid);
+end
