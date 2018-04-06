@@ -10,6 +10,7 @@ import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
 import org.ihtsdo.drools.service.ConceptService
 import java.util.ArrayList
+import java.util.HashSet;
 
 global java.util.List invalidContent
 global DescriptionService descriptionService
@@ -63,15 +64,13 @@ rule "Matching semantic tag should not allow adding a subtype as a parent"
 		c : Concept(active)
 		statedAncestors : ArrayList(size == 1) from collect( String() from conceptService.findTopLevelHierachiesOfConcept(c))
 		parentFSNs : ArrayList() from collect( String() from descriptionService.getFSNs(RelationshipHelper.getActiveStatedParentConceptIds(c),Constants.US_EN_LANG_REFSET,Constants.GB_EN_LANG_REFSET))
-		d : Description(conceptId == c.id
-						&& active
-						&& typeId == Constants.FSN
-						&& !DescriptionHelper.isAllParentSemanticTagMatchWithTerm(term,parentFSNs)					    
-					    )
+		d : Description(conceptId == c.id && active && typeId == Constants.FSN && !DescriptionHelper.isAllParentSemanticTagMatchWithTerm(term,parentFSNs))
 		termSematicTag : String() from DescriptionHelper.getTag(d.term)					    
-		parentIds : ArrayList() from collect( String() from relationshipService.findParentsNotContainSematicTag(c, termSematicTag))
-		ancestorSematicTags : ArrayList() from collect( String() from conceptService.findSematicTagOfAncestors(parentIds))
-		eval(ancestorSematicTags contains termSematicTag)
+		parentIds : ArrayList(size > 0) from collect( String() from descriptionService.findParentsNotContainSematicTag(c, termSematicTag, Constants.US_EN_LANG_REFSET,Constants.GB_EN_LANG_REFSET))
+		ancestorIds : HashSet(size > 0) from collect( String() from conceptService.findStatedAncestorsOfConcepts(parentIds))
+		fsns : ArrayList(size > 0) from collect( String() from descriptionService.getFSNs(ancestorIds,Constants.US_EN_LANG_REFSET,Constants.GB_EN_LANG_REFSET))
+		sematicTags : ArrayList(size > 0) from collect( String() from DescriptionHelper.getTags(fsns))
+		eval(sematicTags contains termSematicTag)
 	then
 		InvalidContent invalid = new InvalidContent(d, "Matching semantic tag should not allow adding a subtype as a parent.")
 		invalid.ignorePublishedCheck()
