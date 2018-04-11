@@ -1,0 +1,39 @@
+{
+    "assertConceptsPass": [
+        {
+        	"id" : "33161003",
+        	"active": true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "typeId": "900000000000003001",
+                    "term": "alpha,alpha-Trehalose-phosphate synthase (guanosine diphosphate-forming) (substance)"
+                }
+            ]
+        }
+    ],
+    "assertConceptsFail": [
+        {
+        	"id" : "683221000119107 ",
+        	"active": true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "typeId": "900000000000003001",
+                    "term": "Congenital melanocytic nevus of skin of face (disorder) (disorder)"
+                }
+            ]
+        },
+        {
+        	"id" : "10999201000119106 ",
+        	"active": true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "typeId": "900000000000003001",
+                    "term": "Gastroesophageal reflux in child (disorder) (disorder)"
+                }
+            ]
+        }
+    ]
+}
