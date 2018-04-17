@@ -27,10 +27,7 @@ end
 rule "Preferred TextDefinition per dialect"
 	dialect "mvel"
 	when
-		c : Concept(active && (
-			DescriptionHelper.filterByActiveTypeAndDialectPreferred(c, true, Constants.TEXT_DEFINITION, Constants.US_EN_LANG_REFSET).size() > 1
-			|| DescriptionHelper.filterByActiveTypeAndDialectPreferred(c, true, Constants.TEXT_DEFINITION, Constants.GB_EN_LANG_REFSET).size() > 1)
-		)
+		c : Concept(active && DescriptionHelper.hasMoreThanOnePreferredTextDefinitionPerDialect(c, true, Constants.TEXT_DEFINITION))
 	then
 		InvalidContent invalid = new InvalidContent(c, "A concept may only have one Preferred text definition in each dialect.");
         invalid.ignorePublishedCheck();

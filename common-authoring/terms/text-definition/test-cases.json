@@ -214,6 +214,31 @@
                     "acceptabilityMap": {}
                 }
             ]
+        },
+        {
+            "id": "8",
+            "descriptions": [
+                {
+                    "id": "81",
+                    "active": true,
+                    "textDefinition": true,
+                    "term": "Dental decay that occurs on the root portion of a tooth (A).",
+                    "caseSignificanceId": "900000000000017005", // Entire term case sensitive
+                    "acceptabilityMap": {
+                        "554461000005103": "900000000000548007" // DK Preferred
+                    }
+                },
+                {
+                    "id": "82",
+                    "active": true,
+                    "textDefinition": true,
+                    "term": "Dental decay that occurs on the root portion of a tooth (B).",
+                    "caseSignificanceId": "900000000000017005", // Entire term case sensitive
+                    "acceptabilityMap": {
+                        "554461000005103": "900000000000548007" // DK Preferred
+                    }
+                }
+            ]
         }
     ]
 }
