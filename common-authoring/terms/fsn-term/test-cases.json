@@ -142,6 +142,16 @@
                     "term": "ibuprofen oxycodone (product)"
                 }
             ]
+        },
+        {
+            "id": "13",
+            "descriptions": [
+                {
+                    "id": "13",
+                    "typeId": "900000000000003001",
+                    "term": "Spanien (geography location)"
+                }
+            ]
         }
     ]
 }

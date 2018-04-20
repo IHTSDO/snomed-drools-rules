@@ -2,6 +2,7 @@ import org.ihtsdo.drools.domain.Description
 import org.ihtsdo.drools.domain.Constants
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
+import org.ihtsdo.drools.helper.DescriptionHelper
 
 global java.util.List invalidContent
 
@@ -24,9 +25,9 @@ end
 rule "Active FSN must end with a semantic tag"
 	dialect "mvel"
 	when
-		d : Description(active == true && typeId == Constants.FSN && term not matches ".*\\(.+\\)")
+		d : Description(active == true && typeId == Constants.FSN && (term not matches ".*\\(.+\\)" || !DescriptionHelper.hasSemanticTag(d)))
 	then
-		invalidContent.add(new InvalidContent(d, "An FSN must end with a semantic tag."));
+		invalidContent.add(new InvalidContent(d, "Active FSN must end with a semantic tag."));
 end
 
 rule "FSN Comma"
