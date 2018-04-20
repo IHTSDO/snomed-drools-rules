@@ -47,6 +47,23 @@
                     "typeId": "116680003" // Is-a
                 }
             ]
+        },
+        {
+            "id": "2",
+            "definitionStatusId": "900000000000073002", // DEFINED
+            "active" : true,
+            "relationships": [
+                {
+                    "typeId": "116680003", // Is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007" //STATED_RELATIONSHIP
+                },
+                {
+                    "typeId": "116680003", // Is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000011006" //INFERRED_RELATIONSHIP
+                }
+            ]
         }
         
     ]}
