@@ -39,6 +39,21 @@
                     "conceptId": "c3"
                 }
             ]
+        },
+        {
+        	"id": "185998001",
+        	"active" : "false",
+        	"published": "true",
+            "descriptions": [
+                {
+                    "id": "568970015",
+                    "typeId": "900000000000003001",
+                    "term": "Black - other, mixed (ethnic group)",
+                    "active": true,
+                    "published": "true",
+                    "conceptId": "185998001"
+                }
+            ]
         }
     ],
     "assertConceptsPass": [
@@ -81,27 +96,45 @@
                     "term": "A" // Would trigger single character search
                 }
             ]
+        },
+        {
+        	"id": "154175007",
+        	"active" : "true",
+        	"published": "true",
+            "descriptions": [
+                {
+                    "id": "2721311017",
+                    "typeId": "900000000000003001",
+                    "term": "Black - other, mixed (ethnic group)",
+                    "active": true,
+                    "published": "true"
+                }
+            ]
         }
     ],
     "assertConceptsFail": [
         {
             "id": "1",
+            "active" : "true",
             "descriptions": [
                 {
                     "id": "5",
                     "typeId": "900000000000003001",
                     "active": true,
-                    "term": "Ibuprofen + oxycodone (product)" // Same term, different description .. should fail against active concept
+                    "term": "Ibuprofen + oxycodone (product)", // Same term, different description .. should fail against active concept
+                    "conceptId": "1"
                 }
             ]
         },{
             "id": "2",
+            "active" : "true",
             "descriptions": [
                 {
                     "id": "6",
                     "typeId": "900000000000003001",
                     "active": true,
-                    "term": "Ibuprofen + aspirin (product)" // Same term, different description .. should fail against inactive concept
+                    "term": "Ibuprofen + aspirin (product)", // Same term, different description .. should fail against inactive concept
+                    "conceptId": "2"
                 }
             ]
         }

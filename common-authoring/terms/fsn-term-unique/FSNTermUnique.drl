@@ -14,7 +14,7 @@ rule "Active FSNs must be unique"
     dialect "mvel"
     when
 		d : Description(active == true && typeId == Constants.FSN && term.length > 1)
-		d2 : Description(id != d.id && (!d.published || (d.published && active))) from descriptionService.findActiveDescriptionByExactTerm(d.term)
+		d2 : Description(id != d.id && (!d.published || (d.published && conceptService.isActive(conceptId)))) from descriptionService.findActiveDescriptionByExactTerm(d.term)
    		
 	then
 		InvalidContent invalid = new InvalidContent(d, "An FSN must be unique within all active FSNs across all concepts. This term already exists against " + (conceptService.isActive(d2.getConceptId()) ? "active" : "inactive") + " concept " + d2.getConceptId() + ".", conceptService.isActive(d2.getConceptId()) ? Severity.ERROR : Severity.WARNING);
