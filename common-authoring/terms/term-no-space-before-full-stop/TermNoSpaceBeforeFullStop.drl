@@ -1,0 +1,19 @@
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.response.Severity
+import org.ihtsdo.drools.helper.DescriptionHelper
+import org.ihtsdo.drools.domain.Constants
+
+global java.util.List invalidContent
+
+rule "No space before a full stop"
+	dialect "mvel"
+	when
+		c : Concept(active)
+		d : Description(active && 
+						conceptId == c.id && 
+						((typeId != Constants.FSN && term matches ".*\\s+\\.$") ||(typeId == Constants.FSN && DescriptionHelper.getFsnTerm(term) matches ".*\\s+\\.$")))
+	then
+		invalidContent.add(new InvalidContent(d, "There should not be a space before a full stop.", Severity.WARNING));
+end

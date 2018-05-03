@@ -1,0 +1,93 @@
+{
+  "assertConceptsPass": [
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 0.01 Mg trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 1.01Mg trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 0.01-1.02 Mg trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 1Mg trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 1 Mg and 1-5 Mg trailing text"
+        }
+      ]
+    },
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 2 Mg - 5 Mg and 7-10 Mg trailing text"
+        }
+      ]
+    }
+  ],
+  "assertConceptsFail": [
+    {
+     "id": "1",
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "typeId": "900000000000013009", // SYNONYM
+          "term": "Leading text 1.0 Mg trailing text ."
+        }
+      ]
+    },
+    {
+     "id": "2",
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "typeId": "900000000000550004", // TEXT_DEFINITION
+          "term": "Leading text 1.0 Mg trailing text ."
+        }
+      ]
+    },
+    {
+     "id": "3",
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "typeId": "900000000000003001", // FSN
+          "term": "Leading text 1.0 Mg trailing text . (event)"
+        }
+      ]
+    }  
+  ]
+}
