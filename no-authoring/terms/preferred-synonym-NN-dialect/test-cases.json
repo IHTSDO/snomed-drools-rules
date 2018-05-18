@@ -7,6 +7,7 @@
                 {
                     "id": "1a",
                     "term": "Organism (organism)",
+                    "active" : "true",
                     "typeId": "900000000000003001", // FSN
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007" // INT Preferred
@@ -84,20 +85,32 @@
                 {
                     "id": "1",
                     "term": "Organism",
-                    "typeId": "900000000000013009" // SYNONYM
+                    "typeId": "900000000000013009", // SYNONYM
+                    "languageCode": "no",
+                    "acceptabilityMap": {
+                        "91000202106": "900000000000549004" // ACCEPTABLE
+                    }
                 }
             ]
-        },
+        },        
         {
             "id": "2",
-            "moduleId": "51000202101", // NO module
+            "moduleId": "900000000000445007", // INT module
             "descriptions": [
                 {
-                    "id": "2",
-                    "term": "Organism",
+                    "id": "21",
+                    "published": true,
+                    "term": "Organism (A)",
+                    "typeId": "900000000000013009" // SYNONYM
+                },
+                {
+                    "id": "22",
+                    "published": true,
+                    "term": "Organism (B)",
                     "typeId": "900000000000013009", // SYNONYM
+                    "languageCode": "no",
                     "acceptabilityMap": {
-                        "61000202103": "900000000000549004"
+                        "91000202106": "900000000000549004" // NO Acceptable
                     }
                 }
             ]
@@ -107,66 +120,7 @@
             "moduleId": "51000202101", // NO module
             "descriptions": [
                 {
-                    "id": "3",
-                    "term": "Organism",
-                    "typeId": "900000000000013009", // SYNONYM
-                    "languageCode": "no",
-                    "acceptabilityMap": {
-                    }
-                }
-            ]
-        },
-        {
-            "id": "4",
-            "moduleId": "51000202101", // NO module
-            "descriptions": [
-                {
-                    "id": "41",
-                    "term": "Organism (A)",
-                    "typeId": "900000000000013009", // SYNONYM
-                    "acceptabilityMap": {
-                        "61000202103": "900000000000549004"
-                    }
-                },
-                {
-                    "id": "42",
-                    "term": "Organism (B)",
-                    "typeId": "900000000000013009", // SYNONYM
-                    "languageCode": "no",
-                    "acceptabilityMap": {
-                        "900000000000509007": "900000000000548007"
-                    }
-                }
-            ]
-        },
-        {
-            "id": "5",
-            "moduleId": "900000000000445007", // INT module
-            "descriptions": [
-                {
-                    "id": "51",
-                    "published": true,
-                    "term": "Organism (A)",
-                    "typeId": "900000000000013009" // SYNONYM
-                },
-                {
-                    "id": "52",
-                    "published": true,
-                    "term": "Organism (B)",
-                    "typeId": "900000000000013009", // SYNONYM
-                    "languageCode": "no",
-                    "acceptabilityMap": {
-                        "61000202103": "900000000000549004" // NO Acceptable
-                    }
-                }
-            ]
-        },
-        {
-            "id": "6",
-            "moduleId": "51000202101", // NO module
-            "descriptions": [
-                {
-                    "id": "61",
+                    "id": "31",
                     "term": "Organism (A)",
                     "typeId": "900000000000013009", // SYNONYM
                     "languageCode": "en",
@@ -175,34 +129,44 @@
                     }
                 },
                 {
-                    "id": "62",
+                    "id": "32",
                     "term": "Organism (B)",
                     "typeId": "900000000000013009", // SYNONYM
                     "languageCode": "no",
                     "acceptabilityMap": {
-                        "61000202103": "900000000000548007"
+                        "91000202106": "900000000000549004"
                     }
                 }
             ]
         },
          {
-            "id": "7",
+            "id": "4",
             "moduleId": "900000000000445007", // INT module
             "descriptions": [
                 {
-                    "id": "71",
+                    "id": "41",
                     "published": true,
                     "term": "Organism (A)",
                     "typeId": "900000000000013009" // SYNONYM
                 },
                 {
-                    "id": "72",
+                    "id": "42",
                     "published": true,
                     "term": "Organism (B)",
                     "typeId": "900000000000013009", // SYNONYM
                     "languageCode": "no",
                     "acceptabilityMap": {
-                        "61000202103": "900000000000548007" // Preferred
+                        "91000202106": "900000000000548007" // Preferred
+                    }
+                },
+                {
+                    "id": "43",
+                    "published": true,
+                    "term": "Organism 1 (B)",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "languageCode": "no",
+                    "acceptabilityMap": {
+                        "91000202106": "900000000000548007" // Preferred
                     }
                 }
             ]
