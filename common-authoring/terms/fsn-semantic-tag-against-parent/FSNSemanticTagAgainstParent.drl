@@ -72,7 +72,7 @@ rule "Matching semantic tag should not allow adding a subtype as a parent"
 		sematicTags : ArrayList(size > 0) from collect( String() from DescriptionHelper.getTags(fsns))
 		eval(sematicTags contains termSematicTag)
 	then
-		InvalidContent invalid = new InvalidContent(d, "Matching semantic tag should not allow adding a subtype as a parent.")
+		InvalidContent invalid = new InvalidContent(d, "It is not allowed to add a subtype as a parent.")
 		invalid.ignorePublishedCheck()
 		invalidContent.add(invalid);
 end
