@@ -12,21 +12,47 @@ global java.util.List invalidContent
 // Dialect Language Refset: 91000202106
 // Dialect Label: nn (just for display and naming of this file)
 
-rule "Preferred synonym in the nn dialect"
+rule "No Preferred synonym in the nn dialect"
 	dialect "mvel"
 	when
 	    // When the concept is active
 		c : Concept(active)
-
-        // And when there are any descriptions with language code 'no' or the concept is in the Norway namespace
+		
+		// And when there are any descriptions with language code 'no' or the concept is in the Norway namespace
 		ArrayList(size > 0 || c.moduleId contains "1000202") from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "no")
 		)
-
+	
 	    // And when there is not 1 active NB PT.
-		ArrayList(size != 1) from collect (
+		d1 : ArrayList(size == 0) from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "no", acceptabilityMap["91000202106"] == Constants.ACCEPTABILITY_PREFERRED)
 		)
+		
+		d2 : ArrayList(size != 0) from collect (
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "no", acceptabilityMap["91000202106"] == Constants.ACCEPTABILITY_ACCEPTABLE)
+		)		
+	then
+		InvalidContent invalid = new InvalidContent(c, "A concept must have one Preferred Synonym in the nn dialect.");
+        invalid.ignorePublishedCheck();
+        invalidContent.add(invalid);
+end
+
+rule "More than one Preferred synonym in the nn dialect"
+	dialect "mvel"
+	when
+	    // When the concept is active
+		c : Concept(active)
+		
+		// And when there are any descriptions with language code 'no' or the concept is in the Norway namespace
+		ArrayList(size > 0 || c.moduleId contains "1000202") from collect (
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "no")
+		)
+		
+	    // And when there is not 1 active NB PT.
+		d1 : ArrayList(size > 1) from collect (
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "no", acceptabilityMap["91000202106"] == Constants.ACCEPTABILITY_PREFERRED)
+		)
+			
 	then
 		InvalidContent invalid = new InvalidContent(c, "A concept must have one Preferred Synonym in the nn dialect.");
         invalid.ignorePublishedCheck();
