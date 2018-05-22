@@ -1,0 +1,32 @@
+import java.util.Collection
+import java.util.Set
+import java.util.HashSet
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Component
+import org.ihtsdo.drools.domain.OntologyAxiom
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.service.ConceptService
+import org.ihtsdo.drools.response.Severity
+import java.lang.RuntimeException
+
+global java.util.List invalidContent
+global ConceptService conceptService
+
+function boolean anyConceptNotActive(Collection conceptIds, ConceptService conceptService) {
+    for (Object conceptId : conceptIds) {
+        if (!conceptService.isActive((String)conceptId)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+rule "Active Ontology Axioms should only use active Concepts."
+	dialect "java"
+	when
+	    concept: Concept()
+		oa : OntologyAxiom(referencedComponentId == concept.id, active)
+		eval(anyConceptNotActive(oa.getOwlExpressionNamedConcepts(), conceptService))
+	then
+		invalidContent.add(new InvalidContent(oa, "An active ontology axiom must only use active concepts."));
+end

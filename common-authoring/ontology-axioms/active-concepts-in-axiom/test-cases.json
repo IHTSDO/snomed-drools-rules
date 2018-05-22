@@ -1,0 +1,65 @@
+{
+    "givenConcepts": [
+         {
+			"id": "138875005", // Root concept
+			"active" : true
+		 },
+         {
+			"id": "373873005", // Pharmaceutical / biologic product (product)
+			"active" : true
+		},
+		{
+			"id": "1111",
+			"active" : false
+		}
+    ],
+    "assertConceptsPass": [
+        {
+            "id": "1",
+            "ontologyAxioms": [
+                {
+                    "active": true,
+                    "owlExpressionNamedConcepts": ["138875005"]
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "ontologyAxioms": [
+                {
+                    "active": true,
+                    "owlExpressionNamedConcepts": ["138875005", "373873005"]
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "ontologyAxioms": [
+                {
+                    "active": false,// Inactive
+                    "owlExpressionNamedConcepts": ["100", "373873005"]
+                }
+            ]
+        }
+    ],
+    "assertConceptsFail": [
+        {
+            "id": "4",
+            "ontologyAxioms": [
+                {
+                    "active": true,// Active
+                    "owlExpressionNamedConcepts": ["100", "373873005"]// 100 doesn't exist
+                }
+            ]
+        },
+        {
+            "id": "5",
+            "ontologyAxioms": [
+                {
+                    "active": true,// Active
+                    "owlExpressionNamedConcepts": ["1111", "373873005"]// 1111 is inactive
+                }
+            ]
+        }
+    ]
+}
