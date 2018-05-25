@@ -1,10 +1,14 @@
+import org.ihtsdo.drools.domain.Concept
 import org.ihtsdo.drools.domain.Description
 import org.ihtsdo.drools.domain.Constants
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
 import org.ihtsdo.drools.helper.DescriptionHelper
+import org.ihtsdo.drools.service.ConceptService
+import java.util.ArrayList
 
 global java.util.List invalidContent
+global ConceptService conceptService
 
 rule "Active FSNs cannot start with open parentheses"
 	dialect "mvel"
@@ -33,7 +37,9 @@ end
 rule "FSN Comma"
 	dialect "mvel"
 	when
-		d : Description(active == true && typeId == Constants.FSN && term matches ".*,.*")
+		c : Concept(active)
+		topLevelHierarchies : ArrayList() from collect( String() from conceptService.findTopLevelHierachiesOfConcept(c))
+		d : Description(active == true && typeId == Constants.FSN && term matches ".*,.*" && topLevelHierarchies not contains "105590001")
 	then
 		invalidContent.add(new InvalidContent(d, "An FSN should not include commas.", Severity.WARNING));
 end
