@@ -1,0 +1,36 @@
+{
+    "assertConceptsPass": [
+        {
+            "id": "1",
+            "relationships": [
+                {
+                    "typeId": "738774007", // Is modification of
+                    "relationshipGroup": "3",
+                    "destinationId" : "1"
+                },
+                {
+                    "typeId": "116680003", // is-a
+                    "relationshipGroup": "0",
+                    "destinationId" : "2"
+                }
+            ]
+        }
+    ],
+    "assertConceptsFail": [
+        {
+            "id": "1",
+            "relationships": [
+                {
+                    "typeId": "738774007", // Is modification of
+                    "relationshipGroup": "3",
+                    "destinationId" : "1"
+                },
+                {
+                    "typeId": "116680003", // is-a
+                    "relationshipGroup": "0",
+                    "destinationId" : "1"
+                }
+            ]
+        }
+    ]
+}
