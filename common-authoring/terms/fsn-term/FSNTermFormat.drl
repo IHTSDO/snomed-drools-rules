@@ -39,7 +39,7 @@ rule "FSN Comma"
 	when
 		c : Concept(active)
 		topLevelHierarchies : ArrayList() from collect( String() from conceptService.findTopLevelHierachiesOfConcept(c))
-		d : Description(active == true && typeId == Constants.FSN && term matches ".*,.*" && topLevelHierarchies not contains "105590001")
+		d : Description(active == true && typeId == Constants.FSN && term matches ".*,.*" && topLevelHierarchies not contains "105590001" && && topLevelHierarchies not contains "373873005")
 	then
 		invalidContent.add(new InvalidContent(d, "An FSN should not include commas.", Severity.WARNING));
 end
