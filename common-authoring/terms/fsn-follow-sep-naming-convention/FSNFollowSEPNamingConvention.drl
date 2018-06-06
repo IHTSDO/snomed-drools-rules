@@ -1,0 +1,28 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.helper.DescriptionHelper
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.response.Severity
+import java.util.ArrayList
+import org.ihtsdo.drools.service.ConceptService
+
+global java.util.List invalidContent
+global ConceptService conceptService
+
+rule "Descendents of 91723000|Anatomical structure (body structure)| should follow SEP naming conventions"
+	dialect "mvel"
+	when
+		c : Concept(active)
+		ancestors : ArrayList(size > 0) from collect( String() from conceptService.findStatedAncestorsOfConcept(c))
+		d : Description(ancestors contains "91723000"
+						&& active 
+						&& typeId == Constants.FSN
+						&& (fsn : DescriptionHelper.getFsnTerm(term).toLowerCase())
+						&& !fsn.contains("structure") 
+						&& !fsn.contains("entire")
+						&& !fsn.contains("part")
+						)
+	then
+		invalidContent.add(new InvalidContent(d, "Active FSN should follow SEP naming conventions.", Severity.WARNING));
+end

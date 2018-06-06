@@ -1,0 +1,151 @@
+{
+    "givenConcepts": [
+        {
+            "id": "91723000", // Root concept
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Anatomical structure (body structure)",
+                    "conceptId": "91723000"
+                }
+            ]
+        }        
+    ],
+    "assertConceptsPass": [
+        {
+        	"id" : "1",
+        	"active": true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "typeId": "900000000000003001", // FSN
+                    "term": "Part of X (body structure)"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "2",
+                    "destinationId": "91723000",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+        	"id" : "2",
+        	"active": true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "typeId": "900000000000003001", // FSN
+                    "term": "Entire X (body structure)"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "2",
+                    "destinationId": "91723000",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+        	"id" : "3",
+        	"active": true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "typeId": "900000000000003001", // FSN
+                    "term": "X structure (body structure)"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "2",
+                    "destinationId": "91723000",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+        	"id" : "4",
+        	"active": true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "typeId": "900000000000003001", // FSN
+                    "term": "Other FSN (body structure)"
+                }
+            ]
+        }
+        
+    ],
+    "assertConceptsFail": [
+        {
+        	"id" : "1",
+        	"active": true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "typeId": "900000000000003001", // FSN
+                    "term": "Somthing of X (body structure)"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "2",
+                    "destinationId": "91723000",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+        	"id" : "2",
+        	"active": true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "typeId": "900000000000003001", // FSN
+                    "term": "Somthing X (body structure)"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "2",
+                    "destinationId": "91723000",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+        	"id" : "3",
+        	"active": true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "typeId": "900000000000003001", // FSN
+                    "term": "X Somthing (body structure)"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "2",
+                    "destinationId": "91723000",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        }
+    ]
+}
