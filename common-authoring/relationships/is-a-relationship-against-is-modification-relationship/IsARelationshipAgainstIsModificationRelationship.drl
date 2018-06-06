@@ -12,7 +12,7 @@ rule "Is-a relationship must not have the same target value with Is-modification
 		r1 : Relationship(active, typeId == Constants.IS_A)
 		r2 : Relationship(active, id != r1.id, typeId == "738774007", destinationId == r1.destinationId)
 	then
-		InvalidContent invalid = new InvalidContent(c, "“Is-a” relationships must not have the same target value with “Is-modification-of” relationship.");
+		InvalidContent invalid = new InvalidContent(c, "IS A relationships must not have the same target value with \"is modification of\" relationship.");
 		invalid.ignorePublishedCheck()
 		invalidContent.add(invalid);
 end
