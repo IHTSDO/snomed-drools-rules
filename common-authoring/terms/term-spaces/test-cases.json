@@ -38,6 +38,17 @@
                 }
             ],
             "active":"false"
+        },
+        {
+            "descriptions": [
+                {
+                	"active":"true",
+                    "id": "10",
+                    "term": "His' bundt-takykardi (ektopisk AV- overledningssystemtakykardi)",
+                    "moduleId": "554471000005108" // Danish module
+                }               
+            ],
+            "active":true
         }
     ],
     "assertConceptsFail": [
