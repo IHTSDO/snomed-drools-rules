@@ -49,6 +49,28 @@
                 }               
             ],
             "active":true
+        },
+        {
+            "descriptions": [
+                {
+                	"active":"true",
+                    "id": "11",
+                    "term": "His' bundt-takykardi (ektopisk AV- overledningssystemtakykardi)",
+                    "moduleId": "51000202101" // Norwegian module
+                }               
+            ],
+            "active":true
+        },
+        {
+            "descriptions": [
+                {
+                	"active":"true",
+                    "id": "12",
+                    "term": "His' bundt-takykardi (ektopisk AV- overledningssystemtakykardi)",
+                    "moduleId": "11000172109" // Belgian module
+                }               
+            ],
+            "active":true
         }
     ],
     "assertConceptsFail": [

@@ -17,7 +17,7 @@ end
 rule "Active descriptions do not have spaces, either before or after, hyphens."
 	dialect "mvel"
 	when
-		d : Description(active && moduleId != "554471000005108" /*Danish module*/ && (term matches ".* -.*" || term matches ".*- .*"))
+		d : Description(active && moduleId != "554471000005108" /*Danish module*/ && moduleId != "51000202101" /*Norwegian module*/ && moduleId != "11000172109" /*Belgian module*/ && (term matches ".* -.*" || term matches ".*- .*"))
 	then
 		invalidContent.add(new InvalidContent(d, "Active descriptions should not have spaces, either before or after, hyphens.", Severity.WARNING));
 end
