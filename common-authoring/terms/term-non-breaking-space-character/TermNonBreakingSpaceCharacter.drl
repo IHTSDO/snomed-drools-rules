@@ -1,0 +1,13 @@
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.response.Severity
+
+global java.util.List invalidContent
+
+rule "Non-breaking space character"
+	dialect "mvel"
+	when
+		d : Description(active && term.contains("\u00A0"))
+	then
+		invalidContent.add(new InvalidContent(d, "The term of an active description must not contain the non-breaking space character. Please remove and retype each space to fix this."));
+end

@@ -1,0 +1,26 @@
+{
+  "assertConceptsPass": [
+    {
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": "Leading text 0.01 Mg trailing text"
+        }
+      ]
+    }
+  ],
+  "assertConceptsFail": [
+    {
+     "id": "1",
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "typeId": "900000000000013009", // SYNONYM
+          "term": "Ribosomal ribonucleic acid of Anaplasma marginale"
+        }
+      ]
+    }     
+  ]
+}
