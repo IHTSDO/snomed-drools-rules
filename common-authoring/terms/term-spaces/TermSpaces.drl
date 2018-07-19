@@ -2,8 +2,11 @@ import org.ihtsdo.drools.domain.Description
 import org.ihtsdo.drools.domain.Concept
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
+import org.ihtsdo.drools.service.ConceptService
+import java.util.ArrayList
 
 global java.util.List invalidContent
+global ConceptService conceptService
 
 rule "Term double, leading or trailing spaces"
 	dialect "mvel"
@@ -17,7 +20,15 @@ end
 rule "Active descriptions do not have spaces, either before or after, hyphens."
 	dialect "mvel"
 	when
-		d : Description(active && moduleId != "554471000005108" /*Danish module*/ && moduleId != "51000202101" /*Norwegian module*/ && moduleId != "11000172109" /*Belgian module*/ && (term matches ".* -.*" || term matches ".*- .*"))
+		c : Concept(active)
+		topLevelHierarchies : ArrayList() from collect( String() from conceptService.findTopLevelHierachiesOfConcept(c))
+		d : Description(active
+						&& moduleId != "554471000005108" /*Danish module*/ 
+						&& moduleId != "51000202101" /*Norwegian module*/ 
+						&& moduleId != "11000172109" /*Belgian module*/
+						&& topLevelHierarchies not contains "373873005" /*Pharmaceutical / biologic product (product)*/
+						&& topLevelHierarchies not contains "105590001" /*Substance (substance)*/
+						&& (term matches ".* -.*" || term matches ".*- .*"))
 	then
 		invalidContent.add(new InvalidContent(d, "Active descriptions should not have spaces, either before or after, hyphens.", Severity.WARNING));
 end

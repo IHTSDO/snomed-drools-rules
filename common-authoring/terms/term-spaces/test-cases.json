@@ -1,4 +1,55 @@
 {
+    "givenConcepts": [
+        {
+            "id": "138875005", // Root concept
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "description text 1 (product)",
+                    "conceptId": "138875005"
+                }
+            ]
+        },
+        {
+            "id": "373873005",
+            "active" : "true",
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Pharmaceutical / biologic product (product)",
+                    "conceptId": "373873005"
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // Is a
+                    "destinationId": "138875005",
+                    "characteristicTypeId": "900000000000010007",
+                    "active" : true
+                }
+            ]            
+        },
+        {
+            "id": "105590001",
+            "active" : "true",
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "Substance (substance)",
+                    "conceptId": "105590001"
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // Is a
+                    "destinationId": "138875005",
+                    "characteristicTypeId": "900000000000010007",
+                    "active" : true
+                }
+            ]            
+        }
+    ],
     "assertConceptsPass": [
         {
             "descriptions": [
@@ -71,6 +122,40 @@
                 }               
             ],
             "active":true
+        },
+        {
+            "id": "c1",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "c1d1",
+                    "term": "Foreman - caretaking/cleaning"
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // Is a
+                    "destinationId": "373873005",
+                    "active": true
+                }
+            ]
+        },
+        {
+            "id": "c2",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "c2d1",
+                    "term": "Bone -drill biopsy",
+                    "active": true
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // Is a
+                    "destinationId": "105590001"
+                }
+            ]
         }
     ],
     "assertConceptsFail": [
