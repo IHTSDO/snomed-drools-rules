@@ -1,0 +1,16 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Constants
+import java.util.Collection
+import java.util.ArrayList
+import org.ihtsdo.drools.helper.DescriptionHelper
+import org.ihtsdo.drools.response.InvalidContent
+
+global java.util.List invalidContent
+
+rule "Always passes BE"
+	dialect "mvel"
+	when
+		c : Concept(active)
+	then
+end
