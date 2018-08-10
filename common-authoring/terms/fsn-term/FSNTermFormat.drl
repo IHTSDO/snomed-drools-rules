@@ -31,7 +31,7 @@ rule "Active FSN must end with a semantic tag"
 	when
 		d : Description(active == true && typeId == Constants.FSN && (term not matches ".*\\(.+\\)" || !DescriptionHelper.hasSemanticTag(d)))
 	then
-		invalidContent.add(new InvalidContent(d, "Active FSN must end with a semantic tag."));
+		invalidContent.add(new InvalidContent(d, "Active FSN must end with a semantic tag.", Severity.WARNING));
 end
 
 rule "FSN Comma"
