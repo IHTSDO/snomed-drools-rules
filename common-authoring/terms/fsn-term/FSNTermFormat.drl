@@ -29,9 +29,17 @@ end
 rule "Active FSN must end with a semantic tag"
 	dialect "mvel"
 	when
-		d : Description(active == true && typeId == Constants.FSN && (term not matches ".*\\(.+\\)" || !DescriptionHelper.hasSemanticTag(d)))
+		d : Description(active == true && typeId == Constants.FSN && (term not matches ".*\\(.+\\)"))
 	then
-		invalidContent.add(new InvalidContent(d, "Active FSN must end with a semantic tag.", Severity.WARNING));
+		invalidContent.add(new InvalidContent(d, "Active FSN must end with a semantic tag."));
+end
+
+rule "Active FSN should end with a valid semantic tag"
+	dialect "mvel"
+	when
+		d : Description(active == true && typeId == Constants.FSN && (!DescriptionHelper.hasSemanticTag(d)))
+	then
+		invalidContent.add(new InvalidContent(d, "Active FSN should end with a valid semantic tag.", Severity.WARNING));
 end
 
 rule "FSN Comma"
