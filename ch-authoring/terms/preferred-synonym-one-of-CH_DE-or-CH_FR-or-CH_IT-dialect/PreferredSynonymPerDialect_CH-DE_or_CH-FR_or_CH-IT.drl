@@ -57,9 +57,9 @@ function List<String> getDialects(Collection descriptions) {
 rule "Not provide enough for all 3 dialects in CH extension"
 	dialect "mvel"
 	when
-		c : Concept(active, moduleId == "2011000195101")
+		c : Concept(active)
 		d: ArrayList(size > 0) from collect (
-			Description(active, conceptId == c.id, typeId == Constants.SYNONYM,
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM,  moduleId == "2011000195101",
 						  (acceptabilityMap["2041000195100"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["2041000195100"] == Constants.ACCEPTABILITY_ACCEPTABLE ||
 						   acceptabilityMap["2021000195106"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["2021000195106"] == Constants.ACCEPTABILITY_ACCEPTABLE ||
 						   acceptabilityMap["2031000195108"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["2031000195108"] == Constants.ACCEPTABILITY_ACCEPTABLE))
