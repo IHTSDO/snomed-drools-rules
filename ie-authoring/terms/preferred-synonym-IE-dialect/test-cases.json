@@ -79,7 +79,7 @@
                     "id": "2",
                     "term": "Organism",
                     "typeId": "900000000000013009", // SYNONYM
-                    "languageCode": "ie",
+                    "languageCode": "en",
                     "acceptabilityMap": {
                         "21000220103": "900000000000549004" // IE Acceptable
                     }
@@ -94,7 +94,7 @@
                     "id": "3",
                     "term": "Organism",
                     "typeId": "900000000000013009", // SYNONYM
-                    "languageCode": "ie",
+                    "languageCode": "en",
                     "acceptabilityMap": {
                     }
                 }
@@ -116,7 +116,7 @@
                     "id": "7",
                     "term": "Organism (B)",
                     "typeId": "900000000000013009", // SYNONYM
-                    "languageCode": "ie",
+                    "languageCode": "en",
                     "acceptabilityMap": {
                         "21000220103": "900000000000548007" // IE PT
                     }
@@ -138,7 +138,7 @@
                     "published": true,
                     "term": "Organism (B)",
                     "typeId": "900000000000013009", // SYNONYM
-                    "languageCode": "ie",
+                    "moduleId": "11000220105",
                     "acceptabilityMap": {
                         "21000220103": "900000000000549004" // SV Acceptable
                     }
@@ -154,7 +154,7 @@
                     "term": "Organism (organism)",
                     "typeId": "900000000000003001",  // FSN
                     "moduleId": "11000220105",
-                    "languageCode": "ie"
+                    "languageCode": "en"
                 }
             ]
         }

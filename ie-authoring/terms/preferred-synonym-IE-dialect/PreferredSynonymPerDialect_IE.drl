@@ -14,7 +14,7 @@ rule "Must have one preferred synonym in IE dialect"
 	when
 		c : Concept(active)
 		ArrayList(size > 0 || c.moduleId == "11000220105") from collect (
-			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "ie")
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, moduleId == "11000220105")
 		)
 			
 		d: ArrayList(size != 1) from collect (
