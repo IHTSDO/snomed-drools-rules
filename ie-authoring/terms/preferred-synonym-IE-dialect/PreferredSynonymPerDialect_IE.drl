@@ -14,35 +14,14 @@ rule "Must have one preferred synonym in IE dialect"
 	when
 		c : Concept(active)
 		ArrayList(size > 0 || c.moduleId == "11000220105") from collect (
-			Description(active, conceptId == c.id, typeId == Constants.SYNONYM)
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "ie")
 		)
-		ArrayList(size == 0) from collect (
-			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, acceptabilityMap["21000220103"] == Constants.ACCEPTABILITY_ACCEPTABLE)
-		)
+			
 		d: ArrayList(size != 1) from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, acceptabilityMap["21000220103"] == Constants.ACCEPTABILITY_PREFERRED)
 		)
 	then
 		InvalidContent invalid = new InvalidContent(c, "A concept must have only one Preferred Synonym in the IE dialect.", Severity.ERROR);
-        invalid.ignorePublishedCheck();
-        invalidContent.add(invalid);
-end
-
-rule "Must have one preferred synonym in IE dialect if there has any acceptable synonyms specified"
-	dialect "mvel"
-	when
-		c : Concept(active)
-		ArrayList(size > 0 || c.moduleId == "11000220105") from collect (
-			Description(active, conceptId == c.id, typeId == Constants.SYNONYM)
-		)
-		ArrayList(size > 0) from collect (
-			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, acceptabilityMap["21000220103"] == Constants.ACCEPTABILITY_ACCEPTABLE)
-		)
-		ArrayList(size == 0) from collect (
-			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, acceptabilityMap["21000220103"] == Constants.ACCEPTABILITY_PREFERRED)
-		)
-	then
-		InvalidContent invalid = new InvalidContent(c, "A concept must have one Preferred Synonym in the IE dialect.", Severity.ERROR);
         invalid.ignorePublishedCheck();
         invalidContent.add(invalid);
 end

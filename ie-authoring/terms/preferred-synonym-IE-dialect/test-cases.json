@@ -1,6 +1,6 @@
 {
     "assertConceptsPass": [
-        {
+       {
             "id": "1",
             "moduleId": "11000220105", // IE module
             "descriptions": [
@@ -41,7 +41,20 @@
                 {
                     "id": "2a",
                     "term": "Organism (organism)",
-                    "typeId": "900000000000003001" // FSN
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                },
+                {
+                    "id": "2b",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "moduleId": "900000000000445007",
+                    "languageCode": "en",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
                 }
             ]
         }
@@ -66,6 +79,7 @@
                     "id": "2",
                     "term": "Organism",
                     "typeId": "900000000000013009", // SYNONYM
+                    "languageCode": "ie",
                     "acceptabilityMap": {
                         "21000220103": "900000000000549004" // IE Acceptable
                     }
@@ -95,7 +109,7 @@
                     "term": "Organism (A)",
                     "typeId": "900000000000013009", // SYNONYM
                     "acceptabilityMap": {
-                        "21000220103": "900000000000548007"
+                        "21000220103": "900000000000548007"  // IE PT
                     }
                 },
                 {
@@ -104,7 +118,7 @@
                     "typeId": "900000000000013009", // SYNONYM
                     "languageCode": "ie",
                     "acceptabilityMap": {
-                        "21000220103": "900000000000548007"
+                        "21000220103": "900000000000548007" // IE PT
                     }
                 }
             ]
@@ -128,6 +142,19 @@
                     "acceptabilityMap": {
                         "21000220103": "900000000000549004" // SV Acceptable
                     }
+                }
+            ]
+        },
+        {
+            "id": "6",
+            "moduleId": "11000220105", // IE module
+            "descriptions": [
+                 {
+                    "id": "6a",
+                    "term": "Organism (organism)",
+                    "typeId": "900000000000003001",  // FSN
+                    "moduleId": "11000220105",
+                    "languageCode": "ie"
                 }
             ]
         }
