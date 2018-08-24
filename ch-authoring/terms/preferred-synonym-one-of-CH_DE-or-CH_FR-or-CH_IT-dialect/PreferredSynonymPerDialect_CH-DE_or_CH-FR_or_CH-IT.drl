@@ -67,7 +67,7 @@ rule "Not provide enough for all 3 dialects in CH extension"
 	
         eval(getDialects(d).size() < 3)       
 	then
-		InvalidContent invalid = new InvalidContent(c, (c.moduleId == "900000000000445007" ? "A translated concept should have all 3 Preferred Synonyms in CH-DE, CH-FR and CH-IT." : "A new CH concept should have all 3 Preferred Synonyms in CH-DE, CH-FR and CH-IT."), Severity.WARNING);
+		InvalidContent invalid = new InvalidContent(c, (c.moduleId != "2011000195101" ? "A translated concept should have all 3 Preferred Synonyms in CH-DE, CH-FR and CH-IT." : "A new CH concept should have all 3 Preferred Synonyms in CH-DE, CH-FR and CH-IT."), Severity.WARNING);
         invalid.ignorePublishedCheck();
         invalidContent.add(invalid);
 end
