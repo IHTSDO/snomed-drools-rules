@@ -1,0 +1,44 @@
+{
+    "assertConceptsPass": [
+       {
+            "id": "1",
+            "descriptions": [
+                {
+                    "id": "1a",
+                    "active": true,
+                    "typeId": "900000000000003001", // FSN
+                    "languageCode": "en",
+                    "term": "Body Structure (body structure)"
+                },
+                {
+                    "id": "2b",
+                    "active": true,
+                    "typeId": "900000000000013009", // SYN
+                    "languageCode": "en",
+                    "term": "Body Structure"
+                }
+            ]
+        }
+    ],
+    "assertConceptsFail": [
+        {
+            "id": "1",
+            "descriptions": [
+                {
+                    "id": "1a",
+                    "active": true,
+                    "typeId": "900000000000003001", // FSN
+                    "languageCode": "en",
+                    "term": "Body Structure (body structure)"
+                },
+                {
+                    "id": "2b",
+                    "active": true,
+                    "typeId": "900000000000013009", // SYN
+                    "languageCode": "en",
+                    "term": "Body Structure testing"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.helper.DescriptionHelper
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.response.Severity
+import org.ihtsdo.drools.domain.Constants
+import java.util.ArrayList
+
+global java.util.List invalidContent
+
+
+rule "There should have a synonym that has the same text with FSN"
+	dialect "mvel"
+	when
+		c : Concept(active)
+		fsn : Description(active, conceptId == c.id, typeId == Constants.FSN)
+		ArrayList(size == 0) from collect (
+			Description(active, conceptId == c.id, !published, typeId == Constants.SYNONYM, term.equals(DescriptionHelper.getFsnTerm(fsn.term)))
+		)
+	then
+		InvalidContent invalid = new InvalidContent(c, "For each active FSN there is a synonym that has the same text.", Severity.WARNING);
+        invalid.ignorePublishedCheck();
+        invalidContent.add(invalid);
+end
