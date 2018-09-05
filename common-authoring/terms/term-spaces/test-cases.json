@@ -156,7 +156,32 @@
                     "destinationId": "105590001"
                 }
             ]
-        }
+        },
+        {  	   
+		   "active":true,
+		   "released":true,
+		   "conceptId":"332407004",
+		   "fsn":"Entire distal third of shaft of bone (body structure)",
+		   "definitionStatus":"PRIMITIVE",
+		   "preferredSynonym":"Entire distal third of shaft of bone",
+		   "descriptions":[ 		      
+		      {  
+		         "moduleId":"45991000052106",
+		         "active":false,
+		         "released":true,
+		         "descriptionId":"1115221000052115",
+		         "conceptId":"332407004",
+		         "type":"SYNONYM",
+		         "lang":"sv",
+		         "term":"distala tredjedelen av rörbensdiafys, som helhet ",
+		         "caseSignificance":"CASE_INSENSITIVE",
+		         "acceptabilityMap":{  
+		
+		         },
+		         "inactivationIndicator":"OUTDATED"
+		      }
+		   ]
+		}
     ],
     "assertConceptsFail": [
         {
