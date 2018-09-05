@@ -19,7 +19,7 @@ end
 rule "TextDefinition first character case"
 	dialect "mvel"
 	when
-		d : Description(active && textDefinition && term matches "[^A-Z].*")
+		d : Description(active && textDefinition && term matches "[a-zA-Z].*" && term matches "[^A-Z].*")
 	then
 		invalidContent.add(new InvalidContent(d, "The first character of a text definition should be upper case.", Severity.WARNING));
 end

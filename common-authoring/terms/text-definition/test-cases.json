@@ -78,7 +78,22 @@
                     }
                 }
             ]
-        }            
+        } ,
+		{     
+		   "active":true,  
+		   "descriptions":[      
+		      {        
+		         "active":true,
+		         "textDefinition": true,
+		         "term":"Öng tesing",
+		         "caseSignificanceId":"900000000000017005",
+		         "acceptabilityMap":{  
+		            "900000000000509007":"PREFERRED",
+		            "900000000000508004":"PREFERRED"
+		         }         
+		      }
+		   ]
+		}           
     ],
     // Failure cases:
     // 1 caseSignificance Only initial character case insensitive
