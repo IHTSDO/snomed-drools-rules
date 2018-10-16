@@ -9,6 +9,19 @@
                     "term": "Ibuprofen and oxycodone (product)"
                 }
             ]
+        },
+        {
+            "id": "2",
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Test Drools \ Rules (event)"
+                },
+                {
+                    "id": "2",
+                    "term": "Test Drools \ Rules"
+                }
+            ]
         }
     ],
     // 1 - \\
@@ -57,15 +70,6 @@
                     "term": "Ibuprofen \n oxycodone (product)"
                 }
             ]
-        },{
-            "id": "5",
-            "descriptions": [
-                {
-                    "id": "2",
-                    "typeId": "900000000000003001",
-                    "term": "Ibuprofen \\\Z oxycodone (product)"
-                }
-            ]
         },        {
             "id": "6",
             "descriptions": [
@@ -93,6 +97,19 @@
                     "id": "2",
                     "typeId": "900000000000003001",
                     "term": "Ibuprofen # oxycodone (product)"
+                }
+            ]
+        },
+        {
+            "id": "9",
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Test Drools \\\\ Rules (event)"
+                },
+                {
+                    "id": "2",
+                    "term": "Test Drools \\\\ Rules"
                 }
             ]
         }

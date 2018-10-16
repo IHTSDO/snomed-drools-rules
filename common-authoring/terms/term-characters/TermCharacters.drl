@@ -8,7 +8,7 @@ global java.util.List invalidContent
 rule "Term special characters"
 	dialect "mvel"
 	when
-		d : Description(active == true && term matches ".*[\\\\\t\r\n@$#].*")
+		d : Description(active == true && (term matches ".*[\t\r\n@$#].*" || term.contains("\\\\")))
 	then
 		invalidContent.add(new InvalidContent(d, "An active term should not contain tabs, newlines, or characters @, $, #, \\\\.", Severity.WARNING));
 end
