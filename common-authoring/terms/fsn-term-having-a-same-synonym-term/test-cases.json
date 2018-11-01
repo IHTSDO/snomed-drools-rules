@@ -18,6 +18,215 @@
                     "term": "Body Structure"
                 }
             ]
+        },
+        {
+            "id": "2",
+            "descriptions": [
+                {
+                    "id": "2a",
+                    "active": true,
+                    "typeId": "900000000000003001", // FSN
+                    "languageCode": "en",
+                    "term": "Body Structure (product)"
+                },
+                {
+                    "id": "2b",
+                    "active": true,
+                    "typeId": "900000000000013009", // SYN
+                    "languageCode": "en",
+                    "term": "Body Structure other"
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "descriptions": [
+                {
+                    "id": "3a",
+                    "active": true,
+                    "typeId": "900000000000003001", // FSN
+                    "languageCode": "en",
+                    "term": "Body Structure (medicinal product)"
+                },
+                {
+                    "id": "3b",
+                    "active": true,
+                    "typeId": "900000000000013009", // SYN
+                    "languageCode": "en",
+                    "term": "Body Structure other"
+                }
+            ]
+        },
+        {
+            "id": "4",
+            "descriptions": [
+                {
+                    "id": "4a",
+                    "active": true,
+                    "typeId": "900000000000003001", // FSN
+                    "languageCode": "en",
+                    "term": "Body Structure (medicinal product form)"
+                },
+                {
+                    "id": "4b",
+                    "active": true,
+                    "typeId": "900000000000013009", // SYN
+                    "languageCode": "en",
+                    "term": "Body Structure other"
+                }
+            ]
+        },
+        {
+            "id": "5",
+            "descriptions": [
+                {
+                    "id": "5a",
+                    "active": true,
+                    "typeId": "900000000000003001", // FSN
+                    "languageCode": "en",
+                    "term": "Body Structure (clinical drug)"
+                },
+                {
+                    "id": "5b",
+                    "active": true,
+                    "typeId": "900000000000013009", // SYN
+                    "languageCode": "en",
+                    "term": "Body Structure other"
+                }
+            ]
+        },
+        {
+            "id": "6",
+            "descriptions": [
+                {
+                    "id": "6a",
+                    "active": true,
+                    "typeId": "900000000000003001", // FSN
+                    "languageCode": "en",
+                    "term": "Body Structure (substance)"
+                },
+                {
+                    "id": "6b",
+                    "active": true,
+                    "typeId": "900000000000013009", // SYN
+                    "languageCode": "en",
+                    "term": "Body Structure other"
+                }
+            ]
+        },
+        {
+            "id": "7",
+            "descriptions": [
+                {
+                    "id": "7a",
+                    "active": true,
+                    "typeId": "900000000000003001", // FSN
+                    "languageCode": "en",
+                    "term": "Body Structure (product name)"
+                },
+                {
+                    "id": "7b",
+                    "active": true,
+                    "typeId": "900000000000013009", // SYN
+                    "languageCode": "en",
+                    "term": "Body Structure other"
+                }
+            ]
+        },
+        {
+            "id": "8",
+            "descriptions": [
+                {
+                    "id": "8a",
+                    "active": true,
+                    "typeId": "900000000000003001", // FSN
+                    "languageCode": "en",
+                    "term": "Body Structure (packaged clinical drug)"
+                },
+                {
+                    "id": "8b",
+                    "active": true,
+                    "typeId": "900000000000013009", // SYN
+                    "languageCode": "en",
+                    "term": "Body Structure other"
+                }
+            ]
+        },
+        {
+            "id": "9",
+            "descriptions": [
+                {
+                    "id": "9a",
+                    "active": true,
+                    "typeId": "900000000000003001", // FSN
+                    "languageCode": "en",
+                    "term": "Body Structure (real clinical drug)"
+                },
+                {
+                    "id": "9b",
+                    "active": true,
+                    "typeId": "900000000000013009", // SYN
+                    "languageCode": "en",
+                    "term": "Body Structure other"
+                }
+            ]
+        },
+        {
+            "id": "10",
+            "descriptions": [
+                {
+                    "id": "10a",
+                    "active": true,
+                    "typeId": "900000000000003001", // FSN
+                    "languageCode": "en",
+                    "term": "Body Structure (real medicinal product)"
+                },
+                {
+                    "id": "10b",
+                    "active": true,
+                    "typeId": "900000000000013009", // SYN
+                    "languageCode": "en",
+                    "term": "Body Structure other"
+                }
+            ]
+        },
+        {
+            "id": "11",
+            "descriptions": [
+                {
+                    "id": "11a",
+                    "active": true,
+                    "typeId": "900000000000003001", // FSN
+                    "languageCode": "en",
+                    "term": "Body Structure (real packaged clinical drug)"
+                },
+                {
+                    "id": "11b",
+                    "active": true,
+                    "typeId": "900000000000013009", // SYN
+                    "languageCode": "en",
+                    "term": "Body Structure other"
+                }
+            ]
+        },
+        {
+            "id": "12",
+            "descriptions": [
+                {
+                    "id": "12a",
+                    "active": true,
+                    "typeId": "900000000000003001", // FSN
+                    "languageCode": "en",
+                    "term": "Body Structure (supplier)"
+                },
+                {
+                    "id": "12b",
+                    "active": true,
+                    "typeId": "900000000000013009", // SYN
+                    "languageCode": "en",
+                    "term": "Body Structure other"
+                }
+            ]
         }
     ],
     "assertConceptsFail": [

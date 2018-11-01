@@ -13,7 +13,7 @@ rule "There should have a synonym that has the same text with FSN"
 	dialect "mvel"
 	when
 		c : Concept(active)
-		fsn : Description(active, conceptId == c.id, typeId == Constants.FSN)
+		fsn : Description(active, conceptId == c.id, typeId == Constants.FSN && DescriptionHelper.getTag(term) not in ("product", "medicinal product", "medicinal product form", "clinical drug", "substance", "product name", "packaged clinical drug", "real clinical drug", "real medicinal product", "real packaged clinical drug", "supplier"))
 		ArrayList(size > 0) from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM)
 		)
