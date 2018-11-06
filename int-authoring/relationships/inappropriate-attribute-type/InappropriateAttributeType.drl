@@ -1,0 +1,22 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Relationship
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.domain.Constants
+
+global java.util.List invalidContent
+
+rule "Relationship has inappropriate attribute and value"
+	dialect "mvel"
+	when
+		c : Concept(active)
+		r : Relationship(active 
+						&& characteristicTypeId == Constants.STATED_RELATIONSHIP 
+						&& (typeId in ("774158006", "774159003", "774160008", "774161007", "774163005", "774164004", "774167006") 
+							|| destinationId in ("774158006", "774159003", "774160008", "774161007", "774163005", "774164004", "774167006")
+							)
+						)
+	then
+		InvalidContent invalid = new InvalidContent(r, "Relationship has inappropriate attribute type and value.");
+        invalid.ignorePublishedCheck();
+        invalidContent.add(invalid);
+end

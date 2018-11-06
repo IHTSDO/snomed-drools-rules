@@ -1,0 +1,93 @@
+{	"assertConceptsPass": [
+    ],
+    "assertConceptsFail": [
+        {
+            "id": "1",
+            "active": true,
+            "relationships": [
+                {
+                    "id": "1",
+                    "active": true,
+                    "typeId": "774158006" // Has product name (attribute)
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "active": true,
+            "relationships": [
+                {
+                    "id": "2",
+                    "active": true,
+                    "typeId": "774159003" // Has supplier (attribute)
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "active": true,
+            "relationships": [
+                {
+                    "id": "3",
+                    "active": true,
+                    "typeId": "774160008" // Contains clinical drug (attribute)
+                }
+            ]
+        },
+        {
+            "id": "4",
+            "active": true,
+            "relationships": [
+                {
+                    "id": "4",
+                    "active": true,
+                    "typeId": "774161007" // Has pack size (attribute)
+                }
+            ]
+        },
+        {
+            "id": "5",
+            "active": true,
+            "relationships": [
+                {
+                    "id": "5",
+                    "active": true,
+                    "typeId": "774163005" // Has pack size unit (attribute)
+                }
+            ]
+        },
+        {
+            "id": "6",
+            "active": true,
+            "relationships": [
+                {
+                    "id": "6",
+                    "active": true,
+                    "typeId": "774164004" // Supplier (supplier)
+                }
+            ]
+        },
+        {
+            "id": "7",
+            "active": true,
+            "relationships": [
+                {
+                    "id": "7",
+                    "active": true,
+                    "typeId": "774167006" // Product name (product name)
+                }
+            ]
+        },
+        {
+            "id": "8",
+            "active": true,
+            "relationships": [
+                {
+                    "id": "8",
+                    "active": true,
+                    "destinationId": "774167006" // Product name (product name)
+                }
+            ]
+        }
+        
+    ]}
