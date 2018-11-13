@@ -16,7 +16,7 @@ rule "Relationship has inappropriate attribute and value"
 							)
 						)
 	then
-		InvalidContent invalid = new InvalidContent(r, "Relationship has inappropriate attribute type and value.");
+		InvalidContent invalid = new InvalidContent(r, "Attribute or hierarchy should only be used in national extension model, not in international release.");
         invalid.ignorePublishedCheck();
         invalidContent.add(invalid);
 end
