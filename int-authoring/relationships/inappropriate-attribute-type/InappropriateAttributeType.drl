@@ -2,6 +2,7 @@ import org.ihtsdo.drools.domain.Concept
 import org.ihtsdo.drools.domain.Relationship
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
@@ -16,7 +17,7 @@ rule "Relationship has inappropriate attribute and value"
 							)
 						)
 	then
-		InvalidContent invalid = new InvalidContent(r, "Attribute or hierarchy should only be used in national extension model, not in international release.");
+		InvalidContent invalid = new InvalidContent(r, "Attribute or hierarchy should only be used in national extension model, not in international release.", Severity.WARNING);
         invalid.ignorePublishedCheck();
         invalidContent.add(invalid);
 end
