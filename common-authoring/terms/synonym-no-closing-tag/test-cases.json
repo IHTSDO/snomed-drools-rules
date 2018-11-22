@@ -16,16 +16,8 @@
                     "term": "Some (parenthetical) term"
                 }
             ]
-        }, {
-            "descriptions": [
-                {
-                    "id": "3",
-                    "typeId": "900000000000013009", // SYN
-                    "term": "Some term with semantic tag (organism)"
-                }
-            ]
         }
-        
+
     ],
     "assertConceptsFail": [
         {
@@ -37,5 +29,14 @@
                     "term": "Some term (some closing tag)"
                }
             ]
+        }, {
+            "descriptions": [
+                {
+                    "id": "3",
+                    "typeId": "900000000000013009", // SYN
+                    "term": "Some term with semantic tag (organism)"
+                }
+            ]
         }
-    ]}
+    ]
+}

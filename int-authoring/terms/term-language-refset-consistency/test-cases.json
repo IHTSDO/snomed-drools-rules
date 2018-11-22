@@ -9,7 +9,7 @@
             "descriptions": [
                 {
                     "id": "1p",
-                    "term": "foetal",
+                    "term": "aeroplane",
                     "typeId": "900000000000013009",
                     "acceptabilityMap": {
                         "900000000000508004": "900000000000548007"
@@ -21,7 +21,7 @@
             "descriptions": [
                 {
                     "id": "2p",
-                    "term": "fetal",
+                    "term": "airplane",
                     "typeId": "900000000000013009",
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007"
@@ -38,7 +38,7 @@
             "descriptions": [
                 {
                     "id": "1f",
-                    "term": "fetal",
+                    "term": "airplane",
                     "typeId": "900000000000013009",
                     "acceptabilityMap": {
                         "900000000000508004": "900000000000548007"
@@ -50,7 +50,7 @@
             "descriptions": [
                 {
                     "id": "2f",
-                    "term": "foetal",
+                    "term": "aeroplane",
                     "typeId": "900000000000013009",
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007"

@@ -5,10 +5,12 @@ import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
 import org.ihtsdo.drools.helper.DescriptionHelper
 import org.ihtsdo.drools.service.ConceptService
+import org.ihtsdo.drools.service.DescriptionService
 import java.util.ArrayList
 
 global java.util.List invalidContent
 global ConceptService conceptService
+global DescriptionService descriptionService
 
 rule "Active FSNs cannot start with open parentheses"
 	dialect "mvel"
@@ -37,7 +39,7 @@ end
 rule "Active FSN should end with a valid semantic tag"
 	dialect "mvel"
 	when
-		d : Description(active == true && typeId == Constants.FSN && (!DescriptionHelper.hasSemanticTag(d)))
+		d : Description(active == true && typeId == Constants.FSN && !descriptionService.isRecognisedSemanticTag(DescriptionHelper.getTag(d.term)))
 	then
 		invalidContent.add(new InvalidContent(d, "Active FSN should end with a valid semantic tag.", Severity.WARNING));
 end
@@ -46,7 +48,7 @@ rule "FSN Comma"
 	dialect "mvel"
 	when
 		c : Concept(active)
-		topLevelHierarchies : ArrayList() from collect( String() from conceptService.findTopLevelHierachiesOfConcept(c))
+		topLevelHierarchies : ArrayList() from collect( String() from conceptService.findTopLevelHierarchiesOfConcept(c))
 		d : Description(active == true && typeId == Constants.FSN && term matches ".*,.*" && topLevelHierarchies not contains "105590001" && topLevelHierarchies not contains "373873005")
 	then
 		invalidContent.add(new InvalidContent(d, "An FSN should not include commas.", Severity.WARNING));

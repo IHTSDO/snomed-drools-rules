@@ -14,7 +14,7 @@ rule "Active concept should not belong to more than one top-level hierarchy"
 	dialect "mvel"
 	when
 		c : Concept(active)
-		topLevelHierarchies : ArrayList() from collect( String() from conceptService.findTopLevelHierachiesOfConcept(c))
+		topLevelHierarchies : ArrayList() from collect( String() from conceptService.findTopLevelHierarchiesOfConcept(c))
         Concept(ConceptHelper.isMoreThanOneTopLevelHierarchy(topLevelHierarchies,"373873005","260787004"))
 	then
 		InvalidContent invalid = new InvalidContent(c, "Active concept parents should not belong to more than one top-level hierarchy.", Severity.ERROR);

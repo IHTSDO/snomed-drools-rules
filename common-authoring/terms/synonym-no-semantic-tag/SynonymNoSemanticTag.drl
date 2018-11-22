@@ -11,7 +11,7 @@ rule "Active synonyms on active concepts do not have semantic tags"
 	dialect "mvel"
 	when
 		c : Concept(active)
-		d : Description(active && typeId == Constants.SYNONYM && DescriptionHelper.hasSemanticTag(d))
+		d : Description(active && typeId == Constants.SYNONYM && DescriptionHelper.getTag(d.term) != null)
 	then
 		invalidContent.add(new InvalidContent(d, "An active synonym on an active concept must not have a semantic tag.", Severity.WARNING));
 end

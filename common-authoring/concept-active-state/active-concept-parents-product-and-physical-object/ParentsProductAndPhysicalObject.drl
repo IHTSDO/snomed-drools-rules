@@ -14,7 +14,7 @@ rule "Active concept has top level parents that are both (product) and (physical
 	dialect "mvel"
 	when
 		c : Concept(active)
-		topLevelHierarchies : ArrayList() from collect( String() from conceptService.findTopLevelHierachiesOfConcept(c))
+		topLevelHierarchies : ArrayList() from collect( String() from conceptService.findTopLevelHierarchiesOfConcept(c))
         Concept(ConceptHelper.containsAnyConcept(topLevelHierarchies,"373873005","260787004"))         
 	then
 		InvalidContent invalid = new InvalidContent(c, "Active concept has parents that are both (product) and (physical object).", Severity.WARNING)

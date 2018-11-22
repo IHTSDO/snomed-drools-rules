@@ -21,7 +21,7 @@ rule "Active descriptions do not have spaces, either before or after, hyphens."
 	dialect "mvel"
 	when
 		c : Concept(active)
-		topLevelHierarchies : ArrayList() from collect( String() from conceptService.findTopLevelHierachiesOfConcept(c))
+		topLevelHierarchies : ArrayList() from collect( String() from conceptService.findTopLevelHierarchiesOfConcept(c))
 		d : Description(active
 						&& moduleId != "554471000005108" /*Danish module*/ 
 						&& moduleId != "51000202101" /*Norwegian module*/ 

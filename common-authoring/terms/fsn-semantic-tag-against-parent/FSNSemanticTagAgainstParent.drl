@@ -67,7 +67,7 @@ rule "All Semantic Tag of concept parents does not match with Semantic Tag of FS
 	dialect "mvel"
 	when
 		c : Concept(active)
-		statedAncestors : ArrayList(size == 1) from collect( String() from conceptService.findTopLevelHierachiesOfConcept(c))
+		statedAncestors : ArrayList(size == 1) from collect( String() from conceptService.findTopLevelHierarchiesOfConcept(c))
 		parents : ArrayList(size > 1) from collect( String() from descriptionService.getFSNs(RelationshipHelper.getActiveStatedParentConceptIds(c),Constants.US_EN_LANG_REFSET,Constants.GB_EN_LANG_REFSET))
 		d : Description(conceptId == c.id
 						&& active
@@ -87,15 +87,15 @@ rule "Matching semantic tag should not allow adding a subtype as a parent"
 	dialect "mvel"
 	when
 		c : Concept(active)
-		statedAncestors : ArrayList(size == 1) from collect( String() from conceptService.findTopLevelHierachiesOfConcept(c))
+		statedAncestors : ArrayList(size == 1) from collect( String() from conceptService.findTopLevelHierarchiesOfConcept(c))
 		parentFSNs : ArrayList() from collect( String() from descriptionService.getFSNs(RelationshipHelper.getActiveStatedParentConceptIds(c),Constants.US_EN_LANG_REFSET,Constants.GB_EN_LANG_REFSET))
 		d : Description(conceptId == c.id && active && typeId == Constants.FSN && !DescriptionHelper.isAllParentSemanticTagMatchWithTerm(term,parentFSNs))
-		termSematicTag : String() from DescriptionHelper.getTag(d.term)					    
-		parentIds : ArrayList(size > 0) from collect( String() from descriptionService.findParentsNotContainSematicTag(c, termSematicTag, Constants.US_EN_LANG_REFSET,Constants.GB_EN_LANG_REFSET))
+		termSemanticTag : String() from DescriptionHelper.getTag(d.term)
+		parentIds : ArrayList(size > 0) from collect( String() from descriptionService.findParentsNotContainingSemanticTag(c, termSemanticTag, Constants.US_EN_LANG_REFSET,Constants.GB_EN_LANG_REFSET))
 		ancestorIds : HashSet(size > 0) from collect( String() from conceptService.findStatedAncestorsOfConcepts(parentIds))
 		fsns : ArrayList(size > 0) from collect( String() from descriptionService.getFSNs(ancestorIds,Constants.US_EN_LANG_REFSET,Constants.GB_EN_LANG_REFSET))
-		sematicTags : ArrayList(size > 0) from collect( String() from DescriptionHelper.getTags(fsns))
-		eval(sematicTags contains termSematicTag)
+		SemanticTags : ArrayList(size > 0) from collect( String() from DescriptionHelper.getTags(fsns))
+		eval(SemanticTags contains termSemanticTag)
 	then
 		InvalidContent invalid = new InvalidContent(d, "It is not allowed to add a subtype as a parent.")
 		invalid.ignorePublishedCheck()

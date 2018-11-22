@@ -14,8 +14,8 @@ rule "Has manufactured dose form attribute can only appear once in a drug concep
 	dialect "mvel"
 	when
 		c : Concept(active)
-		topLevelHierachies : ArrayList(size > 0) from collect( String() from conceptService.findTopLevelHierachiesOfConcept(c))
-        r1 : Relationship(active && typeId == "411116001" && (topLevelHierachies contains "373873005"))
+		topLevelHierarchies : ArrayList(size > 0) from collect( String() from conceptService.findTopLevelHierarchiesOfConcept(c))
+        r1 : Relationship(active && typeId == "411116001" && (topLevelHierarchies contains "373873005"))
         r2 : Relationship(active && typeId == "411116001" && id != r1.id)
 	then
 		invalidContent.add(new InvalidContent(r1, "\"Has manufactured dose form\" attribute can only appear once in a drug concept model.", Severity.WARNING));
