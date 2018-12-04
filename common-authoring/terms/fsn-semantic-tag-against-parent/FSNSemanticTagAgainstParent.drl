@@ -10,7 +10,8 @@ import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
 import org.ihtsdo.drools.service.ConceptService
 import java.util.ArrayList
-import java.util.HashSet;
+import java.util.HashSet
+import java.util.Collection
 
 global java.util.List invalidContent
 global DescriptionService descriptionService
@@ -40,6 +41,27 @@ rule "Semantic Tag of FSN compatible with concept parents"
 		invalidContent.add(new InvalidContent(d, "A concept's semantic tags should be compatible with those of the active parents.", Severity.WARNING));
 end
 
+function boolean isAllParentSemanticTagMatchWithTerm(String term, Collection parentTerms, String[][] acceptablePairs) {
+    String tag = DescriptionHelper.getTag(term);
+    if (tag != null) {
+		for (Object obj : parentTerms) {
+			String parentTag = DescriptionHelper.getTag((String) obj);
+			boolean isAcceptablePair = false;
+			if (acceptablePairs != null) {
+				for (String[] acceptablePair : acceptablePairs) {
+					if (acceptablePair.length == 2 && (tag.equals(acceptablePair[0])) && acceptablePair[1].equals(parentTag)) {
+						isAcceptablePair = true;
+					}
+				}
+			}
+			if (!tag.equals(parentTag) && !isAcceptablePair) {
+				return false;
+			}
+		}
+	}
+	
+	return true;
+}
 
 rule "All Semantic Tag of concept parents does not match with Semantic Tag of FSN"
 	dialect "mvel"
@@ -50,7 +72,10 @@ rule "All Semantic Tag of concept parents does not match with Semantic Tag of FS
 		d : Description(conceptId == c.id
 						&& active
 						&& typeId == Constants.FSN
-						&& !DescriptionHelper.isAllParentSemanticTagMatchWithTerm(term,parents)
+						&& !isAllParentSemanticTagMatchWithTerm(term, parents, new String[][]{
+																						// Pairs of special cases
+																						{"disorder", "finding"}
+																					})
 					   )
 	then
 		InvalidContent invalid = new InvalidContent(d, "A concept's semantic tags should be compatible with those of the active parents.", Severity.WARNING)

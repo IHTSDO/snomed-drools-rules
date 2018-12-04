@@ -152,6 +152,32 @@
                     "destinationId": "123" // Product (product)
                 }
             ]
+        },
+        {
+            "id": "4",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "4a",
+                    "term": "Testing (disorder)",                    
+                    "typeId": "900000000000003001" // FSN
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // is-a
+                    "active" : true,
+                    "characteristicTypeId": "900000000000010007",
+                    "destinationId": "64572001" // Disease (disorder)
+                },
+                {
+                    "typeId": "106112009", // is-a
+                    "active" : true,
+                    "published": true,
+                    "characteristicTypeId": "900000000000010007",
+                    "destinationId": "106112009" // Fetal finding (finding)
+                }
+            ]
         }
     ],
     "assertConceptsFail": [
