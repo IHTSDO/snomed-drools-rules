@@ -10,7 +10,7 @@ rule "Term Case Significance: Only initial character case sensitive"
 	dialect "mvel"
 	when
 		c : Concept(active == true)
-		d : Description(active == true && conceptId == c.id && caseSignificanceId == Constants.ONLY_INITIAL_CHARACTER_CASE_INSENSITIVE && term not matches "^..*[A-Z].*$")
+		d : Description(active == true && conceptId == c.id && caseSignificanceId == Constants.ONLY_INITIAL_CHARACTER_CASE_INSENSITIVE && term not matches "^..*[A-Z].*$" && term not matches "^..*[0-9][A-Za-z].*$")
 	then
 		invalidContent.add(new InvalidContent(d, "An active term on an active concept with case significance 'only initial character case insensitive' should contain a capital letter after the first character.", Severity.WARNING));
 end

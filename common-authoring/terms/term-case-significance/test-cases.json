@@ -21,6 +21,26 @@
                 }
 
             ]
+        },
+        {
+            "id": "4",
+            "descriptions": [
+                {
+                    "id": "4",
+                    "caseSignificanceId": "900000000000020002",
+                    "term": "6-O-methylnorlaudanosoline 5'-O-methyltransferase (substance)"
+                }
+            ]
+        },
+        {
+            "id": "5",
+            "descriptions": [
+                {
+                    "id": "5",
+                    "caseSignificanceId": "900000000000020002",
+                    "term": "Non-distal monosomy 12q (disorder)"
+                }
+            ]
         }
     ],
     // 1 - only initial character case insensitive
@@ -73,6 +93,16 @@
                     "id": "6",
                     "caseSignificanceId": "900000000000448009",
                     "term": "ibuprofen & Oxycodone (product)"
+                }
+            ]
+        },
+        {
+            "id": "7",
+            "descriptions": [
+                {
+                    "id": "7",
+                    "caseSignificanceId": "900000000000020002",
+                    "term": "Ibuprofen oxycodone (product)"
                 }
             ]
         }
