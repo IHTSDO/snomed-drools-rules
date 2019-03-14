@@ -1,0 +1,25 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Constants
+import java.util.Collection
+import java.util.ArrayList
+import org.ihtsdo.drools.helper.DescriptionHelper
+import org.ihtsdo.drools.response.InvalidContent
+
+global java.util.List invalidContent
+
+rule "Preferred synonym per dialect"
+	dialect "mvel"
+	when
+		c : Concept(active)
+		ArrayList(size > 0 || c.moduleId contains "11000181102") from collect (
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "et")
+		)
+		ArrayList(size != 1) from collect (
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "et", acceptabilityMap["71000181105"] == Constants.ACCEPTABILITY_PREFERRED)
+		)
+	then
+		InvalidContent invalid = new InvalidContent(c, "A concept must have one Preferred Synonym in the EE dialect.");
+        invalid.ignorePublishedCheck();
+        invalidContent.add(invalid);
+end
