@@ -26,6 +26,7 @@ rule "Active descriptions do not have spaces, either before or after, hyphens."
 						&& moduleId != "554471000005108" /*Danish module*/ 
 						&& moduleId != "51000202101" /*Norwegian module*/ 
 						&& moduleId != "11000172109" /*Belgian module*/
+						&& languageCode != "sv"
 						&& topLevelHierarchies not contains "373873005" /*Pharmaceutical / biologic product (product)*/
 						&& topLevelHierarchies not contains "105590001" /*Substance (substance)*/
 						&& (term matches ".* -.*" || term matches ".*- .*"))
