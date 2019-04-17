@@ -15,7 +15,8 @@ global DescriptionService descriptionService
 rule "Active FSNs cannot start with open parentheses"
 	dialect "mvel"
 	when
-		d : Description(active == true && typeId == Constants.FSN && term matches "\\(.*")
+		c : Concept(active)
+		d : Description(conceptId == c.id && active == true && typeId == Constants.FSN && term matches "\\(.*")
 	then
 		invalidContent.add(new InvalidContent(d, "An FSN should not start with open parentheses.", Severity.WARNING));
 end
@@ -23,7 +24,8 @@ end
 rule "FSN ends in closing parentheses"
 	dialect "mvel"
 	when
-		d : Description(active == true && typeId == Constants.FSN && term matches ".*[^\\)]")
+		c : Concept(active)
+		d : Description(conceptId == c.id && active == true && typeId == Constants.FSN && term matches ".*[^\\)]")
 	then
 		invalidContent.add(new InvalidContent(d, "An FSN must end in closing parentheses."));
 end
@@ -31,7 +33,8 @@ end
 rule "Active FSN must end with a semantic tag"
 	dialect "mvel"
 	when
-		d : Description(active == true && typeId == Constants.FSN && (term not matches ".*\\(.+\\)"))
+		c : Concept(active)
+		d : Description(conceptId == c.id && active == true && typeId == Constants.FSN && (term not matches ".*\\(.+\\)"))
 	then
 		invalidContent.add(new InvalidContent(d, "Active FSN must end with a semantic tag."));
 end
@@ -39,7 +42,8 @@ end
 rule "Active FSN should end with a valid semantic tag"
 	dialect "mvel"
 	when
-		d : Description(active == true && typeId == Constants.FSN && !descriptionService.isRecognisedSemanticTag(DescriptionHelper.getTag(d.term)))
+		c : Concept(active)
+		d : Description(conceptId == c.id && active == true && typeId == Constants.FSN && !descriptionService.isRecognisedSemanticTag(DescriptionHelper.getTag(d.term)))
 	then
 		invalidContent.add(new InvalidContent(d, "Active FSN should end with a valid semantic tag.", Severity.WARNING));
 end
@@ -57,7 +61,8 @@ end
 rule "FSN special characters"
 	dialect "mvel"
 	when
-		d : Description(active == true && typeId == Constants.FSN && term matches ".*[&%$@#].*")
+		c : Concept(active)
+		d : Description(conceptId == c.id && active == true && typeId == Constants.FSN && term matches ".*[&%$@#].*")
 	then
 		invalidContent.add(new InvalidContent(d, "An active FSN should not contain the special characters &, %, $, @ or #.", Severity.WARNING));
 end
@@ -65,7 +70,8 @@ end
 rule "FSN capitalized"
 	dialect "mvel"
 	when
-		d : Description(active == true && typeId == Constants.FSN && term matches "[a-z].*")
+		c : Concept(active)
+		d : Description(conceptId == c.id && active == true && typeId == Constants.FSN && term matches "[a-z].*")
 	then
 		invalidContent.add(new InvalidContent(d, "The first letter of an active FSN should be capitalized.", Severity.WARNING));
 end
