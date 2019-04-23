@@ -1,10 +1,10 @@
 {
-	// 1 - primitive with one relationship
-	// 2 - primitive with two relationships
-	// 3 - defined with two relationships
+	// 11 - primitive with one relationship
+	// 12 - primitive with two relationships
+	// 13 - defined with two relationships
     "assertConceptsPass": [
         {
-            "id": "1",
+            "id": "11",
              "definitionStatusId": "900000000000074008", // PRIMITIVE
             "relationships": [
                 {
@@ -12,34 +12,36 @@
                 }
             ]
         }, {
-            "id": "2",
+            "id": "12",
              "definitionStatusId": "900000000000074008", // PRIMITIVE
             "relationships": [
                 {
                     "typeId": "116680003" // Is-a
                 }, {
-                    "typeId": "116680003" // Is-a
+                    "typeId": "123005000" // Part of
                 }
             ]
         },  {
-            "id": "3",
+            "id": "13",
             "definitionStatusId": "900000000000073002", // DEFINED
             "active" : true,
             "relationships": [
                 {
                     "typeId": "116680003" // Is-a
                 }, {
-                    "typeId": "116680003" // Is-a
+                    "typeId": "123005000" // Part of
                 }
             ]
         }
     ],
     
-    // 1 - defined with one relationship
-    "assertConceptsFail": [  
+    // 21 - defined with one relationship
+    // 22 - defined with one stated relationship and one inferred
+    // 23 - defined with two is-a relationships
+    "assertConceptsFail": [
        
         {
-            "id": "1",
+            "id": "21",
             "definitionStatusId": "900000000000073002", // DEFINED
             "active" : true,
             "relationships": [
@@ -49,7 +51,7 @@
             ]
         },
         {
-            "id": "2",
+            "id": "22",
             "definitionStatusId": "900000000000073002", // DEFINED
             "active" : true,
             "relationships": [
@@ -64,6 +66,22 @@
                     "characteristicTypeId": "900000000000011006" //INFERRED_RELATIONSHIP
                 }
             ]
+        },
+        {
+            "id": "23",
+            "definitionStatusId": "900000000000073002", // DEFINED
+            "active" : true,
+            "relationships": [
+                {
+                    "typeId": "116680003", // Is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007" //STATED_RELATIONSHIP
+                },
+                {
+                    "typeId": "116680003", // Is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007" //STATED_RELATIONSHIP
+                }
+            ]
         }
-        
     ]}
