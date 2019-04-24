@@ -49,6 +49,32 @@
                     "active": true
                 }
             ]
+        },
+        {
+            "id": "2",
+            "active" : true,
+            "relationships": [
+                {
+                    "id": "2a",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true
+                },
+                {
+                    "id": "2b",
+                    "axiomId": "1",
+                    "destinationId": "109035006",
+                    "typeId": "411116001", // Has manufactured dose form
+                    "active": true
+                },
+                {
+                    "id": "2c",
+                    "axiomId": "2",// Different axiom
+                    "destinationId": "1090350061",
+                    "typeId": "411116001", // Has manufactured dose form
+                    "active": true
+                }
+            ]
         }
     ],
     "assertConceptsFail": [
@@ -102,6 +128,32 @@
                     "id": "2c",
                     "destinationId": "5776009",
                     "characteristicTypeId":"900000000000010007", // Stated
+                    "typeId": "411116001", // Has manufactured dose form
+                    "active": true
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "active" : true,
+            "relationships": [
+                {
+                    "id": "3a",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true
+                },
+                {
+                    "id": "3b",
+                    "axiomId": "1",
+                    "destinationId": "109035006",
+                    "typeId": "411116001", // Has manufactured dose form
+                    "active": true
+                },
+                {
+                    "id": "3c",
+                    "axiomId": "1",// Same axiom
+                    "destinationId": "109035006",
                     "typeId": "411116001", // Has manufactured dose form
                     "active": true
                 }
