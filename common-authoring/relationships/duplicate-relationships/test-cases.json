@@ -65,6 +65,33 @@
                     "released": true
                 }
             ]
+        },
+        {
+            "id": "4",
+            "relationships": [
+                {
+                    "id": "1",
+                    "relationshipGroup": "0",
+                    "typeId": "116680003", // is-a
+                    "destinationId": "100"
+                },
+                {
+                    "id": "2",
+                    "relationshipGroup": "3",
+                    "typeId": "363698007", // Finding site
+                    "destinationId": "123",
+                    "released": true,
+                    "active": false
+                },
+                {
+                    "id": "4",
+                    "relationshipGroup": "3",
+                    "typeId": "363698007", // Finding site
+                    "destinationId": "123",
+                    "released": true,
+                    "active": false
+                }
+            ]
         }
     ],
     "assertConceptsFail": [

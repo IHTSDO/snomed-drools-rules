@@ -9,6 +9,7 @@ global java.util.List invalidContent
 rule "Term already exists in concept with same case - one active."
 	dialect "mvel"
 	when
+	   c : Concept(active)
 		d1 : Description(active)
 		d2 : Description(active && conceptId == d1.conceptId && id != d1.id && d1.languageCode == d2.languageCode && term.equals(d1.term))
 	then
@@ -19,6 +20,7 @@ end
 rule "Term already exists in concept with same case - the other description is released and inactive, this one is not released."
 	dialect "mvel"
 	when
+	   c : Concept(active)
 		d1 : Description(!active && released)
 		d2 : Description(active && !released && conceptId == d1.conceptId && id != d1.id && d1.languageCode == d2.languageCode && typeId == d1.typeId && term.equals(d1.term))
 	then
@@ -29,6 +31,7 @@ end
 rule "Term already exists in concept with different case - both active"
 	dialect "mvel"
 	when
+	   c : Concept(active)
 		d1 : Description(active)
 		d2 : Description(active && conceptId == d1.conceptId && id != d1.id && d1.languageCode == d2.languageCode && !term.equals(d1.term) && term.equalsIgnoreCase(d1.term))
 	then

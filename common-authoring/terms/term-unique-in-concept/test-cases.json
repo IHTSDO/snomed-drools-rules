@@ -93,6 +93,27 @@
                     "term": "Body structure (body structure)"
                 }
             ]
+        },
+        {
+            "id": "5",
+            "active": false,
+            "descriptions": [
+                {
+                    "id": "4a",
+                    "languageCode": "en",
+                    "typeId": "1",
+                    "term": "Organism",
+                    "released": false
+                },
+                {
+                    "id": "4b",
+                    "languageCode": "en",
+                    "typeId": "1",
+                    "term": "Organism",
+                    "released": true,
+                    "active": false
+                }
+            ]
         }
     ],
     "assertConceptsFail": [
