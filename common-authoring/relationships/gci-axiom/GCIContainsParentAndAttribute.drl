@@ -1,0 +1,33 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Relationship
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.helper.RelationshipHelper
+import java.util.ArrayList
+import org.ihtsdo.drools.response.Severity
+import org.ihtsdo.drools.service.ConceptService
+
+global java.util.List invalidContent
+global ConceptService conceptService
+
+rule "GCI Contains Parent."
+	dialect "mvel"
+	when
+		c : Concept(active)
+		gciRelationship: Relationship(sourceId == c.id && active && axiomGCI)
+		activeStatedIsA: ArrayList( size == 0 )
+			from collect( Relationship(active, axiomId == gciRelationship.axiomId, typeId == Constants.IS_A) )
+	then
+		invalidContent.add(new InvalidContent(c, "A GCI axiom expression must contain at least one parent."));
+end
+
+rule "GCI Contains Attribute."
+	dialect "mvel"
+	when
+		c : Concept(active)
+		gciRelationship: Relationship(sourceId == c.id && active && axiomGCI)
+		activeStatedAttribute: ArrayList( size == 0 )
+			from collect( Relationship(active, axiomId == gciRelationship.axiomId, typeId != Constants.IS_A) )
+	then
+		invalidContent.add(new InvalidContent(c, "A GCI axiom expression must contain at least one attribute."));
+end

@@ -1,0 +1,78 @@
+{
+    "assertConceptsPass": [
+        {
+            "id": "1",
+            "active" : true,
+            "relationships": [
+                {
+                    "axiomId": "50f9668e-5a61-4378-8a2a-ab82491f248b",
+                    "axiomGCI": true,
+                    "id": "1a",
+                    "typeId": "116680003", // is-a,
+                    "destinationId": "373873005",
+                    "characteristicTypeId":"900000000000010007" // Stated
+                },
+                {
+                    "axiomId": "50f9668e-5a61-4378-8a2a-ab82491f248b",
+                    "axiomGCI": true,
+                    "id": "1b",
+                    "typeId": "411116001", // Has manufactured dose form,
+                    "destinationId": "109035006",
+                    "characteristicTypeId":"900000000000010007" // Stated
+                }
+            ]
+        }
+    ],
+    "assertConceptsFail": [
+        {
+            "id": "2",
+            "active" : true,
+            "relationships": [
+                {
+                    "axiomId": "78456560-337b-41e0-89e0-a4fa5967a370",
+                    "axiomGCI": true,
+                    "id": "2a",
+                    "typeId": "116680003", // is-a,
+                    "destinationId": "373873005",
+                    "characteristicTypeId":"900000000000010007" // Stated
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "active" : true,
+            "relationships": [
+                {
+                    "axiomId": "37b1dac4-3a2d-4184-b3d8-15101f9f52ee",
+                    "axiomGCI": true,
+                    "id": "3a",
+                    "typeId": "411116001", // Has manufactured dose form,
+                    "destinationId": "373873005",
+                    "characteristicTypeId":"900000000000010007" // Stated
+                }
+            ]
+        },
+        {
+            "id": "4",
+            "active" : true,
+            "relationships": [
+                {
+                    "axiomId": "fb0ab504-bfbc-483c-99c6-4fef456e4007",
+                    "axiomGCI": true,
+                    "id": "4a",
+                    "typeId": "116680003", // is-a,
+                    "destinationId": "373873005",
+                    "characteristicTypeId":"900000000000010007" // Stated
+                },
+                {
+                    "axiomId": "8cc3d3c1-8cbe-4903-b217-95d1cfa88f3e",// attribute in different axiom
+                    "axiomGCI": true,
+                    "id": "4b",
+                    "typeId": "411116001", // Has manufactured dose form,
+                    "destinationId": "373873005",
+                    "characteristicTypeId":"900000000000010007" // Stated
+                }
+            ]
+        }
+    ]
+}
