@@ -53,8 +53,15 @@
             "descriptions": [
                 {
                     "id": "1",
-                    "caseSignificanceId": "900000000000020002",
+                    "typeId": "900000000000003001", //FSN
+                    "caseSignificanceId": "900000000000448009",
                     "term": "Ibuprofen & oxycodone (product)"
+                },
+                {
+                    "id": "2",
+                    "typeId": "900000000000013009", //SYNONYM
+                    "caseSignificanceId": "900000000000020002",
+                    "term": "Ibuprofen & oxycodone"
                 }
             ]
         }, {
@@ -95,16 +102,6 @@
                     "term": "ibuprofen & Oxycodone (product)"
                 }
             ]
-        },
-        {
-            "id": "7",
-            "descriptions": [
-                {
-                    "id": "7",
-                    "caseSignificanceId": "900000000000020002",
-                    "term": "Ibuprofen oxycodone (product)"
-                }
-            ]
-        }
+        }        
     ]
 }
