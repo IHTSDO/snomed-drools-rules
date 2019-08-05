@@ -1,5 +1,6 @@
 import org.ihtsdo.drools.domain.Description
 import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.domain.Concept
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
 
@@ -8,6 +9,7 @@ global java.util.List invalidContent
 rule "Term special characters"
 	dialect "mvel"
 	when
+	   c : Concept(active)
 		d : Description(active == true && term matches ".*[\\\\\t\r\n@$#].*")
 	then
 		invalidContent.add(new InvalidContent(d, "An active term should not contain tabs, newlines, or characters @, $, #, \\.", Severity.WARNING));

@@ -1,4 +1,5 @@
 import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Concept
 import org.ihtsdo.drools.domain.Constants
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
@@ -12,6 +13,7 @@ rule "Term parenthesis spaces"
 		// 1 no space before last (
 		// 2 space after last (
 		// 3 space before last )
+		c : Concept(active)
 		d : Description(active == true && typeId == Constants.FSN && (
 			term matches ".*[^ ]\\([^\\(]*"
 			|| term matches ".*\\( [^\\(]*"

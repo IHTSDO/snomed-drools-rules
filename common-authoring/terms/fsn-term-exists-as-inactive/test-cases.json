@@ -58,6 +58,18 @@
                 }
             ],
             "active":"true"
+        },
+        {
+            "id": "4",
+            "active" : "false",
+            "descriptions": [
+                {
+                    "id": "4a",
+                    "typeId": "900000000000003001",
+                    "active": "true",
+                    "term": "Ibuprofen1 (product)" // has matching inactive fsn
+                }
+            ]
         }
     ],
     "assertConceptsFail": [

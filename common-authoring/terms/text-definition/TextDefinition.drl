@@ -11,6 +11,7 @@ global java.util.List invalidContent
 rule "TextDefinition case significance"
 	dialect "mvel"
 	when
+	   c : Concept(active)
 		d : Description(active && textDefinition && caseSignificanceId != Constants.ENTIRE_TERM_CASE_SENSITIVE)
 	then
 		invalidContent.add(new InvalidContent(d, "Text definitions should be case-sensitive.", Severity.WARNING));
@@ -24,6 +25,7 @@ function boolean isFirstCharUppercase(String term) {
 rule "TextDefinition first character case"
 	dialect "mvel"
 	when
+	   c : Concept(active)
 		d : Description(active && textDefinition && !isFirstCharUppercase(term))
 	then
 		invalidContent.add(new InvalidContent(d, "The first character of a text definition should be upper case.", Severity.WARNING));
@@ -44,6 +46,7 @@ end
 rule "TextDefinition preferred"
 	dialect "mvel"
 	when
+	   c : Concept(active)
 		d : Description(active && textDefinition && DescriptionHelper.isAcceptabilityValuePresentOnDescription(d, Constants.ACCEPTABILITY_ACCEPTABLE))
 	then
 		InvalidContent invalid = new InvalidContent(d, "Text definitions must always be preferred.");
@@ -54,6 +57,7 @@ end
 rule "TextDefinition has acceptability map"
 	dialect "mvel"
 	when
+	   c : Concept(active)
 		d : Description(active && textDefinition && !DescriptionHelper.hasAcceptabilityMap(d))
 	then
 		InvalidContent invalid = new InvalidContent(d, "Text definitions must be preferred in at least one dialect.");

@@ -10,7 +10,7 @@ global java.util.List invalidContent
 rule "FSN and matching PT share case sensitivity"
 	dialect "mvel"
 	when
-		c : Concept()
+		c : Concept(active)
 		fsn : Description(active == true && typeId == Constants.FSN)
 		d : Description(active == true && typeId == Constants.SYNONYM && DescriptionHelper.isPreferredInAnyDialect(d) && term == DescriptionHelper.getFsnTerm(fsn.term) && fsn.caseSignificanceId != caseSignificanceId)
 	then

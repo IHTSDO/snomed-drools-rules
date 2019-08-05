@@ -3,12 +3,14 @@ import org.ihtsdo.drools.domain.Constants
 import org.ihtsdo.drools.helper.DescriptionHelper
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
+import org.ihtsdo.drools.domain.Concept
 
 global java.util.List invalidContent
 
 rule "Active FSNs must be preferred in at least one dialect"
 	dialect "mvel"
 	when
+		c : Concept(active)
 		d : Description(active == true && typeId == Constants.FSN && !DescriptionHelper.isPreferredInAnyDialect(d))
 	then
 		invalidContent.add(new InvalidContent(d, "An FSN must be represented in at least one dialect."));

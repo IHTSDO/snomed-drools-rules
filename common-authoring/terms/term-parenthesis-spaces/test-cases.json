@@ -36,6 +36,18 @@
                     "term": "SNOMED CT Concept (SNOMED RT+CTV3 )"
                 }
             ]
+        },
+        {
+            "id": "1",
+            "active" : false,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "typeId": "900000000000003001",
+                    "active": true,
+                    "term": "SNOMED CT Concept(SNOMED RT+CTV3)"
+                }
+            ]
         }
     ],
     // Failure cases:

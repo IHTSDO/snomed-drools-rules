@@ -139,6 +139,17 @@
           "term": "Text where a period before an integer represents abbreviation such as No.1 should not trigger this rule"
         }
       ]
+    },
+    {
+      "id": "15",
+      "active" : "false",
+      "descriptions": [
+        {
+          "id": "1",
+          "active": true,
+          "term": ".1"
+        }
+      ]
     }
   ],
   "assertConceptsFail": [

@@ -136,6 +136,40 @@
                     }
                 }
             ]
+        },
+        {
+            "id": "5",
+            "active" : false,
+            "descriptions": [
+                {
+                    "id": "3a",
+                    "term": "Organism (organism)",
+                    "caseSignificanceId":"900000000000017005",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // PREFERRED
+                    }
+                }, {
+                    "id": "3b",
+                    "term": "Organism (organism)",
+                    "caseSignificanceId":"900000000000448009",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000508004": "900000000000548007" // PREFERRED
+                    }
+                },
+                {
+                    "id": "3c",
+                    "term": "Organism",
+                    "caseSignificanceId":"900000000000448009",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007", // PREFERRED
+                        "900000000000508004": "900000000000548007" // PREFERRED
+
+                    }
+                }
+            ]
         }
     ],
     "assertConceptsFail": [

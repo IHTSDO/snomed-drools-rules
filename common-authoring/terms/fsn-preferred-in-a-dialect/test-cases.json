@@ -39,7 +39,21 @@
                     "active": false
                 }
             ]
+        },
+        {
+            "id": "4",
+            "active" : false,
+            "descriptions": [
+                {
+                    "id": "4a",
+                    "term": "Organism (organism)",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                    }
+                }
+            ]
         }
+
     ],
     "assertConceptsFail": [
         {

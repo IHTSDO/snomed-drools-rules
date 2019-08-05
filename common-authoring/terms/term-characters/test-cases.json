@@ -9,6 +9,17 @@
                     "term": "Ibuprofen and oxycodone (product)"
                 }
             ]
+        },
+        {
+            "id": "2",
+            "active" : false,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "typeId": "900000000000003001",
+                    "term": "Ibuprofen \t oxycodone (product)"
+                }
+            ]
         }
     ],
     // 1 - \\

@@ -12,6 +12,20 @@
                     "relationshipGroup": "0"
                 }
             ]
+        },
+        {
+            "id": "3",
+            "active": false,
+            "relationships": [
+                {
+                    "typeId": "363698007", // Finding site
+                    "relationshipGroup": "3"
+                },
+                {
+                    "typeId": "116680003", // is-a
+                    "relationshipGroup": "1"
+                }
+            ]
         }
     ],
     "assertConceptsFail": [

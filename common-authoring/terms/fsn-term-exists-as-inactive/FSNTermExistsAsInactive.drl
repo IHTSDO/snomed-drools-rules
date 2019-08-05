@@ -11,6 +11,7 @@ global DescriptionService descriptionService
 rule "Active FSN should not exist as inactive term on another concept"
     dialect "mvel"
     when
+      c : Concept(active)
 		d : Description(active == true && typeId == Constants.FSN && term.length > 1)
 		$duplicate : Description(id != d.id && typeId == Constants.FSN && languageCode == d.languageCode) from descriptionService.findInactiveDescriptionByExactTerm(d.term)
 	then
