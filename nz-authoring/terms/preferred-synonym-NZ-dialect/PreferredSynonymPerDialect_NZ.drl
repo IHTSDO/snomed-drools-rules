@@ -1,0 +1,27 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Constants
+import java.util.Collection
+import java.util.ArrayList
+import org.ihtsdo.drools.helper.DescriptionHelper
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.response.Severity
+
+global java.util.List invalidContent
+
+rule "Must have one preferred synonym in NZ dialect"
+	dialect "mvel"
+	when
+		c : Concept(active)
+		ArrayList(size > 0 || c.moduleId == "21000210109") from collect (
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, moduleId == "21000210109")
+		)
+			
+		d: ArrayList(size != 1) from collect (
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, acceptabilityMap["271000210107"] == Constants.ACCEPTABILITY_PREFERRED)
+		)
+	then
+		InvalidContent invalid = new InvalidContent(c, "A concept must have only one Preferred Synonym in the NZ dialect.", Severity.ERROR);
+        invalid.ignorePublishedCheck();
+        invalidContent.add(invalid);
+end
