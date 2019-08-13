@@ -136,6 +136,29 @@
                     }
                 }
             ]
+        },
+        {
+            "id": "5",
+            "descriptions": [
+                {
+                    "id": "5a",
+                    "term": "Disjoint classes axiom (OWL metadata concept)",
+                    "caseSignificanceId":"900000000000020002",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007"
+                    }
+                },
+                {
+                    "id": "5b",
+                    "term": "Disjoint classes axiom",
+                    "caseSignificanceId":"900000000000448009",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // PREFERRED
+                    }
+                }
+            ]
         }
     ],
     "assertConceptsFail": [
