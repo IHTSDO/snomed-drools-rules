@@ -11,7 +11,7 @@ global java.util.List invalidContent
 rule "Defined concepts must have at least one defining relationship"
 	dialect "mvel"
 	when
-		c : Concept(active && definitionStatusId == Constants.DEFINED)
+		c : Concept(active && definitionStatusId == Constants.DEFINED && moduleId != "900000000000207008" && moduleId != "900000000000012004")
 		r : ArrayList(size == 0) from collect(Relationship(active, characteristicTypeId == Constants.STATED_RELATIONSHIP, typeId != Constants.IS_A))
 	then
 		InvalidContent invalid = new InvalidContent(c, "An axiom marked as defined must have one or more defining relationship, i.e., not is-a type relationships.");
