@@ -38,7 +38,9 @@ rule "Semantic Tag of FSN compatible with concept parents"
 											{"*", "product"}
 										}))
 	then
-		invalidContent.add(new InvalidContent(d, "A concept's semantic tags should be compatible with those of the active parents.", Severity.WARNING));
+		InvalidContent invalid = new InvalidContent(d, "A concept's semantic tags should be compatible with those of the active parents.", Severity.WARNING)
+		invalid.ignorePublishedCheck()
+		invalidContent.add(invalid);
 end
 
 function boolean isAllParentSemanticTagMatchWithTerm(String term, Collection parentTerms, String[][] acceptablePairs) {
