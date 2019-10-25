@@ -1,0 +1,117 @@
+ {
+    "assertConceptsPass": [
+        {
+            "id": "1",
+            "relationships": [
+                {
+                    "id": "1",
+                    "relationshipGroup": "0",
+                    "typeId": "116680003", // is-a
+                    "destinationId": "100",
+                    "axiomId":"730edf66-dd73-4cab-8977-e12796987d4d"
+                },
+                {
+                    "id": "2",
+                    "relationshipGroup": "1",
+                    "typeId": "363698001",
+                    "destinationId": "123",
+                    "released": true,
+                    "axiomId":"730edf66-dd73-4cab-8977-e12796987d4d"
+                },
+                {
+                    "id": "3",
+                    "relationshipGroup": "1",
+                    "typeId": "363698002",
+                    "destinationId": "124",
+                    "released": true,
+                    "axiomId":"730edf66-dd73-4cab-8977-e12796987d4d"
+                },
+                {
+                    "id": "4",
+                    "relationshipGroup": "0",
+                    "typeId": "116680003", // is-a
+                    "destinationId": "100",
+                    "axiomId":"d7436e64-78d5-42e7-ac00-bed3349f9a44"
+                },
+                {
+                    "id": "5",
+                    "relationshipGroup": "1",
+                    "typeId": "363698001",
+                    "destinationId": "123",
+                    "released": true,
+                    "axiomId":"d7436e64-78d5-42e7-ac00-bed3349f9a44"
+                },
+                {
+                    "id": "6",
+                    "relationshipGroup": "1",
+                    "typeId": "363698002",
+                    "destinationId": "124",
+                    "released": true,
+                    "axiomId":"d7436e64-78d5-42e7-ac00-bed3349f9a44"
+                },
+                {
+                    "id": "7",
+                    "relationshipGroup": "1",
+                    "typeId": "363698003",
+                    "destinationId": "125",
+                    "released": true,
+                    "axiomId":"d7436e64-78d5-42e7-ac00-bed3349f9a44"
+                }
+            ]
+        }
+    ],
+    "assertConceptsFail": [
+        {
+            "id": "2",
+            "relationships": [
+                {
+                    "id": "1",
+                    "relationshipGroup": "0",
+                    "typeId": "116680003", // is-a
+                    "destinationId": "100",
+                    "axiomId":"730edf66-dd73-4cab-8977-e12796987d4d"
+                },
+                {
+                    "id": "2",
+                    "relationshipGroup": "1",
+                    "typeId": "363698001",
+                    "destinationId": "123",
+                    "released": true,
+                    "axiomId":"730edf66-dd73-4cab-8977-e12796987d4d"
+                },
+                {
+                    "id": "3",
+                    "relationshipGroup": "1",
+                    "typeId": "363698002",
+                    "destinationId": "124",
+                    "released": true,
+                    "axiomId":"730edf66-dd73-4cab-8977-e12796987d4d"
+                },
+                {
+                    "id": "4",
+                    "relationshipGroup": "0",
+                    "typeId": "116680003", // is-a
+                    "destinationId": "100",
+                    "axiomId":"d7436e64-78d5-42e7-ac00-bed3349f9a44"
+                },
+                {
+                    "id": "5",
+                    "relationshipGroup": "1",
+                    "typeId": "363698001",
+                    "destinationId": "123",
+                    "released": true,
+                    "axiomId":"d7436e64-78d5-42e7-ac00-bed3349f9a44"
+                },
+                {
+                    "id": "6",
+                    "relationshipGroup": "1",
+                    "typeId": "363698002",
+                    "destinationId": "124",
+                    "released": true,
+                    "axiomId":"d7436e64-78d5-42e7-ac00-bed3349f9a44"
+                }                
+            ]
+        }        
+
+    ]
+}

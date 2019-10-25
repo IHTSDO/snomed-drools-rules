@@ -1,0 +1,16 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.helper.ConceptHelper
+import org.ihtsdo.drools.response.InvalidContent
+
+global java.util.List invalidContent
+
+rule "Active Concepts should not have duplicate axioms"
+	dialect "mvel"
+	when
+		c : Concept(active)
+		eval(ConceptHelper.isAxiomEquivalent(c))
+	then
+		InvalidContent invalid = new InvalidContent(c, "Active Concept should not have duplicate axioms.");
+		invalid.ignorePublishedCheck()
+		invalidContent.add(invalid);
+end
