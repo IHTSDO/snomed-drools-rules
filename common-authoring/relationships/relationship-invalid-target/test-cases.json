@@ -1,0 +1,19 @@
+{
+    "assertConceptsPass": [        
+    ],
+    "assertConceptsFail": [
+
+        {
+            "id": "1",
+            "active" : "true",
+            "relationships": [
+                {
+                	"active" : "true",
+                    "characteristicTypeId": "900000000000010007",
+                    "destinationId": "123456",
+                    "axiomId": "50f9668e-5a61-4378-8a2a-ab82491f248b"
+                }
+            ]
+        }
+    ]
+}

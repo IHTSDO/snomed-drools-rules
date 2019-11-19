@@ -1,0 +1,19 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Relationship
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.service.ConceptService
+import org.ihtsdo.drools.response.InvalidContent
+
+global java.util.List invalidContent
+global ConceptService conceptService
+
+rule "Relationship targets referencing to a non existing concept"
+	dialect "mvel"
+	when
+		c : Concept()
+		r : Relationship(sourceId == c.id && characteristicTypeId == Constants.STATED_RELATIONSHIP && conceptService.findById(destinationId) == null)
+	then
+		InvalidContent invalid = new InvalidContent(r, "Axiom with id " + r.axiomId + " has relationship targets referencing to a non existing concept.");
+        invalid.ignorePublishedCheck()
+        invalidContent.add(invalid);
+end
