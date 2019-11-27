@@ -1,3 +1,4 @@
+/*
 import org.ihtsdo.drools.domain.Concept
 import org.ihtsdo.drools.domain.Description
 import org.ihtsdo.drools.response.InvalidContent
@@ -12,3 +13,4 @@ rule "Term prefilled"
 	then
 		invalidContent.add(new InvalidContent(d, "An FSN containing the word \"pre-filled\" must be changed to prefilled."));
 end
+*/
