@@ -1,0 +1,19 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Relationship
+import org.ihtsdo.drools.helper.RelationshipHelper
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.response.Severity
+
+global java.util.List invalidContent
+
+rule "Active concept should not have two relationships with the same type in the same role group"
+	dialect "mvel"
+	when
+		c : Concept(active)
+		r1 : Relationship(active && sourceId == c.id)
+		r2 : Relationship(active && sourceId == c.id && r1.id != id && typeId == r1.typeId && relationshipGroup == r1.relationshipGroup && destinationId != r1.destinationId)
+	then
+		InvalidContent invalid = new InvalidContent(r1, "An active concept should not have two relationships with the same type in the same role group.", Severity.WARNING);
+        invalid.ignorePublishedCheck();
+        invalidContent.add(invalid);
+end
