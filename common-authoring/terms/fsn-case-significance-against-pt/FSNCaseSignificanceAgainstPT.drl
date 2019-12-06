@@ -14,5 +14,5 @@ rule "FSN and matching PT share case sensitivity"
 		fsn : Description(active == true && typeId == Constants.FSN && DescriptionHelper.getTag(term) != null && DescriptionHelper.getTag(term).equals(DescriptionHelper.getTag(term).toLowerCase()))
 		d : Description(active == true && typeId == Constants.SYNONYM && DescriptionHelper.isPreferredInAnyDialect(d) && term == DescriptionHelper.getFsnTerm(fsn.term) && fsn.caseSignificanceId != caseSignificanceId)
 	then
-		 invalidContent.add(new InvalidContent(d, "An active preferred term matching a FSN must have same case significance.", Severity.WARNING));
+		 invalidContent.add(new InvalidContent(d, "An active preferred term matching a FSN on an " + (c.active ? "active" : "inactive") + " concept must have same case significance.", Severity.WARNING));
 end

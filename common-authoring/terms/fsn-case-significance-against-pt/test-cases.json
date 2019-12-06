@@ -252,7 +252,6 @@
                 }
             ]
         },
-        
         {
             "id": "4",
             "descriptions": [
@@ -285,6 +284,49 @@
                 },
                 {
                     "id": "4d",
+                    "term": "Organism",
+                    "caseSignificanceId":"900000000000448009",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // PREFERRED
+                     
+                    }
+                }
+            ]
+        },
+        {
+            "id": "5",
+            "active": false,
+            "descriptions": [
+                {
+                    "id": "5a",
+                    "term": "Organism (organism)",
+                    "caseSignificanceId":"900000000000017005",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // PREFERRED
+                    }
+                }, {
+                    "id": "5b",
+                    "term": "Organism (organism)",
+                    "caseSignificanceId":"900000000000448009",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000508004": "900000000000548007" // PREFERRED
+                    }
+                },
+                {
+                    "id": "5c",
+                    "term": "Organism",
+                    "caseSignificanceId":"900000000000448009",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "acceptabilityMap": {
+                   		"900000000000508004": "900000000000548007" // PREFERRED
+                    
+                    }
+                },
+                {
+                    "id": "5d",
                     "term": "Organism",
                     "caseSignificanceId":"900000000000448009",
                     "typeId": "900000000000013009", // SYNONYM
