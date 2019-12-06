@@ -13,7 +13,7 @@ rule "Active concept should not have two relationships with the same type in the
 		r1 : Relationship(active && sourceId == c.id && typeId != "116680003")
 		r2 : Relationship(active && sourceId == c.id && typeId != "116680003" && r1.id != id && typeId == r1.typeId && r1.axiomId == axiomId && relationshipGroup == r1.relationshipGroup && destinationId != r1.destinationId)
 	then
-		InvalidContent invalid = new InvalidContent(r1, "An active concept should not have two relationships with the same type in the same role group.", Severity.WARNING);
+		InvalidContent invalid = new InvalidContent(r1, "An active concept should not have two relationships with the same attribute type in the same role group.", Severity.WARNING);
         invalid.ignorePublishedCheck();
         invalidContent.add(invalid);
 end
