@@ -114,6 +114,30 @@
                     "active": false
                 }
             ]
+        },
+        {
+            "id": "6",
+            "active": true,
+            "descriptions": [
+                {
+                    "id": "4a",
+                    "languageCode": "en",
+                    "typeId": "1",
+                    "term": "Organism",
+                    "released": true,
+                    "active": false,
+                    "moduleId": 1
+                },
+                {
+                    "id": "4b",
+                    "languageCode": "en",
+                    "typeId": "1",
+                    "term": "Organism",
+                    "released": false,
+                    "active": true,
+                    "moduleId": 2
+                }
+            ]
         }
     ],
     "assertConceptsFail": [
