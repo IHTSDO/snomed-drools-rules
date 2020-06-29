@@ -1,0 +1,22 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.helper.DescriptionHelper
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.response.Severity
+
+global java.util.List invalidContent
+
+function int countCharacters(String term, String c) {
+	return term.length() - term.replace(c, "").length();
+}
+
+rule "Terms contains balanced parentheses"
+	dialect "mvel"
+	when
+		c : Concept(active == true)
+		d : Description(conceptId == c.id && active && countCharacters(term, "(") != countCharacters(term, ")"))		
+	then
+		invalidContent.add(new InvalidContent(d, "An active term on an active concept should contain balanced parentheses.", Severity.WARNING));
+end
