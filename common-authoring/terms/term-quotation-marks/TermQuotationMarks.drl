@@ -5,10 +5,35 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
+function String findUnexpectedCharactersError(String term) {
+    String RIGHT_APOS = "\u2019";
+	String LEFT_APOS = "\u2018";
+	String RIGHT_QUOTE = "\u201D";
+	String LEFT_QUOTE = "\u201C";
+	String GRAVE_ACCENT = "\u0060";
+	String ACUTE_ACCENT = "\u00B4";
+
+	String [][] unwantedChars = new String[][] {			
+		{ RIGHT_APOS , "right apostrophes" },
+		{ LEFT_APOS , "left apostrophes" },
+		{ RIGHT_QUOTE , "right quotes" },
+		{ LEFT_QUOTE , "left quotes" },
+		{ GRAVE_ACCENT , "grave accents" },
+		{ ACUTE_ACCENT , "acute accents" }
+	};
+	for (String unwantedChar[] : unwantedChars) {
+		if (term.indexOf(unwantedChar[0]) != -1) {
+			return unwantedChar[1];
+		}
+	}
+
+	return "";
+}
+
 rule "Term use of quotation marks"
 	dialect "mvel"
 	when
-		d : Description(active == true && (term matches ".*\\’[s]\\s.*" || term matches ".*\\'[s]\\s.*"))
+		d : Description(active == true && error: findUnexpectedCharactersError(term), error.length != 0)
 	then
-		invalidContent.add(new InvalidContent(d, "An active term should not contain any quotation marks.", Severity.WARNING));
+		invalidContent.add(new InvalidContent(d, "An active term should not contain any " + error + ".", Severity.WARNING));
 end

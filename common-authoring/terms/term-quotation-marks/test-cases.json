@@ -18,19 +18,9 @@
                 {
                     "id": "1",
                     "typeId": "900000000000003001",
-                    "term": "Autonomic neuropathy due to Tangier’s disease"
+                    "term": "Autonomic neuropathy due to Tangier�s disease"
                 }
             ]
-        },
-        {
-            "id": "2",
-            "descriptions": [
-                {
-                    "id": "2",
-                    "typeId": "900000000000003001",
-                    "term": "Assessment using Children’s Global Assessment Scale (procedure)"
-                }
-            ]
-        }
+        }       
     ]
 }
