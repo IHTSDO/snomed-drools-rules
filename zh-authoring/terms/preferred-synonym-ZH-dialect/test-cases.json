@@ -2,7 +2,7 @@
     "assertConceptsPass": [
        {
             "id": "1",
-            "moduleId": "1283968000", // ZH module
+            "moduleId": "895344001", // ZH module
             "descriptions": [
                 {
                     "id": "1a",
@@ -16,7 +16,7 @@
                     "id": "1b",
                     "term": "Organism",
                     "typeId": "900000000000013009", // SYNONYM
-                    "moduleId": "1283968000", // ZH module
+                    "moduleId": "895344001", // ZH module
                     "languageCode": "en",
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007" // INT Preferred
@@ -26,7 +26,7 @@
                     "id": "1c",
                     "term": "Organism",
                     "typeId": "900000000000013009", // SYNONYM
-                    "moduleId": "1283968000", // ZH module
+                    "moduleId": "895344001", // ZH module
                     "languageCode": "zh",
                     "acceptabilityMap": {
                         "722128001": "900000000000548007" // ZH Preferred
@@ -62,7 +62,7 @@
     "assertConceptsFail": [
         {
             "id": "1",
-            "moduleId": "1283968000", // ZH module
+            "moduleId": "895344001", // ZH module
             "descriptions": [
                 {
                     "id": "1",
@@ -73,7 +73,7 @@
         },
         {
             "id": "2",
-            "moduleId": "1283968000", // ZH module
+            "moduleId": "895344001", // ZH module
             "descriptions": [
                 {
                     "id": "2",
@@ -88,7 +88,7 @@
         },
         {
             "id": "3",
-            "moduleId": "1283968000", // ZH module
+            "moduleId": "895344001", // ZH module
             "descriptions": [
                 {
                     "id": "3",
@@ -102,7 +102,7 @@
         },
         {
             "id": "4",
-            "moduleId": "1283968000", // ZH module
+            "moduleId": "895344001", // ZH module
             "descriptions": [
                 {
                     "id": "6",
@@ -137,7 +137,7 @@
                     "published": true,
                     "term": "Organism (B)",
                     "typeId": "900000000000013009", // SYNONYM
-                    "moduleId": "1283968000", // ZH module
+                    "moduleId": "895344001", // ZH module
                     "acceptabilityMap": {
                         "722128001": "900000000000549004" // ZH Acceptable
                     }
@@ -146,7 +146,7 @@
         },
         {
             "id": "6",
-            "moduleId": "1283968000", // ZH module
+            "moduleId": "895344001", // ZH module
             "descriptions": [
                  {
                     "id": "6a",

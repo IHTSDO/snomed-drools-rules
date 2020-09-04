@@ -13,8 +13,8 @@ rule "Must have one preferred synonym in ZH dialect"
 	dialect "mvel"
 	when
 		c : Concept(active)
-		ArrayList(size > 0 || c.moduleId == "1283968000") from collect (
-			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, moduleId == "1283968000")
+		ArrayList(size > 0 || c.moduleId == "895344001") from collect (
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, moduleId == "895344001")
 		)
 			
 		d: ArrayList(size != 1) from collect (
