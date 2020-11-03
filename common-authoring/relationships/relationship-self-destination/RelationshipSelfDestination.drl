@@ -6,7 +6,7 @@ global java.util.List invalidContent
 rule "Active relationship must not have destination matching source concept"
 	dialect "mvel"
 	when
-		r : Relationship(active && sourceId == destinationId)
+		r : Relationship(active && destinationId != null && sourceId == destinationId)
 	then
 		invalidContent.add(new InvalidContent(r, "Active relationships must not use the source concept as the destination."));
 end

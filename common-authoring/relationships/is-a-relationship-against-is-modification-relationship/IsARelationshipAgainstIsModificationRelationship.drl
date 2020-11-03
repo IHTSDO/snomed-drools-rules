@@ -10,7 +10,7 @@ rule "Is-a relationship must not have the same target value with Is-modification
 	when
 		c : Concept(active)
 		r1 : Relationship(active, typeId == Constants.IS_A)
-		r2 : Relationship(active, id != r1.id, typeId == "738774007", destinationId == r1.destinationId)
+		r2 : Relationship(active, id != r1.id, typeId == "738774007", (destinationId != null && destinationId == r1.destinationId) || (concreteValue != null && concreteValue == r1.concreteValue))
 	then
 		InvalidContent invalid = new InvalidContent(c, "IS A relationships must not have the same target value with \"is modification of\" relationship.");
 		invalid.ignorePublishedCheck()
