@@ -1,0 +1,275 @@
+Generated
+Wed 18 Nov 2020 09:42:07 GMT
+
+./ch-authoring/empty/always-passes/AlwaysPasses.drl
+rule "Always passes CH"
+
+./ch-authoring/terms/preferred-synonym-CH_FR-dialect/PreferredSynonymPerDialect_CH-FR.drl
+rule "Must have one preferred synonym in CH-FR dialect if more than one preferred synomyms had been specified"
+rule "Must have one preferred synonym in CH-FR dialect if there have any acceptable synonyms specified"
+
+./ch-authoring/terms/preferred-synonym-one-of-CH_DE-or-CH_FR-or-CH_IT-dialect/PreferredSynonymPerDialect_CH-DE_or_CH-FR_or_CH-IT.drl
+rule "Preferred synonym in CH_DE or CH_FR or CH_IT dialect"
+rule "Not provide enough for all 3 dialects in CH extension"
+
+./ch-authoring/terms/preferred-synonym-CH_IT-dialect/PreferredSynonymPerDialect_CH-IT.drl
+rule "Must have one preferred synonym in CH-IT dialect if more than one preferred synomyms had been specified"
+rule "Must have one preferred synonym in CH-IT dialect if there have any acceptable synonyms specified"
+
+./ch-authoring/terms/preferred-synonym-CH_DE-dialect/PreferredSynonymPerDialect_CH-DE.drl
+rule "Must have one preferred synonym in CH-DE dialect if more than one preferred synomyms had been specified"
+rule "Must have one preferred synonym in CH-DE dialect if there have any acceptable synonyms specified"
+
+./no-authoring/terms/preferred-synonym-NB-dialect/PreferredSynonymPerDialect_NB.drl
+rule "Preferred synonym per dialect"
+
+./no-authoring/terms/preferred-synonym-NN-dialect/PreferredSynonymPerDialect_NN.drl
+rule "No Preferred synonym in the nn dialect"
+rule "More than one Preferred synonym in the nn dialect"
+
+./ie-authoring/empty/always-passes/AlwaysPasses.drl
+rule "Always passes BE"
+
+./ie-authoring/terms/preferred-synonym-IE-dialect/PreferredSynonymPerDialect_IE.drl
+rule "Must have one preferred synonym in IE dialect"
+
+./zh-authoring/empty/always-passes/AlwaysPasses.drl
+rule "Always passes zh"
+
+./zh-authoring/terms/preferred-synonym-ZH-dialect/PreferredSynonymPerDialect_ZH.drl
+rule "Must have one preferred synonym in ZH dialect"
+
+./nz-authoring/empty/always-passes/AlwaysPasses.drl
+rule "Always passes NZ"
+
+./nz-authoring/terms/preferred-synonym-NZ-dialect/PreferredSynonymPerDialect_NZ.drl
+rule "Must have one preferred synonym in NZ dialect"
+
+./nz-authoring/terms/preferred-synonym-MI-dialect/PreferredSynonymPerDialect_MI.drl
+rule "Must have one preferred synonym in MI dialect"
+
+./int-authoring/terms/fsn-for-GB_EN-dialect/FSNPerDialect_GB.drl
+rule "FSN per dialect"
+
+./int-authoring/terms/term-case-significance/TermCaseSignificance.drl
+rule "Term Case Significance: Terms starting with a lower case letter are expected to be marked CS"
+
+./int-authoring/terms/preferred-synonym-GB_EN-dialect/PreferredSynonymPerDialect_GB.drl
+rule "Preferred synonym per dialect"
+
+./int-authoring/terms/term-language-refset-consistency/termLanguageRefsetConsistency.drl
+rule "Terms are consistent in en-us and en-gb language refsets"
+
+./int-authoring/terms/module-against-concept-module/ModuleAgainstConceptModule.drl
+rule "Description should have the same module id as the concept"
+
+./int-authoring/concept/active-concept-in-model-module/ShuoldBeInModelModule.drl
+rule "Metadata concepts should be in the model module"
+
+./int-authoring/relationships/inappropriate-attribute-type/InappropriateAttributeType.drl
+rule "Relationship has inappropriate attribute and value"
+
+./int-authoring/relationships/module-against-concept-module/RelationshipModuleAgainstConceptModule.drl
+rule "Relationship should have the same module id as the concept"
+
+./common-authoring/concept-active-state/active-concept-more-than-one-top-level-parent/MoreThanOneTopLevelParent.drl
+rule "Active concept should not belong to more than one top-level hierarchy"
+
+./common-authoring/concept-active-state/active-concept-at-least-one-parent/AtLeastOneParent.drl
+rule "Active concept must have a parent"
+
+./common-authoring/concept-active-state/inactive-no-children/InactiveNoChildren.drl
+rule "Inactive concept cannot have children"
+
+./common-authoring/concept-active-state/inactive-not-relationship-destination/InactiveNotRelationshipDestination.drl
+rule "Inactive concept cannot be the destination of any active relationship"
+
+./common-authoring/concept-active-state/inactive-concept-primative/InactiveConceptPrimative.drl
+rule "Inactive concept must be primative"
+
+./common-authoring/concept-active-state/active-concept-parents-product-and-physical-object/ParentsProductAndPhysicalObject.drl
+rule "Active concept has top level parents that are both (product) and (physical object)."
+
+./common-authoring/concept-active-state/defined-status-defining-relationships/DefinedStatusDefiningRelationships.drl
+rule "Defined concepts must have at least one defining relationship"
+
+./common-authoring/concept-active-state/no-inactive-parents/NoInactiveParents.drl
+rule "A concept can not have inactive ancestors"
+
+./common-authoring/terms/fsn-semantic-tag-against-parent/FSNSemanticTagAgainstParent.drl
+// Note - this rule uses international edition language refsets
+rule "Semantic Tag of FSN compatible with concept parents"
+rule "All Semantic Tag of concept parents does not match with Semantic Tag of FSN"
+rule "Matching semantic tag should not allow adding a subtype as a parent"
+
+./common-authoring/terms/term-no-space-before-full-stop/TermNoSpaceBeforeFullStop.drl
+rule "No space before a full stop"
+
+./common-authoring/terms/fsn-preferred-in-a-dialect/FSNPreferredInADialect.drl
+rule "Active FSNs must be preferred in at least one dialect"
+
+./common-authoring/terms/term-unique-in-concept/TermUnique.drl
+rule "Term already exists in concept with same case - one active."
+rule "Term already exists in concept with same case - the other description is released and inactive, this one is not released."
+rule "Term already exists in concept with different case - both active"
+
+./common-authoring/terms/fsn-term/FSNTermFormat.drl
+rule "Active FSNs cannot start with open parentheses"
+rule "FSN ends in closing parentheses"
+rule "Active FSN must end with a semantic tag"
+rule "Active FSN should end with a valid semantic tag"
+rule "FSN Comma"
+rule "FSN special characters"
+rule "FSN capitalized"
+
+./common-authoring/terms/term-case-significance/TermCaseSignificance.drl
+rule "Term Case Significance: Only initial character case sensitive"
+rule "Term Case Significance: Entire term case insensitive"
+rule "Term Case Significance: Terms starting with a lower case letter are expected to be marked CS"
+rule "Term Case Significance: Terms containing a capital letter are expected to be marked cI or CS"
+
+./common-authoring/terms/term-characters/TermCharacters.drl
+rule "Term special characters"
+
+./common-authoring/terms/term-spaces/TermSpaces.drl
+rule "Term double, leading or trailing spaces"
+rule "Active descriptions do not have spaces, either before or after, hyphens."
+
+./common-authoring/terms/term-leading-zeros-decimal-point/termLeadingZerosDecimalPoint.drl
+rule "Lack of leading zero before a decimal point for decimal values less than one"
+
+./common-authoring/terms/fsn-term-having-a-same-synonym-term/FsnTermHavingASameSynonynTerm.drl
+rule "There should have a synonym that has the same text with FSN"
+
+./common-authoring/terms/term-length/TermLength.drl
+rule "Description length"
+rule "Text Definition length"
+
+./common-authoring/terms/fsn-term-unique/FSNTermUnique.drl
+rule "Active FSNs must be unique"
+
+./common-authoring/terms/text-definition/TextDefinition.drl
+rule "TextDefinition case significance"
+rule "TextDefinition first character case"
+rule "Preferred TextDefinition per dialect"
+rule "TextDefinition preferred"
+rule "TextDefinition has acceptability map"
+
+./common-authoring/terms/term-trailing-zeros-decimal-point/TermTrailingZerosDecimalPoint.drl
+rule "No trailing zeros after a decimal point in numerical values with fractions"
+
+./common-authoring/terms/term-words-count/TermWordsCount.drl
+rule "Description normally has less than 35 words"
+
+./common-authoring/terms/fsn-term-exists-as-inactive/FSNTermExistsAsInactive.drl
+rule "Active FSN should not exist as inactive term on another concept"
+
+./common-authoring/terms/term-prefilled/TermPrefilled.drl
+rule "Term prefilled"
+
+./common-authoring/terms/term-case-significance-match/TermCaseSignificanceMatch.drl
+rule "Terms with matching first word share case significance"
+
+./common-authoring/terms/fsn-case-significance-against-pt/FSNCaseSignificanceAgainstPT.drl
+rule "FSN and matching PT share case sensitivity"
+
+./common-authoring/terms/preferred-synonym-US_EN-dialect/PreferredSynonymPerDialect.drl
+rule "Preferred synonym per dialect"
+
+./common-authoring/terms/term-parenthesis-spaces/TermParenthesisSpaces.drl
+rule "Term parenthesis spaces"
+
+./common-authoring/terms/synonym-no-semantic-tag/SynonymNoSemanticTag.drl
+rule "Active synonyms on active concepts do not have semantic tags"
+
+./common-authoring/terms/fsn-semantic-tag-consistent/FSNSemanticTagConsistent.drl
+rule "All FSNs for concept share semantic tag"
+
+./common-authoring/terms/synonym-no-closing-tag/SynonymNoClosingTag.drl
+rule "Active synonyms on active concepts do not have closing tags"
+
+./common-authoring/terms/fsn-for-US_EN-dialect/FSNPerDialect.drl
+rule "FSN per dialect"
+
+./common-authoring/terms/term-non-breaking-space-character/TermNonBreakingSpaceCharacter.drl
+rule "Non-breaking space character"
+
+./common-authoring/terms/term-contain-balanced-parentheses/TermContainBalancedParentheses.drl
+rule "Terms contains balanced parentheses"
+
+./common-authoring/terms/term-quotation-marks/TermQuotationMarks.drl
+rule "Term use of quotation marks"
+
+./common-authoring/terms/term-unique-in-hierarchy/TermUniqueInHierarchy.drl
+rule "Active term unique in hierarchy"
+
+./common-authoring/terms/fsn-follow-sep-naming-convention/FSNFollowSEPNamingConvention.drl
+rule "Descendents of 91723000|Anatomical structure (body structure)| should follow SEP naming conventions"
+
+./common-authoring/terms/fsn-duplicated-semantic-tag/FSNDuplicatedSemanticTag.drl
+rule "Active concept should have only one semantic tag"
+
+./common-authoring/ontology-axioms/active-concepts-in-axiom/OnlyActiveConceptsInOntologyAxiom.drl
+rule "Active Ontology Axioms should only use active Concepts."
+
+./common-authoring/relationships/relationship-self-destination/RelationshipSelfDestination.drl
+rule "Active relationship must not have destination matching source concept"
+
+./common-authoring/relationships/is-a-relationship-not-grouped/IsARelationshipNotGrouped.drl
+rule "Is-a relationship must not be grouped"
+
+./common-authoring/relationships/product-concept-contains-one-attribute/ContainsOnlyOneHasManufacturedDoseFormAttribute.drl
+rule "Has manufactured dose form attribute can only appear once in a drug concept"
+
+./common-authoring/relationships/relationship-inactive-type/RelationshipInactiveType.drl
+rule "Active relationship must not have inactive type"
+
+./common-authoring/relationships/duplicate-relationship-type/DuplicateRelationshipType.drl
+rule "Active concept should not have two relationships with the same type in the same role group"
+
+./common-authoring/relationships/relationship-inactive-destination/RelationshipInactiveDestination.drl
+rule "Active relationship must not have inactive destination"
+
+./common-authoring/relationships/gci-axiom/GCIContainsParentAndAttribute.drl
+rule "GCI Contains Parent."
+rule "GCI Contains Attribute."
+
+./common-authoring/relationships/is-a-relationship-against-is-modification-relationship/IsARelationshipAgainstIsModificationRelationship.drl
+rule "Is-a relationship must not have the same target value with Is-modification-of relationship"
+
+./common-authoring/relationships/duplicate-axioms/DuplicateAxioms.drl
+rule "Active Concepts should not have duplicate axioms"
+
+./common-authoring/relationships/relationship-inactive-source/RelationshipInactiveSource.drl
+rule "Inactive concepts must not contain active stated relationships"
+
+./common-authoring/relationships/relationship-invalid-target/RelationshipInvalidTarget.drl
+rule "Relationship targets referencing to a non existing concept"
+
+./common-authoring/relationships/duplicate-relationships/DuplicateRelationships.drl
+rule "Active Concepts should not have two relationships with the same type, target and group"
+
+./be-authoring/empty/always-passes/AlwaysPasses.drl
+rule "Always passes BE"
+
+./be-authoring/terms/preferred-synonym-one-of-BE_FR-or-BE_NL-dialect/PreferredSynonymPerDialect_BE-FR_or_BE-NL.drl
+rule "Preferred synonym in BE_FR or BE_NL dialect"
+
+./be-authoring/terms/preferred-synonym-BE_NL-dialect/PreferredSynonymPerDialect_BE-NL.drl
+rule "Must have one preferred synonym in BE_NL dialect if more than one preferred synomyms had been specified"
+rule "Must have one preferred synonym in BE_NL dialect if there have any acceptable synonyms specified"
+rule "Preferred synonym in BE_NL dialect"
+
+./be-authoring/terms/preferred-synonym-BE_FR-dialect/PreferredSynonymPerDialect_BE-FR.drl
+rule "Must have only one preferred synonym in BE_FR dialect if more than one preferred synomyms had been specified"
+rule "Must have one preferred synonym in BE_FR dialect if there have any acceptable synonyms specified"
+rule "Preferred synonym in BE_FR dialect"
+
+./dk-authoring/terms/preferred-synonym-DK-dialect/PreferredSynonymPerDialect_DK.drl
+rule "Preferred synonym per dialect"
+
+./se-authoring/terms/preferred-synonym-SE-dialect/PreferredSynonymPerDialect_SE.drl
+rule "Preferred synonym per dialect"
+
+./ee-authoring/terms/preferred-synonym-EE-dialect/PreferredSynonymPerDialect_EE.drl
+rule "Preferred synonym per dialect"
