@@ -24,7 +24,7 @@ function boolean isFirstCharUppercase(String term) {
 rule "TextDefinition first character case"
 	dialect "mvel"
 	when
-		d : Description(active && textDefinition && !isFirstCharUppercase(term))
+		d : Description(active && textDefinition && caseSignificanceId == Constants.ENTIRE_TERM_CASE_SENSITIVE  && !isFirstCharUppercase(term))
 	then
 		invalidContent.add(new InvalidContent(d, "The first character of a text definition should be upper case.", Severity.WARNING));
 end
