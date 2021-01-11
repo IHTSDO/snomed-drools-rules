@@ -11,7 +11,7 @@ global java.util.List invalidContent
 rule "TextDefinition case significance"
 	dialect "mvel"
 	when
-		d : Description(active && textDefinition && caseSignificanceId != Constants.ENTIRE_TERM_CASE_SENSITIVE)
+		d : Description(active && textDefinition && caseSignificanceId != Constants.ENTIRE_TERM_CASE_SENSITIVE && languageCode != "sv")
 	then
 		invalidContent.add(new InvalidContent(d, "Text definitions should be case-sensitive.", Severity.WARNING));
 end
