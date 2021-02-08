@@ -1,0 +1,71 @@
+{
+    "assertConceptsPass": [
+        {
+            "id" : "single-text-definition",
+            "descriptions": [
+                {
+                    "id": "1",
+                    "textDefinition": true,
+                    "term": "Liaising with any member of the health care team regarding the patient's dietary regime.",
+                    "caseSignificanceId": "900000000000017005", // Entire term case sensitive
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007", // en-US Preferred
+                        "900000000000508004": "900000000000548007" // en-GB Preferred
+                    }
+                },
+                {
+                    "id": "2",
+                    "active": false, // Not active
+                    "textDefinition": true,
+                    "term": "Dental decay that occurs on the root portion of a tooth.",
+                    "caseSignificanceId": "900000000000020002" // Only initial character case insensitive
+                },
+                {
+                    "id": "3",
+                    "active": true,
+                    "textDefinition": false, // Not Text Definition
+                    "term": "Dental decay that occurs on the root portion of a tooth.",
+                    "caseSignificanceId": "900000000000020002" // Only initial character case insensitive
+                }
+            ]
+        }
+
+    ],
+    // Failure cases:
+    // 1 caseSignificance Only initial character case insensitive
+
+    "assertConceptsFail": [
+        {
+            "id": "1",
+            "descriptions": [
+                {
+                    "id": "1",
+                    "active": true,
+                    "textDefinition": true,
+                    "term": "Dental decay that occurs on the root portion of a tooth.",
+                    "caseSignificanceId": "900000000000020002", // Only initial character case insensitive
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007", // en-US Preferred
+                        "900000000000508004": "900000000000548007" // en-GB Preferred
+                    }
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "descriptions": [
+                {
+                    "id": "2",
+                    "active": true,
+                    "textDefinition": true,
+                    "term": "Dental decay that occurs on the root portion of a tooth.",
+                    "caseSignificanceId": "900000000000448009", // Entire term case insensitive
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007", // en-US Preferred
+                        "900000000000508004": "900000000000548007" // en-GB Preferred
+                    }
+                }
+            ]
+        }
+    ]
+}

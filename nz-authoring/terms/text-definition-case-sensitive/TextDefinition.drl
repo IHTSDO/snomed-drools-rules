@@ -1,0 +1,14 @@
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.response.Severity
+
+global java.util.List invalidContent
+
+rule "TextDefinition case significance for NZ"
+	dialect "mvel"
+	when
+		d : Description(active && textDefinition && caseSignificanceId != Constants.ENTIRE_TERM_CASE_SENSITIVE)
+	then
+		invalidContent.add(new InvalidContent(d, "Text definitions should be case-sensitive.", Severity.WARNING));
+end

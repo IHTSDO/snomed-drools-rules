@@ -85,7 +85,7 @@
 		      {        
 		         "active":true,
 		         "textDefinition": true,
-		         "term":"Öng tesing",
+		         "term":"Ã–ng tesing",
 		         "caseSignificanceId":"900000000000017005",
 		         "acceptabilityMap":{  
 		            "900000000000509007":"PREFERRED",
@@ -103,39 +103,7 @@
     // 5 two definitions preferred in en-GB dialects
     // 6 definition with acceptable value
     // 7 definition with no acceptability map
-    "assertConceptsFail": [
-        {
-            "id": "1",
-            "descriptions": [
-                {
-                    "id": "1",
-                    "active": true,
-                    "textDefinition": true,
-                    "term": "Dental decay that occurs on the root portion of a tooth.",
-                    "caseSignificanceId": "900000000000020002", // Only initial character case insensitive
-                    "acceptabilityMap": {
-                        "900000000000509007": "900000000000548007", // en-US Preferred
-                        "900000000000508004": "900000000000548007" // en-GB Preferred
-                    }
-                }
-            ]
-        },
-        {
-            "id": "2",
-            "descriptions": [
-                {
-                    "id": "2",
-                    "active": true,
-                    "textDefinition": true,
-                    "term": "Dental decay that occurs on the root portion of a tooth.",
-                    "caseSignificanceId": "900000000000448009", // Entire term case insensitive
-                    "acceptabilityMap": {
-                        "900000000000509007": "900000000000548007", // en-US Preferred
-                        "900000000000508004": "900000000000548007" // en-GB Preferred
-                    }
-                }
-            ]
-        },
+    "assertConceptsFail": [        
         {
             "id": "3",
             "descriptions": [

@@ -8,14 +8,6 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "TextDefinition case significance"
-	dialect "mvel"
-	when
-		d : Description(active && textDefinition && caseSignificanceId != Constants.ENTIRE_TERM_CASE_SENSITIVE && languageCode != "sv")
-	then
-		invalidContent.add(new InvalidContent(d, "Text definitions should be case-sensitive.", Severity.WARNING));
-end
-
 function boolean isFirstCharUppercase(String term) {
 	char c = term.trim().charAt(0);
 	return c == Character.toUpperCase(c);
@@ -28,8 +20,6 @@ rule "TextDefinition first character case"
 	then
 		invalidContent.add(new InvalidContent(d, "The first character of a text definition should be upper case.", Severity.WARNING));
 end
-
-
 
 rule "Preferred TextDefinition per dialect"
 	dialect "mvel"
