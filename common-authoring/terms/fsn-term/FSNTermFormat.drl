@@ -48,6 +48,7 @@ rule "Active FSN should end with a valid semantic tag"
 		invalidContent.add(new InvalidContent(d, "Active FSN should end with a valid semantic tag.", Severity.WARNING));
 end
 
+/*
 rule "FSN Comma"
 	dialect "mvel"
 	when
@@ -57,6 +58,7 @@ rule "FSN Comma"
 	then
 		invalidContent.add(new InvalidContent(d, "An FSN should not include commas.", Severity.WARNING));
 end
+*/
 
 rule "FSN special characters"
 	dialect "mvel"
