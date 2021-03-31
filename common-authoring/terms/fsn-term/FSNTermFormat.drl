@@ -42,7 +42,7 @@ end
 rule "Active FSN should end with a valid semantic tag"
 	dialect "mvel"
 	when
-		c : Concept(active)
+		c : Concept(active, id != "138875005")
 		d : Description(conceptId == c.id && active == true && typeId == Constants.FSN && !descriptionService.isRecognisedSemanticTag(DescriptionHelper.getTag(d.term)))
 	then
 		invalidContent.add(new InvalidContent(d, "Active FSN should end with a valid semantic tag.", Severity.WARNING));

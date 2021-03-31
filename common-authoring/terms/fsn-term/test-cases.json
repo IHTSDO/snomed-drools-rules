@@ -20,6 +20,16 @@
                     "term": "Ibuprofen oxycodone(product)"
                 }
             ]
+        },
+        {
+            "id": "138875005",
+            "descriptions": [
+                {
+                    "id": "1",
+                    "typeId": "900000000000003001",
+                    "term": "SNOMED CT Concept (SNOMED RT+CTV3)"
+                }
+            ]
         }
     ],
     // Failure cases:
