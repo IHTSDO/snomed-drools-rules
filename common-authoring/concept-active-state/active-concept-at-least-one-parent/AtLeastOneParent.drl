@@ -10,7 +10,7 @@ global java.util.List invalidContent
 rule "Active concept must have a parent"
 	dialect "mvel"
 	when
-		c : Concept(active)
+		c : Concept(active, id != "138875005")
 		activeStatedIsA: ArrayList( size == 0 )
            from collect( Relationship(active, !axiomGCI, sourceId == c.id, typeId == Constants.IS_A, characteristicTypeId == Constants.STATED_RELATIONSHIP) )
 	then
