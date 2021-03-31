@@ -16,6 +16,14 @@
                     "term": "Some (parenthetical) term"
                 }
             ]
+        }, {
+            "descriptions": [
+                {
+                    "id": "3",
+                    "typeId": "900000000000013009", // SYN
+                    "term": "Some term with semantic tag (organism)"
+                }
+            ]
         }
 
     ],
@@ -26,17 +34,18 @@
                 	"active" : "true",
                     "id": "1",
                     "typeId": "900000000000013009", //SYN
-                    "term": "Some term (some closing tag)"
+                    "term": "Some term some closing tag)"
                }
             ]
-        }, {
-            "descriptions": [
-                {
-                    "id": "3",
-                    "typeId": "900000000000013009", // SYN
-                    "term": "Some term with semantic tag (organism)"
-                }
-            ]
         }
+        // , {
+        //     "descriptions": [
+        //         {
+        //             "id": "3",
+        //             "typeId": "900000000000013009", // SYN
+        //             "term": "Some term with semantic tag (organism)"
+        //         }
+        //     ]
+        // }
     ]
 }
