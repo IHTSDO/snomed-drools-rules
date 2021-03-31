@@ -9,7 +9,7 @@ rule "No trailing zeros after a decimal point in numerical values with fractions
 	dialect "mvel"
 	when
 		c : Concept(active)
-		d : Description(active && conceptId == c.id && term matches "(.*\\.\\d*[1-9]*0+\\D.*)")
+		d : Description(active && conceptId == c.id && (term matches "(.*\\.\\d*[1-9]*0\\-.\\d*\\.\\d*.*)" || term matches "(.*\\.\\d*[1-9]\\-.\\d*\\.\\d*[1-9]*0+\\D.*)"))
 	then
 		invalidContent.add(new InvalidContent(d, "Numeric values should not end with trailing zeros after a decimal point.", Severity.WARNING));
 end
