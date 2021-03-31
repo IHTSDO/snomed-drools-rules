@@ -7,15 +7,11 @@ import org.ihtsdo.drools.helper.DescriptionHelper
 
 global java.util.List invalidContent
 
-function int countCharacters(String term, String c) {
-	return term.length() - term.replace(c, "").length();
-}
-
 rule "Active synonyms on active concepts do not have closing tags"
 	dialect "mvel"
 	when
 		c : Concept(active)
-		d : Description(active && typeId == Constants.SYNONYM && term.endsWith(")") && countCharacters(term, "(") != countCharacters(term, ")"))
+		d : Description(active && typeId == Constants.SYNONYM && term.endsWith(")") && term not matches ".*\\([^\\(]*")
 	then
 		invalidContent.add(new InvalidContent(d, "An active synonym on an active concept should not end with a parenthetical expression.", Severity.WARNING));
 end
