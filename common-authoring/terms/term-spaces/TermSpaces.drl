@@ -17,19 +17,19 @@ rule "Term double, leading or trailing spaces"
 		invalidContent.add(new InvalidContent(d, "Terms must not contain double, leading or trailing spaces."));
 end
 
-rule "Active descriptions do not have spaces, either before or after, hyphens."
-	dialect "mvel"
-	when
-		c : Concept(active)
-		topLevelHierarchies : ArrayList() from collect( String() from conceptService.findTopLevelHierarchiesOfConcept(c))
-		d : Description(active
-						&& moduleId != "554471000005108" /*Danish module*/ 
-						&& moduleId != "51000202101" /*Norwegian module*/ 
-						&& moduleId != "11000172109" /*Belgian module*/
-						&& languageCode != "sv"
-						&& topLevelHierarchies not contains "373873005" /*Pharmaceutical / biologic product (product)*/
-						&& topLevelHierarchies not contains "105590001" /*Substance (substance)*/
-						&& (term matches ".* -.*" || term matches ".*- .*"))
-	then
-		invalidContent.add(new InvalidContent(d, "Active descriptions should not have spaces, either before or after, hyphens.", Severity.WARNING));
-end
+//rule "Active descriptions do not have spaces, either before or after, hyphens."
+//	dialect "mvel"
+//	when
+//		c : Concept(active)
+//		topLevelHierarchies : ArrayList() from collect( String() from conceptService.findTopLevelHierarchiesOfConcept(c))
+//		d : Description(active
+//						&& moduleId != "554471000005108" /*Danish module*/ 
+//						&& moduleId != "51000202101" /*Norwegian module*/ 
+//						&& moduleId != "11000172109" /*Belgian module*/
+//						&& languageCode != "sv"
+//						&& topLevelHierarchies not contains "373873005" /*Pharmaceutical / biologic product (product)*/
+//						&& topLevelHierarchies not contains "105590001" /*Substance (substance)*/
+//						&& (term matches ".* -.*" || term matches ".*- .*"))
+//	then
+//		invalidContent.add(new InvalidContent(d, "Active descriptions should not have spaces, either before or after, hyphens.", Severity.WARNING));
+//end

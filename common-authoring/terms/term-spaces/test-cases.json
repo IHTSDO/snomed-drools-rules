@@ -173,7 +173,7 @@
 		         "conceptId":"332407004",
 		         "type":"SYNONYM",
 		         "lang":"sv",
-		         "term":"distala tredjedelen av rörbensdiafys, som helhet ",
+		         "term":"distala tredjedelen av rï¿½rbensdiafys, som helhet ",
 		         "caseSignificance":"CASE_INSENSITIVE",
 		         "acceptabilityMap":{  
 		
@@ -207,30 +207,30 @@
                     "term": "SNOMED CT Concept (SNOMED RT+CTV3) "
                 }
             ]
-        },
-        {
-            "descriptions": [
-                {
-                    "id": "5",
-                    "term": "Foreman - caretaking/cleaning"
-                }
-            ]
-        },
-        {
-            "descriptions": [
-                {
-                    "id": "6",
-                    "term": "Bone -drill biopsy"
-                }
-            ]
-        },
-        {
-            "descriptions": [
-                {
-                    "id": "7",
-                    "term": "Bone- drill biopsy"
-                }
-            ]
         }
+        //{
+        //    "descriptions": [
+        //        {
+        //            "id": "5",
+        //            "term": "Foreman - caretaking/cleaning"
+        //        }
+        //    ]
+        //},
+        //{
+        //    "descriptions": [
+        //        {
+        //            "id": "6",
+        //            "term": "Bone -drill biopsy"
+        //        }
+        //    ]
+        //},
+        //{
+        //    "descriptions": [
+        //        {
+        //            "id": "7",
+        //            "term": "Bone- drill biopsy"
+        //        }
+        //    ]
+        //}
     ]
 }
