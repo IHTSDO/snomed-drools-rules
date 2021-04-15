@@ -1,0 +1,23 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Relationship
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.response.InvalidContent
+import java.util.ArrayList
+
+global java.util.List invalidContent
+
+rule "Active Concept should not have  two or more axioms that each axiom only contains IS-A relationship"
+	dialect "mvel"
+	when
+		c : Concept(active)
+		r1 : Relationship(active, typeId == Constants.IS_A, !axiomGCI)
+		activeStatedRelationship1: ArrayList( size == 1 )
+           from collect( Relationship(active, !axiomGCI, sourceId == c.id, axiomId == r1.axiomId, characteristicTypeId == Constants.STATED_RELATIONSHIP))
+		r2 : Relationship(active, id != r1.id, axiomId != r1.axiomId, typeId == Constants.IS_A, !axiomGCI)
+		activeStatedRelationship2: ArrayList( size == 1 )
+           from collect( Relationship(active, !axiomGCI, sourceId == c.id, axiomId == r2.axiomId, characteristicTypeId == Constants.STATED_RELATIONSHIP))
+	then
+		InvalidContent invalid = new InvalidContent(c, "Active Concept should not have  two or more axioms that each axiom only contains IS-A relationship.");
+		invalid.ignorePublishedCheck()
+		invalidContent.add(invalid);
+end

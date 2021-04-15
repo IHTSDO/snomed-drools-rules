@@ -1,0 +1,47 @@
+ {
+    "assertConceptsPass": [
+        {
+            "id": "1",
+            "relationships": [
+                {
+                    "id": "1",
+                    "relationshipGroup": "0",
+                    "typeId": "116680003", // is-a
+                    "destinationId": "100",
+                    "axiomId":"730edf66-dd73-4cab-8977-e12796987d4d"
+                },
+                {
+                    "id": "2",
+                    "relationshipGroup": "0",
+                    "typeId": "116680003", // is-a
+                    "destinationId": "123",
+                    "released": true,
+                    "axiomId":"730edf66-dd73-4cab-8977-e12796987d4d"
+                }                
+            ]
+        }
+    ],
+    "assertConceptsFail": [
+        {
+            "id": "1",
+            "relationships": [
+                {
+                    "id": "1",
+                    "relationshipGroup": "0",
+                    "typeId": "116680003", // is-a
+                    "destinationId": "100",
+                    "axiomId":"730edf66-dd73-4cab-8977-e12796987d4d"
+                },
+                {
+                    "id": "2",
+                    "relationshipGroup": "0",
+                    "typeId": "116680003", // is-a
+                    "destinationId": "123",
+                    "released": true,
+                    "axiomId":"cf557207-9225-4492-a8b9-d15522f01531"
+                }                
+            ]
+        }        
+
+    ]
+}
