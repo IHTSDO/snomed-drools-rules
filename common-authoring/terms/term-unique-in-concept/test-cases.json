@@ -138,6 +138,25 @@
                     "moduleId": 2
                 }
             ]
+        },
+        {
+            "id": "7",
+            "descriptions": [
+                {
+                    "id": "1a",
+                    "typeId": "900000000000013009",
+                    "caseSignificanceId":"900000000000448009",
+                    "languageCode": "en",
+                    "term": "Body structure (body structure)"
+                },
+                {
+                    "id": "1b",
+                    "typeId": "900000000000013009",
+                    "caseSignificanceId":"900000000000017005",
+                    "languageCode": "en",
+                    "term": "Body Structure (body structure)"
+                }
+            ]
         }
     ],
     "assertConceptsFail": [
