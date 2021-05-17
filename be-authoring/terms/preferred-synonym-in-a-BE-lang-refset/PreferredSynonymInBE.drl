@@ -1,0 +1,36 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Constants
+import java.util.Collection
+import java.util.ArrayList
+import org.ihtsdo.drools.helper.DescriptionHelper
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.response.Severity
+
+global java.util.List invalidContent
+
+rule "Preferred synonym in some BE language reference set."
+	dialect "mvel"
+	when
+		c : Concept(active)
+		ArrayList(size > 0 || c.moduleId == "11000172109") from collect (
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM)
+		)
+		ArrayList(size == 0) from collect (
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "fr", acceptabilityMap["21000172104"] == Constants.ACCEPTABILITY_PREFERRED)
+		)
+		ArrayList(size == 0) from collect (
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "nl", acceptabilityMap["31000172101"] == Constants.ACCEPTABILITY_PREFERRED)
+		)
+		ArrayList(size == 0) from collect (
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "fr", acceptabilityMap["711000172101"] == Constants.ACCEPTABILITY_PREFERRED)
+		)
+		ArrayList(size == 0) from collect (
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "nl", acceptabilityMap["701000172104"] == Constants.ACCEPTABILITY_PREFERRED)
+		)
+	then
+		InvalidContent invalid = new InvalidContent(c, "A concept in the Belgian module must have a Preferred Synonym in either BE-FR, BE-NL or one of the context specific language
+		reference sets.");
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
+end
