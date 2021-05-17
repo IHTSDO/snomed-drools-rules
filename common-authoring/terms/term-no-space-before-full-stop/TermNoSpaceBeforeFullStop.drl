@@ -15,5 +15,6 @@ rule "No space before a full stop"
 						conceptId == c.id && 
 						((typeId != Constants.FSN && term matches ".*\\s+\\.$") ||(typeId == Constants.FSN && DescriptionHelper.getFsnTerm(term) matches ".*\\s+\\.$")))
 	then
-		invalidContent.add(new InvalidContent(d, "There should not be a space before a full stop.", Severity.WARNING));
+		invalidContent.add(new InvalidContent("a421116f-799e-447c-8403-e3f7adf430dd",
+				d, "There should not be a space before a full stop.", Severity.WARNING));
 end

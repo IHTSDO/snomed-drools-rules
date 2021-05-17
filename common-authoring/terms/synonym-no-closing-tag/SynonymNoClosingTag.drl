@@ -13,5 +13,6 @@ rule "Active synonyms on active concepts do not have closing tags"
 		c : Concept(active)
 		d : Description(active && typeId == Constants.SYNONYM && term.endsWith(")") && term not matches ".*\\([^\\(]*")
 	then
-		invalidContent.add(new InvalidContent(d, "An active synonym on an active concept should not end with a parenthetical expression.", Severity.WARNING));
+		invalidContent.add(new InvalidContent("6d2a1740-dc60-45b3-928e-c7fa116f7ca4",
+				d, "An active synonym on an active concept should not end with a parenthetical expression.", Severity.WARNING));
 end

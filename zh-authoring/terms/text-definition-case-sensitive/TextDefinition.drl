@@ -10,5 +10,6 @@ rule "TextDefinition case significance for ZH"
 	when
 		d : Description(active && textDefinition && caseSignificanceId != Constants.ENTIRE_TERM_CASE_SENSITIVE)
 	then
-		invalidContent.add(new InvalidContent(d, "Text definitions should be case-sensitive.", Severity.WARNING));
+		invalidContent.add(new InvalidContent("d171cf20-87e7-4a1a-b3bd-f4b9f0181b92",
+				d, "Text definitions should be case-sensitive.", Severity.WARNING));
 end

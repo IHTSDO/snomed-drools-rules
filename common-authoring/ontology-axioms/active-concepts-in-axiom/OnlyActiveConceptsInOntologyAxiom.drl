@@ -28,5 +28,6 @@ rule "Active Ontology Axioms should only use active Concepts."
 		oa : OntologyAxiom(referencedComponentId == concept.id, active)
 		eval(anyConceptNotActive(oa.getOwlExpressionNamedConcepts(), conceptService))
 	then
-		invalidContent.add(new InvalidContent(oa, "An active ontology axiom must only use active concepts."));
+		invalidContent.add(new InvalidContent("d0e73b91-ab28-402c-a645-5bf1014a6eb7",
+				oa, "An active ontology axiom must only use active concepts."));
 end

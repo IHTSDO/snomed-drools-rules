@@ -21,7 +21,8 @@ rule "Must have one preferred synonym in NZ dialect"
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, acceptabilityMap["271000210107"] == Constants.ACCEPTABILITY_PREFERRED)
 		)
 	then
-		InvalidContent invalid = new InvalidContent(c, "A concept must have only one Preferred Synonym in the NZ dialect.", Severity.ERROR);
+		InvalidContent invalid = new InvalidContent("f5c7de5e-5e5b-4cf9-862c-eb8905e96199",
+				c, "A concept must have only one Preferred Synonym in the NZ dialect.", Severity.ERROR);
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end

@@ -13,5 +13,6 @@ rule "Inactive concepts must not contain active stated relationships"
 		c : Concept(!active)
 		r : Relationship(active && characteristicTypeId == Constants.STATED_RELATIONSHIP)
 	then
-		invalidContent.add(new InvalidContent(r, "Inactive concepts must not have active stated relationships."));
+		invalidContent.add(new InvalidContent("1279cf27-e2dd-42cb-af86-f57addecd32c",
+				r, "Inactive concepts must not have active stated relationships."));
 end

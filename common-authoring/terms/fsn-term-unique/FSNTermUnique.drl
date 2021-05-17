@@ -18,7 +18,8 @@ rule "Active FSNs must be unique"
 		d2 : Description(id != d.id && c.id != conceptId && languageCode == d.languageCode && (!d.published || (d.published && conceptService.isActive(conceptId))))
 						from descriptionService.findActiveDescriptionByExactTerm(d.term)
 	then
-		InvalidContent invalid = new InvalidContent(d, "An FSN must be unique within all active FSNs across all concepts. This term already exists against " +
+		InvalidContent invalid = new InvalidContent("d23674f3-6a36-49e3-bfa8-84375745cb33",
+				d, "An FSN must be unique within all active FSNs across all concepts. This term already exists against " +
 				(conceptService.isActive(d2.getConceptId()) ? "active" : "inactive") + " concept " + d2.getConceptId() + ".",
 				conceptService.isActive(d2.getConceptId()) ? Severity.ERROR : Severity.WARNING);
 		invalid.ignorePublishedCheck();

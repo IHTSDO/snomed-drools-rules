@@ -10,5 +10,6 @@ rule "TextDefinition case significance for EE"
 	when
 		d : Description(active && textDefinition && caseSignificanceId != Constants.ENTIRE_TERM_CASE_SENSITIVE)
 	then
-		invalidContent.add(new InvalidContent(d, "Text definitions should be case-sensitive.", Severity.WARNING));
+		invalidContent.add(new InvalidContent("4b956597-82a6-49e6-8934-cc151431a883",
+				d, "Text definitions should be case-sensitive.", Severity.WARNING));
 end

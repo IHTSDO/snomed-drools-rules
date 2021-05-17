@@ -14,5 +14,6 @@ rule "All FSNs for concept share semantic tag"
 		d : Description(active == true && typeId == Constants.FSN)
 		d1 : Description(DescriptionHelper.getTag(d.term) != DescriptionHelper.getTag(term)) from DescriptionHelper.filterByActiveAndType(c, true, Constants.FSN)
 	then
-		invalidContent.add(new InvalidContent(d, "All FSNs on a concept must share semantic tag.", Severity.ERROR));
+		invalidContent.add(new InvalidContent("240c1a0a-5bf0-4f8c-8505-3b5e74b90c07",
+				d, "All FSNs on a concept must share semantic tag.", Severity.ERROR));
 end

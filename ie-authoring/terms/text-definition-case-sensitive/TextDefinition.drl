@@ -10,5 +10,6 @@ rule "TextDefinition case significance for IE"
 	when
 		d : Description(active && textDefinition && caseSignificanceId != Constants.ENTIRE_TERM_CASE_SENSITIVE)
 	then
-		invalidContent.add(new InvalidContent(d, "Text definitions should be case-sensitive.", Severity.WARNING));
+		invalidContent.add(new InvalidContent("56ddd9c0-3479-4033-9727-ebc135b2f6ec",
+				d, "Text definitions should be case-sensitive.", Severity.WARNING));
 end

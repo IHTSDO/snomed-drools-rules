@@ -18,6 +18,7 @@ rule "Term parenthesis spaces"
 			|| term matches ".* \\)"
 			))
 	then
-		invalidContent.add(new InvalidContent(d, "There should be a space before but not after the last opening parenthesis. " +
+		invalidContent.add(new InvalidContent("37f36311-778f-4477-b049-5e96f1dc8b71",
+				d, "There should be a space before but not after the last opening parenthesis. " +
 				"There should not be a space before the last closing parentheses e.g. |D-Alanine-alanyl-poly(glycerolphosphate) ligase (substance)|.", Severity.WARNING));
 end

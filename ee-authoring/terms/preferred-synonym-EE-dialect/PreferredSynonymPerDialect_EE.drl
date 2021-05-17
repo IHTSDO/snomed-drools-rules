@@ -19,7 +19,8 @@ rule "Preferred synonym per dialect"
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "et", acceptabilityMap["71000181105"] == Constants.ACCEPTABILITY_PREFERRED)
 		)
 	then
-		InvalidContent invalid = new InvalidContent(c, "A concept must have one Preferred Synonym in the EE dialect.");
+		InvalidContent invalid = new InvalidContent("2643a03e-2a71-454b-b302-1d6d34085e70",
+				c, "A concept must have one Preferred Synonym in the EE dialect.");
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end

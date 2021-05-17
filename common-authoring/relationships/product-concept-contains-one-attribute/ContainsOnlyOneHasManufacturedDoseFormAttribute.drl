@@ -18,5 +18,6 @@ rule "Has manufactured dose form attribute can only appear once in a drug concep
 		r1 : Relationship(sourceId == c.id && active && typeId == "411116001" && (topLevelHierarchies contains "373873005"))
 		r2 : Relationship(sourceId == c.id && active && typeId == "411116001" && id != r1.id && r1.axiomId == axiomId)
 	then
-		invalidContent.add(new InvalidContent(r1, "\"Has manufactured dose form\" attribute can only appear once in a drug concept model.", Severity.WARNING));
+		invalidContent.add(new InvalidContent("f24b490a-1603-4bdf-bcad-ffaa1349d230",
+				r1, "\"Has manufactured dose form\" attribute can only appear once in a drug concept model.", Severity.WARNING));
 end

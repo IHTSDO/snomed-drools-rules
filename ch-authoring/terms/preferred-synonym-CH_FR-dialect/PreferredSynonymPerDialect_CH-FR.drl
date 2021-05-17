@@ -20,7 +20,8 @@ rule "Must have one preferred synonym in CH-FR dialect if more than one preferre
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, acceptabilityMap["2021000195106"] == Constants.ACCEPTABILITY_PREFERRED)
 		)
 	then
-		InvalidContent invalid = new InvalidContent(c, "A concept must have only one Preferred Synonym in the CH-FR dialect.", Severity.ERROR);
+		InvalidContent invalid = new InvalidContent("d4132bde-3865-489d-99d3-cafc7db2560d",
+				c, "A concept must have only one Preferred Synonym in the CH-FR dialect.", Severity.ERROR);
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end
@@ -39,7 +40,8 @@ rule "Must have one preferred synonym in CH-FR dialect if there have any accepta
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, acceptabilityMap["2021000195106"] == Constants.ACCEPTABILITY_PREFERRED)
 		)
 	then
-		InvalidContent invalid = new InvalidContent(c, "A concept must have one Preferred Synonym in the CH-FR dialect.", Severity.ERROR);
+		InvalidContent invalid = new InvalidContent("517d49a6-a842-47bb-a59c-0d59ac693bb9",
+				c, "A concept must have one Preferred Synonym in the CH-FR dialect.", Severity.ERROR);
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end

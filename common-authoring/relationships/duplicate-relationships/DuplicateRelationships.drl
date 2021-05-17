@@ -14,7 +14,8 @@ rule "Active Concepts should not have two relationships with the same type, targ
 				&& ((destinationId != null && destinationId == r1.destinationId) || (concreteValue != null && concreteValue == r1.concreteValue))
 				&& relationshipGroup == r1.relationshipGroup && (r1.active || r2.active) && (!r1.released || (r1.active && r2.active)))
 	then
-		invalidContent.add(new InvalidContent(r1, "An active concept must not have two relationships with the same type, target and group. " +
+		invalidContent.add(new InvalidContent("1edb6c09-31ec-4a98-8c98-9409c56e07f1",
+				r1, "An active concept must not have two relationships with the same type, target and group. " +
 		"The duplicate can be an inactive relationship that should be reactivated, or an unreleased new relationship that should be deleted. " +
 		"Please review the following relationship: " + r2.id + "."));
 end

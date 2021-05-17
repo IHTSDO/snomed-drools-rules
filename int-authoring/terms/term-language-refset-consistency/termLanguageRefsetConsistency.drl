@@ -15,5 +15,6 @@ rule "Terms are consistent in en-us and en-gb language refsets"
 		c : Concept(active)
 		d : Description(active && descriptionService.getLanguageSpecificErrorMessage(d) != "")
 	then
-		invalidContent.add(new InvalidContent(d, descriptionService.getLanguageSpecificErrorMessage(d), Severity.WARNING));
+		invalidContent.add(new InvalidContent("e1622b95-aecd-4948-9bcd-81d2e4e3670f",
+				d, descriptionService.getLanguageSpecificErrorMessage(d), Severity.WARNING));
 end

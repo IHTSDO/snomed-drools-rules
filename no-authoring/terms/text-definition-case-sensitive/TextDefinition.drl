@@ -10,5 +10,6 @@ rule "TextDefinition case significance for NO"
 	when
 		d : Description(active && textDefinition && caseSignificanceId != Constants.ENTIRE_TERM_CASE_SENSITIVE)
 	then
-		invalidContent.add(new InvalidContent(d, "Text definitions should be case-sensitive.", Severity.WARNING));
+		invalidContent.add(new InvalidContent("c08d4e4a-2ffe-48f4-a0a4-3955a152f3c6",
+				d, "Text definitions should be case-sensitive.", Severity.WARNING));
 end

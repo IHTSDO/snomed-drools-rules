@@ -9,5 +9,6 @@ rule "Is-a relationship must not be grouped"
 	when
 		r : Relationship(typeId == Constants.IS_A && relationshipGroup != 0)
 	then
-		invalidContent.add(new InvalidContent(r, "IS A relationships must not be grouped."));
+		invalidContent.add(new InvalidContent("6f3e115f-0b39-4391-948b-afb20090baf7",
+				r, "IS A relationships must not be grouped."));
 end

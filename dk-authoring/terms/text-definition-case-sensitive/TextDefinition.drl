@@ -10,5 +10,6 @@ rule "TextDefinition case significance for DK"
 	when
 		d : Description(active && textDefinition && caseSignificanceId != Constants.ENTIRE_TERM_CASE_SENSITIVE)
 	then
-		invalidContent.add(new InvalidContent(d, "Text definitions should be case-sensitive.", Severity.WARNING));
+		invalidContent.add(new InvalidContent("1abf4cd2-649b-426e-ad55-8555113b5dcf",
+				d, "Text definitions should be case-sensitive.", Severity.WARNING));
 end

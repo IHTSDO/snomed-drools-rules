@@ -18,7 +18,8 @@ rule "GCI Contains Parent."
 		activeStatedIsA: ArrayList( size == 0 )
 			from collect( Relationship(active, axiomId == gciRelationship.axiomId, typeId == Constants.IS_A) )
 	then
-		invalidContent.add(new InvalidContent(gciRelationship, "A GCI axiom expression must contain at least one parent."));
+		invalidContent.add(new InvalidContent("1a7bb28e-39b2-4213-adb5-6afdaea16148",
+				gciRelationship, "A GCI axiom expression must contain at least one parent."));
 end
 
 rule "GCI Contains Attribute."
@@ -29,5 +30,6 @@ rule "GCI Contains Attribute."
 		activeStatedAttribute: ArrayList( size == 0 )
 			from collect( Relationship(active, axiomId == gciRelationship.axiomId, typeId != Constants.IS_A) )
 	then
-		invalidContent.add(new InvalidContent(gciRelationship, "A GCI axiom expression must contain at least one attribute."));
+		invalidContent.add(new InvalidContent("5f66c1bf-c308-4ce5-a53d-3d1bdcfc2ce9",
+				gciRelationship, "A GCI axiom expression must contain at least one attribute."));
 end

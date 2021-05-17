@@ -18,7 +18,8 @@ rule "Metadata concepts should be in the model module"
 		Concept((statedAncestors contains "900000000000442005") || (statedAncestors contains "900000000000454005")
 						|| (statedAncestors contains "106237007") || (statedAncestors contains "370136006"))
 	then
-		InvalidContent invalid = new InvalidContent(c, "Metadata concepts should be in the model module (not the core module).", Severity.WARNING);
+		InvalidContent invalid = new InvalidContent("8fb51c28-3194-4917-aea3-f58f1dcc9cd2",
+				c, "Metadata concepts should be in the model module (not the core module).", Severity.WARNING);
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end

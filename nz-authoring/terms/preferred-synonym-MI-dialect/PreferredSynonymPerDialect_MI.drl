@@ -21,7 +21,8 @@ rule "Must have one preferred synonym in MI dialect"
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "mi", acceptabilityMap["291000210106"] == Constants.ACCEPTABILITY_PREFERRED)
 		)
 	then
-		InvalidContent invalid = new InvalidContent(c, "A concept must have only one Preferred Synonym in the MI dialect.", Severity.ERROR);
+		InvalidContent invalid = new InvalidContent("f66f0731-1341-48b1-9ff4-5cfc5732dfda",
+				c, "A concept must have only one Preferred Synonym in the MI dialect.", Severity.ERROR);
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end

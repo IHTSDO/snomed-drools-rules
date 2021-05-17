@@ -13,5 +13,6 @@ rule "Term Case Significance: Terms starting with a lower case letter are expect
 		d : Description(active == true && conceptId == c.id && (caseSignificanceId == Constants.ENTIRE_TERM_CASE_INSENSITIVE ||
 						caseSignificanceId == Constants.ONLY_INITIAL_CHARACTER_CASE_INSENSITIVE) && term matches "^[a-z].*$")
 	then
-		invalidContent.add(new InvalidContent(d, "Terms starting with a lower case letter are expected to be marked CS.", Severity.WARNING));
+		invalidContent.add(new InvalidContent("aee370bc-cb52-463f-8b7a-f8ca15b27a97",
+				d, "Terms starting with a lower case letter are expected to be marked CS.", Severity.WARNING));
 end

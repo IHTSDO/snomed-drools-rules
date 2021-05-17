@@ -22,7 +22,8 @@ rule "There should have a synonym that has the same text with FSN"
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, term.equals(DescriptionHelper.getFsnTerm(fsn.term)))
 		)
 	then
-		InvalidContent invalid = new InvalidContent(c, "For each active FSN there is a synonym that has the same text.", Severity.WARNING);
+		InvalidContent invalid = new InvalidContent("65adcfee-cca5-4e99-8441-acc53344a140",
+				c, "For each active FSN there is a synonym that has the same text.", Severity.WARNING);
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end

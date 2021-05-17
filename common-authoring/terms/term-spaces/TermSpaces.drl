@@ -14,5 +14,6 @@ rule "Term double, leading or trailing spaces"
 		c : Concept(active)
 		d : Description(active && (term matches ".*  .*" || term matches " .*" || term matches ".* "))
 	then
-		invalidContent.add(new InvalidContent(d, "Terms must not contain double, leading or trailing spaces."));
+		invalidContent.add(new InvalidContent("4b90d988-7f5c-4826-b441-0549e348d0c6",
+				d, "Terms must not contain double, leading or trailing spaces."));
 end

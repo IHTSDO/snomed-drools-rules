@@ -10,5 +10,6 @@ rule "TextDefinition case significance for CH"
 	when
 		d : Description(active && textDefinition && caseSignificanceId != Constants.ENTIRE_TERM_CASE_SENSITIVE)
 	then
-		invalidContent.add(new InvalidContent(d, "Text definitions should be case-sensitive.", Severity.WARNING));
+		invalidContent.add(new InvalidContent("8845f98e-4271-4198-b26f-53b9d9705943",
+				d, "Text definitions should be case-sensitive.", Severity.WARNING));
 end

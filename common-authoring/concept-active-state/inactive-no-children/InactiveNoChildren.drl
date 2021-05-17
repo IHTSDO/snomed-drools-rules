@@ -12,5 +12,6 @@ rule "Inactive concept cannot have children"
 	when
 		c : Concept(!active && relationshipService.hasActiveInboundStatedRelationship(c.id, Constants.IS_A))
 	then
-		invalidContent.add(new InvalidContent(c, "Inactive concepts must not have children."));
+		invalidContent.add(new InvalidContent("c6fec3e3-215a-45b1-9afa-b379ceeaff03",
+				c, "Inactive concepts must not have children."));
 end

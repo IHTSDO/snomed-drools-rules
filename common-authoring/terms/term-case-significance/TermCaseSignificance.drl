@@ -16,7 +16,8 @@ rule "Term Case Significance: Only initial character case sensitive"
 		d2 : Description(active == true && conceptId == c.id && caseSignificanceId == Constants.ONLY_INITIAL_CHARACTER_CASE_INSENSITIVE
 				&& term not matches "^..*[A-Z].*$" && term not matches "^..*[0-9][A-Za-z].*$")
 	then
-		invalidContent.add(new InvalidContent(d2, "An active term on an active concept with case significance 'only initial character case insensitive' should contain " +
+		invalidContent.add(new InvalidContent("4ee9cfeb-3ce5-48bf-b238-de7498fde042",
+				d2, "An active term on an active concept with case significance 'only initial character case insensitive' should contain " +
 				"a capital letter after the first character.", Severity.WARNING));
 end
 
@@ -26,7 +27,8 @@ rule "Term Case Significance: Entire term case insensitive"
 		c : Concept(active == true)
 		d : Description(active == true && conceptId == c.id && caseSignificanceId == Constants.ENTIRE_TERM_CASE_INSENSITIVE && term matches "^..*[A-Z].*$")
 	then
-		invalidContent.add(new InvalidContent(d, "An active term on an active concept with case significance 'entire term case insensitive' should not contain " +
+		invalidContent.add(new InvalidContent("900bbad3-5ebf-47ff-8206-01ff57c8f975",
+				d, "An active term on an active concept with case significance 'entire term case insensitive' should not contain " +
 				"capital letters after the first character.", Severity.WARNING));
 end
 
@@ -36,5 +38,6 @@ rule "Term Case Significance: Terms containing a capital letter are expected to 
 		c : Concept(active == true)
 		d : Description(active == true && conceptId == c.id && caseSignificanceId == Constants.ENTIRE_TERM_CASE_INSENSITIVE && term matches "^..*[A-Z].*$")
 	then
-		invalidContent.add(new InvalidContent(d, "Terms containing a capital letter are expected to be marked cI or CS.", Severity.WARNING));
+		invalidContent.add(new InvalidContent("aa0b2de4-5b51-4594-980c-3ef46b7b4ade",
+				d, "Terms containing a capital letter are expected to be marked cI or CS.", Severity.WARNING));
 end

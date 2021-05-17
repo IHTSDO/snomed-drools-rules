@@ -10,5 +10,6 @@ rule "Lack of leading zero before a decimal point for decimal values less than o
 	when
 		d : Description(active && ((term matches "^\\.\\d+.*") || (term matches ".*[\\s-_]\\.\\d+.*")))
 	then
-		invalidContent.add(new InvalidContent(d, "Decimal values less than one should include a single leading zero before the decimal point.", Severity.WARNING));
+		invalidContent.add(new InvalidContent("8fa25ba2-b817-426d-ba07-2ff99395f25f",
+				d, "Decimal values less than one should include a single leading zero before the decimal point.", Severity.WARNING));
 end

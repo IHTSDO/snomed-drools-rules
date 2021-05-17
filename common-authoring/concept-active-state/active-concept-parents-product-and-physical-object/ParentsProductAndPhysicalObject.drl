@@ -17,7 +17,8 @@ rule "Active concept has top level parents that are both (product) and (physical
 		topLevelHierarchies : ArrayList() from collect( String() from conceptService.findTopLevelHierarchiesOfConcept(c))
 		Concept(ConceptHelper.containsAnyConcept(topLevelHierarchies,"373873005","260787004"))
 	then
-		InvalidContent invalid = new InvalidContent(c, "Active concept has parents that are both (product) and (physical object).", Severity.WARNING)
+		InvalidContent invalid = new InvalidContent("566e1632-e29c-4646-8933-76328936458b",
+				c, "Active concept has parents that are both (product) and (physical object).", Severity.WARNING)
 		invalid.ignorePublishedCheck()
 		invalidContent.add(invalid);
 end

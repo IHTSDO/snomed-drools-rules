@@ -19,5 +19,6 @@ rule "Description normally has less than 35 words"
 	when
 		d : Description(active && typeId == Constants.SYNONYM && countWords(term) > 35)
 	then
-		invalidContent.add(new InvalidContent(d, "An active description normally has less than 35 words.", Severity.WARNING));
+		invalidContent.add(new InvalidContent("bcf35f45-d508-440e-bd23-1cee574da17f",
+				d, "An active description normally has less than 35 words.", Severity.WARNING));
 end

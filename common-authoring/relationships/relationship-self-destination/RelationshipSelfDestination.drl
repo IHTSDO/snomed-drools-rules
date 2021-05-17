@@ -8,5 +8,6 @@ rule "Active relationship must not have destination matching source concept"
 	when
 		r : Relationship(active && destinationId != null && sourceId == destinationId)
 	then
-		invalidContent.add(new InvalidContent(r, "Active relationships must not use the source concept as the destination."));
+		invalidContent.add(new InvalidContent("fd8bf538-7bc3-4a9e-9e0c-3193dc2104a4",
+				r, "Active relationships must not use the source concept as the destination."));
 end

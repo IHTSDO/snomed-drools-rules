@@ -10,5 +10,6 @@ rule "Term special characters"
 	when
 		d : Description(active == true && term matches ".*[\\\\\t\r\n@$#].*")
 	then
-		invalidContent.add(new InvalidContent(d, "An active term should not contain tabs, newlines, or characters @, $, #, \\.", Severity.WARNING));
+		invalidContent.add(new InvalidContent("fbd4bbb5-3e62-4ccb-824a-e82d9771c0ee",
+				d, "An active term should not contain tabs, newlines, or characters @, $, #, \\.", Severity.WARNING));
 end

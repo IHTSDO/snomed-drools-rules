@@ -17,7 +17,8 @@ rule "Active Concept should not have	two or more axioms that each axiom only con
 		activeStatedRelationship2: ArrayList( size == 1 )
 				from collect( Relationship(active, !axiomGCI, sourceId == c.id, axiomId == r2.axiomId, characteristicTypeId == Constants.STATED_RELATIONSHIP))
 	then
-		InvalidContent invalid = new InvalidContent(c, "Active Concept should not have two or more axioms that each axiom only contains IS-A relationship.");
+		InvalidContent invalid = new InvalidContent("e77f303a-a954-477b-b73b-b05516cf3fc7",
+				c, "Active Concept should not have two or more axioms that each axiom only contains IS-A relationship.");
 		invalid.ignorePublishedCheck()
 		invalidContent.add(invalid);
 end

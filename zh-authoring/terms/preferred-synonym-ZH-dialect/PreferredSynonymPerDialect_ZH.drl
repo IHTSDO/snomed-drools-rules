@@ -21,7 +21,8 @@ rule "Must have one preferred synonym in ZH dialect"
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, acceptabilityMap["722128001"] == Constants.ACCEPTABILITY_PREFERRED)
 		)
 	then
-		InvalidContent invalid = new InvalidContent(c, "A concept must have only one Preferred Synonym in the ZH dialect.", Severity.ERROR);
+		InvalidContent invalid = new InvalidContent("46acce88-aba7-4905-9e24-611e81a53efc",
+				c, "A concept must have only one Preferred Synonym in the ZH dialect.", Severity.ERROR);
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end

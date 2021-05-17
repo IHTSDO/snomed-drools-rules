@@ -38,7 +38,8 @@ rule "Semantic Tag of FSN compatible with concept parents"
 											{"*", "product"}
 										}))
 	then
-		InvalidContent invalid = new InvalidContent(d, "A concept's semantic tags should be compatible with those of the active parents.", Severity.WARNING)
+		InvalidContent invalid = new InvalidContent("4be1323d-9ef7-4c1d-a731-2fd5c89b27b1",
+				d, "A concept's semantic tags should be compatible with those of the active parents.", Severity.WARNING)
 		invalid.ignorePublishedCheck()
 		invalidContent.add(invalid);
 end
@@ -80,7 +81,8 @@ rule "All Semantic Tag of concept parents does not match with Semantic Tag of FS
 									{"disorder", "finding"}
 								}))
 	then
-		InvalidContent invalid = new InvalidContent(d, "A concept's semantic tags should be compatible with those of the active parents.", Severity.WARNING)
+		InvalidContent invalid = new InvalidContent("09ac5cbd-ed94-4bbd-ac1a-1fcd68e8eb49",
+				d, "A concept's semantic tags should be compatible with those of the active parents.", Severity.WARNING)
 		invalid.ignorePublishedCheck()
 		invalidContent.add(invalid);
 end
@@ -99,7 +101,8 @@ rule "Matching semantic tag should not allow adding a subtype as a parent"
 		SemanticTags : ArrayList(size > 0) from collect( String() from DescriptionHelper.getTags(fsns))
 		eval(SemanticTags contains termSemanticTag)
 	then
-		InvalidContent invalid = new InvalidContent(d, "It is not allowed to add a subtype as a parent.")
+		InvalidContent invalid = new InvalidContent("9209a757-2be8-4ec1-89bb-758fc76e054c",
+				d, "It is not allowed to add a subtype as a parent.")
 		invalid.ignorePublishedCheck()
 		invalidContent.add(invalid);
 end

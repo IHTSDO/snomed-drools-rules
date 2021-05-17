@@ -18,5 +18,6 @@ rule "Terms contains balanced parentheses"
 		c : Concept(active == true)
 		d : Description(conceptId == c.id && active && countCharacters(term, "(") != countCharacters(term, ")"))
 	then
-		invalidContent.add(new InvalidContent(d, "An active term on an active concept should contain balanced parentheses.", Severity.WARNING));
+		invalidContent.add(new InvalidContent("b5570e20-a7f3-4273-a76d-4b29937c6e76",
+				d, "An active term on an active concept should contain balanced parentheses.", Severity.WARNING));
 end

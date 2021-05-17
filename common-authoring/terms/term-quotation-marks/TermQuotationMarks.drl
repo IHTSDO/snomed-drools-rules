@@ -35,5 +35,6 @@ rule "Term use of quotation marks"
 	when
 		d : Description(active == true && error: findUnexpectedCharactersError(term), error.length != 0)
 	then
-		invalidContent.add(new InvalidContent(d, "An active term should not contain any " + error + ".", Severity.WARNING));
+		invalidContent.add(new InvalidContent("e0745082-0b54-4bfb-ab77-6aa039ec692a",
+				d, "An active term should not contain any " + error + ".", Severity.WARNING));
 end

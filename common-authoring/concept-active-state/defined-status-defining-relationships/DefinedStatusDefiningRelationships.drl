@@ -16,7 +16,8 @@ rule "Defined concepts must have at least one defining relationship"
 		d : ArrayList(size == 0) from collect(Description(active, moduleId != c.moduleId))
 		r : ArrayList(size == 0) from collect(Relationship(active, characteristicTypeId == Constants.STATED_RELATIONSHIP, typeId != Constants.IS_A && !axiomGCI))
 	then
-		InvalidContent invalid = new InvalidContent(c, "An axiom marked as defined must have one or more defining relationship, i.e., not is-a type relationships.");
+		InvalidContent invalid = new InvalidContent("f4c3d61b-c0aa-4f3a-8b2a-1f25414dab24",
+				c, "An axiom marked as defined must have one or more defining relationship, i.e., not is-a type relationships.");
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end

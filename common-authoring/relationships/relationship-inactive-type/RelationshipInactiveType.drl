@@ -10,5 +10,6 @@ rule "Active relationship must not have inactive type"
 	when
 		r : Relationship(active && !conceptService.isActive(typeId))
 	then
-		invalidContent.add(new InvalidContent(r, "Concepts must not have inactive relationship types."));
+		invalidContent.add(new InvalidContent("07b567dd-8c13-4ac0-852b-3ddbc969cf8f",
+				r, "Concepts must not have inactive relationship types."));
 end

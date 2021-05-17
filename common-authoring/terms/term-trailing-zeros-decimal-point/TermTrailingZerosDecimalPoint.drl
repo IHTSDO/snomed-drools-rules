@@ -11,5 +11,6 @@ rule "No trailing zeros after a decimal point in numerical values with fractions
 		c : Concept(active)
 		d : Description(active && conceptId == c.id && (term matches "(.*\\.\\d*[1-9]*0\\-.\\d*\\.\\d*.*)" || term matches "(.*\\.\\d*[1-9]\\-.\\d*\\.\\d*[1-9]*0+\\D.*)"))
 	then
-		invalidContent.add(new InvalidContent(d, "Numeric values should not end with trailing zeros after a decimal point.", Severity.WARNING));
+		invalidContent.add(new InvalidContent("ccbaf61f-8561-49cc-9c07-b57f8ff88047",
+				d, "Numeric values should not end with trailing zeros after a decimal point.", Severity.WARNING));
 end

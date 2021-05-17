@@ -14,7 +14,8 @@ rule "Active concept must have a parent"
 		activeStatedIsA: ArrayList( size == 0 )
 				from collect( Relationship(active, !axiomGCI, sourceId == c.id, typeId == Constants.IS_A, characteristicTypeId == Constants.STATED_RELATIONSHIP) )
 	then
-		InvalidContent invalid = new InvalidContent(c, "Active concepts must have at least one IS A relationship.");
+		InvalidContent invalid = new InvalidContent("635de46a-3c19-4c06-8d46-3181d13d4be1",
+				c, "Active concepts must have at least one IS A relationship.");
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end

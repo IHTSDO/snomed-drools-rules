@@ -10,5 +10,6 @@ rule "TextDefinition case significance for NZ"
 	when
 		d : Description(active && textDefinition && caseSignificanceId != Constants.ENTIRE_TERM_CASE_SENSITIVE)
 	then
-		invalidContent.add(new InvalidContent(d, "Text definitions should be case-sensitive.", Severity.WARNING));
+		invalidContent.add(new InvalidContent("402ad3e2-a69f-439b-837a-22ce123b156b",
+				d, "Text definitions should be case-sensitive.", Severity.WARNING));
 end

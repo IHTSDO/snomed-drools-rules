@@ -17,7 +17,8 @@ rule "Active concept should not belong to more than one top-level hierarchy"
 		topLevelHierarchies : ArrayList() from collect( String() from conceptService.findTopLevelHierarchiesOfConcept(c))
 		Concept(ConceptHelper.isMoreThanOneTopLevelHierarchy(topLevelHierarchies,"373873005","260787004"))
 	then
-		InvalidContent invalid = new InvalidContent(c, "Active concept parents should not belong to more than one top-level hierarchy.", Severity.ERROR);
+		InvalidContent invalid = new InvalidContent("2a441b02-2d83-45bd-9207-61f5acc60379",
+				c, "Active concept parents should not belong to more than one top-level hierarchy.", Severity.ERROR);
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end

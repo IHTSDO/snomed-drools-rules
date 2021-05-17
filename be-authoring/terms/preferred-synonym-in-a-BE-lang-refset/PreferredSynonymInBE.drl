@@ -29,7 +29,8 @@ rule "Preferred synonym in some BE language reference set."
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "nl", acceptabilityMap["701000172104"] == Constants.ACCEPTABILITY_PREFERRED)
 		)
 	then
-		InvalidContent invalid = new InvalidContent(c, "A concept in the Belgian module must have a Preferred Synonym in either BE-FR, BE-NL or one of the context specific language
+		InvalidContent invalid = new InvalidContent("1a8d7a77-7b03-458d-95af-72f23378aef5",
+				c, "A concept in the Belgian module must have a Preferred Synonym in either BE-FR, BE-NL or one of the context specific language
 		reference sets.");
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);

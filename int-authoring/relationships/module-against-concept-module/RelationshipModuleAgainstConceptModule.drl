@@ -12,7 +12,8 @@ rule "Relationship should have the same module id as the concept"
 		c : Concept(active)
 		r : Relationship(active && characteristicTypeId == Constants.STATED_RELATIONSHIP && moduleId != c.moduleId)
 	then
-		InvalidContent invalid = new InvalidContent(r, "Relationship does not have the same module id as the concept.", Severity.WARNING);
+		InvalidContent invalid = new InvalidContent("cc9f2c3d-f79a-4b15-827e-def8ca2dec25",
+				r, "Relationship does not have the same module id as the concept.", Severity.WARNING);
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end

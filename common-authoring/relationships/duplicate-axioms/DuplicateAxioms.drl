@@ -10,7 +10,8 @@ rule "Active Concepts should not have duplicate axioms"
 		c : Concept(active)
 		eval(ConceptHelper.isAxiomEquivalent(c))
 	then
-		InvalidContent invalid = new InvalidContent(c, "Active Concept should not have duplicate axioms.");
+		InvalidContent invalid = new InvalidContent("75cda7ed-7e2d-4cea-a042-31207594bd67",
+				c, "Active Concept should not have duplicate axioms.");
 		invalid.ignorePublishedCheck()
 		invalidContent.add(invalid);
 end

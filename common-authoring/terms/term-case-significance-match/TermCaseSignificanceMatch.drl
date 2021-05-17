@@ -21,5 +21,6 @@ rule "Terms with matching first word share case significance"
 						&& (caseSignificanceId == Constants.ENTIRE_TERM_CASE_SENSITIVE || d1.caseSignificanceId == Constants.ENTIRE_TERM_CASE_SENSITIVE) 
 						&& d1.caseSignificanceId != caseSignificanceId)
 	then
-		invalidContent.add(new InvalidContent(d1, "Active terms sharing first word with case-sensitive term should share case sensitivity.", Severity.WARNING));
+		invalidContent.add(new InvalidContent("d007641a-a124-4096-84fe-d2e09dcb7f40",
+				d1, "Active terms sharing first word with case-sensitive term should share case sensitivity.", Severity.WARNING));
 end

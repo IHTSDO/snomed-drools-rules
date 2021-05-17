@@ -21,7 +21,8 @@ rule "Must have one preferred synonym in IE dialect"
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, acceptabilityMap["21000220103"] == Constants.ACCEPTABILITY_PREFERRED)
 		)
 	then
-		InvalidContent invalid = new InvalidContent(c, "A concept must have only one Preferred Synonym in the IE dialect.", Severity.ERROR);
+		InvalidContent invalid = new InvalidContent("a7e03ffd-32c8-4d90-a73b-ced6568ecf06",
+				c, "A concept must have only one Preferred Synonym in the IE dialect.", Severity.ERROR);
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end

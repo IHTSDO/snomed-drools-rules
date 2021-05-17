@@ -32,7 +32,8 @@ rule "No Preferred synonym in the nn dialect"
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "no", acceptabilityMap["91000202106"] == Constants.ACCEPTABILITY_ACCEPTABLE)
 		)		
 	then
-		InvalidContent invalid = new InvalidContent(c, "A concept must have one Preferred Synonym in the nn dialect.");
+		InvalidContent invalid = new InvalidContent("f78cd55d-78a6-4931-a6d1-90ae6b524fd1",
+				c, "A concept must have one Preferred Synonym in the nn dialect.");
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end
@@ -54,7 +55,8 @@ rule "More than one Preferred synonym in the nn dialect"
 		)
 			
 	then
-		InvalidContent invalid = new InvalidContent(c, "A concept must have one Preferred Synonym in the nn dialect.");
+		InvalidContent invalid = new InvalidContent("4e2e2ec5-2ec0-4204-b188-8d2256ec2b4e",
+				c, "A concept must have one Preferred Synonym in the nn dialect.");
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end
