@@ -1,5 +1,5 @@
 Generated
-Wed 18 Nov 2020 09:42:07 GMT
+Mon 17 May 2021 21:04:23 BST
 
 ./ch-authoring/empty/always-passes/AlwaysPasses.drl
 rule "Always passes CH"
@@ -7,6 +7,9 @@ rule "Always passes CH"
 ./ch-authoring/terms/preferred-synonym-CH_FR-dialect/PreferredSynonymPerDialect_CH-FR.drl
 rule "Must have one preferred synonym in CH-FR dialect if more than one preferred synomyms had been specified"
 rule "Must have one preferred synonym in CH-FR dialect if there have any acceptable synonyms specified"
+
+./ch-authoring/terms/text-definition-case-sensitive/TextDefinition.drl
+rule "TextDefinition case significance for CH"
 
 ./ch-authoring/terms/preferred-synonym-one-of-CH_DE-or-CH_FR-or-CH_IT-dialect/PreferredSynonymPerDialect_CH-DE_or_CH-FR_or_CH-IT.drl
 rule "Preferred synonym in CH_DE or CH_FR or CH_IT dialect"
@@ -20,6 +23,9 @@ rule "Must have one preferred synonym in CH-IT dialect if there have any accepta
 rule "Must have one preferred synonym in CH-DE dialect if more than one preferred synomyms had been specified"
 rule "Must have one preferred synonym in CH-DE dialect if there have any acceptable synonyms specified"
 
+./no-authoring/terms/text-definition-case-sensitive/TextDefinition.drl
+rule "TextDefinition case significance for NO"
+
 ./no-authoring/terms/preferred-synonym-NB-dialect/PreferredSynonymPerDialect_NB.drl
 rule "Preferred synonym per dialect"
 
@@ -30,17 +36,26 @@ rule "More than one Preferred synonym in the nn dialect"
 ./ie-authoring/empty/always-passes/AlwaysPasses.drl
 rule "Always passes BE"
 
+./ie-authoring/terms/text-definition-case-sensitive/TextDefinition.drl
+rule "TextDefinition case significance for IE"
+
 ./ie-authoring/terms/preferred-synonym-IE-dialect/PreferredSynonymPerDialect_IE.drl
 rule "Must have one preferred synonym in IE dialect"
 
 ./zh-authoring/empty/always-passes/AlwaysPasses.drl
 rule "Always passes zh"
 
+./zh-authoring/terms/text-definition-case-sensitive/TextDefinition.drl
+rule "TextDefinition case significance for ZH"
+
 ./zh-authoring/terms/preferred-synonym-ZH-dialect/PreferredSynonymPerDialect_ZH.drl
 rule "Must have one preferred synonym in ZH dialect"
 
 ./nz-authoring/empty/always-passes/AlwaysPasses.drl
 rule "Always passes NZ"
+
+./nz-authoring/terms/text-definition-case-sensitive/TextDefinition.drl
+rule "TextDefinition case significance for NZ"
 
 ./nz-authoring/terms/preferred-synonym-NZ-dialect/PreferredSynonymPerDialect_NZ.drl
 rule "Must have one preferred synonym in NZ dialect"
@@ -50,6 +65,9 @@ rule "Must have one preferred synonym in MI dialect"
 
 ./int-authoring/terms/fsn-for-GB_EN-dialect/FSNPerDialect_GB.drl
 rule "FSN per dialect"
+
+./int-authoring/terms/text-definition-case-sensitive/TextDefinition.drl
+rule "TextDefinition case significance"
 
 ./int-authoring/terms/term-case-significance/TermCaseSignificance.drl
 rule "Term Case Significance: Terms starting with a lower case letter are expected to be marked CS"
@@ -118,14 +136,12 @@ rule "Active FSNs cannot start with open parentheses"
 rule "FSN ends in closing parentheses"
 rule "Active FSN must end with a semantic tag"
 rule "Active FSN should end with a valid semantic tag"
-rule "FSN Comma"
 rule "FSN special characters"
 rule "FSN capitalized"
 
 ./common-authoring/terms/term-case-significance/TermCaseSignificance.drl
 rule "Term Case Significance: Only initial character case sensitive"
 rule "Term Case Significance: Entire term case insensitive"
-rule "Term Case Significance: Terms starting with a lower case letter are expected to be marked CS"
 rule "Term Case Significance: Terms containing a capital letter are expected to be marked cI or CS"
 
 ./common-authoring/terms/term-characters/TermCharacters.drl
@@ -133,7 +149,6 @@ rule "Term special characters"
 
 ./common-authoring/terms/term-spaces/TermSpaces.drl
 rule "Term double, leading or trailing spaces"
-rule "Active descriptions do not have spaces, either before or after, hyphens."
 
 ./common-authoring/terms/term-leading-zeros-decimal-point/termLeadingZerosDecimalPoint.drl
 rule "Lack of leading zero before a decimal point for decimal values less than one"
@@ -149,7 +164,6 @@ rule "Text Definition length"
 rule "Active FSNs must be unique"
 
 ./common-authoring/terms/text-definition/TextDefinition.drl
-rule "TextDefinition case significance"
 rule "TextDefinition first character case"
 rule "Preferred TextDefinition per dialect"
 rule "TextDefinition preferred"
@@ -163,9 +177,6 @@ rule "Description normally has less than 35 words"
 
 ./common-authoring/terms/fsn-term-exists-as-inactive/FSNTermExistsAsInactive.drl
 rule "Active FSN should not exist as inactive term on another concept"
-
-./common-authoring/terms/term-prefilled/TermPrefilled.drl
-rule "Term prefilled"
 
 ./common-authoring/terms/term-case-significance-match/TermCaseSignificanceMatch.drl
 rule "Terms with matching first word share case significance"
@@ -240,6 +251,9 @@ rule "Is-a relationship must not have the same target value with Is-modification
 ./common-authoring/relationships/duplicate-axioms/DuplicateAxioms.drl
 rule "Active Concepts should not have duplicate axioms"
 
+./common-authoring/relationships/axioms-contain-only-is-a-reletionship/AxiomsContainOnlyIsaRelationship.drl
+rule "Active Concept should not have	two or more axioms that each axiom only contains IS-A relationship"
+
 ./common-authoring/relationships/relationship-inactive-source/RelationshipInactiveSource.drl
 rule "Inactive concepts must not contain active stated relationships"
 
@@ -252,8 +266,8 @@ rule "Active Concepts should not have two relationships with the same type, targ
 ./be-authoring/empty/always-passes/AlwaysPasses.drl
 rule "Always passes BE"
 
-./be-authoring/terms/preferred-synonym-one-of-BE_FR-or-BE_NL-dialect/PreferredSynonymPerDialect_BE-FR_or_BE-NL.drl
-rule "Preferred synonym in BE_FR or BE_NL dialect"
+./be-authoring/terms/text-definition-case-sensitive/TextDefinition.drl
+rule "TextDefinition case significance for BE"
 
 ./be-authoring/terms/preferred-synonym-BE_NL-dialect/PreferredSynonymPerDialect_BE-NL.drl
 rule "Must have one preferred synonym in BE_NL dialect if more than one preferred synomyms had been specified"
@@ -265,11 +279,20 @@ rule "Must have only one preferred synonym in BE_FR dialect if more than one pre
 rule "Must have one preferred synonym in BE_FR dialect if there have any acceptable synonyms specified"
 rule "Preferred synonym in BE_FR dialect"
 
+./be-authoring/terms/preferred-synonym-in-a-BE-lang-refset/PreferredSynonymInBE.drl
+rule "Preferred synonym in some BE language reference set."
+
+./dk-authoring/terms/text-definition-case-sensitive/TextDefinition.drl
+rule "TextDefinition case significance for DK"
+
 ./dk-authoring/terms/preferred-synonym-DK-dialect/PreferredSynonymPerDialect_DK.drl
 rule "Preferred synonym per dialect"
 
 ./se-authoring/terms/preferred-synonym-SE-dialect/PreferredSynonymPerDialect_SE.drl
 rule "Preferred synonym per dialect"
+
+./ee-authoring/terms/text-definition-case-sensitive/TextDefinition.drl
+rule "TextDefinition case significance for EE"
 
 ./ee-authoring/terms/preferred-synonym-EE-dialect/PreferredSynonymPerDialect_EE.drl
 rule "Preferred synonym per dialect"
