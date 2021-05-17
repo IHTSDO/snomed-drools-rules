@@ -16,14 +16,14 @@ rule "Descendents of 91723000|Anatomical structure (body structure)| should foll
 		c : Concept(active)
 		ancestors : ArrayList(size > 0) from collect( String() from conceptService.findStatedAncestorsOfConcept(c))
 		d : Description(ancestors contains "91723000"
-						&& active 
-						&& typeId == Constants.FSN
-						&& (fsn : DescriptionHelper.getFsnTerm(term))
-						&& fsn != null
-						&& !fsn.toLowerCase().contains("structure") 
-						&& !fsn.toLowerCase().contains("entire")
-						&& !fsn.toLowerCase().contains("part")
-						)
+				&& active
+				&& typeId == Constants.FSN
+				&& (fsn : DescriptionHelper.getFsnTerm(term))
+				&& fsn != null
+				&& !fsn.toLowerCase().contains("structure")
+				&& !fsn.toLowerCase().contains("entire")
+				&& !fsn.toLowerCase().contains("part")
+				)
 	then
 		invalidContent.add(new InvalidContent(d, "Active FSN should follow SEP naming conventions.", Severity.WARNING));
 end

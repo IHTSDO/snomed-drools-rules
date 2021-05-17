@@ -20,6 +20,6 @@ rule "Preferred synonym per dialect"
 		)
 	then
 		InvalidContent invalid = new InvalidContent(c, "A concept must have one Preferred Synonym in the DK dialect.");
-        invalid.ignorePublishedCheck();
-        invalidContent.add(invalid);
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
 end

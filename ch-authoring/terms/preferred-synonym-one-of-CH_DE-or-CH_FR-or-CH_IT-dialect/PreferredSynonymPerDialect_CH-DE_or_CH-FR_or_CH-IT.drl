@@ -22,36 +22,36 @@ rule "Preferred synonym in CH_DE or CH_FR or CH_IT dialect"
 		ArrayList(size == 0) from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "de", acceptabilityMap["2041000195100"] == Constants.ACCEPTABILITY_PREFERRED)
 		)
-        ArrayList(size > 0 || c.moduleId == "2011000195101") from collect (
-            Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "fr")
-        )
-        ArrayList(size == 0) from collect (
-            Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "fr", acceptabilityMap["2021000195106"] == Constants.ACCEPTABILITY_PREFERRED)
-        )
-        ArrayList(size > 0 || c.moduleId == "2011000195101") from collect (
-            Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "it")
-        )
-        ArrayList(size == 0) from collect (
-            Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "it", acceptabilityMap["2031000195108"] == Constants.ACCEPTABILITY_PREFERRED)
-        )
+		ArrayList(size > 0 || c.moduleId == "2011000195101") from collect (
+				Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "fr")
+		)
+		ArrayList(size == 0) from collect (
+				Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "fr", acceptabilityMap["2021000195106"] == Constants.ACCEPTABILITY_PREFERRED)
+		)
+		ArrayList(size > 0 || c.moduleId == "2011000195101") from collect (
+				Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "it")
+		)
+		ArrayList(size == 0) from collect (
+				Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "it", acceptabilityMap["2031000195108"] == Constants.ACCEPTABILITY_PREFERRED)
+		)
 	then
 		InvalidContent invalid = new InvalidContent(c, "A concept must have one Preferred Synonym in either the CH-DE or CH-FR or CH-IT dialects.");
-        invalid.ignorePublishedCheck();
-        invalidContent.add(invalid);
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
 end
 
 function List<String> getDialects(Collection descriptions) {
-    List<String> list = new ArrayList<String>();
-    for (Object obj : descriptions) {
-    	Description description = (Description) obj;
-    	Map<String, String> acceptabilityMap =  description.getAcceptabilityMap();
-    	for (String key : acceptabilityMap.keySet()) {
-    		if (!list.contains(key)) {
-    			list.add(key);
-    		}
-    	}        
-    }
-    return list;
+		List<String> list = new ArrayList<String>();
+		for (Object obj : descriptions) {
+			Description description = (Description) obj;
+			Map<String, String> acceptabilityMap =	description.getAcceptabilityMap();
+			for (String key : acceptabilityMap.keySet()) {
+				if (!list.contains(key)) {
+					list.add(key);
+				}
+			}				
+		}
+		return list;
 }
 
 rule "Not provide enough for all 3 dialects in CH extension"
@@ -59,15 +59,14 @@ rule "Not provide enough for all 3 dialects in CH extension"
 	when
 		c : Concept(active)
 		d: ArrayList(size > 0) from collect (
-			Description(active, conceptId == c.id, typeId == Constants.SYNONYM,  moduleId == "2011000195101",
-						  (acceptabilityMap["2041000195100"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["2041000195100"] == Constants.ACCEPTABILITY_ACCEPTABLE ||
-						   acceptabilityMap["2021000195106"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["2021000195106"] == Constants.ACCEPTABILITY_ACCEPTABLE ||
-						   acceptabilityMap["2031000195108"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["2031000195108"] == Constants.ACCEPTABILITY_ACCEPTABLE))
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, moduleId == "2011000195101",
+				(acceptabilityMap["2041000195100"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["2041000195100"] == Constants.ACCEPTABILITY_ACCEPTABLE ||
+				 acceptabilityMap["2021000195106"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["2021000195106"] == Constants.ACCEPTABILITY_ACCEPTABLE ||
+				 acceptabilityMap["2031000195108"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["2031000195108"] == Constants.ACCEPTABILITY_ACCEPTABLE))
 		)
-	
-        eval(getDialects(d).size() < 3)       
+		eval(getDialects(d).size() < 3)
 	then
 		InvalidContent invalid = new InvalidContent(c, (c.moduleId != "2011000195101" ? "A translated concept should have all 3 Preferred Synonyms in CH-DE, CH-FR and CH-IT." : "A new CH concept should have all 3 Preferred Synonyms in CH-DE, CH-FR and CH-IT."), Severity.WARNING);
-        invalid.ignorePublishedCheck();
-        invalidContent.add(invalid);
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
 end

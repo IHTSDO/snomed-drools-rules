@@ -21,8 +21,8 @@ rule "Must have one preferred synonym in CH-FR dialect if more than one preferre
 		)
 	then
 		InvalidContent invalid = new InvalidContent(c, "A concept must have only one Preferred Synonym in the CH-FR dialect.", Severity.ERROR);
-        invalid.ignorePublishedCheck();
-        invalidContent.add(invalid);
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
 end
 
 rule "Must have one preferred synonym in CH-FR dialect if there have any acceptable synonyms specified"
@@ -40,6 +40,6 @@ rule "Must have one preferred synonym in CH-FR dialect if there have any accepta
 		)
 	then
 		InvalidContent invalid = new InvalidContent(c, "A concept must have one Preferred Synonym in the CH-FR dialect.", Severity.ERROR);
-        invalid.ignorePublishedCheck();
-        invalidContent.add(invalid);
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
 end

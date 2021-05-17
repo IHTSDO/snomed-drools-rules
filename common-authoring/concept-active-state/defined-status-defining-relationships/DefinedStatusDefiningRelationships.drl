@@ -19,4 +19,4 @@ rule "Defined concepts must have at least one defining relationship"
 		InvalidContent invalid = new InvalidContent(c, "An axiom marked as defined must have one or more defining relationship, i.e., not is-a type relationships.");
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
-  end
+end

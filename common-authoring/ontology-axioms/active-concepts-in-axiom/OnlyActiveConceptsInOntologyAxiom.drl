@@ -13,18 +13,18 @@ global java.util.List invalidContent
 global ConceptService conceptService
 
 function boolean anyConceptNotActive(Collection conceptIds, ConceptService conceptService) {
-    for (Object conceptId : conceptIds) {
-        if (!conceptService.isActive((String)conceptId)) {
-            return true;
-        }
-    }
-    return false;
+	for (Object conceptId : conceptIds) {
+		if (!conceptService.isActive((String)conceptId)) {
+			return true;
+		}
+	}
+	return false;
 }
 
 rule "Active Ontology Axioms should only use active Concepts."
 	dialect "java"
 	when
-	    concept: Concept()
+		concept: Concept()
 		oa : OntologyAxiom(referencedComponentId == concept.id, active)
 		eval(anyConceptNotActive(oa.getOwlExpressionNamedConcepts(), conceptService))
 	then

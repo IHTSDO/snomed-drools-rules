@@ -9,5 +9,6 @@ rule "Non-breaking space character"
 	when
 		d : Description(active && term.contains("\u00A0"))
 	then
-		invalidContent.add(new InvalidContent(d, "The term of an active description must not contain the non-breaking space character. Please remove and retype each space to fix this."));
+		invalidContent.add(new InvalidContent(d, "The term of an active description must not contain the non-breaking space character. " +
+				"Please remove and retype each space to fix this."));
 end

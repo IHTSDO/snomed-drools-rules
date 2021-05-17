@@ -12,12 +12,12 @@ global ConceptService conceptService
 
 // "Correlation ID" is a special case where duplicates are expected
 rule "Active term unique in hierarchy"
-    dialect "mvel"
-    when
-    	c : Concept(active)
-    	d : Description(c.id == d.conceptId && active && term.length > 1 && !term.startsWith("Correlation ID"))
-    	$duplicate : Description(active && id != d.id && conceptService.isActive(conceptId) == true) from descriptionService.findMatchingDescriptionInHierarchy(c, d)
-    then
-        invalidContent.add(new InvalidContent(d, "Term already exists within this hierarchy on concept " + $duplicate.conceptId +
-         ". Two descriptions in the same hierarchy may only have the same term if they have different language codes or one description or concept is inactive.", Severity.WARNING));
+	dialect "mvel"
+	when
+		c : Concept(active)
+		d : Description(c.id == d.conceptId && active && term.length > 1 && !term.startsWith("Correlation ID"))
+		$duplicate : Description(active && id != d.id && conceptService.isActive(conceptId) == true) from descriptionService.findMatchingDescriptionInHierarchy(c, d)
+	then
+		invalidContent.add(new InvalidContent(d, "Term already exists within this hierarchy on concept " + $duplicate.conceptId +
+		". Two descriptions in the same hierarchy may only have the same term if they have different language codes or one description or concept is inactive.", Severity.WARNING));
 end

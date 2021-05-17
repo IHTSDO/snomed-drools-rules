@@ -21,8 +21,8 @@ rule "Must have one preferred synonym in BE_NL dialect if more than one preferre
 		)
 	then
 		InvalidContent invalid = new InvalidContent(c, "A concept must have only one Preferred Synonym in the BE-NL dialect.", Severity.ERROR);
-        invalid.ignorePublishedCheck();
-        invalidContent.add(invalid);
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
 end
 
 rule "Must have one preferred synonym in BE_NL dialect if there have any acceptable synonyms specified"
@@ -40,8 +40,8 @@ rule "Must have one preferred synonym in BE_NL dialect if there have any accepta
 		)
 	then
 		InvalidContent invalid = new InvalidContent(c, "A concept must have one Preferred Synonym in the BE-NL dialect.", Severity.ERROR);
-        invalid.ignorePublishedCheck();
-        invalidContent.add(invalid);
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
 end
 
 rule "Preferred synonym in BE_NL dialect"
@@ -51,12 +51,11 @@ rule "Preferred synonym in BE_NL dialect"
 		ArrayList(size > 0, c.moduleId == "11000172109") from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "fr", acceptabilityMap["21000172104"] == Constants.ACCEPTABILITY_PREFERRED)
 		)
-	
-        ArrayList(size == 0, c.moduleId == "11000172109") from collect (
-            Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "nl", (acceptabilityMap["31000172101"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["31000172101"] == Constants.ACCEPTABILITY_ACCEPTABLE))
-        )        
+		ArrayList(size == 0, c.moduleId == "11000172109") from collect (
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "nl", (acceptabilityMap["31000172101"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["31000172101"] == Constants.ACCEPTABILITY_ACCEPTABLE))
+		)
 	then
 		InvalidContent invalid = new InvalidContent(c, "A concept should have one Preferred Synonym in BE-NL dialect with the 'nl' language code.", Severity.WARNING);
-        invalid.ignorePublishedCheck();
-        invalidContent.add(invalid);
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
 end

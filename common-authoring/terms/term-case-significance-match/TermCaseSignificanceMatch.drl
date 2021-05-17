@@ -7,7 +7,6 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-
 rule "Terms with matching first word share case significance"
 	dialect "mvel"
 	when
@@ -21,6 +20,6 @@ rule "Terms with matching first word share case significance"
 						&& DescriptionHelper.getFirstWord(d1.term) == DescriptionHelper.getFirstWord(term)
 						&& (caseSignificanceId == Constants.ENTIRE_TERM_CASE_SENSITIVE || d1.caseSignificanceId == Constants.ENTIRE_TERM_CASE_SENSITIVE) 
 						&& d1.caseSignificanceId != caseSignificanceId)
-		then
+	then
 		invalidContent.add(new InvalidContent(d1, "Active terms sharing first word with case-sensitive term should share case sensitivity.", Severity.WARNING));
 end

@@ -9,32 +9,34 @@ global java.util.List invalidContent
 rule "Term already exists in concept with same case - one active."
 	dialect "mvel"
 	when
-	   c : Concept(active)
+		c : Concept(active)
 		d1 : Description(active)
 		d2 : Description(active && conceptId == d1.conceptId && id != d1.id && caseSignificanceId == d1.caseSignificanceId && d1.languageCode == d2.languageCode && term.equals(d1.term))
 	then
 		invalidContent.add(new InvalidContent(d2, "Active descriptions must not have the same term as another within the concept unless the language code is different. " +
-		    "Please remove one of the descriptions.", Severity.ERROR));
+			 "Please remove one of the descriptions.", Severity.ERROR));
 end
 
 rule "Term already exists in concept with same case - the other description is released and inactive, this one is not released."
 	dialect "mvel"
 	when
-	   c : Concept(active)
+		c : Concept(active)
 		d1 : Description(!active && released)
-		d2 : Description(active && !released && conceptId == d1.conceptId && id != d1.id && caseSignificanceId == d1.caseSignificanceId && d1.languageCode == d2.languageCode && d1.moduleId == d2.moduleId && typeId == d1.typeId && term.equals(d1.term))
+		d2 : Description(active && !released && conceptId == d1.conceptId && id != d1.id && caseSignificanceId == d1.caseSignificanceId &&
+						d1.languageCode == d2.languageCode && d1.moduleId == d2.moduleId && typeId == d1.typeId && term.equals(d1.term))
 	then
 		invalidContent.add(new InvalidContent(d2, "Active descriptions must not have the same term as another within the concept unless the language code is different. " +
-		    "Please make the other description active and remove this one.", Severity.ERROR));
+			 "Please make the other description active and remove this one.", Severity.ERROR));
 end
 
 rule "Term already exists in concept with different case - both active"
 	dialect "mvel"
 	when
-	   c : Concept(active)
+		c : Concept(active)
 		d1 : Description(active)
-		d2 : Description(active && conceptId == d1.conceptId && id != d1.id && caseSignificanceId == d1.caseSignificanceId && d1.languageCode == d2.languageCode && !term.equals(d1.term) && term.equalsIgnoreCase(d1.term))
+		d2 : Description(active && conceptId == d1.conceptId && id != d1.id && caseSignificanceId == d1.caseSignificanceId &&
+						d1.languageCode == d2.languageCode && !term.equals(d1.term) && term.equalsIgnoreCase(d1.term))
 	then
 		invalidContent.add(new InvalidContent(d2, "Active descriptions must not have the same term as another within the concept unless the language code is different. " +
-		    "There is another description with the same term but different case. Please remove the other description or make it inactive.", Severity.WARNING));
+			 "There is another description with the same term but different case. Please remove the other description or make it inactive.", Severity.WARNING));
 end

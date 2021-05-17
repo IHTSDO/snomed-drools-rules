@@ -15,9 +15,10 @@ rule "Metadata concepts should be in the model module"
 	when
 		c : Concept(active, moduleId != "900000000000012004")
 		statedAncestors : ArrayList() from collect( String() from conceptService.findStatedAncestorsOfConcept(c))
-        Concept((statedAncestors contains "900000000000442005") || (statedAncestors contains "900000000000454005") || (statedAncestors contains "106237007") ||  (statedAncestors contains "370136006"))
+		Concept((statedAncestors contains "900000000000442005") || (statedAncestors contains "900000000000454005")
+						|| (statedAncestors contains "106237007") || (statedAncestors contains "370136006"))
 	then
 		InvalidContent invalid = new InvalidContent(c, "Metadata concepts should be in the model module (not the core module).", Severity.WARNING);
-        invalid.ignorePublishedCheck();
-        invalidContent.add(invalid);
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
 end

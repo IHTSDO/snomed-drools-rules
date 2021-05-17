@@ -8,12 +8,13 @@ import java.util.ArrayList
 
 global java.util.List invalidContent
 
-
 rule "There should have a synonym that has the same text with FSN"
 	dialect "mvel"
 	when
 		c : Concept(active)
-		fsn : Description(active, conceptId == c.id, typeId == Constants.FSN && DescriptionHelper.getTag(term) not in ("product", "medicinal product", "medicinal product form", "clinical drug", "substance", "product name", "packaged clinical drug", "real clinical drug", "real medicinal product", "real packaged clinical drug", "supplier"))
+		fsn : Description(active, conceptId == c.id, typeId == Constants.FSN && DescriptionHelper.getTag(term)
+						not in ("product", "medicinal product", "medicinal product form", "clinical drug", "substance", "product name", "packaged clinical drug", "real clinical drug",
+						"real medicinal product", "real packaged clinical drug", "supplier"))
 		ArrayList(size > 0) from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM)
 		)
@@ -22,6 +23,6 @@ rule "There should have a synonym that has the same text with FSN"
 		)
 	then
 		InvalidContent invalid = new InvalidContent(c, "For each active FSN there is a synonym that has the same text.", Severity.WARNING);
-        invalid.ignorePublishedCheck();
-        invalidContent.add(invalid);
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
 end

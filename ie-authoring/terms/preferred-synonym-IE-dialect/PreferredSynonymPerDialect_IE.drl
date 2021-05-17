@@ -22,6 +22,6 @@ rule "Must have one preferred synonym in IE dialect"
 		)
 	then
 		InvalidContent invalid = new InvalidContent(c, "A concept must have only one Preferred Synonym in the IE dialect.", Severity.ERROR);
-        invalid.ignorePublishedCheck();
-        invalidContent.add(invalid);
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
 end

@@ -12,6 +12,6 @@ rule "Description should have the same module id as the concept"
 		d : Description(active && conceptId == c.id && moduleId != c.moduleId)
 	then
 		InvalidContent invalid = new InvalidContent(d, "Description does not have the same module id as the concept.", Severity.WARNING);
-        invalid.ignorePublishedCheck();
-        invalidContent.add(invalid);
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
 end

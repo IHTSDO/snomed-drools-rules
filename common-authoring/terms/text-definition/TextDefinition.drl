@@ -16,7 +16,7 @@ function boolean isFirstCharUppercase(String term) {
 rule "TextDefinition first character case"
 	dialect "mvel"
 	when
-		d : Description(active && textDefinition && caseSignificanceId == Constants.ENTIRE_TERM_CASE_SENSITIVE  && !isFirstCharUppercase(term))
+		d : Description(active && textDefinition && caseSignificanceId == Constants.ENTIRE_TERM_CASE_SENSITIVE && !isFirstCharUppercase(term))
 	then
 		invalidContent.add(new InvalidContent(d, "The first character of a text definition should be upper case.", Severity.WARNING));
 end
@@ -27,8 +27,8 @@ rule "Preferred TextDefinition per dialect"
 		c : Concept(active && DescriptionHelper.isMoreThanOneAcceptabilityPerDialect(c, true, Constants.TEXT_DEFINITION, Constants.ACCEPTABILITY_PREFERRED))
 	then
 		InvalidContent invalid = new InvalidContent(c, "A concept may only have one Preferred text definition in each dialect.");
-        invalid.ignorePublishedCheck();
-        invalidContent.add(invalid);
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
 end
 
 rule "TextDefinition preferred"
@@ -37,8 +37,8 @@ rule "TextDefinition preferred"
 		d : Description(active && textDefinition && DescriptionHelper.isAcceptabilityValuePresentOnDescription(d, Constants.ACCEPTABILITY_ACCEPTABLE))
 	then
 		InvalidContent invalid = new InvalidContent(d, "Text definitions must always be preferred.");
-        invalid.ignorePublishedCheck();
-        invalidContent.add(invalid);
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
 end
 
 rule "TextDefinition has acceptability map"
@@ -47,6 +47,6 @@ rule "TextDefinition has acceptability map"
 		d : Description(active && textDefinition && !DescriptionHelper.hasAcceptabilityMap(d))
 	then
 		InvalidContent invalid = new InvalidContent(d, "Text definitions must be preferred in at least one dialect.");
-        invalid.ignorePublishedCheck();
-        invalidContent.add(invalid);
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
 end

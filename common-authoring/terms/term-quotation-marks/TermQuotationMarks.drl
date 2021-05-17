@@ -6,14 +6,14 @@ import org.ihtsdo.drools.response.Severity
 global java.util.List invalidContent
 
 function String findUnexpectedCharactersError(String term) {
-    String RIGHT_APOS = "\u2019";
+	String RIGHT_APOS = "\u2019";
 	String LEFT_APOS = "\u2018";
 	String RIGHT_QUOTE = "\u201D";
 	String LEFT_QUOTE = "\u201C";
 	String GRAVE_ACCENT = "\u0060";
 	String ACUTE_ACCENT = "\u00B4";
 
-	String [][] unwantedChars = new String[][] {			
+	String [][] unwantedChars = new String[][] {
 		{ RIGHT_APOS , "right apostrophes" },
 		{ LEFT_APOS , "left apostrophes" },
 		{ RIGHT_QUOTE , "right quotes" },

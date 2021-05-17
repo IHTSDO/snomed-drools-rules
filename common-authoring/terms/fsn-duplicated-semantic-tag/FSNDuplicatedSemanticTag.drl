@@ -12,10 +12,9 @@ rule "Active concept should have only one semantic tag"
 	when
 		c : Concept(active)
 		d : Description(active 
-						&& typeId == Constants.FSN
-						&& (tag : DescriptionHelper.getTag(term))
-						&& term matches (".*\\("+ tag +"\\)\\s+\\("+ tag +"\\)")
-						)
+				&& typeId == Constants.FSN
+				&& (tag : DescriptionHelper.getTag(term))
+				&& term matches (".*\\("+ tag +"\\)\\s+\\("+ tag +"\\)"))
 	then
 		invalidContent.add(new InvalidContent(d, "Active FSN should have only one semantic tag.", Severity.WARNING));
 end

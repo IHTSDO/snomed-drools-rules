@@ -16,7 +16,7 @@ rule "Terms contains balanced parentheses"
 	dialect "mvel"
 	when
 		c : Concept(active == true)
-		d : Description(conceptId == c.id && active && countCharacters(term, "(") != countCharacters(term, ")"))		
+		d : Description(conceptId == c.id && active && countCharacters(term, "(") != countCharacters(term, ")"))
 	then
 		invalidContent.add(new InvalidContent(d, "An active term on an active concept should contain balanced parentheses.", Severity.WARNING));
 end

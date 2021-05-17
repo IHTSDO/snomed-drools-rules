@@ -15,20 +15,20 @@ global java.util.List invalidContent
 rule "Preferred synonym per dialect"
 	dialect "mvel"
 	when
-	    // When the concept is active
+		// When the concept is active
 		c : Concept(active)
 
-        // And when there are any descriptions with language code 'no' or the concept is in the Norway namespace
+		// And when there are any descriptions with language code 'no' or the concept is in the Norway namespace
 		ArrayList(size > 0 || c.moduleId contains "1000202") from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "no")
 		)
 
-	    // And when there is not 1 active NB PT.
+		// And when there is not 1 active NB PT.
 		ArrayList(size != 1) from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "no", acceptabilityMap["61000202103"] == Constants.ACCEPTABILITY_PREFERRED)
 		)
 	then
 		InvalidContent invalid = new InvalidContent(c, "A concept must have one Preferred Synonym in the nb dialect.");
-        invalid.ignorePublishedCheck();
-        invalidContent.add(invalid);
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
 end

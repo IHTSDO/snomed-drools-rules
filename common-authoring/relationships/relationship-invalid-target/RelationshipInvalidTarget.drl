@@ -14,6 +14,6 @@ rule "Relationship targets referencing to a non existing concept"
 		r : Relationship(sourceId == c.id && characteristicTypeId == Constants.STATED_RELATIONSHIP && destinationId != null && conceptService.findById(destinationId) == null)
 	then
 		InvalidContent invalid = new InvalidContent(c, "Axiom with id " + r.axiomId + " has relationship targets referencing to a non existing concept.");
-        invalid.ignorePublishedCheck()
-        invalidContent.add(invalid);
+		invalid.ignorePublishedCheck()
+		invalidContent.add(invalid);
 end

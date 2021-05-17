@@ -11,9 +11,10 @@ rule "Active concept should not have two relationships with the same type in the
 	when
 		c : Concept(active)
 		r1 : Relationship(active && sourceId == c.id && typeId != "116680003" && relationshipGroup != 0)
-		r2 : Relationship(active && sourceId == c.id && typeId != "116680003" && relationshipGroup != 0 && r1.id != id && typeId == r1.typeId && r1.axiomId == axiomId && relationshipGroup == r1.relationshipGroup && destinationId != r1.destinationId)
+		r2 : Relationship(active && sourceId == c.id && typeId != "116680003" && relationshipGroup != 0 && r1.id != id && typeId == r1.typeId && r1.axiomId == axiomId
+				&& relationshipGroup == r1.relationshipGroup && destinationId != r1.destinationId)
 	then
 		InvalidContent invalid = new InvalidContent(r1, "An active concept should not have two relationships with the same attribute type in the same role group.", Severity.WARNING);
-        invalid.ignorePublishedCheck();
-        invalidContent.add(invalid);
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
 end

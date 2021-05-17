@@ -7,11 +7,11 @@ global java.util.List invalidContent
 
 
 function int countWords(String term) {
-    if (term == null || term.isEmpty()) { 
-        return 0; 
-    } 
-    String[] words = term.split("\\s+"); 
-    return words.length;
+	if (term == null || term.isEmpty()) {
+		return 0;
+	}
+	String[] words = term.split("\\s+");
+	return words.length;
 }
 
 rule "Description normally has less than 35 words"
@@ -21,4 +21,3 @@ rule "Description normally has less than 35 words"
 	then
 		invalidContent.add(new InvalidContent(d, "An active description normally has less than 35 words.", Severity.WARNING));
 end
-

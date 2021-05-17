@@ -15,7 +15,7 @@ global java.util.List invalidContent
 rule "No Preferred synonym in the nn dialect"
 	dialect "mvel"
 	when
-	    // When the concept is active
+		// When the concept is active
 		c : Concept(active)
 		
 		// And when there are any descriptions with language code 'no' or the concept is in the Norway namespace
@@ -23,7 +23,7 @@ rule "No Preferred synonym in the nn dialect"
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "no")
 		)
 	
-	    // And when there is not 1 active NB PT.
+		// And when there is not 1 active NB PT.
 		d1 : ArrayList(size == 0) from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "no", acceptabilityMap["91000202106"] == Constants.ACCEPTABILITY_PREFERRED)
 		)
@@ -33,14 +33,14 @@ rule "No Preferred synonym in the nn dialect"
 		)		
 	then
 		InvalidContent invalid = new InvalidContent(c, "A concept must have one Preferred Synonym in the nn dialect.");
-        invalid.ignorePublishedCheck();
-        invalidContent.add(invalid);
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
 end
 
 rule "More than one Preferred synonym in the nn dialect"
 	dialect "mvel"
 	when
-	    // When the concept is active
+		// When the concept is active
 		c : Concept(active)
 		
 		// And when there are any descriptions with language code 'no' or the concept is in the Norway namespace
@@ -48,13 +48,13 @@ rule "More than one Preferred synonym in the nn dialect"
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "no")
 		)
 		
-	    // And when there is not 1 active NB PT.
+		// And when there is not 1 active NB PT.
 		d1 : ArrayList(size > 1) from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "no", acceptabilityMap["91000202106"] == Constants.ACCEPTABILITY_PREFERRED)
 		)
 			
 	then
 		InvalidContent invalid = new InvalidContent(c, "A concept must have one Preferred Synonym in the nn dialect.");
-        invalid.ignorePublishedCheck();
-        invalidContent.add(invalid);
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
 end
