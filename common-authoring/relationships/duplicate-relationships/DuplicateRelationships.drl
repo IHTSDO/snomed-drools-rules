@@ -2,6 +2,7 @@ import org.ihtsdo.drools.domain.Concept
 import org.ihtsdo.drools.domain.Relationship
 import org.ihtsdo.drools.helper.RelationshipHelper
 import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.domain.Constants
 
 global java.util.List invalidContent
 
@@ -9,8 +10,8 @@ rule "Active Concepts should not have two relationships with the same type, targ
 	dialect "mvel"
 	when
 		c : Concept(active)
-		r1 : Relationship(sourceId == c.id)
-		r2 : Relationship(sourceId == c.id && r1 != this && r1.axiomId == axiomId && typeId == r1.typeId
+		r1 : Relationship(sourceId == c.id && characteristicTypeId == Constants.STATED_RELATIONSHIP)
+		r2 : Relationship(sourceId == c.id && characteristicTypeId == Constants.STATED_RELATIONSHIP && r1 != this && r1.axiomId == axiomId && typeId == r1.typeId
 				&& ((destinationId != null && destinationId == r1.destinationId) || (concreteValue != null && concreteValue == r1.concreteValue))
 				&& relationshipGroup == r1.relationshipGroup && (r1.active || r2.active) && (!r1.released || (r1.active && r2.active)))
 	then
