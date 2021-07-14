@@ -41,6 +41,26 @@
                     "term": "Non-distal monosomy 12q (disorder)"
                 }
             ]
+        },
+        {
+            "id": "6",
+            "descriptions": [
+                {
+                    "id": "6",
+                    "caseSignificanceId": "900000000000020002",
+                    "term": "/10 min"
+                }
+            ]
+        },
+        {
+            "id": "7",
+            "descriptions": [
+                {
+                    "id": "7",
+                    "caseSignificanceId": "900000000000020002",
+                    "term": "<35"
+                }
+            ]
         }
     ],
     // 1 - only initial character case insensitive

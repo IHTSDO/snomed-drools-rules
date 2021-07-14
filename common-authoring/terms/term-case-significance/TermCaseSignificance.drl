@@ -14,7 +14,7 @@ rule "Term Case Significance: Only initial character case sensitive"
 		c : Concept(active == true)
 		d1 : Description(conceptId == c.id && active && typeId == Constants.FSN && DescriptionHelper.getTag(term) != "substance")
 		d2 : Description(active == true && conceptId == c.id && caseSignificanceId == Constants.ONLY_INITIAL_CHARACTER_CASE_INSENSITIVE
-				&& term not matches "^..*[A-Z].*$" && term not matches "^..*[0-9][A-Za-z].*$")
+				&& term not matches "^..*[A-Z].*$" && term not matches "^..*[0-9]$" && term not matches "^..*[0-9][A-Za-z].*$")
 	then
 		invalidContent.add(new InvalidContent("4ee9cfeb-3ce5-48bf-b238-de7498fde042",
 				d2, "An active term on an active concept with case significance 'only initial character case insensitive' should contain " +
