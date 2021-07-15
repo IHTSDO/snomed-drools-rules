@@ -5,10 +5,21 @@ import org.ihtsdo.drools.helper.DescriptionHelper
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
 import java.util.ArrayList
+import java.util.Collection
 import org.ihtsdo.drools.service.ConceptService
 
 global java.util.List invalidContent
 global ConceptService conceptService
+
+
+function boolean isAnyAncestorsExistIn(Collection ancestors, Collection list) {
+	for (Object conceptId : ancestors) {
+		if (list.contains((String)conceptId)) {
+			return true;
+		}
+	}
+	return false;
+}
 
 rule "Descendents of 91723000|Anatomical structure (body structure)| should follow SEP naming conventions"
 	dialect "mvel"
@@ -24,6 +35,7 @@ rule "Descendents of 91723000|Anatomical structure (body structure)| should foll
 				&& !fsn.toLowerCase().contains("entire")
 				&& !fsn.toLowerCase().contains("part")
 				)
+		eval(!isAnyAncestorsExistIn(ancestors, ["4421005", "122453002", "51576004", "280115004", "91832008", "258331007", "118956008", "278001007", "39801007", "361083003", "21229009", "87100004", "420864000", "698969006", "279228004", "698968003", "244023005", "123957003", "423857001", "91722005"]))		
 	then
 		invalidContent.add(new InvalidContent("4e3d5173-1208-4328-8554-6baf7e1f9d1a",
 				d, "Active FSN should follow SEP naming conventions.", Severity.WARNING));

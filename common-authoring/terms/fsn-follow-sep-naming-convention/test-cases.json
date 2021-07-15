@@ -10,7 +10,27 @@
                     "conceptId": "91723000"
                 }
             ]
-        }        
+        },
+        {
+            "id": "4421005", // Root concept
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "Cell structure (cell structure)",
+                    "conceptId": "4421005"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "3",
+                    "destinationId": "91723000",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        }         
     ],
     "assertConceptsPass": [
         {
@@ -83,6 +103,26 @@
                     "term": "Other FSN (body structure)"
                 }
             ]
+        },
+        {
+        	"id" : "5",
+        	"active": true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "typeId": "900000000000003001", // FSN
+                    "term": "X Somthing (body structure)"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "2",
+                    "destinationId": "4421005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
         }
         
     ],
@@ -146,6 +186,6 @@
                     "characteristicTypeId": "900000000000010007"
                 }
             ]
-        }
+        }        
     ]
 }
