@@ -5,12 +5,12 @@ import org.ihtsdo.drools.domain.Constants
 import org.ihtsdo.drools.service.DescriptionService
 import org.ihtsdo.drools.service.RelationshipService
 import org.ihtsdo.drools.helper.DescriptionHelper
-import org.ihtsdo.drools.helper.RelationshipHelper
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
 import org.ihtsdo.drools.service.ConceptService
 import java.util.ArrayList
 import java.util.HashSet
+import java.util.Set
 import java.util.Collection
 
 global java.util.List invalidContent
@@ -18,33 +18,21 @@ global DescriptionService descriptionService
 global RelationshipService relationshipService
 global ConceptService conceptService
 
-// Note - this rule uses international edition language refsets
-rule "Semantic Tag of FSN compatible with concept parents"
-	dialect "mvel"
-	when
-		c : Concept(active)
-		d : Description(conceptId == c.id
-						&& active
-						&& typeId == Constants.FSN
-						&& !DescriptionHelper.isSemanticTagEquivalentToAnother(
-								term, descriptionService.getFSNs(
-										RelationshipHelper.getActiveStatedParentConceptIds(c),
-										Constants.US_EN_LANG_REFSET,
-										Constants.GB_EN_LANG_REFSET
-										),
-										new String[][]{
-											// Pairs of special cases
-											{"disorder", "finding"},
-											{"*", "product"}
-										}))
-	then
-		InvalidContent invalid = new InvalidContent("4be1323d-9ef7-4c1d-a731-2fd5c89b27b1",
-				d, "A concept's semantic tags should be compatible with those of the active parents.", Severity.WARNING)
-		invalid.ignorePublishedCheck()
-		invalidContent.add(invalid);
-end
+function Set<String> getParentIdsForConcept(Concept concept, Boolean release) {
+		Set<String> activeParentConceptIds = new HashSet<>();
+		for (Relationship relationship : concept.getRelationships()) {
+			if (relationship.isActive()
+				&& !Constants.INFERRED_RELATIONSHIP.equals(relationship.getCharacteristicTypeId())
+				&& Constants.IS_A.equals(relationship.getTypeId())
+				&& !relationship.isAxiomGCI()
+				&& (release == null || Boolean.valueOf(release).equals(relationship.isReleased()))) {
+				activeParentConceptIds.add(relationship.getDestinationId());
+			}
+		}
+		return activeParentConceptIds;
+}
 
-function boolean isAllParentSemanticTagMatchWithTerm(String term, Collection parentTerms, String[][] acceptablePairs) {
+function boolean isAllParentTagsMatchFsnTag(String term, Collection parentTerms, String[][] acceptablePairs) {
 		String tag = DescriptionHelper.getTag(term);
 		if (tag != null) {
 		for (Object obj : parentTerms) {
@@ -64,19 +52,43 @@ function boolean isAllParentSemanticTagMatchWithTerm(String term, Collection par
 	}
 	
 	return true;
-}
+}	
 
-rule "All Semantic Tag of concept parents does not match with Semantic Tag of FSN"
+// Note - this rule uses international edition language refsets
+rule "Semantic Tag of FSN compatible with concept parents"
 	dialect "mvel"
 	when
 		c : Concept(active)
-		statedAncestors : ArrayList(size == 1) from collect( String() from conceptService.findTopLevelHierarchiesOfConcept(c))
-		parents : ArrayList(size > 1) from collect( String()
-								from descriptionService.getFSNs(RelationshipHelper.getActiveStatedParentConceptIds(c), Constants.US_EN_LANG_REFSET, Constants.GB_EN_LANG_REFSET))
 		d : Description(conceptId == c.id
 						&& active
 						&& typeId == Constants.FSN
-						&& !isAllParentSemanticTagMatchWithTerm(term, parents, new String[][]{
+						&& !DescriptionHelper.isSemanticTagEquivalentToAnother(
+								term, descriptionService.getFSNs(
+										getParentIdsForConcept(c, null),
+										Constants.US_EN_LANG_REFSET,
+										Constants.GB_EN_LANG_REFSET
+										),
+										new String[][]{
+											// Pairs of special cases
+											{"disorder", "finding"},
+											{"*", "product"}
+										}))
+	then
+		InvalidContent invalid = new InvalidContent("4be1323d-9ef7-4c1d-a731-2fd5c89b27b1",
+				d, "A concept's semantic tags should be compatible with those of the active parents.", Severity.WARNING)
+		invalid.ignorePublishedCheck()
+		invalidContent.add(invalid);
+end
+
+rule "Subsequently added parents do not match the FSN semantic tag"
+	dialect "mvel"
+	when
+		c : Concept(active)
+		d : Description(conceptId == c.id && active && typeId == Constants.FSN)
+		statedAncestors : ArrayList(size == 1) from collect( String() from conceptService.findTopLevelHierarchiesOfConcept(c))
+		newParentIds : HashSet(size > 0) from collect(String() from getParentIdsForConcept(c, false))
+		newParentTerms : ArrayList(size > 0) from collect(String() from descriptionService.getFSNs(newParentIds, Constants.US_EN_LANG_REFSET, Constants.GB_EN_LANG_REFSET))
+		eval(!isAllParentTagsMatchFsnTag(d.term, newParentTerms, new String[][]{
 									// Pairs of special cases
 									{"disorder", "finding"}
 								}))
@@ -92,7 +104,7 @@ rule "Matching semantic tag should not allow adding a subtype as a parent"
 	when
 		c : Concept(active)
 		statedAncestors : ArrayList(size == 1) from collect( String() from conceptService.findTopLevelHierarchiesOfConcept(c))
-		parentFSNs : ArrayList() from collect( String() from descriptionService.getFSNs(RelationshipHelper.getActiveStatedParentConceptIds(c),Constants.US_EN_LANG_REFSET,Constants.GB_EN_LANG_REFSET))
+		parentFSNs : ArrayList() from collect( String() from descriptionService.getFSNs(getParentIdsForConcept(c, null),Constants.US_EN_LANG_REFSET,Constants.GB_EN_LANG_REFSET))
 		d : Description(conceptId == c.id && active && typeId == Constants.FSN && !DescriptionHelper.isAllParentSemanticTagMatchWithTerm(term,parentFSNs))
 		termSemanticTag : String() from DescriptionHelper.getTag(d.term)
 		parentIds : ArrayList(size > 0) from collect( String() from descriptionService.findParentsNotContainingSemanticTag(c, termSemanticTag, Constants.US_EN_LANG_REFSET,Constants.GB_EN_LANG_REFSET))
