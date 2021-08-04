@@ -1,0 +1,49 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Constants
+import java.util.Collection
+import java.util.Set
+import java.util.HashSet
+import java.util.Arrays
+import org.ihtsdo.drools.helper.DescriptionHelper
+import org.ihtsdo.drools.response.InvalidContent
+
+global java.util.List invalidContent
+
+function Set<String> getLanguageRefsets(Concept c) {	
+	Set<String> languageRefsets = new HashSet();
+	for (Description description : c.getDescriptions()) {
+		if (description.isActive() && description.getTypeId().equals(Constants.SYNONYM)) {
+			Set<String> dialects = description.getAcceptabilityMap().keySet();
+			for (String dialectId : dialects) {
+				if (!languageRefsets.contains(dialectId)) {
+					languageRefsets.add(dialectId);
+				}				
+			}
+		}
+	}
+	return languageRefsets;
+}
+
+function Set<String> findInvalidLanguageRefsets(Concept c) {
+	Set<String> languageRefsets = getLanguageRefsets(c);
+	Set<String> invalidLanguageRefsets = new HashSet();	
+	for (String dialectId : languageRefsets) {
+		if (DescriptionHelper.filterByActiveTypeAndDialectPreferred(c, true, Constants.SYNONYM, dialectId).size() > 1) {
+			invalidLanguageRefsets.add(dialectId);
+		}
+	}	
+	return invalidLanguageRefsets;
+}
+
+rule "Preferred synonym per language reference set"
+	dialect "mvel"
+	when
+		c : Concept(active)
+		error : HashSet(size > 0) from collect(String() from findInvalidLanguageRefsets(c))
+	then
+		InvalidContent invalid = new InvalidContent("094e5394-24e3-4d0a-8b67-e8461a0262b3",
+				c, "A concept must not have more than one Preferred Synonym in any language refset.");
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
+end
