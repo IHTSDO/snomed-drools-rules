@@ -1,0 +1,12 @@
+import org.ihtsdo.drools.domain.Concept
+
+import org.ihtsdo.drools.response.InvalidContent
+
+global java.util.List invalidContent
+
+rule "Always passes AT"
+	dialect "mvel"
+	when
+		c : Concept(active)
+	then
+end
