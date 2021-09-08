@@ -12,6 +12,7 @@ import java.util.ArrayList
 import java.util.HashSet
 import java.util.Set
 import java.util.Collection
+import java.util.Map
 
 global java.util.List invalidContent
 global DescriptionService descriptionService
@@ -31,69 +32,19 @@ function Set<String> getParentIdsForConcept(Concept concept, Boolean release) {
 		}
 		return activeParentConceptIds;
 }
-
-function boolean isAllParentTagsMatchFsnTag(String term, Collection parentTerms, String[][] acceptablePairs) {
-		String tag = DescriptionHelper.getTag(term);
-		if (tag != null) {
-		for (Object obj : parentTerms) {
-			String parentTag = DescriptionHelper.getTag((String) obj);
-			boolean isAcceptablePair = false;
-			if (acceptablePairs != null) {
-				for (String[] acceptablePair : acceptablePairs) {
-					if (acceptablePair.length == 2 && (tag.equals(acceptablePair[0])) && acceptablePair[1].equals(parentTag)) {
-						isAcceptablePair = true;
-					}
-				}
-			}
-			if (!tag.equals(parentTag) && !isAcceptablePair) {
-				return false;
-			}
-		}
-	}
-	
-	return true;
-}	
-
 // Note - this rule uses international edition language refsets
 rule "Semantic Tag of FSN compatible with concept parents"
 	dialect "mvel"
 	when
 		c : Concept(active)
+		topLevelHierarchies : HashSet(size > 0) from collect(String() from conceptService.findTopLevelHierarchiesOfConcept(c))
+		topLevelFSNs : ArrayList(size > 0) from collect(String() from descriptionService.getFSNs(topLevelHierarchies, Constants.US_EN_LANG_REFSET, Constants.GB_EN_LANG_REFSET))
 		d : Description(conceptId == c.id
 						&& active
 						&& typeId == Constants.FSN
-						&& !DescriptionHelper.isSemanticTagEquivalentToAnother(
-								term, descriptionService.getFSNs(
-										getParentIdsForConcept(c, null),
-										Constants.US_EN_LANG_REFSET,
-										Constants.GB_EN_LANG_REFSET
-										),
-										new String[][]{
-											// Pairs of special cases
-											{"disorder", "finding"},
-											{"*", "product"}
-										}))
+						&& !DescriptionHelper.isSemanticTagCompatibleWithinHierarchy(term, DescriptionHelper.getTags(topLevelFSNs)))
 	then
 		InvalidContent invalid = new InvalidContent("4be1323d-9ef7-4c1d-a731-2fd5c89b27b1",
-				d, "A concept's semantic tags should be compatible with those of the active parents.", Severity.WARNING)
-		invalid.ignorePublishedCheck()
-		invalidContent.add(invalid);
-end
-
-rule "Subsequently added parents do not match the FSN semantic tag"
-	dialect "mvel"
-	when
-		c : Concept(active)
-		d : Description(conceptId == c.id && active && typeId == Constants.FSN)
-		statedAncestors : ArrayList(size == 1) from collect( String() from conceptService.findTopLevelHierarchiesOfConcept(c))
-		newParentIds : HashSet(size > 0) from collect(String() from getParentIdsForConcept(c, false))
-		newParentTerms : ArrayList(size > 0) from collect(String() from descriptionService.getFSNs(newParentIds, Constants.US_EN_LANG_REFSET, Constants.GB_EN_LANG_REFSET))
-		eval(!isAllParentTagsMatchFsnTag(d.term, newParentTerms, new String[][]{
-									// Pairs of special cases
-									{"disorder", "finding"}
-								}))
-	then
-		InvalidContent invalid = new InvalidContent("09ac5cbd-ed94-4bbd-ac1a-1fcd68e8eb49",
 				d, "A concept's semantic tags should be compatible with those of the active parents.", Severity.WARNING)
 		invalid.ignorePublishedCheck()
 		invalidContent.add(invalid);

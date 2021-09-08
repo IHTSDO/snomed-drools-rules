@@ -196,7 +196,7 @@
             "descriptions": [
                 {
                     "id": "9",
-                    "term": "Mental health healthcare resource groups (procedure)",                    
+                    "term": "Procedure (procedure)",                    
                     "typeId": "900000000000003001", // FSN
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007", // PREFERRED
@@ -210,7 +210,7 @@
                     "axiomGCI": true,
                     "active" : true,
                     "characteristicTypeId": "900000000000010007",
-                    "destinationId": "64572001" // Disease (disorder)
+                    "destinationId": "138875005"
                 }
             ]
         }
@@ -469,7 +469,7 @@
             "descriptions": [
                 {
                     "id": "6",
-                    "term": "General psychiatric care of older adults - Daily intensive (regime/therapy)",                    
+                    "term": "General psychiatric care of older adults - Daily intensive (other)",                    
                     "typeId": "900000000000003001", // FSN
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007", // PREFERRED
