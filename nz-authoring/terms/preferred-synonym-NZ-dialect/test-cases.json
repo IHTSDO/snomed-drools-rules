@@ -33,30 +33,6 @@
                     }
                 }
             ]
-        },
-        {
-            "id": "2",
-            "moduleId": "900000000000445007", // INT module
-            "descriptions": [
-                {
-                    "id": "2a",
-                    "term": "Organism (organism)",
-                    "typeId": "900000000000003001", // FSN
-                    "acceptabilityMap": {
-                        "900000000000509007": "900000000000548007" // INT Preferred
-                    }
-                },
-                {
-                    "id": "2b",
-                    "term": "Organism",
-                    "typeId": "900000000000013009", // SYNONYM
-                    "moduleId": "900000000000445007",
-                    "languageCode": "en",
-                    "acceptabilityMap": {
-                        "900000000000509007": "900000000000548007" // INT Preferred
-                    }
-                }
-            ]
         }
     ],
     "assertConceptsFail": [
@@ -157,6 +133,30 @@
                     "languageCode": "en"
                 }
             ]
+        },
+        {
+          "id": "7",
+          "moduleId": "900000000000445007", // INT module
+          "descriptions": [
+            {
+              "id": "7a",
+              "term": "Organism (organism)",
+              "typeId": "900000000000003001", // FSN
+              "acceptabilityMap": {
+                "900000000000509007": "900000000000548007" // INT Preferred
+              }
+            },
+            {
+              "id": "7b",
+              "term": "Organism",
+              "typeId": "900000000000013009", // SYNONYM
+              "moduleId": "900000000000445007",
+              "languageCode": "en",
+              "acceptabilityMap": {
+                "900000000000509007": "900000000000548007" // INT Preferred
+              }
+            }
+          ]
         }
     ]
 }
