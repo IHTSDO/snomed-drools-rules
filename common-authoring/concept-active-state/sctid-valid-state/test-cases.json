@@ -1,0 +1,50 @@
+{    
+    "assertConceptsPass": [        
+        {   
+            "id": "1182278001",
+            "active" : true,         
+            "relationships": [
+                {
+                    "id": "3267539029",                    
+                    "active": true
+                }
+            ]
+        },
+        {
+            "id": "1182278001",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "4656471015",
+                    "active": true
+                }
+            ]
+        }        
+    ],
+    "assertConceptsFail": [
+        {
+            "id": "125627600531313131",
+            "active" : true            
+        },
+        {   
+            "id": "1182278001",
+            "active" : true,         
+            "relationships": [
+                {
+                    "id": "test",                    
+                    "active": true
+                }
+            ]
+        },
+        {
+            "id": "1182278001",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "test",
+                    "active": true
+                }
+            ]
+        }
+    ]
+}

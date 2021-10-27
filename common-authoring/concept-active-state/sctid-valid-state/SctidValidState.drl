@@ -1,0 +1,42 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Relationship
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.helper.IdentifierHelper
+import org.ihtsdo.drools.domain.ComponentType
+import org.ihtsdo.drools.response.Severity
+
+global java.util.List invalidContent
+
+rule "Active Concepts must have the valid sctid."
+	dialect "mvel"
+	when
+		c: Concept(active && !IdentifierHelper.isValidId(id, ComponentType.Concept))
+	then
+		InvalidContent invalid = new InvalidContent("ef2d215f-923d-4ced-8983-316731915dd5",
+				c, "An active concept must have a valid Id.", c.released ? Severity.WARNING : Severity.ERROR);
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);		
+end
+
+rule "Active Description must have the valid sctid."
+	dialect "mvel"
+	when
+		d: Description(active && !IdentifierHelper.isValidId(id, ComponentType.Description))
+	then
+		InvalidContent invalid = new InvalidContent("2a174659-0f5d-434b-847e-346a0b130ff2",
+				d, "An active description must have a valid Id.", d.released ? Severity.WARNING : Severity.ERROR);
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
+end
+
+rule "Active Relationships must have the valid sctid."
+	dialect "mvel"
+	when
+		r: Relationship(active && axiomId == null && !IdentifierHelper.isValidId(id, ComponentType.Relationship))
+	then
+		InvalidContent invalid = new InvalidContent("e932803f-8c52-46e9-8acb-9865eb1c56e4",
+				r, "An active relationship must have a valid Id.", r.released ? Severity.WARNING : Severity.ERROR);
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
+end
