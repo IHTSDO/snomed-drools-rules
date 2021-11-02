@@ -11,7 +11,7 @@ rule "Term already exists in concept with same case - one active."
 	when
 		c : Concept(active)
 		d1 : Description(active)
-		d2 : Description(active && conceptId == d1.conceptId && id != d1.id && caseSignificanceId == d1.caseSignificanceId && d1.languageCode == d2.languageCode && term.equals(d1.term))
+		d2 : Description(active && conceptId == d1.conceptId && id != d1.id && d1.languageCode == d2.languageCode && term.equals(d1.term))
 	then
 		invalidContent.add(new InvalidContent("f3c7ded3-cb80-41ba-8864-1cb8c1585957",
 				d2, "Active descriptions must not have the same term as another within the concept unless the language code is different. " +
@@ -23,7 +23,7 @@ rule "Term already exists in concept with same case - the other description is r
 	when
 		c : Concept(active)
 		d1 : Description(!active && released)
-		d2 : Description(active && !released && conceptId == d1.conceptId && id != d1.id && caseSignificanceId == d1.caseSignificanceId &&
+		d2 : Description(active && !released && conceptId == d1.conceptId && id != d1.id &&
 						d1.languageCode == d2.languageCode && d1.moduleId == d2.moduleId && typeId == d1.typeId && term.equals(d1.term))
 	then
 		invalidContent.add(new InvalidContent("f0cd848f-4050-4d2d-a572-76fb5ef83374",
