@@ -1,0 +1,15 @@
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.response.Severity
+
+global java.util.List invalidContent
+
+rule "TextDefinition case significance for KR"
+	dialect "mvel"
+	when
+		d : Description(active && textDefinition && caseSignificanceId != Constants.ENTIRE_TERM_CASE_SENSITIVE)
+	then
+		invalidContent.add(new InvalidContent("24a19941-b079-45a4-8dda-161827aec761",
+				d, "Text definitions should be case-sensitive.", Severity.WARNING));
+end
