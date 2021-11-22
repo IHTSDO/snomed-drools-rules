@@ -1,0 +1,21 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.helper.DescriptionHelper
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.response.Severity
+
+global java.util.List invalidContent
+
+rule "An active concept cannot have multiple FSNs in the same language"
+	dialect "mvel"
+	when
+		c : Concept(active)
+		d1 : Description(active && typeId == Constants.FSN && conceptId == c.id)
+		d2 : Description(active && typeId == Constants.FSN && conceptId == c.id && id != d1.id && languageCode == d1.languageCode)
+	then
+		InvalidContent invalid = new InvalidContent("ca2fe7b7-1213-4075-bf70-821a071c6e18",
+				c, "An active concept must not have multiple FSNs in the same language.");
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
+end

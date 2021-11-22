@@ -1,0 +1,42 @@
+{
+    "assertConceptsPass": [
+        {
+        	"id" : "683221000119107 ",
+        	"active": true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "typeId": "900000000000003001",
+                    "term": "Congenital melanocytic nevus of skin of face (disorder)",
+                    "languageCode": "en"
+                },
+                {
+                    "id": "2",
+                    "typeId": "900000000000003001",
+                    "term": "Congenital melanocytic nevus of skin of face (disorder)",
+                    "languageCode": "sv"
+                }
+            ]
+        }
+    ],
+    "assertConceptsFail": [
+        {
+        	"id" : "683221000119107 ",
+        	"active": true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "typeId": "900000000000003001",
+                    "term": "Congenital melanocytic nevus of skin of face (disorder)",
+                    "languageCode": "en"
+                },
+                {
+                    "id": "2",
+                    "typeId": "900000000000003001",
+                    "term": "Congenital melanocytic nevus of skin of face (disorder)",
+                    "languageCode": "en"
+                }
+            ]
+        }
+    ]
+}
