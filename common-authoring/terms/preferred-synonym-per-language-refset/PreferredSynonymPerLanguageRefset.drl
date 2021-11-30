@@ -25,7 +25,18 @@ function Set<String> getLanguageRefsets(Concept c) {
 	return languageRefsets;
 }
 
-function Set<String> findInvalidLanguageRefsets(Concept c) {
+function Set<String> filterByDialectAcceptable(Concept c, String dialectId) {
+	Set<String> descriptions = new HashSet<>();
+	for (Description description : c.getDescriptions()) {
+		if (description.isActive() && description.getTypeId().equals(Constants.SYNONYM)
+				&& Constants.ACCEPTABILITY_ACCEPTABLE.equals(description.getAcceptabilityMap().get(dialectId))) {
+			descriptions.add(description.getId());
+		}
+	}
+	return descriptions;
+}
+
+function Set<String> findMultiplePreferredTermPerLanguageRefset(Concept c) {
 	Set<String> languageRefsets = getLanguageRefsets(c);
 	Set<String> invalidLanguageRefsets = new HashSet();	
 	for (String dialectId : languageRefsets) {
@@ -36,14 +47,37 @@ function Set<String> findInvalidLanguageRefsets(Concept c) {
 	return invalidLanguageRefsets;
 }
 
-rule "Preferred synonym per language reference set"
+function Set<String> findMissingPreferredTermPerLanguageRefset(Concept c) {
+	Set<String> languageRefsets = getLanguageRefsets(c);
+	Set<String> invalidLanguageRefsets = new HashSet();	
+	for (String dialectId : languageRefsets) {
+		if (filterByDialectAcceptable(c, dialectId).size() > 0 && DescriptionHelper.filterByActiveTypeAndDialectPreferred(c, true, Constants.SYNONYM, dialectId).size() == 0) {
+			invalidLanguageRefsets.add(dialectId);
+		}
+	}	
+	return invalidLanguageRefsets;
+} 
+
+rule "A concept must not have more than one Preferred synonym per language reference set"
 	dialect "mvel"
 	when
 		c : Concept(active)
-		error : HashSet(size > 0) from collect(String() from findInvalidLanguageRefsets(c))
+		error : HashSet(size > 0) from collect(String() from findMultiplePreferredTermPerLanguageRefset(c))
 	then
 		InvalidContent invalid = new InvalidContent("094e5394-24e3-4d0a-8b67-e8461a0262b3",
 				c, "A concept must not have more than one Preferred Synonym in any language refset.");
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
+end
+
+rule "A concept must have one Preferred synonym per language reference set"
+	dialect "mvel"
+	when
+		c : Concept(active)
+		error : HashSet(size > 0) from collect(String() from findMissingPreferredTermPerLanguageRefset(c))
+	then
+		InvalidContent invalid = new InvalidContent("8560277e-b1e4-4722-9e77-8e7566f34def",
+				c, "A concept must have one Preferred Synonym in following language refset: " + error + ".");
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end

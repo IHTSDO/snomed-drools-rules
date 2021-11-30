@@ -69,6 +69,27 @@
                      }
                 }
             ]
+        },
+        {
+            "id": "3",
+            "descriptions": [
+                {
+                    "id": "3",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "acceptabilityMap": {
+                        "123456": "900000000000549004" // ACCEPTABLE
+                     }
+                },
+                {
+                    "id": "3b",
+                    "term": "Organism b",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "acceptabilityMap": {
+                        "12345678": "900000000000549004" // ACCEPTABLE
+                     }
+                }
+            ]
         }        
     ]
 }
