@@ -1,0 +1,30 @@
+{    
+    "assertConceptsPass": [        
+    ],
+    "assertConceptsFail": [
+        {
+            "id": "1",
+            "moduleId": "731000124108",
+            "relationships": [
+                {
+                    "typeId": "363713009", //Has interpretation (attribute)
+                    "destinationId": "a1",
+                    "relationshipGroup" : "1",
+                    "axiomId":"730edf66-dd73-4cab-8977-e12796987d4d"
+                },
+                {
+                    "typeId": "363714003", //Interprets (attribute)
+                    "destinationId": "a2",
+                    "relationshipGroup" : "1",
+                    "axiomId":"730edf66-dd73-4cab-8977-e12796987d4d"
+                },
+                {
+                    "typeId": "2", //Interprets (attribute)
+                    "destinationId": "a3",
+                    "relationshipGroup" : "1",
+                    "axiomId":"730edf66-dd73-4cab-8977-e12796987d4d"
+                }
+            ]
+        }
+    ]
+}
