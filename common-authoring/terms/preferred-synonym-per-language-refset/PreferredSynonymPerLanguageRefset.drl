@@ -6,9 +6,11 @@ import java.util.Set
 import java.util.HashSet
 import java.util.Arrays
 import org.ihtsdo.drools.helper.DescriptionHelper
+import org.ihtsdo.drools.service.DescriptionService
 import org.ihtsdo.drools.response.InvalidContent
 
 global java.util.List invalidContent
+global DescriptionService descriptionService
 
 function Set<String> getLanguageRefsets(Concept c) {	
 	Set<String> languageRefsets = new HashSet();
@@ -70,6 +72,22 @@ rule "A concept must not have more than one Preferred synonym per language refer
 		invalidContent.add(invalid);
 end
 
+function String populateFSNs(DescriptionService descriptionService, Collection languageRefsets) {
+	String result = "";
+	for (Object dialectId : languageRefsets) {
+		if (result != "") {
+			result += ", ";
+		}
+		Set<String> fsnArr =  descriptionService.getFSNs(new HashSet<>(Arrays.asList((String) dialectId)) ,Constants.US_EN_LANG_REFSET);
+		if (fsnArr.isEmpty()) {
+			result += dialectId;
+		} else {
+			result += dialectId + " | " + fsnArr.iterator().next() + "|";
+		}
+	}
+	return result;
+}
+
 rule "A concept must have one Preferred synonym per language reference set"
 	dialect "mvel"
 	when
@@ -77,7 +95,7 @@ rule "A concept must have one Preferred synonym per language reference set"
 		error : HashSet(size > 0) from collect(String() from findMissingPreferredTermPerLanguageRefset(c))
 	then
 		InvalidContent invalid = new InvalidContent("8560277e-b1e4-4722-9e77-8e7566f34def",
-				c, "A concept must have one Preferred Synonym in following language refset: " + error + ".");
+				c, "A concept must have one Preferred Synonym in following language refset: [" + populateFSNs(descriptionService, error) + "].");
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end
