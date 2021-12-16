@@ -95,7 +95,7 @@ rule "A concept must have one Preferred synonym per language reference set"
 		error : HashSet(size > 0) from collect(String() from findMissingPreferredTermPerLanguageRefset(c))
 	then
 		InvalidContent invalid = new InvalidContent("8560277e-b1e4-4722-9e77-8e7566f34def",
-				c, "A concept must have one Preferred Synonym in following language refset: [" + populateFSNs(descriptionService, error) + "].");
+				c, "A concept must have one Preferred Synonym in the following language refset: " + populateFSNs(descriptionService, error) + ".");
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end
