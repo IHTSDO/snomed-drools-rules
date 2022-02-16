@@ -13,3 +13,12 @@ rule "Term special characters"
 		invalidContent.add(new InvalidContent("fbd4bbb5-3e62-4ccb-824a-e82d9771c0ee",
 				d, "An active term should not contain tabs, newlines, or characters @, $, #, \\.", Severity.WARNING));
 end
+
+rule "Term contains zero width space characters"
+	dialect "mvel"
+	when
+		d : Description(active && term.contains("\u200B"))
+	then
+		invalidContent.add(new InvalidContent("09a62d35-87bc-4174-9680-964258bd4062",
+				d, "An active term must not contain any \'zero width space\' characters."));
+end

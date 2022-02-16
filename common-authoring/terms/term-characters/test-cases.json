@@ -95,6 +95,16 @@
                     "term": "Ibuprofen # oxycodone (product)"
                 }
             ]
+        },
+        {
+            "id": "9",
+            "descriptions": [
+                {
+                    "id": "2",
+                    "typeId": "900000000000003001",
+                    "term": "myelodysplastic/​myeloproliferative neoplasm with ring sideroblasts and thrombocytosis"
+                }
+            ]
         }
     ]
 }
