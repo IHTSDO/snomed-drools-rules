@@ -159,6 +159,31 @@
                     }
                 }
             ]
+        },
+        {
+            "id": "6",
+            "descriptions": [
+                {
+                    "id": "1a",
+                    "term": "Organism (organism)",
+                    "caseSignificanceId":"900000000000448009",
+                    "typeId": "900000000000003001", // FSN
+                    "languageCode": "en",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007"
+                    }
+                },
+                {
+                    "id": "1b",
+                    "term": "Organism",
+                    "caseSignificanceId":"900000000000020002",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "languageCode": "nl",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // PREFERRED
+                    }
+                }
+            ]
         }
     ],
     "assertConceptsFail": [

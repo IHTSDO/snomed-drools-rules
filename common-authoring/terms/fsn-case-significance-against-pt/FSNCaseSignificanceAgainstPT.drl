@@ -13,7 +13,7 @@ rule "FSN and matching PT share case sensitivity"
 		c : Concept()
 		fsn : Description(active == true && typeId == Constants.FSN && DescriptionHelper.getTag(term) != null
 				&& DescriptionHelper.getTag(term).equals(DescriptionHelper.getTag(term).toLowerCase()))
-		d : Description(active == true && typeId == Constants.SYNONYM && DescriptionHelper.isPreferredInAnyDialect(d) && term == DescriptionHelper.getFsnTerm(fsn.term)
+		d : Description(active == true && fsn.languageCode == languageCode && typeId == Constants.SYNONYM && DescriptionHelper.isPreferredInAnyDialect(d) && term == DescriptionHelper.getFsnTerm(fsn.term)
 				&& fsn.caseSignificanceId != caseSignificanceId)
 	then
 		invalidContent.add(new InvalidContent("78f15038-30a0-42ac-9505-cac16e59c28b",
