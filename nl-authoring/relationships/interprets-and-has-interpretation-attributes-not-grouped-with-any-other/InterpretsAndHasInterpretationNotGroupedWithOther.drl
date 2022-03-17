@@ -1,0 +1,19 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Relationship
+import org.ihtsdo.drools.response.InvalidContent
+
+global java.util.List invalidContent
+
+rule "Interprets and Has interpretation attributes should not be grouped with any other attributes"
+	dialect "mvel"
+	when
+		c : Concept(active && moduleId == "11000146104")
+		r1 : Relationship(active && sourceId == c.id && typeId == "363713009" /*Has interpretation (attribute)*/) 
+		r2 : Relationship(active && sourceId == c.id && typeId == "363714003" /*Interprets (attribute)*/ && relationshipGroup == r1.relationshipGroup && r1.axiomId == axiomId)
+		r3 : Relationship(active && sourceId == c.id && typeId != "363713009" && typeId != "363714003" && relationshipGroup == r1.relationshipGroup && r1.axiomId == axiomId)
+	then
+		InvalidContent invalid = new InvalidContent("eea910bb-5c21-40f2-9ac3-f593a4715501",
+				c, "Interprets and Has interpretation attributes should not be grouped with any other attributes.");
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
+end
