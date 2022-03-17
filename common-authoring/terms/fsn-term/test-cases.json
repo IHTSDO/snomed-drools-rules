@@ -22,6 +22,20 @@
             ]
         },
         {
+            "id": "3",
+            "descriptions": [
+                {
+                    "id": "3",
+                    "typeId": "900000000000003001",
+                    "term": "ibuprofen oxycodone(product)",
+                    "languageCode": "nl",
+                    "acceptabilityMap": {
+                        "31000146106": "900000000000548007" // NL Preferred
+                    }
+                }
+            ]
+        },
+        {
             "id": "138875005",
             "descriptions": [
                 {
@@ -149,7 +163,11 @@
                 {
                     "id": "12",
                     "typeId": "900000000000003001",
-                    "term": "ibuprofen oxycodone (product)"
+                    "term": "ibuprofen oxycodone (product)",
+                    "languageCode": "en",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
                 }
             ]
         },

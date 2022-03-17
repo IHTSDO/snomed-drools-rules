@@ -66,7 +66,7 @@ rule "FSN capitalized"
 	dialect "mvel"
 	when
 		c : Concept(active)
-		d : Description(conceptId == c.id && active == true && typeId == Constants.FSN && term matches "[a-z].*")
+		d : Description(conceptId == c.id && active == true && typeId == Constants.FSN && (acceptabilityMap["900000000000509007"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["900000000000508004"] == Constants.ACCEPTABILITY_PREFERRED) && term matches "[a-z].*")
 	then
 		invalidContent.add(new InvalidContent("8a74edc2-ebbe-4c59-992b-d80ea72a11ba",
 				d, "The first letter of an active FSN should be capitalized.", Severity.WARNING));
