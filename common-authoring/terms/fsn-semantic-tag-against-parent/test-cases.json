@@ -227,6 +227,14 @@
                         "900000000000509007": "900000000000548007", // PREFERRED
                         "900000000000508004": "900000000000548007" // PREFERRED
                     }
+                },
+                {
+                    "id": "1b",
+                    "term": "Clinical finding (verrichting)",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "31000146106": "900000000000548007" // NL PREFERRED
+                    }
                 }
             ],
             "relationships": [

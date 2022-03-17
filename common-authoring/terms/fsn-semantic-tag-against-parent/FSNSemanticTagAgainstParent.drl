@@ -42,6 +42,7 @@ rule "Semantic Tag of FSN compatible with concept parents"
 		d : Description(conceptId == c.id
 						&& active
 						&& typeId == Constants.FSN
+						&& (acceptabilityMap["900000000000509007"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["900000000000508004"] == Constants.ACCEPTABILITY_PREFERRED)
 						&& !DescriptionHelper.isSemanticTagCompatibleWithinHierarchy(term, DescriptionHelper.getTags(topLevelFSNs)))
 	then
 		InvalidContent invalid = new InvalidContent("4be1323d-9ef7-4c1d-a731-2fd5c89b27b1",
