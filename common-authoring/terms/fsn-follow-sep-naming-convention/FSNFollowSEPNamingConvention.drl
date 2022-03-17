@@ -29,6 +29,7 @@ rule "Descendents of 91723000|Anatomical structure (body structure)| should foll
 		d : Description(ancestors contains "91723000"
 				&& active
 				&& typeId == Constants.FSN
+				&& (acceptabilityMap["900000000000509007"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["900000000000508004"] == Constants.ACCEPTABILITY_PREFERRED)
 				&& (fsn : DescriptionHelper.getFsnTerm(term))
 				&& fsn != null
 				&& !fsn.toLowerCase().contains("structure")
