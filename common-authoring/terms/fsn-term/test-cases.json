@@ -177,7 +177,11 @@
                 {
                     "id": "13",
                     "typeId": "900000000000003001",
-                    "term": "Spanien (geography location)"
+                    "term": "Spanien (geography location)",
+                    "languageCode": "en",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
                 }
             ]
         }
