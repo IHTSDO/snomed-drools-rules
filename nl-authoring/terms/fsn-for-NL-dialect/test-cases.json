@@ -1,0 +1,58 @@
+{
+    "assertConceptsPass": [
+        {
+            "id": "1",
+            "moduleId": "11000146104",
+            "descriptions": [
+                {
+                    "id": "1a",
+                    "term": "Organism (organism)",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007"
+                    }
+                },
+                {
+                    "id": "1b",
+                    "term": "Organism in NL (organism)",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "31000146106": "900000000000548007"
+                    }
+                },
+                {
+                    "id": "1c",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007"
+                    }
+                }
+            ]
+        }        
+    ],
+    "assertConceptsFail": [
+        {
+            "id": "1",
+            "moduleId": "11000146104",
+            "descriptions": [
+                {
+                    "id": "1a",
+                    "term": "Organism (organism)",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007"
+                    }
+                },
+                {
+                    "id": "1b",
+                    "term": "Organism",
+                    "typeId": "900000000000013009", // SYNONYM
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007"
+                    }
+                }
+            ]
+        }
+    ]
+}

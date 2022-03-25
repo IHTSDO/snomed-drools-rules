@@ -1,0 +1,17 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.helper.DescriptionHelper
+import org.ihtsdo.drools.response.InvalidContent
+
+global java.util.List invalidContent
+
+rule "FSN in NL dialect"
+	dialect "mvel"
+	when
+		c : Concept(active && moduleId == "11000146104" && DescriptionHelper.filterByActiveTypeAndDialectPreferred(c, true, Constants.FSN, "31000146106").size() != 1)
+	then
+		InvalidContent invalid = new InvalidContent("8d1db659-c987-4c3b-9c35-e7a87b180dcd",
+				c, "An active concept must have one active preferred FSN in the NL dialect.");
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
+end
