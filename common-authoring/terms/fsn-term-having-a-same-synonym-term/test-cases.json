@@ -238,7 +238,10 @@
                     "active": true,
                     "typeId": "900000000000003001", // FSN
                     "languageCode": "en",
-                    "term": "Body Structure (body structure)"
+                    "term": "Body Structure (body structure)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
                 },
                 {
                     "id": "2b",
