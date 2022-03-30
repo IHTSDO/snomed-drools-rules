@@ -17,7 +17,7 @@ rule "Must have one preferred synonym in ZH dialect"
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, moduleId == "895344001")
 		)
 			
-		d: ArrayList(size != 1) from collect (
+		d: ArrayList(size > 1) from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, acceptabilityMap["722128001"] == Constants.ACCEPTABILITY_PREFERRED)
 		)
 	then
