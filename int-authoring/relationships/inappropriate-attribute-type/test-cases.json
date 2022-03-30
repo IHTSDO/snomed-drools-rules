@@ -88,6 +88,28 @@
                     "destinationId": "774167006" // Product name (product name)
                 }
             ]
+        },
+        {
+            "id": "9",
+            "active": true,
+            "relationships": [
+                {
+                    "id": "6",
+                    "active": true,
+                    "typeId": "860781008" // Has product characteristic (attribute)
+                }
+            ]
+        },
+        {
+            "id": "10",
+            "active": true,
+            "relationships": [
+                {
+                    "id": "6",
+                    "active": true,
+                    "typeId": "860779006" // Has ingredient characteristic (attribute)
+                }
+            ]
         }
         
     ]}

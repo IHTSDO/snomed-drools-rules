@@ -12,7 +12,7 @@ rule "Relationship has inappropriate attribute and value"
 		c : Concept(active)
 		r : Relationship(active 
 						&& characteristicTypeId == Constants.STATED_RELATIONSHIP 
-						&& (typeId in ("774158006", "774159003", "774160008", "774161007", "774163005", "774164004", "774167006") 
+						&& (typeId in ("774158006", "774159003", "774160008", "774161007", "774163005", "774164004", "774167006", "860781008", "860779006") 
 							|| (destinationId != null && destinationId in ("774158006", "774159003", "774160008", "774161007", "774163005", "774164004", "774167006"))
 							)
 						)
