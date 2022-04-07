@@ -22,7 +22,7 @@ rule "Must have one preferred synonym in KO dialect"
 		)
 	then
 		InvalidContent invalid = new InvalidContent("24f4e7c7-e9c0-40af-9573-d5d5552abc7e",
-				c, "A concept must have only one Preferred Synonym in the KO dialect.", Severity.ERROR);
+				c, "A concept must have one Preferred Synonym in the KO dialect.", Severity.ERROR);
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end
