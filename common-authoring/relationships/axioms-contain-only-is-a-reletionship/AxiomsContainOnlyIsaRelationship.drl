@@ -6,7 +6,7 @@ import java.util.ArrayList
 
 global java.util.List invalidContent
 
-rule "Active Concept should not have	two or more axioms that each axiom only contains IS-A relationship"
+rule "Active Concept should not have two or more axioms that each axiom only contains IS-A relationship"
 	dialect "mvel"
 	when
 		c : Concept(active)

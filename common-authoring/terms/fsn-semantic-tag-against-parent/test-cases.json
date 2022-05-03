@@ -433,7 +433,11 @@
                 {
                     "id": "4a",
                     "term": "Testing (finding)",                    
-                    "typeId": "900000000000003001" // FSN
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007", // PREFERRED
+                        "900000000000508004": "900000000000548007" // PREFERRED
+                    }
                 }
             ],
             "relationships": [
@@ -459,7 +463,11 @@
                 {
                     "id": "5a",
                     "term": "Testing (finding)",                    
-                    "typeId": "900000000000003001" // FSN
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007", // PREFERRED
+                        "900000000000508004": "900000000000548007" // PREFERRED
+                    }
                 }
             ],
             "relationships": [
