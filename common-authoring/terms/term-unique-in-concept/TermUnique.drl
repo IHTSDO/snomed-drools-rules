@@ -2,6 +2,7 @@ import org.ihtsdo.drools.domain.Concept
 import org.ihtsdo.drools.domain.Description
 import org.ihtsdo.drools.helper.DescriptionHelper
 import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.domain.Constants
 import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
@@ -35,8 +36,8 @@ rule "Term already exists in concept with different case - both active"
 	dialect "mvel"
 	when
 		c : Concept(active)
-		d1 : Description(active)
-		d2 : Description(active && conceptId == d1.conceptId && id != d1.id && caseSignificanceId == d1.caseSignificanceId &&
+		d1 : Description(active && caseSignificanceId != Constants.ENTIRE_TERM_CASE_INSENSITIVE)
+		d2 : Description(active && conceptId == d1.conceptId && id != d1.id && caseSignificanceId != Constants.ENTIRE_TERM_CASE_INSENSITIVE && caseSignificanceId != d1.caseSignificanceId &&
 						d1.languageCode == d2.languageCode && !term.equals(d1.term) && term.equalsIgnoreCase(d1.term))
 	then
 		invalidContent.add(new InvalidContent("25334385-83b3-4531-8e6e-cf9e32ebccd2",
