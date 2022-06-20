@@ -21,7 +21,7 @@ function boolean isAnyAncestorsExistIn(Collection ancestors, Collection list) {
 	return false;
 }
 
-rule "Descendents of 91723000|Anatomical structure (body structure)| should follow SEP naming conventions"
+rule "Active FSNs of descendents of 91723000|Anatomical structure (body structure)| should follow SEP naming conventions."
 	dialect "mvel"
 	when
 		c : Concept(active)
