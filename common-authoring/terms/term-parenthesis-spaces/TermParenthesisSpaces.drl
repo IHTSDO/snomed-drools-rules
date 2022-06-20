@@ -5,7 +5,7 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "Term parenthesis spaces"
+rule "There should be a space before but not after the last opening parenthesis. There should not be a space before the last closing parentheses."
 	dialect "mvel"
 	when
 		// Failure cases:
