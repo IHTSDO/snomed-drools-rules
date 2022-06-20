@@ -16,7 +16,7 @@ function String stripAccents(String term) {
 	return str;
 }
 
-rule "Term Case Significance: Only initial character case sensitive"
+rule "An active term on an active concept with case significance 'only initial character case insensitive' should contain a capital letter after the first character."
 	dialect "mvel"
 	when
 		c : Concept(active == true)
