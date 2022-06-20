@@ -6,7 +6,7 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "Active concept should not have two relationships with the same type in the same role group"
+rule "An active concept should not have two relationships with the same type in the same role group."
 	dialect "mvel"
 	when
 		c : Concept(active)
