@@ -5,7 +5,7 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "TextDefinition case significance for ZH"
+rule "Traditional Medicine: Text definitions should be case-sensitive."
 	dialect "mvel"
 	when
 		d : Description(active && textDefinition && caseSignificanceId != Constants.ENTIRE_TERM_CASE_SENSITIVE)
