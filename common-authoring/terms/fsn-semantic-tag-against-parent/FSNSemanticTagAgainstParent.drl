@@ -33,7 +33,7 @@ function Set<String> getParentIdsForConcept(Concept concept, Boolean release) {
 		return activeParentConceptIds;
 }
 // Note - this rule uses international edition language refsets
-rule "A concept's semantic tag should be compatible with those of the active parents."
+rule "A concept's semantic tag should be compatible with those of the active parent(s)."
 	dialect "mvel"
 	when
 		c : Concept(active)
@@ -46,7 +46,7 @@ rule "A concept's semantic tag should be compatible with those of the active par
 						&& !DescriptionHelper.isSemanticTagCompatibleWithinHierarchy(term, DescriptionHelper.getTags(topLevelFSNs)))
 	then
 		InvalidContent invalid = new InvalidContent("4be1323d-9ef7-4c1d-a731-2fd5c89b27b1",
-				d, "A concept's semantic tag should be compatible with those of the active parents.", Severity.WARNING)
+				d, "A concept's semantic tag should be compatible with those of the active parent(s).", Severity.WARNING)
 		invalid.ignorePublishedCheck()
 		invalidContent.add(invalid);
 end
