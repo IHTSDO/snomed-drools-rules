@@ -55,7 +55,7 @@ function List<String> getDialects(Collection descriptions) {
 		return list;
 }
 
-rule "Not provide enough for all 3 dialects in CH extension"
+rule "A new or translated concept should have a Preferred Synonym in Swiss-German, Swiss-French and Swiss-Italian."
 	dialect "mvel"
 	when
 		c : Concept(active)
