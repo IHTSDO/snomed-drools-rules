@@ -8,7 +8,7 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "Active Concepts must have the valid sctid."
+rule "An active concept must have a valid SCTID."
 	dialect "mvel"
 	when
 		c: Concept(active && !IdentifierHelper.isValidId(id, ComponentType.Concept))
@@ -19,7 +19,7 @@ rule "Active Concepts must have the valid sctid."
 		invalidContent.add(invalid);		
 end
 
-rule "Active Description must have the valid sctid."
+rule "An active description must have a valid SCTID."
 	dialect "mvel"
 	when
 		d: Description(active && !IdentifierHelper.isValidId(id, ComponentType.Description))
@@ -30,7 +30,7 @@ rule "Active Description must have the valid sctid."
 		invalidContent.add(invalid);
 end
 
-rule "Active Relationships must have the valid sctid."
+rule "An active relationship must have a valid SCTID."
 	dialect "mvel"
 	when
 		r: Relationship(active && axiomId == null && !IdentifierHelper.isValidId(id, ComponentType.Relationship))
