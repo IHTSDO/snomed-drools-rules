@@ -7,7 +7,7 @@ import org.ihtsdo.drools.helper.DescriptionHelper
 
 global java.util.List invalidContent
 
-rule "FSN and matching PT share case sensitivity"
+rule "An FSN and its matching PT should have the same case significance."
 	dialect "mvel"
 	when
 		c : Concept()
@@ -17,6 +17,6 @@ rule "FSN and matching PT share case sensitivity"
 				&& fsn.caseSignificanceId != caseSignificanceId)
 	then
 		invalidContent.add(new InvalidContent("78f15038-30a0-42ac-9505-cac16e59c28b",
-				d, "An active preferred term matching a FSN on an " + (c.active ? "active" : "inactive") +
-				" concept must have same case significance.", Severity.WARNING));
+				d, "An active preferred term matching an FSN on an " + (c.active ? "active" : "inactive") +
+				" concept must have the same case significance.", Severity.WARNING));
 end
