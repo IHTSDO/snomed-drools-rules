@@ -5,14 +5,14 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "Description should have the same module id as the concept"
+rule "A description should have the same Module ID as the concept."
 	dialect "mvel"
 	when
 		c : Concept(active)
 		d : Description(active && conceptId == c.id && moduleId != c.moduleId)
 	then
 		InvalidContent invalid = new InvalidContent("6025457c-5622-47e6-9e7d-cff8f65af840",
-				d, "Description does not have the same module id as the concept.", Severity.WARNING);
+				d, "Description does not have the same Module ID as the concept.", Severity.WARNING);
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end
