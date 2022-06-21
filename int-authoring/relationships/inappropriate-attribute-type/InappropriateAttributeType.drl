@@ -6,7 +6,7 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "Relationship has inappropriate attribute and value"
+rule "SNOMED CT Drug Model Attributes and hierarchies for supporting national extensions should not be used in the International Release."
 	dialect "mvel"
 	when
 		c : Concept(active)
@@ -18,7 +18,7 @@ rule "Relationship has inappropriate attribute and value"
 						)
 	then
 		InvalidContent invalid = new InvalidContent("7eb57d03-af1d-4e11-9037-ac3264ca427a",
-				r, "Attribute or hierarchy should only be used in national extension model, not in international release.", Severity.WARNING);
+				r, "Attribute or hierarchy should only be used in national extensions, not in the International Release.", Severity.WARNING);
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end
