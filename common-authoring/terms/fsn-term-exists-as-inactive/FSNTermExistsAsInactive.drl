@@ -8,12 +8,12 @@ import org.ihtsdo.drools.response.Severity
 global java.util.List invalidContent
 global DescriptionService descriptionService
 
-rule "Active FSN should not exist as inactive term on another concept"
+rule "Active FSN should not exist as an inactive term on another concept."
 	dialect "mvel"
 	when
 		d : Description(active == true && !published && typeId == Constants.FSN && term.length > 1)
 		$duplicate : Description(id != d.id && typeId == Constants.FSN && languageCode == d.languageCode) from descriptionService.findInactiveDescriptionByExactTerm(d.term)
 	then
 		invalidContent.add(new InvalidContent("b95a1445-bd25-4ad3-977c-5051f370144d",
-				d, "FSN exists as inactive on concept " + $duplicate.conceptId + ".", Severity.WARNING));
+				d, "FSN exists as an inactive term on concept: " + $duplicate.conceptId + ".", Severity.WARNING));
 end
