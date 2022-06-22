@@ -42,7 +42,7 @@ rule "Active FSN must end with a semantic tag"
 				d, "Active FSN must end with a semantic tag."));
 end
 
-rule "Active FSN should end with a valid semantic tag"
+rule "An active US-English or GB-English FSN should end with a valid semantic tag."
 	dialect "mvel"
 	when
 		c : Concept(active, id != "138875005")
