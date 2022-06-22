@@ -7,7 +7,7 @@ import org.ihtsdo.drools.domain.Constants
 
 global java.util.List invalidContent
 
-rule "No space before a full stop"
+rule "There should not be a space before a full stop."
 	dialect "mvel"
 	when
 		c : Concept(active)
