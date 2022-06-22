@@ -40,7 +40,7 @@ rule "An active term on an active concept with case significance 'entire term ca
 				"capital letters after the first character.", Severity.WARNING));
 end
 
-rule "Term Case Significance: Terms containing a capital letter are expected to be marked cI or CS"
+rule "Terms containing a capital letter are expected to be marked cI or CS.
 	dialect "mvel"
 	when
 		c : Concept(active == true)
