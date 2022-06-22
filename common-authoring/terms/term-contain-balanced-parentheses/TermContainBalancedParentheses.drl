@@ -12,7 +12,7 @@ function int countCharacters(String term, String c) {
 	return term.length() - term.replace(c, "").length();
 }
 
-rule "Terms contains balanced parentheses"
+rule "An active term on an active concept should contain balanced parentheses."
 	dialect "mvel"
 	when
 		c : Concept(active == true)
