@@ -10,7 +10,7 @@ import org.ihtsdo.drools.service.ConceptService
 global java.util.List invalidContent
 global ConceptService conceptService
 
-rule "Metadata concepts should be in the model module"
+rule "Metadata concepts should be in the model module (not the core module)."
 	dialect "mvel"
 	when
 		c : Concept(active, moduleId != "900000000000012004")
