@@ -6,7 +6,7 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "Term Case Significance: Terms starting with a lower case letter are expected to be marked CS"
+rule "Terms starting with a lower case letter are expected to be marked CS."
 	dialect "mvel"
 	when
 		c : Concept(active == true)
