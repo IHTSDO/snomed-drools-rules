@@ -29,7 +29,7 @@ rule "An active term on an active concept with case significance 'only initial c
 				"a capital letter after the first character.", Severity.WARNING));
 end
 
-rule "Term Case Significance: Entire term case insensitive"
+rule "An active term on an active concept with case significance 'entire term case insensitive' should not contain capital letters after the first character."
 	dialect "mvel"
 	when
 		c : Concept(active == true)
