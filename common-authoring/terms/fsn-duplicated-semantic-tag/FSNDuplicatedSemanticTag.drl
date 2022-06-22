@@ -7,7 +7,7 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "Active concept should have only one semantic tag"
+rule "An active FSN should have only one semantic tag."
 	dialect "mvel"
 	when
 		c : Concept(active)
