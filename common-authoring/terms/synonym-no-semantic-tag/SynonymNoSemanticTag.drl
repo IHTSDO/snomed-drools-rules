@@ -9,7 +9,7 @@ import org.ihtsdo.drools.service.DescriptionService
 global java.util.List invalidContent
 global DescriptionService descriptionService
 
-rule "Active synonyms on active concepts do not have semantic tags"
+rule "An active synonym on an active concept must not have a semantic tag."
 	dialect "mvel"
 	when
 		c : Concept(active)
