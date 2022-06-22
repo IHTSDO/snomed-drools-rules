@@ -62,7 +62,7 @@ rule "FSN special characters"
 				d, "An active FSN should not contain the special characters &, %, $, @ or #.", Severity.WARNING));
 end
 
-rule "The first letter of an active en-us or en-gb FSN should be capitalized."
+rule "The first letter of an active US-English or GB-English FSN should be capitalized."
 	dialect "mvel"
 	when
 		c : Concept(active)
