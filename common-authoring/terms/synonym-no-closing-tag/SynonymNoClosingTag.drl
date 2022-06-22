@@ -7,7 +7,7 @@ import org.ihtsdo.drools.helper.DescriptionHelper
 
 global java.util.List invalidContent
 
-rule "An active synonym on an active concept should not end with a parenthesis."
+rule "An active synonym on an active concept should not end with unbalanced parentheses."
 	dialect "mvel"
 	when
 		c : Concept(active)
