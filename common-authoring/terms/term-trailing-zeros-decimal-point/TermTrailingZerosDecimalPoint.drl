@@ -5,7 +5,7 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "No trailing zeros after a decimal point in numerical values with fractions"
+rule "Numeric values should not end with trailing zeros after a decimal point."
 	dialect "mvel"
 	when
 		c : Concept(active)
