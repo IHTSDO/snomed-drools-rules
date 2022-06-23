@@ -32,7 +32,7 @@ function String findUnexpectedCharactersError(String term) {
 	return "";
 }
 
-rule "Term use of quotation marks"
+rule "Active terms should not contain invalid quotation marks."
 	dialect "mvel"
 	when
 		d : Description(active == true && error: findUnexpectedCharactersError(term), error.length != 0)
