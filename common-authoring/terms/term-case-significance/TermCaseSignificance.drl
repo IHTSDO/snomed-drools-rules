@@ -3,7 +3,6 @@ import org.ihtsdo.drools.domain.Description
 import org.ihtsdo.drools.domain.Constants
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.helper.DescriptionHelper
-import org.ihtsdo.drools.domain.Constants
 import org.ihtsdo.drools.response.Severity
 import java.text.Normalizer;
 
@@ -40,7 +39,7 @@ rule "An active term on an active concept with case significance 'entire term ca
 				"capital letters after the first character.", Severity.WARNING));
 end
 
-rule "Terms containing a capital letter are expected to be marked cI or CS.
+rule "Terms containing a capital letter are expected to be marked cI or CS."
 	dialect "mvel"
 	when
 		c : Concept(active == true)
