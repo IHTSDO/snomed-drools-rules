@@ -7,7 +7,7 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "Terms with matching first word share case significance"
+rule "Active terms sharing first word with case-sensitive term should share case sensitivity."
 	dialect "mvel"
 	when
 		c : Concept(active)
