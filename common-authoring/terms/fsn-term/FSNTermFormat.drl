@@ -52,7 +52,7 @@ rule "An active US-English or GB-English FSN should end with a valid semantic ta
 				d, "Active FSN should end with a valid semantic tag.", Severity.WARNING));
 end
 
-rule "FSN special characters"
+rule "An active FSN should not contain the special characters &, %, $, @ or #."
 	dialect "mvel"
 	when
 		c : Concept(active)
