@@ -10,7 +10,7 @@ import org.ihtsdo.drools.service.ConceptService
 global java.util.List invalidContent
 global ConceptService conceptService
 
-rule "Has manufactured dose form attribute should only appear once in a drug concept model."
+rule "Has manufactured dose form attribute should only appear once in a drug concept axiom."
 	dialect "mvel"
 	when
 		c : Concept(active)
