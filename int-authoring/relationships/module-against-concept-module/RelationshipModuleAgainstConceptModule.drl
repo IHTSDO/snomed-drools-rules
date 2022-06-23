@@ -6,14 +6,14 @@ import org.ihtsdo.drools.domain.Constants
 
 global java.util.List invalidContent
 
-rule "Relationship should have the same module id as the concept"
+rule "An active relationship should have the same Module ID as the concept."
 	dialect "mvel"
 	when
 		c : Concept(active)
 		r : Relationship(active && characteristicTypeId == Constants.STATED_RELATIONSHIP && moduleId != c.moduleId)
 	then
 		InvalidContent invalid = new InvalidContent("cc9f2c3d-f79a-4b15-827e-def8ca2dec25",
-				r, "Relationship does not have the same module id as the concept.", Severity.WARNING);
+				r, "Relationship does not have the same Module ID as the concept.", Severity.WARNING);
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end
