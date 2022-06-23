@@ -10,7 +10,7 @@ global java.util.List invalidContent
 global DescriptionService descriptionService
 global ConceptService conceptService
 
-rule "Active FSNs must be unique"
+rule "An FSN must be unique within all active FSNs across all active concepts. There should not be an inactive concept with the same FSN."
 		dialect "mvel"
 		when
 		c : Concept(active)
