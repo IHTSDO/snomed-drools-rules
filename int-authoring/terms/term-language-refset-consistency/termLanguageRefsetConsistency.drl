@@ -9,7 +9,7 @@ global java.util.List invalidContent
 global DescriptionService descriptionService
 
 
-rule "Terms are consistent in en-us and en-gb language refsets"
+rule "A synonym in US-English or GB-English should use the correct spelling."
 	dialect "mvel"
 	when
 		c : Concept(active)
