@@ -9,7 +9,7 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "Must have one preferred synonym in KO dialect"
+rule "New Korean concepts, or translated concepts, must have a Preferred Synonym in Korean."
 	dialect "mvel"
 	when
 		c : Concept(active)
