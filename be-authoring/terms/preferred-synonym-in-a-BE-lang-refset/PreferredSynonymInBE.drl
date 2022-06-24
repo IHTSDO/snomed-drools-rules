@@ -9,7 +9,7 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "Preferred synonym in some BE language reference set."
+rule "New Belgian concepts, or translated concepts, must have a Preferred Synonym in at least one Belgian language reference set."
 	dialect "mvel"
 	when
 		c : Concept(active)
