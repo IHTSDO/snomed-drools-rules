@@ -10,7 +10,7 @@ import java.util.ArrayList
 global java.util.List invalidContent
 global ConceptService conceptService
 
-rule "Active concept should not belong to more than one top-level hierarchy"
+rule "Concepts must not have active parents from different top-level hierarchies."
 	dialect "mvel"
 	when
 		c : Concept(active)
@@ -18,7 +18,7 @@ rule "Active concept should not belong to more than one top-level hierarchy"
 		Concept(ConceptHelper.isMoreThanOneTopLevelHierarchy(topLevelHierarchies,"373873005","260787004"))
 	then
 		InvalidContent invalid = new InvalidContent("2a441b02-2d83-45bd-9207-61f5acc60379",
-				c, "Active concept parents should not belong to more than one top-level hierarchy.", Severity.ERROR);
+				c, "Active concept parents must not belong to more than one top-level hierarchy.", Severity.ERROR);
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end
