@@ -12,7 +12,7 @@ import java.util.Collection
 
 global java.util.List invalidContent
 
-rule "Preferred synonym in CH_DE or CH_FR or CH_IT dialect"
+rule "Concepts with Swiss-German, Swiss-French or Swiss-Italian synonyms, must have one Preferred Synonym in the matching dialect."
 	dialect "mvel"
 	when
 		c : Concept(active)
