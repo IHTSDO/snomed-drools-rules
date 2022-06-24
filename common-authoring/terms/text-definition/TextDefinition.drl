@@ -22,13 +22,13 @@ rule "The first character of a text definition should be upper case."
 				d, "The first character of a text definition should be upper case.", Severity.WARNING));
 end
 
-rule "Preferred TextDefinition per dialect"
+rule "A concept must not have more than one Text Definition per language reference set."
 	dialect "mvel"
 	when
 		c : Concept(active && DescriptionHelper.isMoreThanOneAcceptabilityPerDialect(c, true, Constants.TEXT_DEFINITION, Constants.ACCEPTABILITY_PREFERRED))
 	then
 		InvalidContent invalid = new InvalidContent("0bb0b543-4bf6-46ab-a9c3-c6a0a87ae275",
-				c, "A concept may only have one Preferred text definition in each dialect.");
+				c, "A concept must not have more than one Text Definition per language reference set.");
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end
