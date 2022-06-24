@@ -5,7 +5,7 @@ import org.ihtsdo.drools.response.InvalidContent
 global java.util.List invalidContent
 global ConceptService conceptService
 
-rule "Active relationship must not have inactive type"
+rule "Concepts must not have inactive relationship types."
 	dialect "mvel"
 	when
 		r : Relationship(active && !conceptService.isActive(typeId))
