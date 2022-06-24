@@ -10,7 +10,7 @@ import org.ihtsdo.drools.service.ConceptService
 global java.util.List invalidContent
 global ConceptService conceptService
 
-rule "GCI Contains Parent."
+rule "A GCI axiom expression must contain at least one parent."
 	dialect "mvel"
 	when
 		c : Concept(active)
