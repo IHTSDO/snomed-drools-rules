@@ -6,7 +6,7 @@ import org.ihtsdo.drools.domain.Constants
 
 global java.util.List invalidContent
 
-rule "Active Concepts should not have two relationships with the same type, target and group"
+rule "Active Concepts must not have two relationships with the same type, target and group."
 	dialect "mvel"
 	when
 		c : Concept(active)
