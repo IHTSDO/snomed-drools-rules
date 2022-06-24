@@ -26,7 +26,7 @@ rule "Must have one preferred synonym in BE_NL dialect if more than one preferre
 		invalidContent.add(invalid);
 end
 
-rule "Must have one preferred synonym in BE_NL dialect if there have any acceptable synonyms specified"
+rule "Concepts with Belgian-Dutch synonyms, must have one Preferred Synonym in Belgian-Dutch."
 	dialect "mvel"
 	when
 		c : Concept(active)
