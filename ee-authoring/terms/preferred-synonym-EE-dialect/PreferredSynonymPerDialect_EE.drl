@@ -8,7 +8,7 @@ import org.ihtsdo.drools.response.InvalidContent
 
 global java.util.List invalidContent
 
-rule "Concepts with Estonian synonyms, must have one Preferred Synonym in Estonian."
+rule "New Estonian concepts, or translated concepts, must have a Preferred Synonym in Estonian."
 	dialect "mvel"
 	when
 		c : Concept(active)
