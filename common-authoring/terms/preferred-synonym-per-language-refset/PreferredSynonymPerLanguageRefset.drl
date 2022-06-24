@@ -60,14 +60,14 @@ function Set<String> findMissingPreferredTermPerLanguageRefset(Concept c) {
 	return invalidLanguageRefsets;
 } 
 
-rule "A concept must not have more than one Preferred synonym per language reference set"
+rule "A concept must not have more than one Preferred Synonym per language reference set."
 	dialect "mvel"
 	when
 		c : Concept(active)
 		error : HashSet(size > 0) from collect(String() from findMultiplePreferredTermPerLanguageRefset(c))
 	then
 		InvalidContent invalid = new InvalidContent("094e5394-24e3-4d0a-8b67-e8461a0262b3",
-				c, "A concept must not have more than one Preferred Synonym in any language refset.");
+				c, "A concept must not have more than one PT per language refset.");
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end
