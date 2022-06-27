@@ -8,7 +8,7 @@ import java.util.ArrayList
 global java.util.List invalidContent
 global ConceptService conceptService
 
-rule "Term double, leading or trailing spaces"
+rule "Terms must not contain double, leading or trailing spaces."
 	dialect "mvel"
 	when
 		c : Concept(active)
