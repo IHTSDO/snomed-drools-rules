@@ -8,7 +8,7 @@ import org.ihtsdo.drools.response.InvalidContent
 
 global java.util.List invalidContent
 
-rule "Preferred synonym per dialect"
+rule "New Danish concepts must have a Preferred Synonym in Danish."
 	dialect "mvel"
 	when
 		c : Concept(active)
