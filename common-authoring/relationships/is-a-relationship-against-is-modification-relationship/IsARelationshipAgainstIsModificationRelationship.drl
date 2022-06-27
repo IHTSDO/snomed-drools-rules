@@ -5,7 +5,7 @@ import org.ihtsdo.drools.response.InvalidContent
 
 global java.util.List invalidContent
 
-rule "Is-a relationship must not have the same target value with Is-modification-of relationship"
+rule "An \'is a\' relationship must not have the same target value as an \'is modification of\' relationship."
 	dialect "mvel"
 	when
 		c : Concept(active)
@@ -14,7 +14,7 @@ rule "Is-a relationship must not have the same target value with Is-modification
 				|| (concreteValue != null && concreteValue == r1.concreteValue))
 	then
 		InvalidContent invalid = new InvalidContent("3574823b-5612-4df8-b4bf-ede466535d63",
-				c, "IS A relationships must not have the same target value with \"is modification of\" relationship.");
+				c, "Is a relationships must not have the same target value as \"is modification of\" relationship.");
 		invalid.ignorePublishedCheck()
 		invalidContent.add(invalid);
 end
