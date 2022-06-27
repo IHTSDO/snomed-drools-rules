@@ -12,7 +12,7 @@ global java.util.List invalidContent
 // Dialect Language Refset: 91000202106
 // Dialect Label: nn (just for display and naming of this file)
 
-rule "No Preferred synonym in the nn dialect"
+rule "A concept must have one Preferred Synonym in the NN dialect if there is no Preferred Synonym in the NB dialect."
 	dialect "mvel"
 	when
 		// When the concept is active
