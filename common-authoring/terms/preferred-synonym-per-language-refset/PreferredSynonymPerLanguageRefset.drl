@@ -88,7 +88,7 @@ function String populateFSNs(DescriptionService descriptionService, Collection l
 	return result;
 }
 
-rule "A concept must have one Preferred synonym per language reference set"
+rule "A concept must have one Preferred synonym in a language refset if there is an Acceptable entry in the same language reference set."
 	dialect "mvel"
 	when
 		c : Concept(active)
