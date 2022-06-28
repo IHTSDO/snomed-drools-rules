@@ -9,7 +9,7 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "Must have one preferred synonym in NL dialect"
+rule "New NL concepts must have one Preferred Synonym in NL-Dutch."
 	dialect "mvel"
 	when
 		c : Concept(active)
