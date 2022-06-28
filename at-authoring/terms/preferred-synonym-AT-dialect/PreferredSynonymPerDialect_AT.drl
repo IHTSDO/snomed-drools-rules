@@ -9,7 +9,7 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "New Austrian concepts must have one Preferred Synonym in the Austrian-German."
+rule "New Austrian concepts must have one Preferred Synonym in Austrian-German."
 	dialect "mvel"
 	when
 		c : Concept(active)
