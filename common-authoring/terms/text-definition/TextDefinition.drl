@@ -33,7 +33,7 @@ rule "A concept must not have more than one Text Definition per language referen
 		invalidContent.add(invalid);
 end
 
-rule "TextDefinition preferred"
+rule "Text definitions must always be preferred."
 	dialect "mvel"
 	when
 		d : Description(active && textDefinition && DescriptionHelper.isAcceptabilityValuePresentOnDescription(d, Constants.ACCEPTABILITY_ACCEPTABLE))
