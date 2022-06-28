@@ -5,7 +5,7 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "An active term should not contain tabs, newlines, or characters @, $, #, \\."
+rule "An active term should not contain tabs, newlines, or characters @, $, #, \."
 	dialect "mvel"
 	when
 		d : Description(active == true && term matches ".*[\\\\\t\r\n@$#].*")
