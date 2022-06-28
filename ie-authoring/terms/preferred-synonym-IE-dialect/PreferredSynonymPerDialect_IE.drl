@@ -9,7 +9,7 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "New Irish concepts must have a Preferred Synonym in Irish-English."
+rule "New Irish concepts must have a Preferred Synonym in IE-English."
 	dialect "mvel"
 	when
 		c : Concept(active)
