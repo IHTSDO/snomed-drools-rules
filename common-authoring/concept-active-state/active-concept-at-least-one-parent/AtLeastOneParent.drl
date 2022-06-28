@@ -7,7 +7,7 @@ import java.util.ArrayList
 
 global java.util.List invalidContent
 
-rule "Active concept must have a parent"
+rule "Active concepts must have at least one parent."
 	dialect "mvel"
 	when
 		c : Concept(active, id != "138875005")
