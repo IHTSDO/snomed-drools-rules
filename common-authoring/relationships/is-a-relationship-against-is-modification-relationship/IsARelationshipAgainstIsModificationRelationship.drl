@@ -5,7 +5,7 @@ import org.ihtsdo.drools.response.InvalidContent
 
 global java.util.List invalidContent
 
-rule "An \'is a\' relationship must not have the same target value as an \'is modification of\' relationship."
+rule "An 'is a' relationship must not have the same target value as an 'is modification of' relationship."
 	dialect "mvel"
 	when
 		c : Concept(active)
