@@ -22,7 +22,7 @@ rule "A GCI axiom expression must contain at least one parent."
 				gciRelationship, "A GCI axiom expression must contain at least one parent."));
 end
 
-rule "GCI Contains Attribute."
+rule "A GCI axiom expression must contain at least one attribute."
 	dialect "mvel"
 	when
 		c : Concept(active)
