@@ -4,7 +4,7 @@ import org.ihtsdo.drools.response.InvalidContent
 
 global java.util.List invalidContent
 
-rule "Active Concepts should not have duplicate axioms"
+rule "Active Concepts should not have duplicate axioms."
 	dialect "mvel"
 	when
 		c : Concept(active)
