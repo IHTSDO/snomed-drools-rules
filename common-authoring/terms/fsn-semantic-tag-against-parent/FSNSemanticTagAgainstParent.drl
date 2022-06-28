@@ -51,7 +51,7 @@ rule "A concept's semantic tag should be compatible with those of the active par
 		invalidContent.add(invalid);
 end
 
-rule "Matching semantic tag should not allow adding a subtype as a parent"
+rule "Matching semantic tag should not allow adding a subtype as a parent."
 	dialect "mvel"
 	when
 		c : Concept(active)
