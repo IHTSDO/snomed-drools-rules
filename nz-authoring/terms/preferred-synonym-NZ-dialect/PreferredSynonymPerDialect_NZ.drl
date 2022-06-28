@@ -9,7 +9,7 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "New concepts must have one Preferred Synonym in NZ-English dialect."
+rule "New NZ concepts must have one Preferred Synonym in NZ-English dialect."
 	dialect "mvel"
 	when
 		c : Concept(active)
