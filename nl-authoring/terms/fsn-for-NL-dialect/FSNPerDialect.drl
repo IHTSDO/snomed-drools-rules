@@ -5,7 +5,7 @@ import org.ihtsdo.drools.response.InvalidContent
 
 global java.util.List invalidContent
 
-rule "FSN in NL dialect"
+rule "An active NL concept must have an FSN in the NL dialect."
 	dialect "mvel"
 	when
 		c : Concept(active && moduleId == "11000146104" && DescriptionHelper.filterByActiveTypeAndDialectPreferred(c, true, Constants.FSN, "31000146106").size() != 1)
