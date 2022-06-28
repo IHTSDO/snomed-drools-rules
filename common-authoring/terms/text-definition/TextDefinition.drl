@@ -44,7 +44,7 @@ rule "Text definitions must always be preferred."
 		invalidContent.add(invalid);
 end
 
-rule "TextDefinition has acceptability map"
+rule "Text definitions must always have an acceptability."
 	dialect "mvel"
 	when
 		d : Description(active && textDefinition && !DescriptionHelper.hasAcceptabilityMap(d))
