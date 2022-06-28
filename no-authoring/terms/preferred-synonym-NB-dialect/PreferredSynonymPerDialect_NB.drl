@@ -12,7 +12,7 @@ global java.util.List invalidContent
 // Dialect Language Refset: 61000202103
 // Dialect Label: nb (just for display and naming of this file)
 
-rule "Preferred synonym per dialect"
+rule "New Norwegian concepts must have one Preferred Synonym in the NB dialect."
 	dialect "mvel"
 	when
 		// When the concept is active
