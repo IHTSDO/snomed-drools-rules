@@ -4,7 +4,7 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "Description length"
+rule "An active description must not be longer than 255 characters."
 	dialect "mvel"
 	when
 		d : Description(active && typeId != "900000000000550004" && term.length > 255)
