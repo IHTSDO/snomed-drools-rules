@@ -7,13 +7,13 @@ import org.ihtsdo.drools.service.RelationshipService
 global java.util.List invalidContent
 global RelationshipService relationshipService
 
-rule "Inactive concept must be primative"
+rule "Inactive concepts must be primitive."
 	dialect "mvel"
 	when
 		c : Concept(!active && definitionStatusId != Constants.PRIMITIVE)
 	then
 		InvalidContent invalid = new InvalidContent("c635fde4-1019-4d8c-a496-bf2af5208639",
-				c, "Inactive concepts must be defined as primitive.");
+				c, "Inactive concepts must be primitive.");
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end
