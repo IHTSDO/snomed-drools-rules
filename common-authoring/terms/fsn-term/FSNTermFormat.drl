@@ -32,14 +32,14 @@ rule "FSN ends in closing parentheses"
 				d, "An FSN must end in closing parentheses."));
 end
 
-rule "Active FSN must end with a semantic tag"
+rule "An active FSN must end with a semantic tag."
 	dialect "mvel"
 	when
 		c : Concept(active)
 		d : Description(conceptId == c.id && active == true && typeId == Constants.FSN && (term not matches ".*\\(.+\\)"))
 	then
 		invalidContent.add(new InvalidContent("c32401d8-b7fd-43de-b79e-5c80c9601afa",
-				d, "Active FSN must end with a semantic tag."));
+				d, "An active FSN must end with a semantic tag."));
 end
 
 rule "An active US-English or GB-English FSN should end with a valid semantic tag."
