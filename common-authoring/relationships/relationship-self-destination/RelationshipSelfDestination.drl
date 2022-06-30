@@ -3,7 +3,7 @@ import org.ihtsdo.drools.response.InvalidContent
 
 global java.util.List invalidContent
 
-rule "Active relationship must not have destination matching source concept"
+rule "The source and destination of a relationship must not be the same concept."
 	dialect "mvel"
 	when
 		r : Relationship(active && destinationId != null && sourceId == destinationId)
