@@ -7,7 +7,7 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "Term already exists in concept with same case - one active."
+rule "There must not be two active descriptions with the same term and language code on an active concept."
 	dialect "mvel"
 	when
 		c : Concept(active)
@@ -15,7 +15,7 @@ rule "Term already exists in concept with same case - one active."
 		d2 : Description(active && conceptId == d1.conceptId && id != d1.id && d1.languageCode == d2.languageCode && term.equals(d1.term))
 	then
 		invalidContent.add(new InvalidContent("f3c7ded3-cb80-41ba-8864-1cb8c1585957",
-				d2, "Active descriptions must not have the same term as another within the concept unless the language code is different. " +
+				d2, "There is an active descriptions with the same term and language code on this concept." +
 			 "Please remove one of the descriptions.", Severity.ERROR));
 end
 
