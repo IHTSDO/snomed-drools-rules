@@ -28,7 +28,7 @@ rule "Active descriptions must not have the same term as an inactive description
 						d1.languageCode == d2.languageCode && d1.moduleId == d2.moduleId && typeId == d1.typeId && term.equals(d1.term))
 	then
 		invalidContent.add(new InvalidContent("f0cd848f-4050-4d2d-a572-76fb5ef83374",
-				d2, "Active descriptions must not have the same term as an inactive description on the concept unless the language code is different. " +
+				d2, "There is an inactive description with the same term and language code on this concept. " +
 			 "Please make the other description active and remove this one.", Severity.ERROR));
 end
 
