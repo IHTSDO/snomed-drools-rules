@@ -14,7 +14,7 @@ rule "An active term should not contain tabs, newlines, or characters @, $, #, \
 				d, "An active term should not contain tabs, newlines, or characters @, $, #, \\.", Severity.WARNING));
 end
 
-rule "An active term must not contain any 'zero width space' characters."
+rule "An active term must not contain any zero width space characters."
 	dialect "mvel"
 	when
 		d : Description(active && term.contains("\u200B"))
