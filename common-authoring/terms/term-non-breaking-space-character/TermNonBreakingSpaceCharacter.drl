@@ -4,12 +4,12 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "Non-breaking space character"
+rule "An active term must not contain any non-breaking space characters."
 	dialect "mvel"
 	when
 		d : Description(active && term.contains("\u00A0"))
 	then
 		invalidContent.add(new InvalidContent("eaf979d2-f6c9-49b9-8e19-d59e40c5eb3a",
-				d, "The term of an active description must not contain the non-breaking space character. " +
+				d, "An active term must not contain any non-breaking space characters. " +
 				"Please remove and retype each space to fix this."));
 end
