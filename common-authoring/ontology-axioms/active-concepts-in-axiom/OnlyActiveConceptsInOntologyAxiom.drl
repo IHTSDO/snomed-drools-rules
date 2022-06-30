@@ -21,7 +21,7 @@ function boolean anyConceptNotActive(Collection conceptIds, ConceptService conce
 	return false;
 }
 
-rule "Active Ontology Axioms should only use active Concepts."
+rule "Active axioms must use active concepts."
 	dialect "java"
 	when
 		concept: Concept()
@@ -29,5 +29,5 @@ rule "Active Ontology Axioms should only use active Concepts."
 		eval(anyConceptNotActive(oa.getOwlExpressionNamedConcepts(), conceptService))
 	then
 		invalidContent.add(new InvalidContent("d0e73b91-ab28-402c-a645-5bf1014a6eb7",
-				oa, "An active ontology axiom must only use active concepts."));
+				oa, "An active axiom must use active concepts."));
 end
