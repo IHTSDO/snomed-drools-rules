@@ -6,7 +6,7 @@ import java.util.ArrayList
 
 global java.util.List invalidContent
 
-rule "Active Concept should not have two or more axioms that each axiom only contains IS-A relationship"
+rule "An active concept must not have two or more axioms containing only 'is a' relationships."
 	dialect "mvel"
 	when
 		c : Concept(active)
@@ -18,7 +18,7 @@ rule "Active Concept should not have two or more axioms that each axiom only con
 				from collect( Relationship(active, !axiomGCI, sourceId == c.id, axiomId == r2.axiomId, characteristicTypeId == Constants.STATED_RELATIONSHIP))
 	then
 		InvalidContent invalid = new InvalidContent("e77f303a-a954-477b-b73b-b05516cf3fc7",
-				c, "Active Concept should not have two or more axioms that each axiom only contains IS-A relationship.");
+				c, "An active concept must not have two or more axioms containing only 'is a' relationships.");
 		invalid.ignorePublishedCheck()
 		invalidContent.add(invalid);
 end
