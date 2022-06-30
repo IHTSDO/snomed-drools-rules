@@ -6,7 +6,7 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "Active FSNs must be preferred in at least one dialect"
+rule "Active FSNs must be preferred in at least one dialect."
 	dialect "mvel"
 	when
 		d : Description(active == true && typeId == Constants.FSN && !DescriptionHelper.isPreferredInAnyDialect(d))
