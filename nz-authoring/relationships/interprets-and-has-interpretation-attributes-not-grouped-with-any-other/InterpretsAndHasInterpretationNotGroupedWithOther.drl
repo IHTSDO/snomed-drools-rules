@@ -12,7 +12,7 @@ rule "Interprets and Has interpretation attributes should not be grouped with an
 		r2 : Relationship(active && sourceId == c.id && typeId == "363714003" /*Interprets (attribute)*/ && relationshipGroup == r1.relationshipGroup && r1.axiomId == axiomId)
 		r3 : Relationship(active && sourceId == c.id && typeId != "363713009" && typeId != "363714003" && relationshipGroup == r1.relationshipGroup && r1.axiomId == axiomId)
 	then
-		InvalidContent invalid = new InvalidContent("3042dc30-9853-40c7-bb0f-8759d8d7e471",
+		InvalidContent invalid = new InvalidContent("e652d353-150a-425c-a4c6-4c27b1fd7300",
 				c, "Interprets and Has interpretation attributes should not be grouped with any other attributes.");
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
