@@ -4,7 +4,7 @@ import org.ihtsdo.drools.response.InvalidContent
 
 global java.util.List invalidContent
 
-rule "Interprets and Has interpretation attributes should not be grouped with any other attributes"
+rule "US Extension: Interprets and Has interpretation attributes should not be grouped with any other attributes."
 	dialect "mvel"
 	when
 		c : Concept(active && moduleId == "731000124108")
