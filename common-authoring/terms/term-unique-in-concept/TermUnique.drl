@@ -32,7 +32,7 @@ rule "Active descriptions must not have the same term as an inactive description
 			 "Please make the other description active and remove this one.", Severity.ERROR));
 end
 
-rule "Term already exists in concept with different case - both active"
+rule "Active case sensitive descriptions with different case significance should not have the same term."
 	dialect "mvel"
 	when
 		c : Concept(active)
@@ -41,6 +41,6 @@ rule "Term already exists in concept with different case - both active"
 						d1.languageCode == d2.languageCode && !term.equals(d1.term) && term.equalsIgnoreCase(d1.term))
 	then
 		invalidContent.add(new InvalidContent("eb7eaf62-d900-4199-beec-a843f657dfa3",
-				d2, "Active descriptions must not have the same term as another within the concept unless the language code is different. " +
-			 "There is another description with the same term but different case. Please remove the other description or make it inactive.", Severity.WARNING));
+				d2, "Active case sensitive descriptions with different case significance should not have the same term. " +
+			 "There is another description with the same term but different case significance.", Severity.WARNING));
 end
