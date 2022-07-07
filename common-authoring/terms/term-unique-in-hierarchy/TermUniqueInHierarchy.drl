@@ -11,7 +11,7 @@ global DescriptionService descriptionService
 global ConceptService conceptService
 
 // "Correlation ID" is a special case where duplicates are expected
-rule "Active term unique in hierarchy"
+rule "Two active descriptions in the same hierarchy should not share the same term, unless the language is different."
 	dialect "mvel"
 	when
 		c : Concept(active)
@@ -20,5 +20,5 @@ rule "Active term unique in hierarchy"
 	then
 		invalidContent.add(new InvalidContent("25334385-83b3-4531-8e6e-cf9e32ebccd2",
 				d, "Term already exists within this hierarchy on concept " + $duplicate.conceptId +
-				". Two descriptions in the same hierarchy may only have the same term if they have different language codes or one description or concept is inactive.", Severity.WARNING));
+				". Two descriptions in the same hierarchy may only have the same term if they have different language codes or if one description or concept is inactive.", Severity.WARNING));
 end
