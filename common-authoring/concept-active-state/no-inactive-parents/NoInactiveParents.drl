@@ -6,7 +6,7 @@ import org.ihtsdo.drools.response.InvalidContent
 global java.util.List invalidContent
 global ConceptService conceptService
 
-rule "A concept can not have inactive ancestors"
+rule "A concept must not be the descendant of an inactive concept."
 	dialect "mvel"
 	when
 		r : Relationship(active && typeId == Constants.IS_A && !conceptService.isActive(destinationId))
