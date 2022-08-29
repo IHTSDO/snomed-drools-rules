@@ -1,6 +1,7 @@
 import org.ihtsdo.drools.domain.Concept
 import org.ihtsdo.drools.domain.Description
 import org.ihtsdo.drools.domain.Relationship
+import org.ihtsdo.drools.domain.OntologyAxiom
 import org.ihtsdo.drools.domain.Constants
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
@@ -16,6 +17,7 @@ rule "An axiom marked as fully defined must have at least one attribute relation
 		d : ArrayList(size == 0) from collect(Description(active, moduleId != c.moduleId))
 		r : Relationship(active, characteristicTypeId == Constants.STATED_RELATIONSHIP, !axiomGCI)
 		r1 : ArrayList(size == 0) from collect(Relationship(active, characteristicTypeId == Constants.STATED_RELATIONSHIP, r.axiomId == axiomId, typeId != Constants.IS_A, !axiomGCI))
+		oa : OntologyAxiom(referencedComponentId == c.id, active, !primitive, id == r.axiomId)
 	then
 		InvalidContent invalid = new InvalidContent("f4c3d61b-c0aa-4f3a-8b2a-1f25414dab24",
 				c, "An axiom marked as fully defined must have at least one attribute relationship.");

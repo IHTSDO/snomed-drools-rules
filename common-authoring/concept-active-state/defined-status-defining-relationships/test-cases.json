@@ -46,7 +46,16 @@
             "active" : true,
             "relationships": [
                 {
+                    "axiomId": "02caf5ee-9ba9-4665-948e-85005197d8b0",
                     "typeId": "116680003" // Is-a
+                }
+            ],
+            "ontologyAxioms": [
+                {   
+                    "id": "02caf5ee-9ba9-4665-948e-85005197d8b0",
+                    "active": true,
+                    "primitive": false,
+                    "referencedComponentId": "21"
                 }
             ]
         },
@@ -56,6 +65,7 @@
             "active" : true,
             "relationships": [
                 {
+                    "axiomId": "02caf5ee-9ba9-4665-948e-85005197d8b0",
                     "typeId": "116680003", // Is-a
                     "active": true,
                     "characteristicTypeId": "900000000000010007" //STATED_RELATIONSHIP
@@ -64,6 +74,14 @@
                     "typeId": "116680003", // Is-a
                     "active": true,
                     "characteristicTypeId": "900000000000011006" //INFERRED_RELATIONSHIP
+                }
+            ],
+            "ontologyAxioms": [
+                {   
+                    "id": "02caf5ee-9ba9-4665-948e-85005197d8b0",
+                    "active": true,
+                    "primitive": false,
+                    "referencedComponentId": "22"
                 }
             ]
         },
@@ -78,9 +96,18 @@
                     "characteristicTypeId": "900000000000010007" //STATED_RELATIONSHIP
                 },
                 {
+                    "axiomId": "02caf5ee-9ba9-4665-948e-85005197d8b0",
                     "typeId": "116680003", // Is-a
                     "active": true,
                     "characteristicTypeId": "900000000000010007" //STATED_RELATIONSHIP
+                }
+            ],
+            "ontologyAxioms": [
+                {   
+                    "id": "02caf5ee-9ba9-4665-948e-85005197d8b0",
+                    "active": true,
+                    "primitive": false,
+                    "referencedComponentId": "23"
                 }
             ]
         },
@@ -93,17 +120,25 @@
                     "typeId": "116680003", // Is-a
                     "active": true,
                     "characteristicTypeId": "900000000000010007", //STATED_RELATIONSHIP
-                    "axiomId":"730edf66-dd73-4cab-8977-e12796987d4d"
+                    "axiomId":"02caf5ee-9ba9-4665-948e-85005197d8b0"
                 },
                 {
+                    "axiomId": "02caf5ee-9ba9-4665-948e-85005197d8b0",
                     "typeId": "116680003", // Is-a
                     "active": true,
-                    "characteristicTypeId": "900000000000010007", //STATED_RELATIONSHIP
-                    "axiomId":"01ec6c88-9abe-4104-9f5b-8bd41d9e0f0e"
+                    "characteristicTypeId": "900000000000010007" //STATED_RELATIONSHIP
                 },
                 {
                     "typeId": "123005000", // Part of
-                    "axiomId":"01ec6c88-9abe-4104-9f5b-8bd41d9e0f0e"
+                    "axiomId": "4882ea32-992e-4bb0-ae71-d3957e3d53ff"
+                }
+            ],
+            "ontologyAxioms": [
+                {   
+                    "id": "02caf5ee-9ba9-4665-948e-85005197d8b0",
+                    "active": true,
+                    "primitive": false,
+                    "referencedComponentId": "24"
                 }
             ]
         }

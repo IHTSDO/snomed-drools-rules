@@ -25,7 +25,7 @@ rule "Active axioms must use active concepts."
 	dialect "java"
 	when
 		concept: Concept()
-		oa : OntologyAxiom(referencedComponentId == concept.id, active)
+		oa : OntologyAxiom(referencedComponentId == concept.id, active, owlExpressionNamedConcepts != null)
 		eval(anyConceptNotActive(oa.getOwlExpressionNamedConcepts(), conceptService))
 	then
 		invalidContent.add(new InvalidContent("d0e73b91-ab28-402c-a645-5bf1014a6eb7",
