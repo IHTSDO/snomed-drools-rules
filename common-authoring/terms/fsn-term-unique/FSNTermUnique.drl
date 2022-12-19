@@ -6,6 +6,8 @@ import org.ihtsdo.drools.service.DescriptionService
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
 
+import java.util.Collections
+
 global java.util.List invalidContent
 global DescriptionService descriptionService
 global ConceptService conceptService
@@ -20,7 +22,7 @@ rule "An FSN must be unique within all active FSNs across all active concepts. T
 	then
 		InvalidContent invalid = new InvalidContent("d23674f3-6a36-49e3-bfa8-84375745cb33",
 				d, "An FSN must be unique within all active FSNs across all concepts. This term already exists against " +
-				(conceptService.isActive(d2.getConceptId()) ? "active" : "inactive") + " concept " + d2.getConceptId() + ".",
+				(conceptService.isActive(d2.getConceptId()) ? "active" : "inactive") + " concept " + d2.getConceptId() + " |" + d2.term + "| in " + (d2.moduleId + " |" + (descriptionService.getFSNs(Collections.singleton(d2.moduleId), Constants.US_EN_LANG_REFSET)).toString().replace("[", "").replace("]", "") + "|"),
 				conceptService.isActive(d2.getConceptId()) ? Severity.ERROR : Severity.WARNING);
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
