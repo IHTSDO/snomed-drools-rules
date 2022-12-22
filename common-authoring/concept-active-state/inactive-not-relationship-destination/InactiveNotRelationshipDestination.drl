@@ -7,11 +7,11 @@ import org.ihtsdo.drools.service.RelationshipService
 global java.util.List invalidContent
 global RelationshipService relationshipService
 
-rule "A concept must not be inactivated if it is the target of an active relationship."
+rule "A concept must not be inactivated if it is the target of an active relationship or historical association."
 	dialect "mvel"
 	when
 		c : Concept(!active && relationshipService.hasActiveInboundStatedRelationship(c.id))
 	then
 		invalidContent.add(new InvalidContent("a23c9948-90d3-46ac-beab-6c0507fea7ff",
-				c, "A concept must not be inactivated if it is the target of an active relationship."));
+				c, "A concept must not be inactivated if it is the target of an active relationship or historical association."));
 end
