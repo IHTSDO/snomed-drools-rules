@@ -1,0 +1,28 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Constants
+import java.util.Collection
+import java.util.ArrayList
+import org.ihtsdo.drools.helper.DescriptionHelper
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.response.Severity
+
+global java.util.List invalidContent
+
+rule "New Australian concepts must have a Preferred Synonym in AU-English."
+	dialect "mvel"
+	when
+		c : Concept(active)
+		ArrayList(size > 0 || c.moduleId == "900062011000036108") from collect (
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, moduleId == "900062011000036108")
+		)
+			
+		d: ArrayList(size != 1) from collect (
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, acceptabilityMap["32570271000036106"] == Constants.ACCEPTABILITY_PREFERRED)
+		)
+	then
+		InvalidContent invalid = new InvalidContent("5088692f-de16-42ef-a9b5-2e147fb40d1f",
+				c, "A concept must have only one Preferred Synonym in the AU dialect.", Severity.ERROR);
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
+end
