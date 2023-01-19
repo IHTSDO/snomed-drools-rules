@@ -1,0 +1,15 @@
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.response.Severity
+
+global java.util.List invalidContent
+
+rule "Australian Extension: Text definitions should be case-sensitive."
+	dialect "mvel"
+	when
+		d : Description(active && textDefinition && caseSignificanceId != Constants.ENTIRE_TERM_CASE_SENSITIVE)
+	then
+		invalidContent.add(new InvalidContent("aac69a8b-bc0f-46b2-aa12-1d0a209a04ad",
+				d, "Text definitions should be case-sensitive.", Severity.WARNING));
+end
