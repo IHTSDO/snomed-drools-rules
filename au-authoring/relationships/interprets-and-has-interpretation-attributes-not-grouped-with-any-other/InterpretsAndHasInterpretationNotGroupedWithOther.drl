@@ -1,0 +1,19 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Relationship
+import org.ihtsdo.drools.response.InvalidContent
+
+global java.util.List invalidContent
+
+rule "Australian Extension: Interprets and Has interpretation attributes should not be grouped with any other attributes."
+	dialect "mvel"
+	when
+		c : Concept(active && moduleId == "900062011000036108")
+		r1 : Relationship(active && sourceId == c.id && typeId == "363713009" /*Has interpretation (attribute)*/) 
+		r2 : Relationship(active && sourceId == c.id && typeId == "363714003" /*Interprets (attribute)*/ && relationshipGroup == r1.relationshipGroup && r1.axiomId == axiomId)
+		r3 : Relationship(active && sourceId == c.id && typeId != "363713009" && typeId != "363714003" && relationshipGroup == r1.relationshipGroup && r1.axiomId == axiomId)
+	then
+		InvalidContent invalid = new InvalidContent("7e228462-c974-4280-a436-cc3fe7cb3d4b",
+				c, "Interprets and Has interpretation attributes should not be grouped with any other attributes.");
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
+end
