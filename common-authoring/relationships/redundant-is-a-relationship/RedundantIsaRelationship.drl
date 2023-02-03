@@ -3,6 +3,7 @@ import org.ihtsdo.drools.domain.Concept
 import org.ihtsdo.drools.domain.Relationship
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.service.ConceptService
+import org.ihtsdo.drools.service.DescriptionService
 import org.ihtsdo.drools.response.Severity
 
 import java.util.ArrayList
@@ -10,6 +11,7 @@ import java.util.Collections
 
 global java.util.List invalidContent
 global ConceptService conceptService
+global DescriptionService descriptionService
 
 rule "Redundantly stated IsA relationships."
 	dialect "mvel"
@@ -21,7 +23,7 @@ rule "Redundantly stated IsA relationships."
 		eval(statedAncestors contains r2.destinationId)
 	then
 		InvalidContent invalid = new InvalidContent("5e04e3df-a4cc-4a89-8790-d0e661e96fd6",
-				c, "Concept should not contain any redundantly stated IsA relationships. Parent " + r2.destinationId + " is redundant as it is an ancestor of parent " + r1.destinationId, Severity.WARNING);
+				c, "Concept should not contain any redundantly stated IsA relationships. Parent " + r2.destinationId + " |" + (descriptionService.getFSNs(Collections.singleton(r2.destinationId), Constants.US_EN_LANG_REFSET)).toString().replace("[", "").replace("]", "") + "| is redundant as it is an ancestor of parent " + r1.destinationId + " |" + (descriptionService.getFSNs(Collections.singleton(r1.destinationId), Constants.US_EN_LANG_REFSET)).toString().replace("[", "").replace("]", "") + "|", Severity.WARNING);
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end
