@@ -1,0 +1,27 @@
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Relationship
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.service.ConceptService
+import org.ihtsdo.drools.response.Severity
+
+import java.util.ArrayList
+import java.util.Collections
+
+global java.util.List invalidContent
+global ConceptService conceptService
+
+rule "Redundantly stated IsA relationships."
+	dialect "mvel"
+	when
+		c : Concept(active)
+		r1 : Relationship(active && sourceId == c.id && typeId == Constants.IS_A && characteristicTypeId == Constants.STATED_RELATIONSHIP && !axiomGCI)
+		r2 : Relationship(active && sourceId == c.id && typeId == Constants.IS_A && characteristicTypeId == Constants.STATED_RELATIONSHIP && !axiomGCI && r1.id != id)
+		statedAncestors : ArrayList(size > 0) from collect( String() from conceptService.findStatedAncestorsOfConcepts(Collections.singletonList(r1.destinationId)))
+		eval(statedAncestors contains r2.destinationId)
+	then
+		InvalidContent invalid = new InvalidContent("5e04e3df-a4cc-4a89-8790-d0e661e96fd6",
+				c, "Concept should not contain any redundantly stated IsA relationships. Parent " + r2.destinationId + " is redundant as it is an ancestor of parent " + r1.destinationId, Severity.WARNING);
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
+end
