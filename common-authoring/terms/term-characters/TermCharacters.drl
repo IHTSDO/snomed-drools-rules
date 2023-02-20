@@ -42,7 +42,7 @@ function String findUnexpectedCharactersError(String term) {
 		}
 	}
 
-	return ""; 
+	return "";
 }
 
 rule "Active terms should not contain any illegal characters."
@@ -50,6 +50,8 @@ rule "Active terms should not contain any illegal characters."
 	when
 		d : Description(active == true && error: findUnexpectedCharactersError(term), error.length != 0)
 	then
-		invalidContent.add(new InvalidContent("e0745082-0b54-4bfb-ab77-6aa039ec692a",
-				d, "An active term must not contain any \'" + error + "\' characters."));
+		InvalidContent invalid = new InvalidContent("e0745082-0b54-4bfb-ab77-6aa039ec692a",
+				d, "An active term must not contain any \'" + error + "\' characters.", d.released ? Severity.WARNING : Severity.ERROR);
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
 end
