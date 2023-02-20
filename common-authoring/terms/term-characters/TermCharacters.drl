@@ -14,11 +14,42 @@ rule "An active term should not contain tabs, newlines, or characters @, $, #, \
 				d, "An active term should not contain tabs, newlines, or characters @, $, #, \\.", Severity.WARNING));
 end
 
-rule "An active term must not contain any zero width space characters."
+function String findUnexpectedCharactersError(String term) {
+	String ZEROSP = "\u200B";
+	String LONG_DASH = "—";
+	String RIGHT_APOS = "\u2019";
+	String LEFT_APOS = "\u2018";
+	String RIGHT_QUOTE = "\u201D";
+	String LEFT_QUOTE = "\u201C";
+	String GRAVE_ACCENT = "\u0060";
+	String ACUTE_ACCENT = "\u00B4";
+	String DOUBLE_APOS = "\u0027\u0027";
+
+	String [][] unwantedChars = new String[][] {
+		{ ZEROSP , "zero width space" },
+		{ LONG_DASH , "long dash" },
+		{ RIGHT_APOS , "right apostrophe" },
+		{ LEFT_APOS , "left apostrophe" },
+		{ RIGHT_QUOTE , "right quote" },
+		{ LEFT_QUOTE , "left quote" },
+		{ GRAVE_ACCENT , "grave accent" },
+		{ ACUTE_ACCENT , "acute accents" },
+		{ DOUBLE_APOS, "double apostrophe" }
+	};
+	for (String unwantedChar[] : unwantedChars) {
+		if (term.indexOf(unwantedChar[0]) != -1) {
+			return unwantedChar[1];
+		}
+	}
+
+	return ""; 
+}
+
+rule "Active terms should not contain any illegal characters."
 	dialect "mvel"
 	when
-		d : Description(active && term.contains("\u200B"))
+		d : Description(active == true && error: findUnexpectedCharactersError(term), error.length != 0)
 	then
-		invalidContent.add(new InvalidContent("09a62d35-87bc-4174-9680-964258bd4062",
-				d, "An active term must not contain any \'zero width space\' characters."));
+		invalidContent.add(new InvalidContent("e0745082-0b54-4bfb-ab77-6aa039ec692a",
+				d, "An active term must not contain any \'" + error + "\' characters."));
 end
