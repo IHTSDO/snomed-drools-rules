@@ -4,7 +4,7 @@
     "assertConceptsFail": [
         {
             "id": "1",
-            "moduleId": "900062011000036108",
+            "moduleId": "32506021000036107",
             "relationships": [
                 {
                     "typeId": "363713009", //Has interpretation (attribute)
