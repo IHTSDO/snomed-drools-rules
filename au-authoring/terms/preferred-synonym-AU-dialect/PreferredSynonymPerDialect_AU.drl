@@ -13,8 +13,8 @@ rule "New Australian concepts must have a Preferred Synonym in AU-English."
 	dialect "mvel"
 	when
 		c : Concept(active)
-		ArrayList(size > 0 || c.moduleId == "900062011000036108") from collect (
-			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, moduleId == "900062011000036108")
+		ArrayList(size > 0 || c.moduleId == "32506021000036107") from collect (
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, moduleId == "32506021000036107")
 		)
 			
 		d: ArrayList(size != 1) from collect (

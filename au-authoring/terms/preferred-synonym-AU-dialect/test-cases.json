@@ -2,7 +2,7 @@
     "assertConceptsPass": [
        {
             "id": "1",
-            "moduleId": "900062011000036108", // AU module
+            "moduleId": "32506021000036107", // AU module
             "descriptions": [
                 {
                     "id": "1a",
@@ -16,7 +16,7 @@
                     "id": "1b",
                     "term": "Organism",
                     "typeId": "900000000000013009", // SYNONYM
-                    "moduleId": "900062011000036108", // AU module
+                    "moduleId": "32506021000036107", // AU module
                     "languageCode": "en",
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007" // INT Preferred
@@ -26,7 +26,7 @@
                     "id": "1c",
                     "term": "Organism",
                     "typeId": "900000000000013009", // SYNONYM
-                    "moduleId": "900062011000036108", // AU module
+                    "moduleId": "32506021000036107", // AU module
                     "languageCode": "ie",
                     "acceptabilityMap": {
                         "32570271000036106": "900000000000548007" // AU Preferred
@@ -62,7 +62,7 @@
     "assertConceptsFail": [
         {
             "id": "1",
-            "moduleId": "900062011000036108", // AU module
+            "moduleId": "32506021000036107", // AU module
             "descriptions": [
                 {
                     "id": "1",
@@ -73,7 +73,7 @@
         },
         {
             "id": "2",
-            "moduleId": "900062011000036108", // AU module
+            "moduleId": "32506021000036107", // AU module
             "descriptions": [
                 {
                     "id": "2",
@@ -88,7 +88,7 @@
         },
         {
             "id": "3",
-            "moduleId": "900062011000036108", // AU module
+            "moduleId": "32506021000036107", // AU module
             "descriptions": [
                 {
                     "id": "3",
@@ -102,7 +102,7 @@
         },
         {
             "id": "4",
-            "moduleId": "900062011000036108", // Au module
+            "moduleId": "32506021000036107", // AU module
             "descriptions": [
                 {
                     "id": "6",
@@ -147,7 +147,7 @@
         },
         {
             "id": "6",
-            "moduleId": "900062011000036108", // AU module
+            "moduleId": "32506021000036107", // AU module
             "descriptions": [
                  {
                     "id": "6a",
