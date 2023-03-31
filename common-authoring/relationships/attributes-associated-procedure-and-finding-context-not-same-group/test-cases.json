@@ -1,0 +1,127 @@
+{
+    "givenConcepts": [
+        {
+            "id": "138875005", // Root concept
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "description text 1 (product)",
+                    "conceptId": "138875005"
+                }
+            ]
+        },
+        {
+            "id": "363589002",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Associated procedure (attribute)"
+                }
+            ]
+        },
+        {
+            "id": "408729009",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "Finding context (attribute)"
+                }
+            ]
+        },
+        {
+            "id": "373873005",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "description text 2 (physical object)",
+                    "conceptId": "373873005"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "290787004",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "description text 3 (environment)",
+                    "conceptId": "260787004"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "2",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        }        
+    ],
+    "assertConceptsPass": [
+        {
+                "id": "1",
+                "active" : true,
+                "relationships": [
+                    {
+                        "id": "2",
+                        "destinationId": "373873005",
+                        "typeId": "363589002",
+                        "active": true,
+                        "characteristicTypeId": "900000000000010007",
+                        "axiomId":"730edf66-dd73-4cab-8977-e12796987d4d",
+                        "relationshipGroup": "0"
+                    },
+                    {
+                        "id": "3",
+                        "destinationId": "290787004",
+                        "typeId": "408729009",
+                        "active": true,
+                        "characteristicTypeId": "900000000000010007",
+                        "axiomId":"730edf66-dd73-4cab-8977-e12796987d4d",
+                        "relationshipGroup": "1"
+                    }
+                ]
+            }
+        ],
+    "assertConceptsFail": [
+    {
+            "id": "1",
+            "active" : true,
+            "relationships": [
+                {
+                    "id": "2",
+                    "destinationId": "373873005",
+                    "typeId": "363589002",
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007",
+                    "axiomId":"730edf66-dd73-4cab-8977-e12796987d4d",
+                    "relationshipGroup": "0"
+                },
+                {
+                    "id": "3",
+                    "destinationId": "290787004",
+                    "typeId": "408729009",
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007",
+                    "axiomId":"730edf66-dd73-4cab-8977-e12796987d4d",
+                    "relationshipGroup": "0"
+                }
+            ]
+        }
+    ]
+}
