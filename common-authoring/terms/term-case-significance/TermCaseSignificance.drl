@@ -21,7 +21,11 @@ rule "An active term on an active concept with case significance 'only initial c
 		c : Concept(active == true)
 		d1 : Description(conceptId == c.id && active && typeId == Constants.FSN && DescriptionHelper.getTag(term) != "substance")
 		d2 : Description(active == true && conceptId == c.id && caseSignificanceId == Constants.ONLY_INITIAL_CHARACTER_CASE_INSENSITIVE
-						&& stripAccents(term) not matches "^..*[A-Z].*$" && stripAccents(term) not matches "^..*[0-9]$" && stripAccents(term) not matches "^..*[0-9][A-Za-z].*$" && stripAccents(term) not matches "^[<, %, >, . , &, ^, /].*$")		
+						&& stripAccents(term) not matches "^..*[A-Z].*$"
+						&& stripAccents(term) not matches "^..*[0-9]$"
+						&& stripAccents(term) not matches "^..*[0-9][A-Za-z].*$"
+						&& stripAccents(term) not matches "^[<, %, >, . , &, ^, /].*$"
+						&& stripAccents(term) not matches "^..*\\p{Lu}.*$")
 	then
 		invalidContent.add(new InvalidContent("4ee9cfeb-3ce5-48bf-b238-de7498fde042",
 				d2, "An active term on an active concept with case significance 'only initial character case insensitive' should contain " +
