@@ -165,7 +165,41 @@
                     }
                 }
             ]
-        }
+        },
+      {
+        "id": "4",
+        "moduleId": "900000000000207008", // CORE module
+        "descriptions": [
+          {
+            "id": "4a",
+            "term": "Organism (organism)",
+            "typeId": "900000000000003001", // FSN
+            "acceptabilityMap": {
+              "900000000000509007": "900000000000548007" // INT Preferred
+            }
+          },
+          {
+            "id": "4b",
+            "term": "Organism",
+            "typeId": "900000000000013009", // SYNONYM
+            "moduleId": "900000000000207008", // CORE module
+            "languageCode": "en",
+            "acceptabilityMap": {
+              "900000000000509007": "900000000000548007" // US Preferred
+            }
+          },
+          {
+            "id": "4c",
+            "term": "Organism",
+            "typeId": "900000000000013009", // SYNONYM
+            "moduleId": "900000000000207008", // Core module
+            "languageCode": "en",
+            "acceptabilityMap": {
+              "900000000000508004": "900000000000548007" // GB Preferred
+            }
+          }
+        ]
+      }
     ],
     "assertConceptsFail": [
         {

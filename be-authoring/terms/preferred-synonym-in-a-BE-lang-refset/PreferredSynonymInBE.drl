@@ -14,7 +14,7 @@ rule "New Belgian concepts, or translated concepts, must have a Preferred Synony
 	when
 		c : Concept(active)
 		ArrayList(size > 0 || c.moduleId == "11000172109") from collect (
-			Description(active, conceptId == c.id, typeId == Constants.SYNONYM)
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, moduleId == "11000172109")
 		)
 		ArrayList(size == 0) from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "fr", acceptabilityMap["21000172104"] == Constants.ACCEPTABILITY_PREFERRED)
