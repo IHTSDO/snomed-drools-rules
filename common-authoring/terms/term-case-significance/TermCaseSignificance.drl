@@ -36,7 +36,7 @@ rule "An active term on an active concept with case significance 'entire term ca
 	dialect "mvel"
 	when
 		c : Concept(active == true)
-		d : Description(active == true && conceptId == c.id && caseSignificanceId == Constants.ENTIRE_TERM_CASE_INSENSITIVE && term matches "^..*[A-Z].*$")
+		d : Description(active == true && conceptId == c.id && caseSignificanceId == Constants.ENTIRE_TERM_CASE_INSENSITIVE && (term matches "^..*[A-Z].*$" || stripAccents(term) matches "^..*\\p{Lu}.*$"))
 	then
 		invalidContent.add(new InvalidContent("900bbad3-5ebf-47ff-8206-01ff57c8f975",
 				d, "An active term on an active concept with case significance 'entire term case insensitive' should not contain " +
@@ -47,7 +47,7 @@ rule "Terms containing a capital letter are expected to be marked cI or CS."
 	dialect "mvel"
 	when
 		c : Concept(active == true)
-		d : Description(active == true && conceptId == c.id && caseSignificanceId == Constants.ENTIRE_TERM_CASE_INSENSITIVE && term matches "^..*[A-Z].*$")
+		d : Description(active == true && conceptId == c.id && caseSignificanceId == Constants.ENTIRE_TERM_CASE_INSENSITIVE && (term matches "^..*[A-Z].*$" || stripAccents(term) matches "^..*\\p{Lu}.*$"))
 	then
 		invalidContent.add(new InvalidContent("aa0b2de4-5b51-4594-980c-3ef46b7b4ade",
 				d, "Terms containing a capital letter are expected to be marked cI or CS.", Severity.WARNING));
