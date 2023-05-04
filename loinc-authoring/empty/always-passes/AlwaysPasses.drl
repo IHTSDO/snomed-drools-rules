@@ -1,0 +1,8 @@
+import org.ihtsdo.drools.domain.Concept
+
+rule "Always passes loinc"
+	dialect "mvel"
+	when
+		c : Concept(active)
+	then
+end
