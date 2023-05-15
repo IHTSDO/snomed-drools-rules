@@ -41,13 +41,13 @@ rule "Concepts with Swiss-German, Swiss-French or Swiss-Italian synonyms, must h
 		invalidContent.add(invalid);
 end
 
-function List<String> getDialects(Collection descriptions) {
+function List<String> getSwissDialects(Collection descriptions) {
 		List<String> list = new ArrayList<String>();
 		for (Object obj : descriptions) {
 			Description description = (Description) obj;
 			Map<String, String> acceptabilityMap =	description.getAcceptabilityMap();
 			for (String key : acceptabilityMap.keySet()) {
-				if (!list.contains(key)) {
+				if (!list.contains(key) && acceptabilityMap.get(key).equals(Constants.ACCEPTABILITY_PREFERRED) && (key.equals("2041000195100") || key.equals("2021000195106") || key.equals("2031000195108"))) {
 					list.add(key);
 				}
 			}				
@@ -55,20 +55,38 @@ function List<String> getDialects(Collection descriptions) {
 		return list;
 }
 
-rule "A new or translated concept should have a Preferred Synonym in Swiss-German, Swiss-French and Swiss-Italian."
+rule "A translated concept should have a Preferred Synonym in Swiss-German, Swiss-French and Swiss-Italian."
 	dialect "mvel"
 	when
-		c : Concept(active)
+		c : Concept(active, moduleId != "2011000195101")
 		d: ArrayList(size > 0) from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, moduleId == "2011000195101",
 				(acceptabilityMap["2041000195100"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["2041000195100"] == Constants.ACCEPTABILITY_ACCEPTABLE ||
 				 acceptabilityMap["2021000195106"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["2021000195106"] == Constants.ACCEPTABILITY_ACCEPTABLE ||
 				 acceptabilityMap["2031000195108"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["2031000195108"] == Constants.ACCEPTABILITY_ACCEPTABLE))
 		)
-		eval(getDialects(d).size() < 3)
+		eval(getSwissDialects(d).size() < 3)
 	then
-		InvalidContent invalid = new InvalidContent((c.moduleId != "2011000195101" ? "29699b62-d288-4deb-b403-6f24e186a10c" : "f80e743f-18bb-4a4b-93a1-096d9cbaa0e5"),
-				c, (c.moduleId != "2011000195101" ? "A translated concept should have all 3 Preferred Synonyms in CH-DE, CH-FR and CH-IT." : "A new CH concept should have all 3 Preferred Synonyms in CH-DE, CH-FR and CH-IT."), Severity.WARNING);
+		InvalidContent invalid = new InvalidContent("29699b62-d288-4deb-b403-6f24e186a10c",
+				c, "A translated concept should have all 3 Preferred Synonyms in CH-DE, CH-FR and CH-IT.", Severity.WARNING);
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
+end
+
+rule "A new CH concept should have a Preferred Synonym in Swiss-German, Swiss-French and Swiss-Italian."
+	dialect "mvel"
+	when
+		c : Concept(active, moduleId == "2011000195101")
+		d: ArrayList(size > 0) from collect (
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, moduleId == "2011000195101",
+				(acceptabilityMap["2041000195100"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["2041000195100"] == Constants.ACCEPTABILITY_ACCEPTABLE ||
+				 acceptabilityMap["2021000195106"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["2021000195106"] == Constants.ACCEPTABILITY_ACCEPTABLE ||
+				 acceptabilityMap["2031000195108"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["2031000195108"] == Constants.ACCEPTABILITY_ACCEPTABLE))
+		)
+		eval(getSwissDialects(d).size() < 3)
+	then
+		InvalidContent invalid = new InvalidContent("f80e743f-18bb-4a4b-93a1-096d9cbaa0e5",
+				c, "A new CH concept should have all 3 Preferred Synonyms in CH-DE, CH-FR and CH-IT.", Severity.WARNING);
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end
