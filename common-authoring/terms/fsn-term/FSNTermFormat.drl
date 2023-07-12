@@ -46,7 +46,7 @@ rule "An active US-English or GB-English FSN should end with a valid semantic ta
 	dialect "mvel"
 	when
 		c : Concept(active, id != "138875005")
-		d : Description(conceptId == c.id && active == true && typeId == Constants.FSN && (acceptabilityMap["900000000000509007"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["900000000000508004"] == Constants.ACCEPTABILITY_PREFERRED) && !descriptionService.isRecognisedSemanticTag(DescriptionHelper.getTag(d.term)))
+		d : Description(conceptId == c.id && active == true && typeId == Constants.FSN && (acceptabilityMap["900000000000509007"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["900000000000508004"] == Constants.ACCEPTABILITY_PREFERRED) && !descriptionService.isRecognisedSemanticTag(DescriptionHelper.getTag(d.term), d.languageCode))
 	then
 		invalidContent.add(new InvalidContent("b786d30d-59ac-4e8d-b9d9-ab653bc48d57",
 				d, "Active FSN should end with a valid semantic tag.", Severity.WARNING));

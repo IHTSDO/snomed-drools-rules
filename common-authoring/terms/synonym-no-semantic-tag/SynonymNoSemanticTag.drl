@@ -14,7 +14,7 @@ rule "An active synonym on an active concept must not have a semantic tag."
 	when
 		c : Concept(active)
 		d : Description(active && typeId == Constants.SYNONYM && DescriptionHelper.getTag(d.term) != null
-				&& descriptionService.isRecognisedSemanticTag(DescriptionHelper.getTag(d.term)))
+				&& descriptionService.isRecognisedSemanticTag(DescriptionHelper.getTag(d.term), d.languageCode))
 	then
 		invalidContent.add(new InvalidContent("a300355c-6046-4be8-ac09-e5a1cd940ea2",
 				d, "An active synonym on an active concept must not have a semantic tag.", Severity.WARNING));
