@@ -4,13 +4,13 @@ import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 
-rule "An active description must not be longer than 255 characters."
+rule "An active description must not be longer than 4096 characters."
 	dialect "mvel"
 	when
-		d : Description(active && typeId != "900000000000550004" && term.length > 255)
+		d : Description(active && typeId != "900000000000550004" && term.length > 4096)
 	then
 		invalidContent.add(new InvalidContent("fabd1e8f-5060-4938-a8b4-d8a3164dc499",
-				d, "An active description must not be longer than 255 characters."));
+				d, "An active description must not be longer than 4096 characters."));
 end
 
 rule "An active text definition must not be longer than 4096 characters."
