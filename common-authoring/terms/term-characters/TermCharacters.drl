@@ -17,6 +17,8 @@ end
 function String findUnexpectedCharactersError(String term) {
 	String ZEROSP = "\u200B";
 	String LONG_DASH = "—";
+	String EM_DASH = "\u2014";
+	String EN_DASH = "\u2013";
 	String RIGHT_APOS = "\u2019";
 	String LEFT_APOS = "\u2018";
 	String RIGHT_QUOTE = "\u201D";
@@ -27,6 +29,8 @@ function String findUnexpectedCharactersError(String term) {
 
 	String [][] unwantedChars = new String[][] {
 		{ ZEROSP , "zero width space" },
+		{ EM_DASH , "EM dash" },
+		{ EN_DASH , "EN dash" },
 		{ LONG_DASH , "long dash" },
 		{ RIGHT_APOS , "right apostrophe" },
 		{ LEFT_APOS , "left apostrophe" },
