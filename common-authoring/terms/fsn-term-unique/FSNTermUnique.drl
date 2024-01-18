@@ -19,6 +19,7 @@ rule "An FSN must be unique within all active FSNs across all active concepts. T
 		d : Description(active == true && typeId == Constants.FSN && term.length > 1 && c.id == conceptId)
 		d2 : Description(id != d.id && c.id != conceptId && languageCode == d.languageCode && (!d.published || (d.published && conceptService.isActive(conceptId))))
 						from descriptionService.findActiveDescriptionByExactTerm(d.term)
+		eval(conceptService.isActive(d2.getConceptId()) || (!conceptService.isActive(d2.getConceptId()) && !conceptService.isInactiveConceptSameAs(d2.getConceptId(),d.getConceptId())))
 	then
 		InvalidContent invalid = new InvalidContent("d23674f3-6a36-49e3-bfa8-84375745cb33",
 				d, "An FSN must be unique within all active FSNs across all concepts. This term already exists against " +

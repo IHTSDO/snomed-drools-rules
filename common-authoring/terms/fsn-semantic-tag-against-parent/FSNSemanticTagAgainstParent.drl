@@ -43,7 +43,7 @@ rule "A concept's semantic tag should be compatible with those of the active par
 						&& active
 						&& typeId == Constants.FSN
 						&& (acceptabilityMap["900000000000509007"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["900000000000508004"] == Constants.ACCEPTABILITY_PREFERRED)
-						&& !DescriptionHelper.isSemanticTagCompatibleWithinHierarchy(term, DescriptionHelper.getTags(topLevelFSNs)))
+						&& !descriptionService.isSemanticTagCompatibleWithinHierarchy(term, DescriptionHelper.getTags(topLevelFSNs)))
 	then
 		InvalidContent invalid = new InvalidContent("4be1323d-9ef7-4c1d-a731-2fd5c89b27b1",
 				d, "A concept's semantic tag should be compatible with those of the active parent(s).", Severity.WARNING)

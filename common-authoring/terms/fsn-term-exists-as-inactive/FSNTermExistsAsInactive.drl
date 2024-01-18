@@ -1,11 +1,13 @@
 import org.ihtsdo.drools.domain.Concept
 import org.ihtsdo.drools.domain.Description
 import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.service.ConceptService
 import org.ihtsdo.drools.service.DescriptionService
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
+global ConceptService conceptService
 global DescriptionService descriptionService
 
 rule "Active FSN should not exist as an inactive term on another concept."
@@ -13,6 +15,8 @@ rule "Active FSN should not exist as an inactive term on another concept."
 	when
 		d : Description(active == true && !published && typeId == Constants.FSN && term.length > 1)
 		$duplicate : Description(id != d.id && typeId == Constants.FSN && languageCode == d.languageCode) from descriptionService.findInactiveDescriptionByExactTerm(d.term)
+		eval(!conceptService.isInactiveConceptSameAs($duplicate.conceptId,d.conceptId))
+
 	then
 		invalidContent.add(new InvalidContent("b95a1445-bd25-4ad3-977c-5051f370144d",
 				d, "FSN exists as an inactive term on concept: " + $duplicate.conceptId + ".", Severity.WARNING));

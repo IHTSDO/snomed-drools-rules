@@ -1,0 +1,15 @@
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.response.Severity
+
+global java.util.List invalidContent
+
+rule "French Extension: Text definitions should be case-sensitive."
+	dialect "mvel"
+	when
+		d : Description(active && textDefinition && caseSignificanceId != Constants.ENTIRE_TERM_CASE_SENSITIVE)
+	then
+		invalidContent.add(new InvalidContent("034d8a87-7ebe-430e-b4cf-26448c04d403",
+				d, "Text definitions should be case-sensitive.", Severity.WARNING));
+end
