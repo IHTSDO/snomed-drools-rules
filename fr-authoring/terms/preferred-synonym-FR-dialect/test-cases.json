@@ -19,7 +19,7 @@
                     "moduleId": "11000315107", // FR module
                     "languageCode": "et",
                     "acceptabilityMap": {
-                        "722131000": "900000000000548007" // FR Preferred
+                        "10031000315102": "900000000000548007" // FR Preferred
                     }
                 }
             ]
@@ -57,7 +57,7 @@
                     "term": "Organism",
                     "typeId": "900000000000013009", // SYNONYM
                     "acceptabilityMap": {
-                        "722131000": "900000000000549004"
+                        "10031000315102": "900000000000549004"
                     }
                 }
             ]
@@ -93,7 +93,7 @@
                     "typeId": "900000000000013009", // SYNONYM
                     "languageCode": "fr",
                     "acceptabilityMap": {
-                        "722131000": "900000000000549004" // FR Acceptable
+                        "10031000315102": "900000000000549004" // FR Acceptable
                     }
                 }
             ]

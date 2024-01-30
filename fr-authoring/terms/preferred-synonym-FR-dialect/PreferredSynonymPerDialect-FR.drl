@@ -16,7 +16,7 @@ rule "New French concepts must have a Preferred Synonym in French."
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "fr")
 		)
 		ArrayList(size != 1) from collect (
-			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "fr", acceptabilityMap["722131000"] == Constants.ACCEPTABILITY_PREFERRED)
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "fr", acceptabilityMap["10031000315102"] == Constants.ACCEPTABILITY_PREFERRED)
 		)
 	then
 		InvalidContent invalid = new InvalidContent("37b85757-21e9-4ab2-aa47-c89b318735b6",
