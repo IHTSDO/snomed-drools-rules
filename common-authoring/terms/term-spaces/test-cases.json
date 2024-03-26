@@ -12,6 +12,17 @@
             ]
         },
         {
+            "id": "116680003", // Is A
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Is A",
+                    "conceptId": "116680003"
+                }
+            ]
+        },
+        {
             "id": "373873005",
             "active" : "true",
             "descriptions": [

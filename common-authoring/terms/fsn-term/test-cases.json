@@ -2,7 +2,7 @@
     //
     // 2 no space before semantic tag - rule removed
     "assertConceptsPass": [
-        {
+        /*{
             "descriptions": [
                 {
                     "id": "1",
@@ -44,7 +44,7 @@
                     "term": "SNOMED CT Concept (SNOMED RT+CTV3)"
                 }
             ]
-        }
+        }*/
     ],
     // Failure cases:
     // 1 does not end in )

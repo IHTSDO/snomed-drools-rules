@@ -4,6 +4,17 @@
 			"id": "138875005", // Root concept
 			"active" : true
 		},
+        {
+            "id": "116680003", // Is A
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Is A",
+                    "conceptId": "116680003"
+                }
+            ]
+        },
 		{
 			"id": "900000000000442005",
 			"active" : true,

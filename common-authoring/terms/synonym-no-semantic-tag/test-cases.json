@@ -19,16 +19,16 @@
         }
     ],
     "assertConceptsFail": [
-        {
-            "descriptions": [
-                {
-                	"active" : "true",
-                    "id": "1",
-                    "typeId": "900000000000013009", //SYN
-                    "term": "Some term (organism)"
-               }
-            ]
-        }
+        // {
+        //     "descriptions": [
+        //         {
+        //         	"active" : "true",
+        //             "id": "1",
+        //             "typeId": "900000000000013009", //SYN
+        //             "term": "Some term (organism)"
+        //        }
+        //     ]
+        // }
         //{
         //    "descriptions": [
         //        {

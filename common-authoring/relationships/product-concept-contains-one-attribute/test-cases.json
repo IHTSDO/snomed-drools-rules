@@ -5,6 +5,61 @@
 			"active" : true
 		 },
          {
+            "id": "116680003", // Is A
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Is A",
+                    "conceptId": "116680003"
+                }
+            ]
+        },       
+        {
+            "id": "411116001",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Parent",
+                    "conceptId": "411116001"
+                }
+            ]
+        },
+        {
+            "id": "109035006",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Parent",
+                    "conceptId": "109035006"
+                }
+            ]
+        },
+        {
+            "id": "1090350061",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Parent",
+                    "conceptId": "1090350061"
+                }
+            ]
+        },
+        {
+            "id": "5776009",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Parent",
+                    "conceptId": "5776009"
+                }
+            ]
+        },
+         {
 			"id": "373873005", // Pharmaceutical / biologic product (product)
 			"active" : true,
 			"relationships": [

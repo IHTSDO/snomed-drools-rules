@@ -1,4 +1,169 @@
  {
+    "givenConcepts": [
+        {
+            "id": "138875005", // Root concept
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "description text 1 (product)",
+                    "conceptId": "138875005"
+                }
+            ]
+        },
+        {
+            "id": "116680003", // Is A
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Is A",
+                    "conceptId": "116680003"
+                }
+            ]
+        },
+        {
+            "id": "363698001",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "Parent",
+                    "conceptId": "363698001"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "363698002",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "Parent",
+                    "conceptId": "363698002"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        }
+        ,
+        {
+            "id": "363698003",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "Parent",
+                    "conceptId": "363698003"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "100",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "Parent",
+                    "conceptId": "100"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "123",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "Parent",
+                    "conceptId": "123"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "124",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "Parent",
+                    "conceptId": "124"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "125",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "Parent",
+                    "conceptId": "125"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        }
+    ],
     "assertConceptsPass": [
         {
             "id": "1",

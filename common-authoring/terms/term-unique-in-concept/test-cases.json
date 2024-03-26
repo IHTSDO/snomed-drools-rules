@@ -228,7 +228,8 @@
                     "released": false,
                     "typeId": "1",
                     "languageCode": "en",
-                    "term": "Body Structure (body structure)"
+                    "term": "Body Structure (body structure)",
+                    "caseSignificanceId": "900000000000017005" // Entire term case sensitive
                 },
                 {
                     "id": "3b",
@@ -236,7 +237,8 @@
                     "released": true,
                     "typeId": "1",
                     "languageCode": "en",
-                    "term": "Body structure (body structure)"
+                    "term": "Body structure (body structure)",
+                    "caseSignificanceId": "900000000000020002" // Only initial character case insensitive
                 }
             ]
         },
@@ -271,12 +273,14 @@
                 {
                     "id": "f3a",
                     "languageCode": "en",
-                    "term": "Organism"
+                    "term": "Organism",
+                    "caseSignificanceId": "900000000000017005" // Entire term case sensitive
                 },
                 {
                     "id": "f3b",
                     "languageCode": "en",
-                    "term": "organism"
+                    "term": "organism",
+                    "caseSignificanceId": "900000000000020002" // Only initial character case insensitive
                 }
             ]
         },

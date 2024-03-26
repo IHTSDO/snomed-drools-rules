@@ -17,7 +17,7 @@
                     "term": "Organism",
                     "typeId": "900000000000013009", // SYNONYM
                     "moduleId": "11000315107", // FR module
-                    "languageCode": "et",
+                    "languageCode": "fr",
                     "acceptabilityMap": {
                         "10031000315102": "900000000000548007" // FR Preferred
                     }

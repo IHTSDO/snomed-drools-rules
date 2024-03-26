@@ -55,18 +55,20 @@
                     "id": "1",
                     "term": "Organism (A)",
                     "typeId": "900000000000013009", // SYNONYM
+                    "moduleId": "11000172109", // BE module
                     "languageCode": "nl",
                     "acceptabilityMap": {
-                        "21000172104": "900000000000548007" // ACCEPTABILITY_PREFERRED
+                        "21000172104": "900000000000549004" // ACCEPTABILITY_ACCEPTABLE
                     }
                 },
                 {
                     "id": "2",
                     "term": "Organism (B)",
                     "typeId": "900000000000013009", // SYNONYM
+                    "moduleId": "11000172109", // BE module
                     "languageCode": "fr",
                     "acceptabilityMap": {
-                        "21000172104": "900000000000548007" // ACCEPTABILITY_PREFERRED
+                        "21000172104": "900000000000549004" // ACCEPTABILITY_ACCEPTABLE
                     }
                 }
             ]

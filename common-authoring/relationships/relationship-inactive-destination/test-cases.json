@@ -1,6 +1,28 @@
 {
     "givenConcepts": [
         {
+            "id": "138875005", // Root concept
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "description text 1 (product)",
+                    "conceptId": "138875005"
+                }
+            ]
+        },
+        {
+            "id": "116680003", // Is A
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Is A",
+                    "conceptId": "116680003"
+                }
+            ]
+        },
+        {
             "id": "a1",
             "active" : true
         },
@@ -14,7 +36,8 @@
             "id": "1",
             "relationships": [
                 {
-                    "destinationId": "a1"
+                    "destinationId": "a1",
+                    "typeId": "116680003"
                 }
             ]
         }
@@ -24,10 +47,12 @@
             "id": "2",
             "relationships": [
                 {
-                    "destinationId": "a1"
+                    "destinationId": "a1",
+                    "typeId": "116680003"
                 },
                 {
-                    "destinationId": "a2"
+                    "destinationId": "a2",
+                    "typeId": "116680003"
                 }
             ]
         }

@@ -39,7 +39,8 @@
                     "term": "Ibuprofen \t oxycodone (product)"
                 }
             ]
-        },{
+        },
+        {
             "id": "3",
             "descriptions": [
                 {
@@ -48,7 +49,8 @@
                     "term": "Ibuprofen \r oxycodone (product)"
                 }
             ]
-        },{
+        },
+        {
             "id": "4",
             "descriptions": [
                 {
@@ -57,16 +59,18 @@
                     "term": "Ibuprofen \n oxycodone (product)"
                 }
             ]
-        },{
-            "id": "5",
-            "descriptions": [
-                {
-                    "id": "2",
-                    "typeId": "900000000000003001",
-                    "term": "Ibuprofen \\\Z oxycodone (product)"
-                }
-            ]
-        },        {
+        },
+        // {
+        //     "id": "5",
+        //     "descriptions": [
+        //         {
+        //             "id": "2",
+        //             "typeId": "900000000000003001",
+        //             "term": "Ibuprofen \\\Z oxycodone (product)"
+        //         }
+        //     ]
+        // },
+        {
             "id": "6",
             "descriptions": [
                 {
@@ -95,7 +99,7 @@
                     "term": "Ibuprofen # oxycodone (product)"
                 }
             ]
-        },
+        }/*,
         {
             "id": "9",
             "descriptions": [
@@ -105,6 +109,6 @@
                     "term": "myelodysplastic/​myeloproliferative neoplasm with ring sideroblasts and thrombocytosis"
                 }
             ]
-        }
+        }*/
     ]
 }

@@ -1,4 +1,229 @@
-{	"assertConceptsPass": [
+{	
+    "givenConcepts": [
+        {
+            "id": "138875005", // Root concept
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "description text 1 (product)",
+                    "conceptId": "138875005"
+                }
+            ]
+        },
+        {
+            "id": "116680003", // Is A
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Is A",
+                    "conceptId": "116680003"
+                }
+            ]
+        },
+        {
+            "id": "774158006",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "description text 1",
+                    "conceptId": "774158006"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "774159003",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "description text 2",
+                    "conceptId": "774159003"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "774160008",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "description text 3",
+                    "conceptId": "774160008"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "2",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "774161007",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "description text 4",
+                    "conceptId": "774161007"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "2",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "774163005",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "description text 5",
+                    "conceptId": "774163005"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "2",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "774164004",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "description text 6",
+                    "conceptId": "774164004"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "2",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "774167006",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "description text 7",
+                    "conceptId": "774167006"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "2",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "774167006",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "description text 8",
+                    "conceptId": "774167006"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "2",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "860781008",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "description text 9",
+                    "conceptId": "860781008"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "2",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "860779006",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "description text 10",
+                    "conceptId": "860779006"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "2",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        }
+    ],
+    "assertConceptsPass": [
     ],
     "assertConceptsFail": [
         {
@@ -8,7 +233,8 @@
                 {
                     "id": "1",
                     "active": true,
-                    "typeId": "774158006" // Has product name (attribute)
+                    "typeId": "774158006", // Has product name (attribute)
+                    "destinationId": "774167006"
                 }
             ]
         },
@@ -19,7 +245,8 @@
                 {
                     "id": "2",
                     "active": true,
-                    "typeId": "774159003" // Has supplier (attribute)
+                    "typeId": "774159003", // Has supplier (attribute)
+                    "destinationId": "774159003"
                 }
             ]
         },
@@ -30,7 +257,8 @@
                 {
                     "id": "3",
                     "active": true,
-                    "typeId": "774160008" // Contains clinical drug (attribute)
+                    "typeId": "774160008", // Contains clinical drug (attribute)
+                    "destinationId": "774160008"
                 }
             ]
         },
@@ -41,7 +269,8 @@
                 {
                     "id": "4",
                     "active": true,
-                    "typeId": "774161007" // Has pack size (attribute)
+                    "typeId": "774161007", // Has pack size (attribute)
+                    "destinationId": "774161007"
                 }
             ]
         },
@@ -52,7 +281,8 @@
                 {
                     "id": "5",
                     "active": true,
-                    "typeId": "774163005" // Has pack size unit (attribute)
+                    "typeId": "774163005", // Has pack size unit (attribute)
+                    "destinationId": "774163005"
                 }
             ]
         },
@@ -63,7 +293,8 @@
                 {
                     "id": "6",
                     "active": true,
-                    "typeId": "774164004" // Supplier (supplier)
+                    "typeId": "774164004", // Supplier (supplier),
+                    "destinationId": "774164004"
                 }
             ]
         },
@@ -74,7 +305,8 @@
                 {
                     "id": "7",
                     "active": true,
-                    "typeId": "774167006" // Product name (product name)
+                    "typeId": "774167006", // Product name (product name)
+                    "destinationId": "774167006"
                 }
             ]
         },
@@ -85,7 +317,8 @@
                 {
                     "id": "8",
                     "active": true,
-                    "destinationId": "774167006" // Product name (product name)
+                    "typeId": "116680003",
+                    "destinationId": "774167006" // Product name (product name)                    
                 }
             ]
         },
@@ -96,7 +329,8 @@
                 {
                     "id": "6",
                     "active": true,
-                    "typeId": "860781008" // Has product characteristic (attribute)
+                    "typeId": "860781008", // Has product characteristic (attribute)
+                    "destinationId": "860781008"
                 }
             ]
         },
@@ -107,7 +341,8 @@
                 {
                     "id": "6",
                     "active": true,
-                    "typeId": "860779006" // Has ingredient characteristic (attribute)
+                    "typeId": "860779006", // Has ingredient characteristic (attribute)
+                    "destinationId": "860779006"
                 }
             ]
         }

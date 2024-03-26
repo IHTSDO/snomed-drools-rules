@@ -1,4 +1,148 @@
 {
+    "givenConcepts": [
+        {
+            "id": "138875005", // Root concept
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "description text 1 (product)",
+                    "conceptId": "138875005"
+                }
+            ]
+        },
+        {
+            "id": "116680003", // Is A
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Is A",
+                    "conceptId": "116680003"
+                }
+            ]
+        },
+        {
+            "id": "363713009",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "Has interpretation (attribute)",
+                    "conceptId": "363713009"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "363714003",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "//Interprets (attribute)",
+                    "conceptId": "363714003"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "description text 3 (environment)",
+                    "conceptId": "2"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "2",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "a1",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "description text 3 (environment)",
+                    "conceptId": "a1"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "2",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "a2",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "description text 3 (environment)",
+                    "conceptId": "a2"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "2",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "a3",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "description text 3 (environment)",
+                    "conceptId": "a3"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "2",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        }
+    ],
     "assertConceptsPass": [
         {
             "id": "1",
@@ -7,6 +151,8 @@
             "relationships": [
                 {
                     "id": "1",
+                    "typeId": "116680003",
+                    "destinationId": "a1",
                     "moduleId": "900000000000207008", // core module
                     "active": true,
                     "characteristicTypeId" : "900000000000010007"  // STATED_RELATIONSHIP               
@@ -20,12 +166,16 @@
             "relationships": [
                 {
                     "id": "1",
+                    "typeId": "116680003",
+                    "destinationId": "a1",
                     "moduleId": "900000000000207008", // core module
                     "active": true,
                     "characteristicTypeId" : "900000000000010007"  // STATED_RELATIONSHIP               
                 },
                 {
                     "id": "2",
+                    "typeId": "116680003",
+                    "destinationId": "a2",
                     "moduleId": "900000000000012004", // model component
                     "active": true,
                     "characteristicTypeId" : "900000000000011006"  // INFERRED_RELATIONSHIP       
@@ -42,12 +192,16 @@
             "relationships": [
                 {
                     "id": "1",
+                    "typeId": "116680003",
+                    "destinationId": "a1",
                     "moduleId": "900000000000207008",  // core module
                     "active": true,
                     "characteristicTypeId" : "900000000000010007"  // STATED_RELATIONSHIP    
                 },
                 {
                     "id": "2",
+                    "typeId": "116680003",
+                    "destinationId": "a2",
                     "moduleId": "900000000000012004", // model component
                     "active": true,
                     "characteristicTypeId" : "900000000000010007"  // STATED_RELATIONSHIP    

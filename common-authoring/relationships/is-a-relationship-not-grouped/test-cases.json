@@ -1,15 +1,72 @@
 {
+    "givenConcepts": [
+        {
+            "id": "138875005", // Root concept
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "description text 1 (product)",
+                    "conceptId": "138875005"
+                }
+            ]
+        },
+        {
+            "id": "116680003", // Is A
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Is A",
+                    "conceptId": "116680003"
+                }
+            ]
+        },
+        {
+            "id": "363698007", // Finding site
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Finding site",
+                    "conceptId": "363698007"
+                }
+            ]
+        },
+        {
+            "id": "parent",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "Parent",
+                    "conceptId": "parent"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        }
+    ],
     "assertConceptsPass": [
         {
             "id": "1",
             "relationships": [
                 {
                     "typeId": "363698007", // Finding site
-                    "relationshipGroup": "3"
+                    "relationshipGroup": "3",
+                    "destinationId": "parent"
                 },
                 {
                     "typeId": "116680003", // is-a
-                    "relationshipGroup": "0"
+                    "relationshipGroup": "0",
+                    "destinationId": "parent"
                 }
             ]
         }
@@ -20,7 +77,8 @@
             "relationships": [
                 {
                     "typeId": "116680003", // is-a
-                    "relationshipGroup": "1"
+                    "relationshipGroup": "1",
+                    "destinationId": "parent"
                 }
             ]
         }

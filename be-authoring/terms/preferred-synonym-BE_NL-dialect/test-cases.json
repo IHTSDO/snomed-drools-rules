@@ -57,7 +57,7 @@
                     "typeId": "900000000000013009", // SYNONYM
                     "languageCode": "nl",
                     "acceptabilityMap": {
-                        "31000172101": "900000000000548007" // ACCEPTABILITY_PREFERRED
+                        "31000172101": "900000000000549004" // ACCEPTABILITY_ACCEPTABLE
                     }
                 },
                 {
@@ -66,7 +66,7 @@
                     "typeId": "900000000000013009", // SYNONYM
                     "languageCode": "fr",
                     "acceptabilityMap": {
-                        "31000172101": "900000000000548007" // ACCEPTABILITY_PREFERRED
+                        "31000172101": "900000000000549004" // ACCEPTABILITY_ACCEPTABLE
                     }
                 }
             ]

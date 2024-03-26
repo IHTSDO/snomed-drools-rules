@@ -2,13 +2,78 @@
 	// 11 - primitive with one relationship
 	// 12 - primitive with two relationships
 	// 13 - defined with two relationships
+    "givenConcepts": [
+        {
+            "id": "138875005", // Root concept
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "description text 1 (product)",
+                    "conceptId": "138875005"
+                }
+            ]
+        },
+        {
+            "id": "116680003", // Is A
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Is A",
+                    "conceptId": "116680003"
+                }
+            ]
+        },
+        {
+            "id": "parent",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "Parent",
+                    "conceptId": "parent"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "123005000",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "Part of",
+                    "conceptId": "123005000"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        }
+    ],
     "assertConceptsPass": [
         {
             "id": "11",
              "definitionStatusId": "900000000000074008", // PRIMITIVE
             "relationships": [
                 {
-                    "typeId": "116680003" // Is-a
+                    "typeId": "116680003", // Is-a
+                    "destinationId": "parent"
                 }
             ]
         }, {
@@ -16,9 +81,11 @@
              "definitionStatusId": "900000000000074008", // PRIMITIVE
             "relationships": [
                 {
-                    "typeId": "116680003" // Is-a
+                    "typeId": "116680003", // Is-a
+                    "destinationId": "parent"
                 }, {
-                    "typeId": "123005000" // Part of
+                    "typeId": "123005000", // Part of
+                    "destinationId": "parent"
                 }
             ]
         },  {
@@ -27,9 +94,11 @@
             "active" : true,
             "relationships": [
                 {
-                    "typeId": "116680003" // Is-a
+                    "typeId": "116680003", // Is-a
+                    "destinationId": "parent"
                 }, {
-                    "typeId": "123005000" // Part of
+                    "typeId": "123005000", // Part of
+                    "destinationId": "parent"
                 }
             ]
         }
@@ -47,7 +116,8 @@
             "relationships": [
                 {
                     "axiomId": "02caf5ee-9ba9-4665-948e-85005197d8b0",
-                    "typeId": "116680003" // Is-a
+                    "typeId": "116680003", // Is-a
+                    "destinationId": "parent"
                 }
             ],
             "ontologyAxioms": [
@@ -68,12 +138,14 @@
                     "axiomId": "02caf5ee-9ba9-4665-948e-85005197d8b0",
                     "typeId": "116680003", // Is-a
                     "active": true,
-                    "characteristicTypeId": "900000000000010007" //STATED_RELATIONSHIP
+                    "characteristicTypeId": "900000000000010007", //STATED_RELATIONSHIP
+                    "destinationId": "parent"
                 },
                 {
                     "typeId": "116680003", // Is-a
                     "active": true,
-                    "characteristicTypeId": "900000000000011006" //INFERRED_RELATIONSHIP
+                    "characteristicTypeId": "900000000000011006", //INFERRED_RELATIONSHIP
+                    "destinationId": "parent"
                 }
             ],
             "ontologyAxioms": [
@@ -93,13 +165,15 @@
                 {
                     "typeId": "116680003", // Is-a
                     "active": true,
-                    "characteristicTypeId": "900000000000010007" //STATED_RELATIONSHIP
+                    "characteristicTypeId": "900000000000010007", //STATED_RELATIONSHIP
+                    "destinationId": "parent"
                 },
                 {
                     "axiomId": "02caf5ee-9ba9-4665-948e-85005197d8b0",
                     "typeId": "116680003", // Is-a
                     "active": true,
-                    "characteristicTypeId": "900000000000010007" //STATED_RELATIONSHIP
+                    "characteristicTypeId": "900000000000010007", //STATED_RELATIONSHIP
+                    "destinationId": "parent"
                 }
             ],
             "ontologyAxioms": [
@@ -120,16 +194,19 @@
                     "typeId": "116680003", // Is-a
                     "active": true,
                     "characteristicTypeId": "900000000000010007", //STATED_RELATIONSHIP
-                    "axiomId":"02caf5ee-9ba9-4665-948e-85005197d8b0"
+                    "axiomId":"02caf5ee-9ba9-4665-948e-85005197d8b0",
+                    "destinationId": "parent"
                 },
                 {
                     "axiomId": "02caf5ee-9ba9-4665-948e-85005197d8b0",
                     "typeId": "116680003", // Is-a
                     "active": true,
-                    "characteristicTypeId": "900000000000010007" //STATED_RELATIONSHIP
+                    "characteristicTypeId": "900000000000010007", //STATED_RELATIONSHIP
+                    "destinationId": "parent"
                 },
                 {
                     "typeId": "123005000", // Part of
+                    "destinationId": "parent",
                     "axiomId": "4882ea32-992e-4bb0-ae71-d3957e3d53ff"
                 }
             ],

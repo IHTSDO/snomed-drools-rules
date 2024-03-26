@@ -1,12 +1,58 @@
 {
     "givenConcepts": [
         {
+            "id": "138875005", // Root concept
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "description text 1 (product)",
+                    "conceptId": "138875005"
+                }
+            ]
+        },
+        {
+            "id": "116680003", // Is A
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Is A",
+                    "conceptId": "116680003"
+                }
+            ]
+        },
+        {
+            "id": "parent",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "Parent",
+                    "conceptId": "parent"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
             "id": "a1",
             "active" : true
         },
         {
             "id": "a2",
             "active" : false
+        },
+        {
+            "id": "2",
+            "active" : true
         }
     ],
     "assertConceptsPass": [
@@ -14,7 +60,8 @@
             "id": "1",
             "relationships": [
                 {
-                    "destinationId": "a1"
+                    "destinationId": "a1",
+                    "typeId": "116680003" // is-a
                 }
             ]
         }
@@ -24,10 +71,12 @@
             "id": "2",
             "relationships": [
                 {
-                    "destinationId": "a1"
+                    "destinationId": "a1",
+                    "typeId": "116680003" // is-a
                 },
                 {
-                    "destinationId": "2"// Destination is self
+                    "destinationId": "2",// Destination is self
+                    "typeId": "116680003" // is-a
                 }
             ]
         }

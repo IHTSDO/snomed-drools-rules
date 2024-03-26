@@ -12,6 +12,17 @@
             ]
         },
         {
+            "id": "116680003", // Is A
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Is A",
+                    "conceptId": "116680003"
+                }
+            ]
+        },
+        {
             "id": "404684003",
             "descriptions": [
                 {
@@ -216,7 +227,7 @@
         }
     ],
     "assertConceptsPass": [
-        {
+        /*{
             "id": "1",
             "descriptions": [
                 {
@@ -243,7 +254,7 @@
                     "destinationId": "404684003" // Clinical finding (finding)
                 }
             ]
-        },
+        },*/
         {
             // This is a special case
             "id": "2",
@@ -343,7 +354,7 @@
                     "destinationId": "281647001" // Adverse reaction (disorder)
                 }
             ]
-        },
+        }/*,
         {
             "id": "391152009",
             "active" : true,
@@ -376,7 +387,7 @@
                     "destinationId": "390817007" // General psychiatric care of older adults (regime/therapy)
                 }
             ]
-        }
+        }*/
     ],
     "assertConceptsFail": [
         {

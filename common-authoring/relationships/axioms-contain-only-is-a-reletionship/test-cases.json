@@ -1,4 +1,72 @@
  {
+    "givenConcepts": [
+        {
+            "id": "138875005", // Root concept
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "description text 1 (product)",
+                    "conceptId": "138875005"
+                }
+            ]
+        },
+        {
+            "id": "116680003", // Is A
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Is A",
+                    "conceptId": "116680003"
+                }
+            ]
+        },
+        {
+            "id": "363698007",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Parent",
+                    "conceptId": "363698007"
+                }
+            ]
+        },
+        {
+            "id": "100",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Parent",
+                    "conceptId": "100"
+                }
+            ]
+        },
+        {
+            "id": "123",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Parent",
+                    "conceptId": "123"
+                }
+            ]
+        },
+        {
+            "id": "124",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Parent",
+                    "conceptId": "124"
+                }
+            ]
+        }
+    ],
     "assertConceptsPass": [
         {
             "id": "1",

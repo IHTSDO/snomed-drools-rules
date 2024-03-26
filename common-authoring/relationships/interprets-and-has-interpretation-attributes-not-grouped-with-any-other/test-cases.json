@@ -1,4 +1,4 @@
-{    
+{
     "givenConcepts": [
         {
             "id": "138875005", // Root concept
@@ -132,11 +132,12 @@
             ]
         }
     ],
-    "assertConceptsPass": [        
+    "assertConceptsPass": [
     ],
     "assertConceptsFail": [
         {
             "id": "1",
+            "moduleId": "1000052",
             "relationships": [
                 {
                     "typeId": "363713009", //Has interpretation (attribute)
@@ -160,6 +161,7 @@
         },
         {
             "id": "2",
+            "moduleId": "1000052",
             "relationships": [
                 {
                     "typeId": "363713009", //Has interpretation (attribute)
@@ -177,6 +179,7 @@
         },
         {
             "id": "3",
+            "moduleId": "1000052",
             "relationships": [
                 {
                     "typeId": "363714003", //Interprets (attribute)
