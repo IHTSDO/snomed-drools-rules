@@ -13,6 +13,15 @@ rule "An active description must not be longer than 4096 characters."
 				d, "An active description must not be longer than 4096 characters."));
 end
 
+rule "An active description should not be longer than 255 characters."
+	dialect "mvel"
+	when
+		d : Description(active && typeId != "900000000000550004" && term.length > 255 && term.length <= 4096)
+	then
+		invalidContent.add(new InvalidContent("863fab2b-ce09-4773-a29e-b6b994ccaf21",
+				d, "An active description should not be longer than 255 characters.", Severity.WARNING));
+end
+
 rule "An active text definition must not be longer than 4096 characters."
 	dialect "mvel"
 	when
