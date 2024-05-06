@@ -3,34 +3,38 @@ import org.ihtsdo.drools.domain.Description
 import org.ihtsdo.drools.domain.Constants
 import java.util.Collection
 import java.util.ArrayList
+import java.util.Map
+import java.util.Set
+import org.ihtsdo.drools.service.ConceptService
 import org.ihtsdo.drools.helper.DescriptionHelper
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
 
+global ConceptService conceptService
 global java.util.List invalidContent
 
+function boolean isPreferredInAnyDialect(Map acceptabilityMap, Collection languageDialects) {	
+	for (Object languageDialect : languageDialects) {
+		if (acceptabilityMap.containsKey((String) languageDialect) && acceptabilityMap.get((String) languageDialect).equals(Constants.ACCEPTABILITY_PREFERRED)) {
+			return true;
+		}
+	}
+	return false;
+}
 rule "New Belgian concepts, or translated concepts, must have a Preferred Synonym in at least one Belgian language reference set."
 	dialect "mvel"
-	when
+	when 
 		c : Concept(active)
 		ArrayList(size > 0 || c.moduleId == "11000172109") from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, moduleId == "11000172109")
 		)
+		languageDialects: ArrayList(size > 0) from collect(String() from conceptService.findLanguageReferenceSetByModule("11000172109"))
 		ArrayList(size == 0) from collect (
-			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "fr", acceptabilityMap["21000172104"] == Constants.ACCEPTABILITY_PREFERRED)
-		)
-		ArrayList(size == 0) from collect (
-			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "nl", acceptabilityMap["31000172101"] == Constants.ACCEPTABILITY_PREFERRED)
-		)
-		ArrayList(size == 0) from collect (
-			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "fr", acceptabilityMap["711000172101"] == Constants.ACCEPTABILITY_PREFERRED)
-		)
-		ArrayList(size == 0) from collect (
-			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "nl", acceptabilityMap["701000172104"] == Constants.ACCEPTABILITY_PREFERRED)
+			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, (languageCode == "fr" || languageCode == "nl" || languageCode == "de"), isPreferredInAnyDialect(acceptabilityMap, languageDialects))
 		)
 	then
 		InvalidContent invalid = new InvalidContent("1a8d7a77-7b03-458d-95af-72f23378aef5",
-				c, "A concept in the Belgian module must have a Preferred Synonym in either BE-FR, BE-NL or one of the context specific language
+				c, "A concept in the Belgian module must have a Preferred Synonym in either BE-FR, BE-NL, BE-DE or one of the context specific language
 		reference sets.");
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);

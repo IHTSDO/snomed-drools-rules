@@ -1,4 +1,112 @@
 {
+      "givenConcepts": [
+        {
+            "id": "138875005", // Root concept
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "description text 1 (product)",
+                    "conceptId": "138875005"
+                }
+            ]
+        },
+        {
+            "id": "116680003", // Is A
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Is A",
+                    "conceptId": "116680003"
+                }
+            ]
+        },
+        {
+            "id": "900000000000506000",
+            "active" : "true",
+            "descriptions": [
+                {
+                    "id": "c1d1",
+                    "term": "Language type reference set"
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // Is a
+                    "destinationId": "138875005"
+                }
+            ]
+        },
+        {
+            "id": "31000172101",
+            "active" : "true",
+            "moduleId": "11000172109", // BE module
+            "descriptions": [
+                {
+                    "id": "c1d1",
+                    "term": "Belgian Dutch language reference set"
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // Is a
+                    "destinationId": "900000000000506000"
+                }
+            ]
+        },
+        {
+            "id": "21000172104",
+            "active" : "true",
+            "moduleId": "11000172109", // BE module
+            "descriptions": [
+                {
+                    "id": "c1d1",
+                    "term": "Belgian French language reference set"
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // Is a
+                    "destinationId": "900000000000506000"
+                }
+            ]
+        },
+        {
+            "id": "120961000172108",
+            "active" : "true",
+            "moduleId": "11000172109", // BE module
+            "descriptions": [
+                {
+                    "id": "c1d1",
+                    "term": "Belgian German language reference set"
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // Is a
+                    "destinationId": "900000000000506000"
+                }
+            ]
+        },
+        {
+          "id": "711000172101",
+          "active" : "true",
+          "moduleId": "11000172109", // BE module
+          "descriptions": [
+              {
+                  "id": "c1d1",
+                  "term": "Belgian GP French language reference set"
+              }
+          ],
+          "relationships": [
+              {
+                  "typeId": "116680003", // Is a
+                  "destinationId": "900000000000506000"
+              }
+          ]
+      }
+    ],
     "assertConceptsPass": [
         {
             "id": "1",
@@ -291,7 +399,7 @@
             "term": "Organism",
             "typeId": "900000000000013009", // SYNONYM
             "moduleId": "11000172109", // BE module
-            "languageCode": "nl",// Wrong language
+            "languageCode": "xx",// Wrong language
             "acceptabilityMap": {
               "711000172101": "900000000000548007" // BE FR GP
             }
