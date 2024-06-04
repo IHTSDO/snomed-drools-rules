@@ -10,10 +10,10 @@ rule "An active concept must not have two or more axioms containing only 'is a' 
 	dialect "mvel"
 	when
 		c : Concept(active)
-		r1 : Relationship(active, typeId == Constants.IS_A, !axiomGCI)
+		r1 : Relationship(active, typeId == Constants.IS_A, characteristicTypeId == Constants.STATED_RELATIONSHIP, !axiomGCI)
 		activeStatedRelationship1: ArrayList( size == 1 )
 				from collect( Relationship(active, !axiomGCI, sourceId == c.id, axiomId == r1.axiomId, characteristicTypeId == Constants.STATED_RELATIONSHIP))
-		r2 : Relationship(active, id != r1.id, axiomId != r1.axiomId, typeId == Constants.IS_A, !axiomGCI)
+		r2 : Relationship(active, id != r1.id, axiomId != r1.axiomId, typeId == Constants.IS_A, characteristicTypeId == Constants.STATED_RELATIONSHIP, !axiomGCI)
 		activeStatedRelationship2: ArrayList( size == 1 )
 				from collect( Relationship(active, !axiomGCI, sourceId == c.id, axiomId == r2.axiomId, characteristicTypeId == Constants.STATED_RELATIONSHIP))
 	then

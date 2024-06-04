@@ -1,4 +1,5 @@
 import org.ihtsdo.drools.domain.Relationship
+import org.ihtsdo.drools.domain.Constants
 import org.ihtsdo.drools.service.ConceptService
 import org.ihtsdo.drools.response.InvalidContent
 
@@ -8,7 +9,7 @@ global ConceptService conceptService
 rule "Relationship targets must be active."
 	dialect "mvel"
 	when
-		r : Relationship(active && destinationId != null && !conceptService.isActive(destinationId))
+		r : Relationship(active && characteristicTypeId == Constants.STATED_RELATIONSHIP && destinationId != null && !conceptService.isActive(destinationId))
 	then
 		invalidContent.add(new InvalidContent("44980955-13e5-4f00-a1cf-968935d20455",
 				r, "Relationship target is inactive."));

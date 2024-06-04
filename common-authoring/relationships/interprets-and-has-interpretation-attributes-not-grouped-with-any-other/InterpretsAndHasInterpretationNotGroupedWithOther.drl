@@ -1,5 +1,6 @@
 import org.ihtsdo.drools.domain.Concept
 import org.ihtsdo.drools.domain.Relationship
+import org.ihtsdo.drools.domain.Constants
 import org.ihtsdo.drools.response.InvalidContent
 
 global java.util.List invalidContent
@@ -8,8 +9,8 @@ rule "Extension: Interprets and Has interpretation attributes should not be grou
 	dialect "mvel"
 	when
 		c : Concept(active  && moduleId != "900000000000207008")		
-		r1 : Relationship(active && sourceId == c.id && (typeId == "363713009" || typeId == "363714003")) /*Has interpretation (attribute) || Interprets (attribute)*/
-		r2 : Relationship(active && sourceId == c.id && typeId != "363713009" && typeId != "363714003" && relationshipGroup == r1.relationshipGroup && r1.axiomId == axiomId)
+		r1 : Relationship(active && sourceId == c.id && characteristicTypeId == Constants.STATED_RELATIONSHIP && (typeId == "363713009" || typeId == "363714003")) /*Has interpretation (attribute) || Interprets (attribute)*/
+		r2 : Relationship(active && sourceId == c.id && characteristicTypeId == Constants.STATED_RELATIONSHIP && typeId != "363713009" && typeId != "363714003" && relationshipGroup == r1.relationshipGroup && r1.axiomId == axiomId)
 	then
 		InvalidContent invalid = new InvalidContent("c9bfd249-8250-48e5-834c-cca2cf9f5205",
 				c, "Interprets and Has interpretation attributes should not be grouped with any other attributes.");

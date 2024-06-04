@@ -1,5 +1,6 @@
 import org.ihtsdo.drools.domain.Concept
 import org.ihtsdo.drools.domain.Relationship
+import org.ihtsdo.drools.domain.Constants
 import org.ihtsdo.drools.helper.RelationshipHelper
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
@@ -10,8 +11,8 @@ rule "An active concept must not have attributes 363589002 |Associated procedure
 	dialect "mvel"
 	when
 		c : Concept(active)
-		r1 : Relationship(active && sourceId == c.id && typeId == "363589002")
-		r2 : Relationship(active && sourceId == c.id && typeId == "408729009" && relationshipGroup == r1.relationshipGroup && r1.id != id && r1.axiomId == axiomId)
+		r1 : Relationship(active && sourceId == c.id && typeId == "363589002" && characteristicTypeId == Constants.STATED_RELATIONSHIP)
+		r2 : Relationship(active && sourceId == c.id && typeId == "408729009" && characteristicTypeId == Constants.STATED_RELATIONSHIP && relationshipGroup == r1.relationshipGroup && r1.id != id && r1.axiomId == axiomId)
 	then
 		InvalidContent invalid = new InvalidContent("7e632141-24fd-4dfe-bb4d-a3de5dd21ca2",
 				c, "An active concept must not have the attributes 363589002 |Associated procedure| and 408729009 |Finding context| in same group.", Severity.ERROR);

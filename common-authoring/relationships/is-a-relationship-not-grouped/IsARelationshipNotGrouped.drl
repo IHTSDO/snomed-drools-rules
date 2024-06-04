@@ -7,7 +7,7 @@ global java.util.List invalidContent
 rule "'Is a' relationships must not be grouped."
 	dialect "mvel"
 	when
-		r : Relationship(typeId == Constants.IS_A && relationshipGroup != 0)
+		r : Relationship(typeId == Constants.IS_A && relationshipGroup != 0 && characteristicTypeId == Constants.STATED_RELATIONSHIP)
 	then
 		invalidContent.add(new InvalidContent("6f3e115f-0b39-4391-948b-afb20090baf7",
 				r, "IS A relationships must not be grouped."));

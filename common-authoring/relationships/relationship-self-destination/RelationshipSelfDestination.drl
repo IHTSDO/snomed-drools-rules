@@ -1,12 +1,13 @@
 import org.ihtsdo.drools.domain.Relationship
 import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.domain.Constants
 
 global java.util.List invalidContent
 
 rule "The source and destination of a relationship must not be the same concept."
 	dialect "mvel"
 	when
-		r : Relationship(active && destinationId != null && sourceId == destinationId)
+		r : Relationship(active && destinationId != null && sourceId == destinationId && characteristicTypeId == Constants.STATED_RELATIONSHIP)
 	then
 		invalidContent.add(new InvalidContent("fd8bf538-7bc3-4a9e-9e0c-3193dc2104a4",
 				r, "Active relationships must not use the source concept as the destination."));

@@ -4,6 +4,7 @@ import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.domain.Constants
 import org.ihtsdo.drools.service.DescriptionService
 import java.util.Collections
+import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent
 global DescriptionService descriptionService
@@ -15,6 +16,6 @@ rule "The relationships must have the same module as the source concept."
 		r : Relationship(active && moduleId != c.moduleId && sourceId == c.id && !axiomGCI)
 	then
 		invalidContent.add(new InvalidContent("26713930-fece-484d-ac9c-3e00b0e1090d",
-				c, "The " + (r.characteristicTypeId == Constants.INFERRED_RELATIONSHIP ? "inferred" : "stated") + " relationship " + r.id + " has a different module (" + r.moduleId + " |" + (descriptionService.getFSNs(Collections.singleton(r.moduleId), Constants.US_EN_LANG_REFSET)).toString().replace("[", "").replace("]", "") +"|) than the source concept (" + c.moduleId + " |" + (descriptionService.getFSNs(Collections.singleton(c.moduleId), Constants.US_EN_LANG_REFSET)).toString().replace("[", "").replace("]", "") + "|)."));
+				c, "The " + (r.characteristicTypeId == Constants.INFERRED_RELATIONSHIP ? "inferred" : "stated") + " relationship " + r.id + " has a different module (" + r.moduleId + " |" + (descriptionService.getFSNs(Collections.singleton(r.moduleId), Constants.US_EN_LANG_REFSET)).toString().replace("[", "").replace("]", "") +"|) than the source concept (" + c.moduleId + " |" + (descriptionService.getFSNs(Collections.singleton(c.moduleId), Constants.US_EN_LANG_REFSET)).toString().replace("[", "").replace("]", "") + "|).", Severity.WARNING));
 end
  

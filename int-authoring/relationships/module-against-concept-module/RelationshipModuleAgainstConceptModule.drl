@@ -6,7 +6,7 @@ import org.ihtsdo.drools.domain.Constants
 
 global java.util.List invalidContent
 
-rule "An active relationship should have the same Module ID as the concept."
+rule "An active rel ationship should have the same Module ID as the concept."
 	dialect "mvel"
 	when
 		c : Concept(active)

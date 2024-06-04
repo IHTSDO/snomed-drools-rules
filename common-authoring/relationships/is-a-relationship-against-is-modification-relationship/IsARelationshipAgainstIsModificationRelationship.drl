@@ -9,8 +9,8 @@ rule "An 'is a' relationship must not have the same target value as an 'is modif
 	dialect "mvel"
 	when
 		c : Concept(active)
-		r1 : Relationship(active, typeId == Constants.IS_A)
-		r2 : Relationship(active, id != r1.id, typeId == "738774007", (destinationId != null && destinationId == r1.destinationId)
+		r1 : Relationship(active, typeId == Constants.IS_A, characteristicTypeId == Constants.STATED_RELATIONSHIP)
+		r2 : Relationship(active, id != r1.id, typeId == "738774007", characteristicTypeId == Constants.STATED_RELATIONSHIP, (destinationId != null && destinationId == r1.destinationId)
 				|| (concreteValue != null && concreteValue == r1.concreteValue))
 	then
 		InvalidContent invalid = new InvalidContent("3574823b-5612-4df8-b4bf-ede466535d63",

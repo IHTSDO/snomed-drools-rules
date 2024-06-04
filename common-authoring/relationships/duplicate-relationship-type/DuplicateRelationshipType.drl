@@ -1,5 +1,6 @@
 import org.ihtsdo.drools.domain.Concept
 import org.ihtsdo.drools.domain.Relationship
+import org.ihtsdo.drools.domain.Constants
 import org.ihtsdo.drools.helper.RelationshipHelper
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
@@ -10,8 +11,8 @@ rule "An active concept should not have two relationships with the same type in 
 	dialect "mvel"
 	when
 		c : Concept(active)
-		r1 : Relationship(active && sourceId == c.id && typeId != "116680003" && relationshipGroup != 0)
-		r2 : Relationship(active && sourceId == c.id && typeId != "116680003" && relationshipGroup != 0 && r1.id != id && typeId == r1.typeId && r1.axiomId == axiomId
+		r1 : Relationship(active && sourceId == c.id && typeId != "116680003" && relationshipGroup != 0 && characteristicTypeId == Constants.STATED_RELATIONSHIP)
+		r2 : Relationship(active && sourceId == c.id && typeId != "116680003" && relationshipGroup != 0 && characteristicTypeId == Constants.STATED_RELATIONSHIP && r1.id != id && typeId == r1.typeId && r1.axiomId == axiomId
 				&& relationshipGroup == r1.relationshipGroup && destinationId != r1.destinationId)
 	then
 		InvalidContent invalid = new InvalidContent("419933d6-903e-49ed-ae3b-b6f202da89f4",

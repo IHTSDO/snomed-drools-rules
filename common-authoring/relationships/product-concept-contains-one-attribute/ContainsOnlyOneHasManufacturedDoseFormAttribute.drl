@@ -15,8 +15,8 @@ rule "Has manufactured dose form attribute should only appear once in a drug con
 	when
 		c : Concept(active)
 		topLevelHierarchies : ArrayList(size > 0) from collect( String() from conceptService.findTopLevelHierarchiesOfConcept(c))
-		r1 : Relationship(sourceId == c.id && active && typeId == "411116001" && (topLevelHierarchies contains "373873005"))
-		r2 : Relationship(sourceId == c.id && active && typeId == "411116001" && id != r1.id && r1.axiomId == axiomId)
+		r1 : Relationship(sourceId == c.id && active && characteristicTypeId == Constants.STATED_RELATIONSHIP && typeId == "411116001" && (topLevelHierarchies contains "373873005"))
+		r2 : Relationship(sourceId == c.id && active && characteristicTypeId == Constants.STATED_RELATIONSHIP && typeId == "411116001" && id != r1.id && r1.axiomId == axiomId)
 	then
 		invalidContent.add(new InvalidContent("f24b490a-1603-4bdf-bcad-ffaa1349d230",
 				r1, "\"Has manufactured dose form\" attribute should only appear once in a drug concept model.", Severity.WARNING));
