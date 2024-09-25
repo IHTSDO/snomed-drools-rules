@@ -66,7 +66,7 @@ rule "Matching semantic tag should not allow adding a subtype as a parent."
 		eval(SemanticTags contains termSemanticTag)
 	then
 		InvalidContent invalid = new InvalidContent("9209a757-2be8-4ec1-89bb-758fc76e054c",
-				d, "It is not allowed to add a subtype as a parent.")
+				d, "It is not allowed to add a subtype as a parent regarding the hierarchy of semantic tags.")
 		invalid.ignorePublishedCheck()
 		invalidContent.add(invalid);
 end
