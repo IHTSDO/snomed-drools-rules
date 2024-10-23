@@ -26,6 +26,7 @@ function String findUnexpectedCharactersError(String term) {
 	String GRAVE_ACCENT = "\u0060";
 	String ACUTE_ACCENT = "\u00B4";
 	String DOUBLE_APOS = "\u0027\u0027";
+	String SOFT_HYPHEN = "\u00AD";
 
 	String [][] unwantedChars = new String[][] {
 		{ ZEROSP , "zero width space" },
@@ -38,7 +39,8 @@ function String findUnexpectedCharactersError(String term) {
 		{ LEFT_QUOTE , "left quote" },
 		{ GRAVE_ACCENT , "grave accent" },
 		{ ACUTE_ACCENT , "acute accents" },
-		{ DOUBLE_APOS, "double apostrophe" }
+		{ DOUBLE_APOS, "double apostrophe" },
+		{ SOFT_HYPHEN, "soft hyphen" }
 	};
 	for (String unwantedChar[] : unwantedChars) {
 		if (term.indexOf(unwantedChar[0]) != -1) {
