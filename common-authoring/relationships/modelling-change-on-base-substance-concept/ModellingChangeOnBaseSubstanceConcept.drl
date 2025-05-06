@@ -10,7 +10,7 @@ rule "Active base substance concepts contain some modifications in modelling."
 	dialect "mvel"
 	when
 		c : Concept(active && (id == "387358007" || id == "387327006" || id == "76525000"))
-		eval(conceptService.isModellingChangedOnBaseSubstanceConcept(c.id))
+		eval(conceptService.isConceptModellingChanged(c))
 	then
 		InvalidContent invalid = new InvalidContent("855e8fcf-9c5d-4cbf-99c1-a761df80cbef",
 				c, "Active base substance concept contains some modifications in modelling.", Severity.WARNING);
