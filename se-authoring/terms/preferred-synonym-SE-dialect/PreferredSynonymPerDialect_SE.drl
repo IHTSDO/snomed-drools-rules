@@ -5,6 +5,7 @@ import java.util.Collection
 import java.util.ArrayList
 import org.ihtsdo.drools.helper.DescriptionHelper
 import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.helper.ConceptHelper
 
 global java.util.List invalidContent
 
@@ -12,7 +13,7 @@ rule "New Swedish concepts must have a Preferred Synonym in Swedish."
 	dialect "mvel"
 	when
 	c : Concept(active)
-	ArrayList(size > 0 || c.moduleId contains "1000052") from collect (
+	d : ArrayList(size > 0 || c.moduleId contains "1000052") from collect (
 		Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "sv")
 	)
 	ArrayList(size != 1) from collect (
@@ -20,7 +21,7 @@ rule "New Swedish concepts must have a Preferred Synonym in Swedish."
 	)
 	then
 		InvalidContent invalid = new InvalidContent("80084f20-f7f4-4d9a-92fd-0819134ab094",
-				c, "A concept must have one Preferred Synonym in the SE dialect.");
+				c, "A concept must have one Preferred Synonym in the SE dialect.", ConceptHelper.isCoreModule(c.moduleId) && !ConceptHelper.isAllComponentsBelongToCoreModule(d));
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end

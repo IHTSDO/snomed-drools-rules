@@ -2,18 +2,22 @@ import org.ihtsdo.drools.domain.Concept
 import org.ihtsdo.drools.domain.Description
 import org.ihtsdo.drools.domain.Constants
 import java.util.Collection
+import java.util.ArrayList
 import org.ihtsdo.drools.helper.DescriptionHelper
 import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.helper.ConceptHelper
+
 
 global java.util.List invalidContent
 
 rule "A concept must have one Preferred Synonym in the US-English dialect."
 	dialect "mvel"
 	when
-		c : Concept(active && DescriptionHelper.filterByActiveTypeAndDialectPreferred(c, true, Constants.SYNONYM, Constants.US_EN_LANG_REFSET).size() != 1)
+		c : Concept(active)
+		descriptions: ArrayList(size != 1) from collect(Description() from DescriptionHelper.filterByActiveTypeAndDialectPreferred(c, true, Constants.SYNONYM, Constants.US_EN_LANG_REFSET))
 	then
 		InvalidContent invalid = new InvalidContent("9fdf1fa5-e2c5-4a28-a3fa-881728a278b3",
-				c, "A concept must have one Preferred Synonym in the US-EN dialect.");
+				c, "A concept must have one Preferred Synonym in the US-EN dialect.", ConceptHelper.isCoreModule(c.moduleId) && !ConceptHelper.isAllComponentsBelongToCoreModule(descriptions));
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end

@@ -2,9 +2,11 @@ import org.ihtsdo.drools.domain.Concept
 import org.ihtsdo.drools.domain.Description
 import org.ihtsdo.drools.domain.Constants
 import java.util.Collection
+import java.util.ArrayList
 import org.ihtsdo.drools.helper.DescriptionHelper
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
+import org.ihtsdo.drools.helper.ConceptHelper
 
 global java.util.List invalidContent
 
@@ -25,10 +27,11 @@ end
 rule "A concept must not have more than one Text Definition per language reference set."
 	dialect "mvel"
 	when
-		c : Concept(active && DescriptionHelper.isMoreThanOneAcceptabilityPerDialect(c, true, Constants.TEXT_DEFINITION, Constants.ACCEPTABILITY_PREFERRED))
+		c : Concept(active)
+		descriptions: ArrayList(size != 0) from collect(Description() from DescriptionHelper.findDescriptionsWithMoreThanOneAcceptabilityPerDialect(c, true, Constants.TEXT_DEFINITION, Constants.ACCEPTABILITY_PREFERRED))
 	then
 		InvalidContent invalid = new InvalidContent("0bb0b543-4bf6-46ab-a9c3-c6a0a87ae275",
-				c, "A concept must not have more than one Text Definition per language reference set.");
+				c, "A concept must not have more than one Text Definition per language reference set.", ConceptHelper.isCoreModule(c.moduleId) && !ConceptHelper.isAllComponentsBelongToCoreModule(descriptions));
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end

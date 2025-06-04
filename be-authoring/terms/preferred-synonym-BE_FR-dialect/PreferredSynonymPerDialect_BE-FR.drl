@@ -6,6 +6,7 @@ import java.util.ArrayList
 import org.ihtsdo.drools.helper.DescriptionHelper
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
+import org.ihtsdo.drools.helper.ConceptHelper
 
 global java.util.List invalidContent
 
@@ -33,7 +34,7 @@ rule "Concepts with Belgian-French synonyms, must have one Preferred Synonym in 
 		ArrayList(size > 0 || c.moduleId == "11000172109") from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM)
 		)
-		ArrayList(size > 0) from collect (
+		d : ArrayList(size > 0) from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, acceptabilityMap["21000172104"] == Constants.ACCEPTABILITY_ACCEPTABLE)
 		)
 		ArrayList(size == 0) from collect (
@@ -41,7 +42,7 @@ rule "Concepts with Belgian-French synonyms, must have one Preferred Synonym in 
 		)
 	then
 		InvalidContent invalid = new InvalidContent("0cebb78d-fd25-406b-ae84-7d2c810a9dbf",
-				c, "A concept must have one Preferred Synonym in the BE-FR dialect.", Severity.ERROR);
+				c, "A concept must have one Preferred Synonym in the BE-FR dialect.", ConceptHelper.isCoreModule(c.moduleId) && !ConceptHelper.isAllComponentsBelongToCoreModule(d), Severity.ERROR);
 		invalid.ignorePublishedCheck()
 		invalidContent.add(invalid);
 end

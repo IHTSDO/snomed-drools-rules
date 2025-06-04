@@ -5,6 +5,7 @@ import java.util.Collection
 import java.util.ArrayList
 import org.ihtsdo.drools.helper.DescriptionHelper
 import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.helper.ConceptHelper
 
 global java.util.List invalidContent
 
@@ -19,7 +20,7 @@ rule "New Norwegian concepts must have one Preferred Synonym in the NB dialect."
 		c : Concept(active)
 
 		// And when there are any descriptions with language code 'no' or the concept is in the Norway namespace
-		ArrayList(size > 0 || c.moduleId contains "1000202") from collect (
+		d : ArrayList(size > 0 || c.moduleId contains "1000202") from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "no")
 		)
 
@@ -29,7 +30,7 @@ rule "New Norwegian concepts must have one Preferred Synonym in the NB dialect."
 		)
 	then
 		InvalidContent invalid = new InvalidContent("ddf05fea-ad7a-4016-b9f2-8d070b09155a",
-				c, "A concept must have one Preferred Synonym in the nb dialect.");
+				c, "A concept must have one Preferred Synonym in the nb dialect.", ConceptHelper.isCoreModule(c.moduleId) && !ConceptHelper.isAllComponentsBelongToCoreModule(d));
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end

@@ -6,6 +6,7 @@ import java.util.ArrayList
 import org.ihtsdo.drools.helper.DescriptionHelper
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
+import org.ihtsdo.drools.helper.ConceptHelper
 
 global java.util.List invalidContent
 
@@ -22,7 +23,7 @@ rule "New Austrian concepts must have one Preferred Synonym in Austrian-German."
 		)
 	then
 		InvalidContent invalid = new InvalidContent("6783b85c-e09d-4dda-b87e-a817ff5eca9b",
-				c, "A concept must have only one Preferred Synonym in the DE dialect.", Severity.ERROR);
+				c, "A concept must have only one Preferred Synonym in the DE dialect.", ConceptHelper.isCoreModule(c.moduleId) && !ConceptHelper.isAllComponentsBelongToCoreModule(d), Severity.ERROR);
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end

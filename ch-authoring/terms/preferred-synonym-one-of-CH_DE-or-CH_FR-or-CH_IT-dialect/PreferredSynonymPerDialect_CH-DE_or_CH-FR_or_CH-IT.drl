@@ -8,7 +8,7 @@ import java.util.Map
 import org.ihtsdo.drools.helper.DescriptionHelper
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
-import java.util.Collection
+import org.ihtsdo.drools.helper.ConceptHelper
 
 global java.util.List invalidContent
 
@@ -16,19 +16,19 @@ rule "Concepts with Swiss-German, Swiss-French or Swiss-Italian synonyms, must h
 	dialect "mvel"
 	when
 		c : Concept(active)
-		ArrayList(size > 0 || c.moduleId == "2011000195101") from collect (
+		d1 : ArrayList(size > 0 || c.moduleId == "2011000195101") from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "de")
 		)
 		ArrayList(size == 0) from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "de", acceptabilityMap["2041000195100"] == Constants.ACCEPTABILITY_PREFERRED)
 		)
-		ArrayList(size > 0 || c.moduleId == "2011000195101") from collect (
+		d2 : ArrayList(size > 0 || c.moduleId == "2011000195101") from collect (
 				Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "fr")
 		)
 		ArrayList(size == 0) from collect (
 				Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "fr", acceptabilityMap["2021000195106"] == Constants.ACCEPTABILITY_PREFERRED)
 		)
-		ArrayList(size > 0 || c.moduleId == "2011000195101") from collect (
+		d3: ArrayList(size > 0 || c.moduleId == "2011000195101") from collect (
 				Description(active, conceptId == c.id, typeId == Constants.SYNONYM, languageCode == "it")
 		)
 		ArrayList(size == 0) from collect (
@@ -36,7 +36,7 @@ rule "Concepts with Swiss-German, Swiss-French or Swiss-Italian synonyms, must h
 		)
 	then
 		InvalidContent invalid = new InvalidContent("1454c148-4596-4218-873a-1d05d859cc5b",
-				c, "A concept must have one Preferred Synonym in either the CH-DE or CH-FR or CH-IT dialects.");
+				c, "A concept must have one Preferred Synonym in either the CH-DE or CH-FR or CH-IT dialects.", ConceptHelper.isCoreModule(c.moduleId) && (!ConceptHelper.isAllComponentsBelongToCoreModule(d1) || !ConceptHelper.isAllComponentsBelongToCoreModule(d2) || !ConceptHelper.isAllComponentsBelongToCoreModule(d3)));
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end
@@ -59,7 +59,7 @@ rule "A translated concept should have a Preferred Synonym in Swiss-German, Swis
 	dialect "mvel"
 	when
 		c : Concept(active, moduleId != "2011000195101")
-		d: ArrayList(size > 0) from collect (
+		d : ArrayList(size > 0) from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, moduleId == "2011000195101",
 				(acceptabilityMap["2041000195100"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["2041000195100"] == Constants.ACCEPTABILITY_ACCEPTABLE ||
 				 acceptabilityMap["2021000195106"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["2021000195106"] == Constants.ACCEPTABILITY_ACCEPTABLE ||
@@ -68,7 +68,7 @@ rule "A translated concept should have a Preferred Synonym in Swiss-German, Swis
 		eval(getSwissDialects(d).size() < 3)
 	then
 		InvalidContent invalid = new InvalidContent("29699b62-d288-4deb-b403-6f24e186a10c",
-				c, "A translated concept should have all 3 Preferred Synonyms in CH-DE, CH-FR and CH-IT.", Severity.WARNING);
+				c, "A translated concept should have all 3 Preferred Synonyms in CH-DE, CH-FR and CH-IT.", ConceptHelper.isCoreModule(c.moduleId) && !ConceptHelper.isAllComponentsBelongToCoreModule(d), Severity.WARNING);
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end

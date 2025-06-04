@@ -6,6 +6,7 @@ import java.util.ArrayList
 import org.ihtsdo.drools.helper.DescriptionHelper
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
+import org.ihtsdo.drools.helper.ConceptHelper
 
 global java.util.List invalidContent
 
@@ -13,16 +14,16 @@ rule "New Irish concepts must have a Preferred Synonym in IE-English."
 	dialect "mvel"
 	when
 		c : Concept(active)
-		ArrayList(size > 0 || c.moduleId == "11000220105") from collect (
+		d : ArrayList(size > 0 || c.moduleId == "11000220105") from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, moduleId == "11000220105")
 		)
 			
-		d: ArrayList(size != 1) from collect (
+		ArrayList(size != 1) from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM, acceptabilityMap["21000220103"] == Constants.ACCEPTABILITY_PREFERRED)
 		)
 	then
 		InvalidContent invalid = new InvalidContent("a7e03ffd-32c8-4d90-a73b-ced6568ecf06",
-				c, "A concept must have only one Preferred Synonym in the IE dialect.", Severity.ERROR);
+				c, "A concept must have only one Preferred Synonym in the IE dialect.", ConceptHelper.isCoreModule(c.moduleId) && !ConceptHelper.isAllComponentsBelongToCoreModule(d), Severity.ERROR);
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end

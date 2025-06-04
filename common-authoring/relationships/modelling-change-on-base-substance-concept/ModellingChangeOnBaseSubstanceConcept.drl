@@ -1,6 +1,6 @@
 import org.ihtsdo.drools.domain.Concept
 import org.ihtsdo.drools.response.InvalidContent
-
+import org.ihtsdo.drools.service.ConceptService
 import org.ihtsdo.drools.response.Severity
 
 global java.util.List invalidContent

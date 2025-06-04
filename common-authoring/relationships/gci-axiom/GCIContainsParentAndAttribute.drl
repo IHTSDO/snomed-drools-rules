@@ -6,6 +6,7 @@ import org.ihtsdo.drools.helper.RelationshipHelper
 import java.util.ArrayList
 import org.ihtsdo.drools.response.Severity
 import org.ihtsdo.drools.service.ConceptService
+import org.ihtsdo.drools.helper.ConceptHelper
 
 global java.util.List invalidContent
 global ConceptService conceptService
@@ -19,7 +20,7 @@ rule "A GCI axiom expression must contain at least one parent."
 			from collect( Relationship(active, axiomId == gciRelationship.axiomId, typeId == Constants.IS_A) )
 	then
 		invalidContent.add(new InvalidContent("1a7bb28e-39b2-4213-adb5-6afdaea16148",
-				gciRelationship, "A GCI axiom expression must contain at least one parent."));
+				gciRelationship, "A GCI axiom expression must contain at least one parent.", ConceptHelper.isCoreModule(c.moduleId) && !ConceptHelper.isCoreModule(gciRelationship.moduleId)));
 end
 
 rule "A GCI axiom expression must contain at least one attribute."
@@ -31,5 +32,5 @@ rule "A GCI axiom expression must contain at least one attribute."
 			from collect( Relationship(active, axiomId == gciRelationship.axiomId, typeId != Constants.IS_A) )
 	then
 		invalidContent.add(new InvalidContent("5f66c1bf-c308-4ce5-a53d-3d1bdcfc2ce9",
-				gciRelationship, "A GCI axiom expression must contain at least one attribute."));
+				gciRelationship, "A GCI axiom expression must contain at least one attribute.", ConceptHelper.isCoreModule(c.moduleId) && !ConceptHelper.isCoreModule(gciRelationship.moduleId)));
 end

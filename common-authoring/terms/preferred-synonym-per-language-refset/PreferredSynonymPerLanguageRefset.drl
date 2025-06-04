@@ -5,6 +5,7 @@ import java.util.Collection
 import java.util.Set
 import java.util.HashSet
 import java.util.Arrays
+import org.ihtsdo.drools.helper.ConceptHelper
 import org.ihtsdo.drools.helper.DescriptionHelper
 import org.ihtsdo.drools.service.DescriptionService
 import org.ihtsdo.drools.response.InvalidContent
@@ -64,10 +65,10 @@ rule "A concept must not have more than one Preferred Synonym per language refer
 	dialect "mvel"
 	when
 		c : Concept(active)
-		error : HashSet(size > 0) from collect(String() from findMultiplePreferredTermPerLanguageRefset(c))
+		invalidLanguageRefsets : HashSet(size > 0) from collect(String() from findMultiplePreferredTermPerLanguageRefset(c))
 	then
 		InvalidContent invalid = new InvalidContent("094e5394-24e3-4d0a-8b67-e8461a0262b3",
-				c, "A concept must not have more than one PT per language refset.");
+				c, "A concept must not have more than one PT per language refset.", ConceptHelper.isCoreModule(c.moduleId) && !invalidLanguageRefsets.contains(Constants.US_EN_LANG_REFSET) && !invalidLanguageRefsets.contains(Constants.GB_EN_LANG_REFSET));
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end
@@ -92,10 +93,10 @@ rule "A concept must have one Preferred synonym in a language refset if there is
 	dialect "mvel"
 	when
 		c : Concept(active)
-		error : HashSet(size > 0) from collect(String() from findMissingPreferredTermPerLanguageRefset(c))
+		invalidLanguageRefsets : HashSet(size > 0) from collect(String() from findMissingPreferredTermPerLanguageRefset(c))
 	then
 		InvalidContent invalid = new InvalidContent("8560277e-b1e4-4722-9e77-8e7566f34def",
-				c, "A concept must have one Preferred Synonym in the following language refset: " + populateFSNs(descriptionService, error) + ".");
+				c, "A concept must have one Preferred Synonym in the following language refset: " + populateFSNs(descriptionService, invalidLanguageRefsets) + ".", ConceptHelper.isCoreModule(c.moduleId) && !invalidLanguageRefsets.contains(Constants.US_EN_LANG_REFSET) && !invalidLanguageRefsets.contains(Constants.GB_EN_LANG_REFSET));
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end

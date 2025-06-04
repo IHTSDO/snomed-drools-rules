@@ -5,6 +5,7 @@ import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
 import org.ihtsdo.drools.domain.Constants
 import java.util.ArrayList
+import org.ihtsdo.drools.helper.ConceptHelper
 
 global java.util.List invalidContent
 
@@ -23,7 +24,7 @@ rule "For each active FSN there is a synonym that has the same text."
 		)
 	then
 		InvalidContent invalid = new InvalidContent("65adcfee-cca5-4e99-8441-acc53344a140",
-				c, "For each active FSN there is a synonym that has the same text.", Severity.WARNING);
+				c, "For each active FSN there is a synonym that has the same text.", ConceptHelper.isCoreModule(c.moduleId) && !ConceptHelper.isCoreModule(fsn.moduleId), Severity.WARNING);
 		invalid.ignorePublishedCheck();
 		invalidContent.add(invalid);
 end
