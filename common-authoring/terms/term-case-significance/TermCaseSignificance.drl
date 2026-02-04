@@ -20,29 +20,20 @@ function String stripAccents(String term) {
 // Add new abbreviations or full-word units here to extend the rule.
 function boolean containsDrugUnit(String term) {
 	if (term == null || term.isEmpty()) return false;
-	String t = stripAccents(term);
-	String[] abbrevs = { "mcg", "µg", "ug", "mg", "g", "kg", "ng", "pg", "mL", "ml", "L", "l", "µL", "uL", "dL", "mg/mL", "mg/L", "µg/mL", "µg/L", "ug/mL", "ug/L", "mg/kg", "µg/kg", "ug/kg", "mg/m²", "IU", "U", "IU/mL", "U/mL", "mEq", "Eq", "ppm", "%" };
-	String[] fullWords = { "microgram", "milligram", "gram", "kilogram", "microgramme", "milligramme" };
-	StringBuilder ab = new StringBuilder();
+	String stripTerm = stripAccents(term);
+	String spTerm = " " + stripTerm;
+	String[] abbrevs = { "mg", "g", "ml", "mcg", "unit", "units", "IU", "mEq", "mL",  "MBq", "ppm" };
 	for (int i = 0; i < abbrevs.length; i++) {
-		if (i > 0) ab.append("|");
-		ab.append(Pattern.quote(abbrevs[i]));
+		if (stripTerm.contains(" " + abbrevs[i] + " ") || 
+			stripTerm.endsWith(" " + abbrevs[i]) ||
+			spTerm.contains(" " +  abbrevs[i] + "/") ||
+			spTerm.contains("/" + abbrevs[i]) ||
+			stripTerm.equals(abbrevs[i])) {
+			return true;
+		}
 	}
-	String abbrevPart = ab.toString();
-	StringBuilder fw = new StringBuilder();
-	for (int i = 0; i < fullWords.length; i++) {
-		if (i > 0) fw.append("|");
-		fw.append(Pattern.quote(fullWords[i]));
-	}
-	String fullWordPart = fw.toString();
-	String abbrevPattern = "(?i).*\\b(?<![a-z])\\d+(?:\\.\\d+)?\\s?(" + abbrevPart + ")(?:\\/[a-z0-9]+)?\\b.*";
-	// Full-word units only when compound (e.g. "500 microgram/g"); exclude "500 microgram oral capsule"
-	String fullWordPattern = "(?i).*\\b(?<![a-z])\\d+(?:\\.\\d+)?\\s+(" + fullWordPart + ")\\/[a-z]+\\b.*";
-	boolean abbrevMatch = t.matches(abbrevPattern);
-	boolean fullWordMatch = t.matches(fullWordPattern);
-	// Exclude full-word unit followed by /digits only (e.g. "61 milligram/1")
-	if (fullWordMatch && t.matches("(?i).*(" + fullWordPart + ")\\/\\d+.*")) return false;
-	return abbrevMatch || fullWordMatch;
+	
+	return false;
 }
 
 rule "An active term on an active concept with case significance 'only initial character case insensitive' should contain a capital letter after the first character."
@@ -89,8 +80,7 @@ rule "Terms containing drug unit abbreviations should be marked as Only initial 
 		c : Concept(active == true)
 		fsn : Description(active, conceptId == c.id, typeId == Constants.FSN && (acceptabilityMap["900000000000509007"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["900000000000508004"] == Constants.ACCEPTABILITY_PREFERRED) 
 						&& DescriptionHelper.getTag(term) == "clinical drug")
-		d : Description(active == true && conceptId == c.id && caseSignificanceId != Constants.ONLY_INITIAL_CHARACTER_CASE_INSENSITIVE
-						&& containsDrugUnit(term))
+		d : Description(active == true && conceptId == c.id && containsDrugUnit(term) && caseSignificanceId == Constants.ENTIRE_TERM_CASE_INSENSITIVE)
 	then
 		invalidContent.add(new InvalidContent("3f89c2c1-3a90-4fbc-8f57-1b37fd2d0b5a",
 				d, "Term using a drug unit abbreviation should be marked as Only initial character case insensitive.", Severity.WARNING));

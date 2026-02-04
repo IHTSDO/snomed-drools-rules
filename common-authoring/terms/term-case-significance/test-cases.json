@@ -140,7 +140,7 @@
                     "id": "7a",
                     "typeId": "900000000000003001",
                     "caseSignificanceId": "900000000000448009",
-                    "term": "Patient was given 500mg (clinical drug)",
+                    "term": "Patient was given 500 mg (clinical drug)",
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007" // INT Preferred
                     }
@@ -149,7 +149,7 @@
                     "id": "7b",
                     "typeId": "900000000000013009",
                     "caseSignificanceId": "900000000000448009", // Entire term case insensitive
-                    "term": "Patient was given 500mg",
+                    "term": "Patient was given 500 mg",
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007" // INT Preferred
                     }
@@ -163,7 +163,7 @@
                     "id": "8a",
                     "typeId": "900000000000003001",
                     "caseSignificanceId": "900000000000448009",
-                    "term": "Patient was given 500mg (clinical drug)",
+                    "term": "Patient was given 500 mg (clinical drug)",
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007" // INT Preferred
                     }
@@ -172,7 +172,7 @@
                     "id": "8b",
                     "typeId": "900000000000013009",
                     "caseSignificanceId": "900000000000448009", // Entire term case insensitive
-                    "term": "Patient was given 500g",
+                    "term": "Patient was given 500 g",
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007" // INT Preferred
                     }
@@ -186,7 +186,7 @@
                     "id": "9a",
                     "typeId": "900000000000003001",
                     "caseSignificanceId": "900000000000448009",
-                    "term": "Patient was given 500mcg (clinical drug)",
+                    "term": "Patient was given 500 mcg (clinical drug)",
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007" // INT Preferred
                     }
@@ -195,7 +195,7 @@
                     "id": "9b",
                     "typeId": "900000000000013009",
                     "caseSignificanceId": "900000000000448009", // Entire term case insensitive
-                    "term": "Patient was given 500mcg",
+                    "term": "Patient was given 500 mcg",
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007" // INT Preferred
                     }
@@ -209,7 +209,7 @@
                     "id": "10a",
                     "typeId": "900000000000003001",
                     "caseSignificanceId": "900000000000448009",
-                    "term": "Patient was given 500ng (clinical drug)",
+                    "term": "Patient was given 500 mL (clinical drug)",
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007" // INT Preferred
                     }
@@ -218,7 +218,7 @@
                     "id": "10b",
                     "typeId": "900000000000013009",
                     "caseSignificanceId": "900000000000448009", // Entire term case insensitive
-                    "term": "Patient was given 500ng",
+                    "term": "Patient was given 500 mL",
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007" // INT Preferred
                     }
@@ -232,7 +232,7 @@
                     "id": "11a",
                     "typeId": "900000000000003001",
                     "caseSignificanceId": "900000000000448009",
-                    "term": "Patient was given 500kg (clinical drug)",
+                    "term": "Patient was given 500 mL (clinical drug)",
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007" // INT Preferred
                     }
@@ -241,7 +241,7 @@
                     "id": "11b",
                     "typeId": "900000000000013009",
                     "caseSignificanceId": "900000000000448009", // Entire term case insensitive
-                    "term": "Patient was given 500kg",
+                    "term": "Patient was given 500 mL",
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007" // INT Preferred
                     }
@@ -255,7 +255,7 @@
                     "id": "12a",
                     "typeId": "900000000000003001",
                     "caseSignificanceId": "900000000000448009",
-                    "term": "Patient was given 500mL (clinical drug)",
+                    "term": "Patient was given 500 L (clinical drug)",
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007" // INT Preferred
                     }
@@ -264,7 +264,7 @@
                     "id": "12b",
                     "typeId": "900000000000013009",
                     "caseSignificanceId": "900000000000448009", // Entire term case insensitive
-                    "term": "Patient was given 500mL",
+                    "term": "Patient was given 500 L",
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007" // INT Preferred
                     }
@@ -278,7 +278,7 @@
                     "id": "13a",
                     "typeId": "900000000000003001",
                     "caseSignificanceId": "900000000000448009",
-                    "term": "Patient was given 500ml (clinical drug)",
+                    "term": "Patient was given 10 mg/L (clinical drug)",
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007" // INT Preferred
                     }
@@ -287,7 +287,7 @@
                     "id": "13b",
                     "typeId": "900000000000013009",
                     "caseSignificanceId": "900000000000448009", // Entire term case insensitive
-                    "term": "Patient was given 500ml",
+                    "term": "Patient was given 10 mg/L",
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007" // INT Preferred
                     }
@@ -300,8 +300,8 @@
                 {
                     "id": "14a",
                     "typeId": "900000000000003001",
-                    "caseSignificanceId": "900000000000448009",
-                    "term": "Patient was given 500L (clinical drug)",
+                    "caseSignificanceId": "900000000000448009", // Entire term case insensitive
+                    "term": "Patient was given 10 mg/L (clinical drug)",
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007" // INT Preferred
                     }
@@ -310,7 +310,7 @@
                     "id": "14b",
                     "typeId": "900000000000013009",
                     "caseSignificanceId": "900000000000448009", // Entire term case insensitive
-                    "term": "Patient was given 500L",
+                    "term": "Patient was given 10 mg/L",
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007" // INT Preferred
                     }
@@ -323,52 +323,6 @@
                 {
                     "id": "15a",
                     "typeId": "900000000000003001",
-                    "caseSignificanceId": "900000000000448009",
-                    "term": "Patient was given 10mg/L (clinical drug)",
-                    "acceptabilityMap": {
-                        "900000000000509007": "900000000000548007" // INT Preferred
-                    }
-                },
-                {
-                    "id": "15b",
-                    "typeId": "900000000000013009",
-                    "caseSignificanceId": "900000000000448009", // Entire term case insensitive
-                    "term": "Patient was given 10mg/L",
-                    "acceptabilityMap": {
-                        "900000000000509007": "900000000000548007" // INT Preferred
-                    }
-                }
-            ]
-        },
-        {
-            "id": "16",
-            "descriptions": [
-                {
-                    "id": "16a",
-                    "typeId": "900000000000003001",
-                    "caseSignificanceId": "900000000000448009", // Entire term case insensitive
-                    "term": "Patient was given 10mg/L (clinical drug)",
-                    "acceptabilityMap": {
-                        "900000000000509007": "900000000000548007" // INT Preferred
-                    }
-                },
-                {
-                    "id": "16b",
-                    "typeId": "900000000000013009",
-                    "caseSignificanceId": "900000000000448009", // Entire term case insensitive
-                    "term": "Patient was given 10mg/L",
-                    "acceptabilityMap": {
-                        "900000000000509007": "900000000000548007" // INT Preferred
-                    }
-                }
-            ]
-        },
-        {
-            "id": "17",
-            "descriptions": [
-                {
-                    "id": "17a",
-                    "typeId": "900000000000003001",
                     "caseSignificanceId": "900000000000448009", // Entire term case insensitive
                     "term": "Betamethasone (as betamethasone dipropionate) 500 microgram/g cutaneous cream (clinical drug)",
                     "acceptabilityMap": {
@@ -376,7 +330,7 @@
                     }
                 },
                 {
-                    "id": "17b",
+                    "id": "15b",
                     "typeId": "900000000000013009",
                     "caseSignificanceId": "900000000000448009", // Entire term case insensitive
                     "term": "Betamethasone (as betamethasone dipropionate) 500 microgram/g cutaneous cream",
