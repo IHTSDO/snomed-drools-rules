@@ -2,11 +2,16 @@ import org.ihtsdo.drools.domain.Concept
 import org.ihtsdo.drools.domain.Description
 import org.ihtsdo.drools.domain.Constants
 import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.service.ConceptService
 import org.ihtsdo.drools.helper.DescriptionHelper
 import org.ihtsdo.drools.response.Severity
 import java.text.Normalizer
 import java.util.regex.Pattern
 
+import java.util.ArrayList
+import java.util.Collections
+
+global ConceptService conceptService
 global java.util.List invalidContent
 
 function String stripAccents(String term) {
@@ -18,7 +23,7 @@ function String stripAccents(String term) {
 
 // Drug units that require CI: abbreviations (number + optional space + unit) and full words (number + space + word).
 // Add new abbreviations or full-word units here to extend the rule.
-function boolean containsDrugUnit(String term) {
+function boolean containsAbbreviationForDrugUnit(String term) {
 	if (term == null || term.isEmpty()) return false;
 	String stripTerm = stripAccents(term);
 	String spTerm = " " + stripTerm;
@@ -78,9 +83,8 @@ rule "Terms containing drug unit abbreviations should be marked as Only initial 
 	dialect "mvel"
 	when
 		c : Concept(active == true)
-		fsn : Description(active, conceptId == c.id, typeId == Constants.FSN && (acceptabilityMap["900000000000509007"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["900000000000508004"] == Constants.ACCEPTABILITY_PREFERRED) 
-						&& DescriptionHelper.getTag(term) == "clinical drug")
-		d : Description(active == true && conceptId == c.id && containsDrugUnit(term) && caseSignificanceId == Constants.ENTIRE_TERM_CASE_INSENSITIVE)
+		statedAncestors : ArrayList(size > 0) from collect( String() from conceptService.findStatedAncestorsOfConcepts(Collections.singletonList(c.id)))
+		d : Description(statedAncestors contains "373873005" &&active == true && typeId != Constants.TEXT_DEFINITION && conceptId == c.id && containsAbbreviationForDrugUnit(term) && caseSignificanceId == Constants.ENTIRE_TERM_CASE_INSENSITIVE)
 	then
 		invalidContent.add(new InvalidContent("3f89c2c1-3a90-4fbc-8f57-1b37fd2d0b5a",
 				d, "Term using a drug unit abbreviation should be marked as Only initial character case insensitive.", Severity.WARNING));

@@ -1,5 +1,160 @@
 {
-	// 1 - only initial character case insensitive
+    "givenConcepts": [
+        {
+            "id": "138875005", // Root concept
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "description text 1 (product)",
+                    "conceptId": "138875005"
+                }
+            ]
+        },
+        {
+            "id": "116680003", // Is A
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Is A",
+                    "conceptId": "116680003"
+                }
+            ]
+        },
+        {
+            "id": "373873005",
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "Pharmaceutical / biologic product (product)",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007", // PREFERRED
+                        "900000000000508004": "900000000000548007" // PREFERRED
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "7",
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "8",
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "9",
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "10",
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "11",
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "12",
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "13",
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "14",
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "15",
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        }
+    ],
+    // 1 - only initial character case insensitive
 	// 3 - entire term case insensitive
     "assertConceptsPass": [
         {
@@ -154,6 +309,15 @@
                         "900000000000509007": "900000000000548007" // INT Preferred
                     }
                 }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
             ]
         },
         {
@@ -176,6 +340,15 @@
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007" // INT Preferred
                     }
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
                 }
             ]
         },
@@ -200,6 +373,15 @@
                         "900000000000509007": "900000000000548007" // INT Preferred
                     }
                 }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
             ]
         },
         {
@@ -222,6 +404,15 @@
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007" // INT Preferred
                     }
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
                 }
             ]
         },
@@ -246,6 +437,15 @@
                         "900000000000509007": "900000000000548007" // INT Preferred
                     }
                 }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
             ]
         },
         {
@@ -268,6 +468,15 @@
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007" // INT Preferred
                     }
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
                 }
             ]
         },
@@ -292,6 +501,15 @@
                         "900000000000509007": "900000000000548007" // INT Preferred
                     }
                 }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
             ]
         },
         {
@@ -315,6 +533,15 @@
                         "900000000000509007": "900000000000548007" // INT Preferred
                     }
                 }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
             ]
         },
         {
@@ -337,6 +564,15 @@
                     "acceptabilityMap": {
                         "900000000000509007": "900000000000548007" // INT Preferred
                     }
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
                 }
             ]
         }
