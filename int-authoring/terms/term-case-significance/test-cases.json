@@ -1,4 +1,148 @@
 {
+    "givenConcepts": [
+        {
+            "id": "138875005", // Root concept
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "description text 1 (product)",
+                    "conceptId": "138875005"
+                }
+            ]
+        },
+        {
+            "id": "116680003", // Is A
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "1",
+                    "term": "Is A",
+                    "conceptId": "116680003"
+                }
+            ]
+        },
+        {
+            "id": "373873005",
+            "descriptions": [
+                {
+                    "id": "2",
+                    "term": "Pharmaceutical / biologic product (product)",
+                    "typeId": "900000000000003001", // FSN
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007", // PREFERRED
+                        "900000000000508004": "900000000000548007" // PREFERRED
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "138875005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "4",
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "5",
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "6",
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "7",
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },        
+        {
+            "id": "8",
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "9",
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "10",
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        }
+    ],
+
 	// 1 - only initial character case insensitive
 	// 3 - entire term case insensitive
     "assertConceptsPass": [
@@ -41,6 +185,262 @@
                     "id": "2",
                     "caseSignificanceId": "900000000000020002",
                     "term": "ibuprofen & Oxycodone (product)"
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "descriptions": [
+                {
+                    "id": "3a",
+                    "typeId": "900000000000003001",
+                    "caseSignificanceId": "900000000000448009",
+                    "term": "Patient was given 500 mg (clinical drug)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                },
+                {
+                    "id": "3b",
+                    "typeId": "900000000000013009",
+                    "caseSignificanceId": "900000000000448009", // Entire term case insensitive
+                    "term": "Patient was given 500 mg",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "4",
+            "descriptions": [
+                {
+                    "id": "4a",
+                    "typeId": "900000000000003001",
+                    "caseSignificanceId": "900000000000448009",
+                    "term": "Patient was given 500 mg (clinical drug)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                },
+                {
+                    "id": "4b",
+                    "typeId": "900000000000013009",
+                    "caseSignificanceId": "900000000000448009", // Entire term case insensitive
+                    "term": "Patient was given 500 g",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "5",
+            "descriptions": [
+                {
+                    "id": "5a",
+                    "typeId": "900000000000003001",
+                    "caseSignificanceId": "900000000000448009",
+                    "term": "Patient was given 500 mcg (clinical drug)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                },
+                {
+                    "id": "5b",
+                    "typeId": "900000000000013009",
+                    "caseSignificanceId": "900000000000448009", // Entire term case insensitive
+                    "term": "Patient was given 500 mcg",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "6",
+            "descriptions": [
+                {
+                    "id": "6a",
+                    "typeId": "900000000000003001",
+                    "caseSignificanceId": "900000000000448009",
+                    "term": "Patient was given 500 mL (clinical drug)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                },
+                {
+                    "id": "6b",
+                    "typeId": "900000000000013009",
+                    "caseSignificanceId": "900000000000448009", // Entire term case insensitive
+                    "term": "Patient was given 500 mL",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "7",
+            "descriptions": [
+                {
+                    "id": "7a",
+                    "typeId": "900000000000003001",
+                    "caseSignificanceId": "900000000000448009",
+                    "term": "Patient was given 500 mL (clinical drug)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                },
+                {
+                    "id": "7b",
+                    "typeId": "900000000000013009",
+                    "caseSignificanceId": "900000000000448009", // Entire term case insensitive
+                    "term": "Patient was given 500 mL",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },        
+        {
+            "id": "8",
+            "descriptions": [
+                {
+                    "id": "8a",
+                    "typeId": "900000000000003001",
+                    "caseSignificanceId": "900000000000448009",
+                    "term": "Patient was given 10 mg/L (clinical drug)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                },
+                {
+                    "id": "8b",
+                    "typeId": "900000000000013009",
+                    "caseSignificanceId": "900000000000448009", // Entire term case insensitive
+                    "term": "Patient was given 10 mg/L",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "9",
+            "descriptions": [
+                {
+                    "id": "9a",
+                    "typeId": "900000000000003001",
+                    "caseSignificanceId": "900000000000448009", // Entire term case insensitive
+                    "term": "Patient was given 10 mg/L (clinical drug)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                },
+                {
+                    "id": "9b",
+                    "typeId": "900000000000013009",
+                    "caseSignificanceId": "900000000000448009", // Entire term case insensitive
+                    "term": "Patient was given 10 mg/L",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "10",
+            "descriptions": [
+                {
+                    "id": "10a",
+                    "typeId": "900000000000003001",
+                    "caseSignificanceId": "900000000000448009", // Entire term case insensitive
+                    "term": "Betamethasone (as betamethasone dipropionate) 500 microgram/g cutaneous cream (clinical drug)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                },
+                {
+                    "id": "10b",
+                    "typeId": "900000000000013009",
+                    "caseSignificanceId": "900000000000448009", // Entire term case insensitive
+                    "term": "Betamethasone (as betamethasone dipropionate) 500 microgram/g cutaneous cream",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // INT Preferred
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "1",
+                    "destinationId": "373873005",
+                    "typeId": "116680003", // is-a
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
                 }
             ]
         }
