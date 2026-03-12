@@ -16,6 +16,29 @@ function String stripAccents(String term) {
 	return str;
 }
 
+function boolean isDrugWithCaseSensitiveUnit(String fsn, String term) {
+	String semanticTag = DescriptionHelper.getTag(fsn);
+	if (!"clinical drug".equals(semanticTag)) {
+		return false;
+	}
+	if (term == null || term.isEmpty()) return false;
+	String stripTerm = term.trim();
+	String spTerm = " " + stripTerm;
+	String[] abbrevs = { "mg", "g", "ml", "mcg", "unit", "units", "IU", "mEq", "mL",  "MBq", "ppm" };
+	for (int i = 0; i < abbrevs.length; i++) {
+		if (stripTerm.contains(" " + abbrevs[i] + " ") || 
+			stripTerm.endsWith(" " + abbrevs[i]) ||
+			stripTerm.endsWith("/" + abbrevs[i]) ||
+			spTerm.contains(" " +  abbrevs[i] + "/") ||
+			spTerm.contains("/" + abbrevs[i] + " ") ||
+			stripTerm.equals(abbrevs[i])) {
+			return true;
+		}
+	}
+	
+	return false;
+}
+
 rule "An active term on an active concept with case significance 'only initial character case insensitive' should contain a capital letter after the first character."
 	dialect "mvel"
 	when
@@ -26,7 +49,9 @@ rule "An active term on an active concept with case significance 'only initial c
 						&& stripAccents(term) not matches "^..*[0-9]$"
 						&& stripAccents(term) not matches "^..*[0-9][A-Za-z].*$"
 						&& stripAccents(term) not matches "^[<, %, >, . , &, ^, /].*$"
-						&& stripAccents(term) not matches "^..*\\p{Lu}.*$")
+						&& stripAccents(term) not matches "^..*\\p{Lu}.*$"
+						&& !isDrugWithCaseSensitiveUnit(d1.term, term))
+
 	then
 		invalidContent.add(new InvalidContent("4ee9cfeb-3ce5-48bf-b238-de7498fde042",
 				d2, "An active term on an active concept with case significance 'only initial character case insensitive' should contain " +

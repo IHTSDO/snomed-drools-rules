@@ -22,8 +22,9 @@ function boolean containsAbbreviationForDrugUnit(String term) {
 	for (int i = 0; i < abbrevs.length; i++) {
 		if (stripTerm.contains(" " + abbrevs[i] + " ") || 
 			stripTerm.endsWith(" " + abbrevs[i]) ||
+			stripTerm.endsWith("/" + abbrevs[i]) ||
 			spTerm.contains(" " +  abbrevs[i] + "/") ||
-			spTerm.contains("/" + abbrevs[i]) ||
+			spTerm.contains("/" + abbrevs[i] + " ") ||
 			stripTerm.equals(abbrevs[i])) {
 			return true;
 		}
