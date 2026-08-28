@@ -5,10 +5,74 @@ import org.ihtsdo.drools.service.DescriptionService
 import org.ihtsdo.drools.service.ConceptService
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
+import org.ihtsdo.drools.domain.Constants
+import java.util.Arrays
+import java.util.Collections
+import java.util.HashSet
+import java.util.Set
 
 global java.util.List invalidContent
 global DescriptionService descriptionService
 global ConceptService conceptService
+
+
+// A term is deliberately reused up and down a product package hierarchy: in AMT
+// the TPUU, TPP and CTPP FSNs differ only by their semantic tag, so their
+// preferred terms are identical by design. Exempt a pair only when every FSN
+// tag on both concepts is listed under duplicate-term-exempt and the two
+// concepts share no tag - two concepts with the SAME tag sharing a term is
+// still a duplicate, however many other FSNs either has. Membership is data, in
+// semantic-tag-hierarchies.txt, so an extension can name its own levels without
+// a rule change.
+//
+// Only the tags are compared. Nothing checks that the two concepts belong to
+// the same product, so in an edition that sets the key, a term shared by
+// unrelated concepts at two different listed levels is exempted too. An edition
+// with no key is unaffected.
+//
+// Only active FSNs that are preferred in the US or GB English language refset
+// count, on both sides; this matches getFSNs with those two refsets.
+//
+// Both FSNs are resolved inside this function rather than by matching an extra
+// Description pattern in the rule. A pattern would silently stop the rule
+// firing for a concept with no active FSN - which happens routinely in
+// authoring, where this rule set also runs - and would fire it once per FSN in
+// an edition that translates them. Every FSN is considered, so the outcome does
+// not depend on set iteration order.
+//
+// The concept under validation is read from its own descriptions, because it
+// may not be saved yet, so a lookup by id could not find it. Its tags are
+// checked against the key first, so an edition without the key - or a concept
+// with an unlisted tag - never pays for looking up the duplicate's FSNs.
+function boolean hasDifferentExemptTag(Concept concept, String duplicateConceptId, DescriptionService descriptionService) {
+	Set<String> key = new HashSet<String>(Arrays.asList("duplicate-term-exempt"));
+	Set<String> tags = new HashSet<String>();
+	for (Description description : concept.getDescriptions()) {
+		if (description.isActive() && Constants.FSN.equals(description.getTypeId())
+				&& description.getAcceptabilityMap() != null
+				&& (Constants.ACCEPTABILITY_PREFERRED.equals(description.getAcceptabilityMap().get(Constants.US_EN_LANG_REFSET))
+					|| Constants.ACCEPTABILITY_PREFERRED.equals(description.getAcceptabilityMap().get(Constants.GB_EN_LANG_REFSET)))) {
+			if (!descriptionService.isSemanticTagCompatibleWithinHierarchy(description.getTerm(), key)) {
+				return false;
+			}
+			tags.add(DescriptionHelper.getTag(description.getTerm()));
+		}
+	}
+	if (tags.isEmpty()) {
+		return false;
+	}
+	Set<String> duplicateFsns = descriptionService.getFSNs(Collections.singleton(duplicateConceptId), Constants.US_EN_LANG_REFSET, Constants.GB_EN_LANG_REFSET);
+	if (duplicateFsns == null || duplicateFsns.isEmpty()) {
+		return false;
+	}
+	for (String duplicateFsn : duplicateFsns) {
+		if (!descriptionService.isSemanticTagCompatibleWithinHierarchy(duplicateFsn, key)
+				|| tags.contains(DescriptionHelper.getTag(duplicateFsn))) {
+			return false;
+		}
+	}
+	return true;
+}
 
 // "Correlation ID" is a special case where duplicates are expected
 rule "Two active descriptions in the same hierarchy should not share the same term, unless the language is different."
@@ -17,6 +81,7 @@ rule "Two active descriptions in the same hierarchy should not share the same te
 		c : Concept(active)
 		d : Description(c.id == d.conceptId && active && term.length > 1 && !term.startsWith("Correlation ID"))
 		$duplicate : Description(active && id != d.id && conceptService.isActive(conceptId) == true) from descriptionService.findMatchingDescriptionInHierarchy(c, d)
+		eval(!hasDifferentExemptTag(c, $duplicate.conceptId, descriptionService))
 	then
 		invalidContent.add(new InvalidContent("25334385-83b3-4531-8e6e-cf9e32ebccd2",
 				d, "Term already exists within this hierarchy on concept " + $duplicate.conceptId +

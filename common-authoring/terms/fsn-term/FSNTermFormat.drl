@@ -7,6 +7,8 @@ import org.ihtsdo.drools.helper.DescriptionHelper
 import org.ihtsdo.drools.service.ConceptService
 import org.ihtsdo.drools.service.DescriptionService
 import java.util.ArrayList
+import java.util.Arrays
+import java.util.HashSet
 
 global java.util.List invalidContent
 global ConceptService conceptService
@@ -56,7 +58,8 @@ rule "An active FSN should not contain the special characters &, %, $, @ or #."
 	dialect "mvel"
 	when
 		c : Concept(active)
-		d : Description(conceptId == c.id && active == true && typeId == Constants.FSN && term matches ".*[&%$@#].*")
+		d : Description(conceptId == c.id && active == true && typeId == Constants.FSN && term matches ".*[&%$@#].*"
+						&& !descriptionService.isSemanticTagCompatibleWithinHierarchy(term, new HashSet(Arrays.asList("fsn-special-char-exempt"))))
 	then
 		invalidContent.add(new InvalidContent("e3048fa9-4238-48f1-a836-1b91ed4fcec2",
 				d, "An active FSN should not contain the special characters &, %, $, @ or #.", Severity.WARNING));
