@@ -17,6 +17,22 @@
     // 2 no space before semantic tag - rule removed
     "assertConceptsPass": [
         {
+            // Configured state: (trade product unit of use) is listed under
+            // fsn-special-char-exempt in the test resources, so its FSN may
+            // contain &.
+            "id": "exempt-special-char",
+            "active": true,
+            "descriptions": [
+                {
+                    "id": "exempt-special-char-fsn",
+                    "active": true,
+                    "typeId": "900000000000003001",
+                    "term": "Exemptol & caffeine 500 mg tablet (trade product unit of use)",
+                    "languageCode": "en"
+                }
+            ]
+        },
+        {
             "id": "au-concept",
             "active": true,
             "moduleId": "32506021000036107",

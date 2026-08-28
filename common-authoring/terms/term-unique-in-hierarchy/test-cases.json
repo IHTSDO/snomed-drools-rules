@@ -79,6 +79,58 @@
             ]
         },
         {
+            // A product pack whose synonym is reused by the pass and fail cases
+            // below. Its tag is listed under duplicate-term-exempt in the test
+            // resources.
+            "id": "tpp1",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "tpp1fsn",
+                    "typeId": "900000000000003001", // FSN
+                    "term": "Exemptol 500 mg tablet, 20 (trade product pack)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // PREFERRED
+                    }
+                },
+                {
+                    "id": "tpp1syn",
+                    "term": "Exemptol 500 mg tablet"
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // Is a
+                    "destinationId": "parent1"
+                }
+            ]
+        },
+        {
+            // A concept whose tag, (product), is not listed under duplicate-term-exempt.
+            "id": "prod1",
+            "active" : true,
+            "descriptions": [
+                {
+                    "id": "prod1fsn",
+                    "typeId": "900000000000003001", // FSN
+                    "term": "Exemptol 250 mg tablet (product)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // PREFERRED
+                    }
+                },
+                {
+                    "id": "prod1syn",
+                    "term": "Exemptol 250 mg tablet"
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // Is a
+                    "destinationId": "parent1"
+                }
+            ]
+        },
+        {
             "id": "parent2",
             "active" : true,
             "descriptions": [
@@ -101,6 +153,57 @@
     ],
 
     "assertConceptsPass": [
+        {
+            // Shares tpp1's synonym at a third listed level: exempt.
+            "id": "ctpp1",
+            "active" : "true",
+            "descriptions": [
+                {
+                    "id": "ctpp1fsn",
+                    "typeId": "900000000000003001", // FSN
+                    "term": "Exemptol 500 mg tablet, 20, blister pack (containered trade product pack)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // PREFERRED
+                    }
+                },
+                {
+                    "id": "ctpp1syn",
+                    "term": "Exemptol 500 mg tablet"
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // Is a
+                    "destinationId": "parent1"
+                }
+            ]
+        },
+        {
+            // Shares tpp1's synonym, but its FSN tag is a different level listed
+            // under duplicate-term-exempt, so the reuse is exempt.
+            "id": "tpuu1",
+            "active" : "true",
+            "descriptions": [
+                {
+                    "id": "tpuu1fsn",
+                    "typeId": "900000000000003001", // FSN
+                    "term": "Exemptol 500 mg tablet (trade product unit of use)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // PREFERRED
+                    }
+                },
+                {
+                    "id": "tpuu1syn",
+                    "term": "Exemptol 500 mg tablet"
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // Is a
+                    "destinationId": "parent1"
+                }
+            ]
+        },
         {
             "id": "f1",
             "active" : "true",
@@ -200,6 +303,117 @@
     ],
     
     "assertConceptsFail": [
+        {
+            // Only one of the two tags is listed: this concept's is, prod1's (product)
+            // is not. Still a duplicate.
+            "id": "tpuu2",
+            "active" : "true",
+            "descriptions": [
+                {
+                    "id": "tpuu2fsn",
+                    "typeId": "900000000000003001", // FSN
+                    "term": "Exemptol 250 mg tablet (trade product unit of use)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // PREFERRED
+                    }
+                },
+                {
+                    "id": "tpuu2syn",
+                    "term": "Exemptol 250 mg tablet"
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // Is a
+                    "destinationId": "parent1"
+                }
+            ]
+        },
+        {
+            // This concept's tag, (clinical drug), is not listed, although tpp1's is.
+            // Still a duplicate.
+            "id": "cd1",
+            "active" : "true",
+            "descriptions": [
+                {
+                    "id": "cd1fsn",
+                    "typeId": "900000000000003001", // FSN
+                    "term": "Exemptol 500 mg tablet (clinical drug)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // PREFERRED
+                    }
+                },
+                {
+                    "id": "cd1syn",
+                    "term": "Exemptol 500 mg tablet"
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // Is a
+                    "destinationId": "parent1"
+                }
+            ]
+        },
+        {
+            // Two FSNs, one of them at tpp1's level. Sharing any tag with the duplicate
+            // keeps it a duplicate, even though the other tag differs.
+            "id": "multi1",
+            "active" : "true",
+            "descriptions": [
+                {
+                    "id": "multi1fsnus",
+                    "typeId": "900000000000003001", // FSN
+                    "term": "Exemptol 500 mg tablet (trade product unit of use)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // PREFERRED
+                    }
+                },
+                {
+                    "id": "multi1fsngb",
+                    "typeId": "900000000000003001", // FSN
+                    "term": "Exemptol 500 mg tablet, 20 blister (trade product pack)",
+                    "acceptabilityMap": {
+                        "900000000000508004": "900000000000548007" // PREFERRED
+                    }
+                },
+                {
+                    "id": "multi1syn",
+                    "term": "Exemptol 500 mg tablet"
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // Is a
+                    "destinationId": "parent1"
+                }
+            ]
+        },
+        {
+            // Shares tpp1's synonym with the same listed tag: still a duplicate.
+            "id": "tpp2",
+            "active" : "true",
+            "descriptions": [
+                {
+                    "id": "tpp2fsn",
+                    "typeId": "900000000000003001", // FSN
+                    "term": "Exemptol 500 mg tablet, 30 (trade product pack)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // PREFERRED
+                    }
+                },
+                {
+                    "id": "tpp2syn",
+                    "term": "Exemptol 500 mg tablet"
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003", // Is a
+                    "destinationId": "parent1"
+                }
+            ]
+        },
         {
             "id": "f1",
             "active" : "true",
