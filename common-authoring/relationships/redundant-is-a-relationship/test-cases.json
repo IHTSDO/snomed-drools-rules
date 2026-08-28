@@ -52,17 +52,53 @@
             ]
         }
     ],
-    "assertConceptsPass": [],
-    // A concept on an extension module, stating both its parent and the
+    // The same redundant pair on a module listed under
+    // redundant-isa-exempt-modules in the test resources (a synthetic module id
+    // that appears nowhere else). The module has opted out, so the rule is
+    // silent.
+    "assertConceptsPass": [
+        {
+            "id": "100004",
+            "active": true,
+            "moduleId": "999999001000000104",
+            "descriptions": [
+                {
+                    "id": "d4",
+                    "typeId": "900000000000003001", // FSN
+                    "term": "Exempt child (finding)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // PREFERRED
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "r3",
+                    "active": true,
+                    "typeId": "116680003", // is-a
+                    "destinationId": "100002",
+                    "characteristicTypeId": "900000000000010007" // STATED
+                },
+                {
+                    "id": "r4",
+                    "active": true,
+                    "typeId": "116680003", // is-a
+                    "destinationId": "100001",
+                    "characteristicTypeId": "900000000000010007" // STATED
+                }
+            ]
+        }
+    ],
+    // A concept on a synthetic extension module, stating both its parent and the
     // grandparent that parent already sits under. The rule must still fire:
-    // redundant-isa-exempt-modules is absent from the test resources, which is
-    // the state of every edition that has not opted out, and the rule has to
+    // this module is not listed under redundant-isa-exempt-modules, which is
+    // the state of every module that has not opted out, and the rule has to
     // behave there exactly as it did before the key existed.
     "assertConceptsFail": [
         {
             "id": "100003",
             "active": true,
-            "moduleId": "32506021000036107",
+            "moduleId": "999999011000000102",
             "descriptions": [
                 {
                     "id": "d3",
