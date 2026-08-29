@@ -1,6 +1,35 @@
 {
     "assertConceptsPass": [
        {
+            // The drug-model tag exemption must survive the key being absent,
+            // which is the state of every edition that has not added it. Written
+            // as a literal-OR-key test rather than a key lookup for exactly this
+            // reason: a bare key lookup inverts the rule until the key ships,
+            // because isSemanticTagCompatibleWithinHierarchy answers false for an
+            // unknown key and the rule negates it.
+            "id": "30",
+            "active": true,
+            "descriptions": [
+                {
+                    "id": "30a",
+                    "active": true,
+                    "typeId": "900000000000003001", // FSN
+                    "languageCode": "en",
+                    "term": "Amoxicillin 500 mg oral capsule (clinical drug)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // PREFERRED
+                    }
+                },
+                {
+                    "id": "30b",
+                    "active": true,
+                    "typeId": "900000000000013009", // SYN
+                    "languageCode": "en",
+                    "term": "Amoxicillin caps"
+                }
+            ]
+        },
+       {
             "id": "1",
             "descriptions": [
                 {

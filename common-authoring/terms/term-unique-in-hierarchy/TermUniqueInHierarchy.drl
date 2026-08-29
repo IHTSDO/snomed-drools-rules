@@ -5,10 +5,56 @@ import org.ihtsdo.drools.service.DescriptionService
 import org.ihtsdo.drools.service.ConceptService
 import org.ihtsdo.drools.response.InvalidContent
 import org.ihtsdo.drools.response.Severity
+import org.ihtsdo.drools.domain.Constants
+import java.util.Arrays
+import java.util.Collections
+import java.util.HashSet
+import java.util.Set
 
 global java.util.List invalidContent
 global DescriptionService descriptionService
 global ConceptService conceptService
+
+
+// A term is deliberately reused up and down a product package hierarchy: in AMT
+// the TPUU, TPP and CTPP FSNs differ only by their semantic tag, so their
+// preferred terms are identical by design. Exempt only a pair at DIFFERENT
+// levels - two concepts at the SAME level sharing a term is still a duplicate.
+// Membership is data, in semantic-tag-hierarchies.txt, so an extension can name
+// its own levels without a rule change.
+//
+// Both FSNs are resolved by lookup rather than by matching an extra Description
+// pattern in the rule. A pattern would silently stop the rule firing for a
+// concept with no active FSN - which happens routinely in authoring, where this
+// rule set also runs - and would fire it once per FSN in an edition that
+// translates them. Every FSN is considered, so the outcome does not depend on
+// set iteration order.
+function boolean isSameProductFamilyAtDifferentLevel(String conceptId, String duplicateConceptId, DescriptionService descriptionService) {
+	Set<String> key = new HashSet<String>(Arrays.asList("duplicate-term-exempt"));
+	Set<String> fsns = descriptionService.getFSNs(Collections.singleton(conceptId), Constants.US_EN_LANG_REFSET, Constants.GB_EN_LANG_REFSET);
+	Set<String> duplicateFsns = descriptionService.getFSNs(Collections.singleton(duplicateConceptId), Constants.US_EN_LANG_REFSET, Constants.GB_EN_LANG_REFSET);
+	if (fsns == null || fsns.isEmpty() || duplicateFsns == null || duplicateFsns.isEmpty()) {
+		return false;
+	}
+	for (String fsn : fsns) {
+		if (!descriptionService.isSemanticTagCompatibleWithinHierarchy(fsn, key)) {
+			continue;
+		}
+		String tag = DescriptionHelper.getTag(fsn);
+		if (tag == null) {
+			continue;
+		}
+		for (String duplicateFsn : duplicateFsns) {
+			if (!descriptionService.isSemanticTagCompatibleWithinHierarchy(duplicateFsn, key)) {
+				continue;
+			}
+			if (!tag.equals(DescriptionHelper.getTag(duplicateFsn))) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
 
 // "Correlation ID" is a special case where duplicates are expected
 rule "Two active descriptions in the same hierarchy should not share the same term, unless the language is different."
@@ -17,6 +63,7 @@ rule "Two active descriptions in the same hierarchy should not share the same te
 		c : Concept(active)
 		d : Description(c.id == d.conceptId && active && term.length > 1 && !term.startsWith("Correlation ID"))
 		$duplicate : Description(active && id != d.id && conceptService.isActive(conceptId) == true) from descriptionService.findMatchingDescriptionInHierarchy(c, d)
+		eval(!isSameProductFamilyAtDifferentLevel(c.id, $duplicate.conceptId, descriptionService))
 	then
 		invalidContent.add(new InvalidContent("25334385-83b3-4531-8e6e-cf9e32ebccd2",
 				d, "Term already exists within this hierarchy on concept " + $duplicate.conceptId +
