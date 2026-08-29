@@ -1,4 +1,94 @@
 {
+    "givenConcepts": [
+        {
+            "id": "116680003", // Is a
+            "active": true,
+            "descriptions": [
+                {
+                    "id": "isa",
+                    "term": "Is a (attribute)"
+                }
+            ]
+        },
+        {
+            // Grandparent, international core module.
+            "id": "100001",
+            "active": true,
+            "moduleId": "900000000000207008",
+            "descriptions": [
+                {
+                    "id": "d1",
+                    "typeId": "900000000000003001", // FSN
+                    "term": "Grandparent (finding)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // PREFERRED
+                    }
+                }
+            ]
+        },
+        {
+            // Parent, stated child of the grandparent.
+            "id": "100002",
+            "active": true,
+            "moduleId": "900000000000207008",
+            "descriptions": [
+                {
+                    "id": "d2",
+                    "typeId": "900000000000003001", // FSN
+                    "term": "Parent (finding)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // PREFERRED
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "r0",
+                    "active": true,
+                    "typeId": "116680003", // is-a
+                    "destinationId": "100001",
+                    "characteristicTypeId": "900000000000010007" // STATED
+                }
+            ]
+        }
+    ],
     "assertConceptsPass": [],
-    "assertConceptsFail": []
+    // A concept on an extension module, stating both its parent and the
+    // grandparent that parent already sits under. The rule must still fire:
+    // redundant-isa-exempt-modules is absent from the test resources, which is
+    // the state of every edition that has not opted out, and the rule has to
+    // behave there exactly as it did before the key existed.
+    "assertConceptsFail": [
+        {
+            "id": "100003",
+            "active": true,
+            "moduleId": "32506021000036107",
+            "descriptions": [
+                {
+                    "id": "d3",
+                    "typeId": "900000000000003001", // FSN
+                    "term": "Child (finding)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007" // PREFERRED
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "r1",
+                    "active": true,
+                    "typeId": "116680003", // is-a
+                    "destinationId": "100002",
+                    "characteristicTypeId": "900000000000010007" // STATED
+                },
+                {
+                    "id": "r2",
+                    "active": true,
+                    "typeId": "116680003", // is-a
+                    "destinationId": "100001",
+                    "characteristicTypeId": "900000000000010007" // STATED
+                }
+            ]
+        }
+    ]
 }

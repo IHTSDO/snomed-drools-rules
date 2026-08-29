@@ -13,10 +13,17 @@ global java.util.List invalidContent
 global ConceptService conceptService
 global DescriptionService descriptionService
 
+// Redundantly-stated IsA is an editorial policy, and not every edition has
+// adopted it. A module whose id is listed under redundant-isa-exempt-modules in
+// the test resources is not held to it; every other module is, including the
+// international core and including extension modules whose maintainers do want
+// the rule. An edition that lists nothing - which is every edition until it
+// chooses otherwise - gets exactly the behaviour this rule had before the key
+// existed.
 rule "Redundantly stated IsA relationships."
 	dialect "mvel"
 	when
-		c : Concept(active)
+		c : Concept(active, !descriptionService.isInNamedSet("redundant-isa-exempt-modules", moduleId))
 		r1 : Relationship(active && sourceId == c.id && typeId == Constants.IS_A && characteristicTypeId == Constants.STATED_RELATIONSHIP && !axiomGCI)
 		r2 : Relationship(active && sourceId == c.id && typeId == Constants.IS_A && characteristicTypeId == Constants.STATED_RELATIONSHIP && !axiomGCI && r1.id != id)
 		statedAncestors : ArrayList(size > 0) from collect( String() from conceptService.findStatedAncestorsOfConcepts(Collections.singletonList(r1.destinationId)))
