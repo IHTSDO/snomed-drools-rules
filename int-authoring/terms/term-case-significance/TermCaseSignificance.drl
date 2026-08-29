@@ -18,7 +18,8 @@ function boolean containsAbbreviationForDrugUnit(String term) {
 	if (term == null || term.isEmpty()) return false;
 	String stripTerm = term.trim();
 	String spTerm = " " + stripTerm;
-	String[] abbrevs = { "mg", "g", "ml", "mcg", "unit", "units", "IU", "mEq", "mL",  "MBq", "ppm" };
+	String[] abbrevs = { "mg", "g", "ml", "mcg", "unit", "units", "IU", "mEq", "mL",  "MBq", "ppm",
+			"mmol", "mol", "cm", "mm", "kg", "kBq", "GBq", "mmHg" };
 	for (int i = 0; i < abbrevs.length; i++) {
 		if (stripTerm.contains(" " + abbrevs[i] + " ") ||
 			stripTerm.endsWith(" " + abbrevs[i]) ||

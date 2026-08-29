@@ -16,15 +16,16 @@ function String stripAccents(String term) {
 	return str;
 }
 
-function boolean isDrugWithCaseSensitiveUnit(String fsn, String term) {
-	String semanticTag = DescriptionHelper.getTag(fsn);
-	if (!"clinical drug".equals(semanticTag)) {
-		return false;
-	}
+function boolean isTermWithCaseSensitiveUnit(String term) {
 	if (term == null || term.isEmpty()) return false;
 	String stripTerm = term.trim();
 	String spTerm = " " + stripTerm;
-	String[] abbrevs = { "mg", "g", "ml", "mcg", "unit", "units", "IU", "mEq", "mL",  "MBq", "ppm" };
+	// Symbols only. A symbol's case carries meaning - "mg" and "Mg" are milligram
+	// and megagram - so a lowercase symbol in a cI term is a reason for the term
+	// to be cI rather than ci. A unit spelled out in full has no such property:
+	// "Microgram" is only a capitalised word, so it is not grounds for exemption.
+	String[] abbrevs = { "mg", "g", "ml", "mcg", "unit", "units", "IU", "mEq", "mL", "MBq", "ppm",
+			"mmol", "mol", "cm", "mm", "kg", "kBq", "GBq", "mmHg" };
 	for (int i = 0; i < abbrevs.length; i++) {
 		if (stripTerm.contains(" " + abbrevs[i] + " ") || 
 			stripTerm.endsWith(" " + abbrevs[i]) ||
@@ -50,7 +51,7 @@ rule "An active term on an active concept with case significance 'only initial c
 						&& stripAccents(term) not matches "^..*[0-9][A-Za-z].*$"
 						&& stripAccents(term) not matches "^[<, %, >, . , &, ^, /].*$"
 						&& stripAccents(term) not matches "^..*\\p{Lu}.*$"
-						&& !isDrugWithCaseSensitiveUnit(d1.term, term))
+						&& !isTermWithCaseSensitiveUnit(term))
 
 	then
 		invalidContent.add(new InvalidContent("4ee9cfeb-3ce5-48bf-b238-de7498fde042",

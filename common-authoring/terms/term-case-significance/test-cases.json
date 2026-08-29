@@ -158,6 +158,29 @@
 	// 3 - entire term case insensitive
     "assertConceptsPass": [
         {
+            // A unit symbol outside the drug model. Fails on the pre-change rule,
+            // where the exemption was gated on the "clinical drug" tag, and "cm"
+            // was not on the list either.
+            "id": "20",
+            "active": true,
+            "descriptions": [
+                {
+                    "id": "20",
+                    "active": true,
+                    "typeId": "900000000000003001", // FSN
+                    "caseSignificanceId": "900000000000017005", // CS
+                    "term": "Wound dressing 10 cm x 10 cm (physical object)"
+                },
+                {
+                    "id": "21",
+                    "active": true,
+                    "typeId": "900000000000013009", // SYNONYM
+                    "caseSignificanceId": "900000000000020002", // cI
+                    "term": "wound dressing 10 cm x 10 cm"
+                }
+            ]
+        },
+        {
             "id": "1",
             "descriptions": [
                 {
@@ -243,6 +266,29 @@
 	// 4, 5 - Terms starting with a lower case letter are expected to be marked CS
 	// 6 - Terms containing a capital letter are expected to be marked cI or CS
     "assertConceptsFail": [
+        {
+            // A unit spelled out in full is deliberately NOT a case-significance
+            // exemption: "Microgram" is a capitalised word, not a different unit.
+            // This pins that decision - adding "microgram" to the list breaks it.
+            "id": "22",
+            "active": true,
+            "descriptions": [
+                {
+                    "id": "22",
+                    "active": true,
+                    "typeId": "900000000000003001", // FSN
+                    "caseSignificanceId": "900000000000017005", // CS
+                    "term": "Aclidinium 322 microgram inhalation (clinical drug)"
+                },
+                {
+                    "id": "23",
+                    "active": true,
+                    "typeId": "900000000000013009", // SYNONYM
+                    "caseSignificanceId": "900000000000020002", // cI
+                    "term": "aclidinium 322 microgram inhalation"
+                }
+            ]
+        },
        {
             "id": "1",
             "descriptions": [
