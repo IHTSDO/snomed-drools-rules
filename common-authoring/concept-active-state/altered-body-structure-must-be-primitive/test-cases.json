@@ -1,0 +1,162 @@
+{
+    "givenConcepts": [
+        {
+            "id": "116680003",
+            "active": true
+        },
+        {
+            "id": "118956008",
+            "active": true
+        },
+        {
+            "id": "75594004",
+            "active": true,
+            "relationships": [
+                {
+                    "destinationId": "118956008",
+                    "typeId": "116680003",
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "404684003",
+            "active": true
+        }
+    ],
+    "assertConceptsPass": [
+        {
+            "id": "1",
+            "active": true,
+            "definitionStatusId": "900000000000074008",
+            "relationships": [
+                {
+                    "destinationId": "118956008",
+                    "typeId": "116680003",
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "277999002",
+            "active": true,
+            "definitionStatusId": "900000000000074008",
+            "relationships": [
+                {
+                    "destinationId": "75594004",
+                    "typeId": "116680003",
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                },
+                {
+                    "destinationId": "404684003",
+                    "typeId": "116680003",
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "active": true,
+            "definitionStatusId": "900000000000073002",
+            "relationships": [
+                {
+                    "destinationId": "404684003",
+                    "typeId": "116680003",
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "4",
+            "active": true,
+            "definitionStatusId": "900000000000073002",
+            "relationships": [
+                {
+                    "destinationId": "404684003",
+                    "typeId": "116680003",
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                },
+                {
+                    "destinationId": "118956008",
+                    "typeId": "116680003",
+                    "active": true,
+                    "characteristicTypeId": "900000000000011006"
+                }
+            ]
+        },
+        {
+            "id": "5",
+            "active": true,
+            "definitionStatusId": "900000000000073002",
+            "relationships": [
+                {
+                    "destinationId": "404684003",
+                    "typeId": "116680003",
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                },
+                {
+                    "destinationId": "118956008",
+                    "typeId": "116680003",
+                    "active": true,
+                    "axiomGCI": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        }
+    ],
+    "assertConceptsFail": [
+        {
+            "id": "11",
+            "active": true,
+            "definitionStatusId": "900000000000073002",
+            "relationships": [
+                {
+                    "destinationId": "118956008",
+                    "typeId": "116680003",
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "277999002",
+            "active": true,
+            "published": true,
+            "definitionStatusId": "900000000000073002",
+            "relationships": [
+                {
+                    "destinationId": "75594004",
+                    "typeId": "116680003",
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        },
+        {
+            "id": "13",
+            "active": true,
+            "definitionStatusId": "900000000000073002",
+            "relationships": [
+                {
+                    "destinationId": "404684003",
+                    "typeId": "116680003",
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                },
+                {
+                    "destinationId": "75594004",
+                    "typeId": "116680003",
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007"
+                }
+            ]
+        }
+    ]
+}

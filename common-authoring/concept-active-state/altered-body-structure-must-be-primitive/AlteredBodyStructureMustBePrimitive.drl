@@ -1,0 +1,21 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.service.ConceptService
+import java.util.ArrayList
+
+global java.util.List invalidContent
+global ConceptService conceptService
+
+rule "Subtypes of 118956008 |Body structure, altered from its original anatomical structure (morphologic abnormality)| must be primitive."
+	dialect "mvel"
+	when
+		c : Concept(active && definitionStatusId == Constants.DEFINED)
+		ancestors : ArrayList(size > 0) from collect( String() from conceptService.findStatedAncestorsOfConcept(c))
+		eval(ancestors contains "118956008")
+	then
+		InvalidContent invalid = new InvalidContent("7e1c9a44-2b6d-4f83-8e15-0a6d3c9f2b71",
+				c, "Subtypes of 118956008 |Body structure, altered from its original anatomical structure (morphologic abnormality)| must be primitive.");
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
+end
