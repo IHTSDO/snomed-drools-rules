@@ -354,6 +354,31 @@
                     "destinationId": "281647001" // Adverse reaction (disorder)
                 }
             ]
+        },
+        {
+            "id": "au-incompatible-semantic-tag",
+            "active": true,
+            "moduleId": "32506021000036107",
+            "descriptions": [
+                {
+                    "id": "au-incompatible-fsn",
+                    "active": true,
+                    "term": "Australian procedure (procedure)",
+                    "typeId": "900000000000003001",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007",
+                        "900000000000508004": "900000000000548007"
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003",
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007",
+                    "destinationId": "64572001"
+                }
+            ]
         }/*,
         {
             "id": "391152009",
@@ -522,6 +547,31 @@
                     "destinationId": "390817007" // General psychiatric care of older adults (regime/therapy)
                 }
             ]
-        }        
+        },
+        {
+            "id": "core-incompatible-semantic-tag",
+            "active": true,
+            "moduleId": "900000000000207008",
+            "descriptions": [
+                {
+                    "id": "core-incompatible-fsn",
+                    "active": true,
+                    "term": "Australian procedure (procedure)",
+                    "typeId": "900000000000003001",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007",
+                        "900000000000508004": "900000000000548007"
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003",
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007",
+                    "destinationId": "64572001"
+                }
+            ]
+        }
     ]
 }

@@ -1,0 +1,223 @@
+{
+    "givenConcepts": [
+        {
+            "id": "138875005",
+            "active": true,
+            "descriptions": [
+                {
+                    "id": "root-fsn",
+                    "active": true,
+                    "typeId": "900000000000003001",
+                    "term": "SNOMED CT Concept (SNOMED RT+CTV3)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007",
+                        "900000000000508004": "900000000000548007"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "116680003",
+            "active": true
+        },
+        {
+            "id": "373873005",
+            "active": true,
+            "descriptions": [
+                {
+                    "id": "product-fsn",
+                    "active": true,
+                    "typeId": "900000000000003001",
+                    "term": "Pharmaceutical / biologic product (product)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007",
+                        "900000000000508004": "900000000000548007"
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003",
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007",
+                    "destinationId": "138875005"
+                }
+            ]
+        },
+        {
+            "id": "404684003",
+            "active": true,
+            "descriptions": [
+                {
+                    "id": "finding-fsn",
+                    "active": true,
+                    "typeId": "900000000000003001",
+                    "term": "Clinical finding (finding)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007",
+                        "900000000000508004": "900000000000548007"
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003",
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007",
+                    "destinationId": "138875005"
+                }
+            ]
+        }
+    ],
+    "assertConceptsPass": [
+        {
+            "id": "au-branded-product",
+            "active": true,
+            "moduleId": "32506021000036107",
+            "descriptions": [
+                {
+                    "id": "amt-fsn",
+                    "active": true,
+                    "typeId": "900000000000003001",
+                    "languageCode": "en",
+                    "term": "Panadol (branded product)",
+                    "acceptabilityMap": {
+                        "32570271000036106": "900000000000548007"
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003",
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007",
+                    "destinationId": "373873005"
+                }
+            ]
+        },
+        {
+            "id": "au-branded-clinical-drug-package",
+            "active": true,
+            "moduleId": "32506021000036107",
+            "descriptions": [
+                {
+                    "id": "mp-fsn",
+                    "active": true,
+                    "typeId": "900000000000003001",
+                    "languageCode": "en",
+                    "term": "Panadol pack (containerized branded clinical drug package)",
+                    "acceptabilityMap": {
+                        "900000000000509007": "900000000000548007"
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003",
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007",
+                    "destinationId": "373873005"
+                }
+            ]
+        },
+        {
+            "id": "au-disorder",
+            "active": true,
+            "moduleId": "32506021000036107",
+            "descriptions": [
+                {
+                    "id": "disorder-fsn",
+                    "active": true,
+                    "typeId": "900000000000003001",
+                    "languageCode": "en",
+                    "term": "Australian finding (disorder)",
+                    "acceptabilityMap": {
+                        "32570271000036106": "900000000000548007"
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003",
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007",
+                    "destinationId": "404684003"
+                }
+            ]
+        },
+        {
+            "id": "core-unrecognised-tag",
+            "active": true,
+            "moduleId": "900000000000207008",
+            "descriptions": [
+                {
+                    "id": "core-fsn",
+                    "active": true,
+                    "typeId": "900000000000003001",
+                    "languageCode": "en",
+                    "term": "Panadol (branded product)"
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003",
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007",
+                    "destinationId": "373873005"
+                }
+            ]
+        }
+    ],
+    "assertConceptsFail": [
+        {
+            "id": "au-tag-outside-hierarchy",
+            "active": true,
+            "moduleId": "32506021000036107",
+            "descriptions": [
+                {
+                    "id": "outside-fsn",
+                    "active": true,
+                    "typeId": "900000000000003001",
+                    "languageCode": "en",
+                    "term": "Not a product (branded product)",
+                    "acceptabilityMap": {
+                        "32570271000036106": "900000000000548007"
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003",
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007",
+                    "destinationId": "404684003"
+                }
+            ]
+        },
+        {
+            "id": "product-non-amt-tag",
+            "active": true,
+            "moduleId": "32506021000036107",
+            "descriptions": [
+                {
+                    "id": "disorder-in-product-fsn",
+                    "active": true,
+                    "typeId": "900000000000003001",
+                    "languageCode": "en",
+                    "term": "Not a drug (disorder)",
+                    "acceptabilityMap": {
+                        "32570271000036106": "900000000000548007"
+                    }
+                }
+            ],
+            "relationships": [
+                {
+                    "typeId": "116680003",
+                    "active": true,
+                    "characteristicTypeId": "900000000000010007",
+                    "destinationId": "373873005"
+                }
+            ]
+        }
+    ]
+}

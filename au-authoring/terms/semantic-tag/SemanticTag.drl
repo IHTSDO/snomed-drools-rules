@@ -1,0 +1,78 @@
+import org.ihtsdo.drools.domain.Concept
+import org.ihtsdo.drools.domain.Description
+import org.ihtsdo.drools.domain.Constants
+import org.ihtsdo.drools.helper.DescriptionHelper
+import org.ihtsdo.drools.response.InvalidContent
+import org.ihtsdo.drools.response.Severity
+import org.ihtsdo.drools.service.ConceptService
+import org.ihtsdo.drools.service.DescriptionService
+import java.util.ArrayList
+import java.util.Set
+
+global java.util.List invalidContent
+global ConceptService conceptService
+global DescriptionService descriptionService
+
+function boolean isAuSpecificSemanticTag(String tag) {
+	if (tag == null) {
+		return false;
+	}
+	String normalised = tag.toLowerCase();
+	String[] auTags = {
+		"containerized branded clinical drug package",
+		"branded clinical drug package",
+		"branded clinical drug",
+		"clinical drug package",
+		"containerized branded product package",
+		"branded product package",
+		"branded product",
+		"product package"
+	};
+	for (int i = 0; i < auTags.length; i++) {
+		if (auTags[i].equals(normalised)) {
+			return true;
+		}
+	}
+	return false;
+}
+
+function boolean isInPharmaceuticalProductHierarchy(Concept concept, ConceptService conceptService) {
+	if ("373873005".equals(concept.getId())) {
+		return true;
+	}
+	Set ancestors = conceptService.findStatedAncestorsOfConcept(concept);
+	return ancestors != null && ancestors.contains("373873005");
+}
+
+// Australian edition copies of b786d30d-59ac-4e8d-b9d9-ab653bc48d57 and 4be1323d-9ef7-4c1d-a731-2fd5c89b27b1.
+// These Australian semantic tags are accepted only for concepts in <<373873005 |Pharmaceutical / biologic product|.
+rule "An active FSN on an Australian concept should end with a valid semantic tag."
+	dialect "mvel"
+	when
+		c : Concept(active && moduleId == "32506021000036107" && id != "138875005")
+		d : Description(conceptId == c.id && active == true && typeId == Constants.FSN && !descriptionService.isRecognisedSemanticTag(DescriptionHelper.getTag(d.term), d.languageCode))
+		eval(!(isInPharmaceuticalProductHierarchy(c, conceptService) && isAuSpecificSemanticTag(DescriptionHelper.getTag(d.term))))
+	then
+		invalidContent.add(new InvalidContent("6f2c1a84-9b37-4e15-a8d0-3c7e5b19f246",
+				d, "Active FSN should end with a valid semantic tag.", Severity.WARNING));
+end
+
+rule "An Australian concept's semantic tag should be compatible with those of the active parent(s)."
+	dialect "mvel"
+	when
+		c : Concept(active && moduleId == "32506021000036107")
+		topLevelFSNs : ArrayList(size > 0) from collect(String() from descriptionService.getFSNs(conceptService.findTopLevelHierarchiesOfConcept(c), Constants.US_EN_LANG_REFSET, Constants.GB_EN_LANG_REFSET, "32570271000036106"))
+		d : Description(conceptId == c.id
+						&& active
+						&& typeId == Constants.FSN
+						&& (acceptabilityMap["900000000000509007"] == Constants.ACCEPTABILITY_PREFERRED
+							|| acceptabilityMap["900000000000508004"] == Constants.ACCEPTABILITY_PREFERRED
+							|| acceptabilityMap["32570271000036106"] == Constants.ACCEPTABILITY_PREFERRED)
+						&& !descriptionService.isSemanticTagCompatibleWithinHierarchy(term, DescriptionHelper.getTags(topLevelFSNs)))
+		eval(!(isInPharmaceuticalProductHierarchy(c, conceptService) && isAuSpecificSemanticTag(DescriptionHelper.getTag(d.term))))
+	then
+		InvalidContent invalid = new InvalidContent("8d4e7c21-5a90-4b36-9f18-2e6a0c8d4b71",
+				d, "A concept's semantic tag should be compatible with those of the active parent(s).", Severity.WARNING);
+		invalid.ignorePublishedCheck();
+		invalidContent.add(invalid);
+end

@@ -1,7 +1,35 @@
 {
+    "givenConcepts": [
+        {
+            "id": "32506021000036107",
+            "active": true,
+            "descriptions": [
+                {
+                    "id": "au-module-fsn",
+                    "active": true,
+                    "typeId": "900000000000003001",
+                    "term": "SNOMED CT Australia module (core metadata concept)"
+                }
+            ]
+        }
+    ],
     //
     // 2 no space before semantic tag - rule removed
     "assertConceptsPass": [
+        {
+            "id": "au-concept",
+            "active": true,
+            "moduleId": "32506021000036107",
+            "descriptions": [
+                {
+                    "id": "au-fsn",
+                    "active": true,
+                    "typeId": "900000000000003001",
+                    "term": "Panadol (branded product)",
+                    "languageCode": "en"
+                }
+            ]
+        }
         /*{
             "descriptions": [
                 {
