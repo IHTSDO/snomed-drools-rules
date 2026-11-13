@@ -168,7 +168,34 @@
         }
     ],
     // 1 - Terms starting with a lower case letter are expected to be marked CS
-    "assertConceptsFail": [     
+    "assertConceptsFail": [
+        {
+            // Pins this list against the copy in
+            // common-authoring/terms/term-case-significance. "cm" has to be in
+            // both: there it stops a cI dressing term being reported, here it
+            // requires a ci drug term carrying cm to be cI. Drop it from either
+            // copy and one of the two directories fails.
+            "id": "900",
+            "active": true,
+            "descriptions": [
+                {
+                    "id": "900",
+                    "active": true,
+                    "typeId": "900000000000013009", // SYNONYM
+                    "caseSignificanceId": "900000000000448009", // ci
+                    "term": "Medicated dressing 10 cm x 10 cm"
+                }
+            ],
+            "relationships": [
+                {
+                    "id": "r900",
+                    "active": true,
+                    "typeId": "116680003", // is-a
+                    "destinationId": "373873005",
+                    "characteristicTypeId": "900000000000010007" // STATED
+                }
+            ]
+        },     
          {
             "id": "1",
             "descriptions": [
