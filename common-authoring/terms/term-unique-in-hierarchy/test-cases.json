@@ -84,6 +84,7 @@
             // resources.
             "id": "tpp1",
             "active" : true,
+            "moduleId": "999999001000000104", // synthetic module configured in the test resources
             "descriptions": [
                 {
                     "id": "tpp1fsn",
@@ -109,6 +110,7 @@
             // A concept whose tag, (product), is not listed under duplicate-term-exempt.
             "id": "prod1",
             "active" : true,
+            "moduleId": "999999001000000104", // synthetic module configured in the test resources
             "descriptions": [
                 {
                     "id": "prod1fsn",
@@ -157,6 +159,7 @@
             // Shares tpp1's synonym at a third listed level: exempt.
             "id": "ctpp1",
             "active" : "true",
+            "moduleId": "999999001000000104", // synthetic module configured in the test resources
             "descriptions": [
                 {
                     "id": "ctpp1fsn",
@@ -183,6 +186,7 @@
             // under duplicate-term-exempt, so the reuse is exempt.
             "id": "tpuu1",
             "active" : "true",
+            "moduleId": "999999001000000104", // synthetic module configured in the test resources
             "descriptions": [
                 {
                     "id": "tpuu1fsn",
@@ -308,6 +312,7 @@
             // is not. Still a duplicate.
             "id": "tpuu2",
             "active" : "true",
+            "moduleId": "999999001000000104", // synthetic module configured in the test resources
             "descriptions": [
                 {
                     "id": "tpuu2fsn",
@@ -334,6 +339,7 @@
             // Still a duplicate.
             "id": "cd1",
             "active" : "true",
+            "moduleId": "999999001000000104", // synthetic module configured in the test resources
             "descriptions": [
                 {
                     "id": "cd1fsn",
@@ -360,6 +366,7 @@
             // keeps it a duplicate, even though the other tag differs.
             "id": "multi1",
             "active" : "true",
+            "moduleId": "999999001000000104", // synthetic module configured in the test resources
             "descriptions": [
                 {
                     "id": "multi1fsnus",
@@ -393,6 +400,7 @@
             // Shares tpp1's synonym with the same listed tag: still a duplicate.
             "id": "tpp2",
             "active" : "true",
+            "moduleId": "999999001000000104", // synthetic module configured in the test resources
             "descriptions": [
                 {
                     "id": "tpp2fsn",

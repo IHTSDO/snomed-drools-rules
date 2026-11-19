@@ -18,10 +18,11 @@
     "assertConceptsPass": [
         {
             // Configured state: (trade product unit of use) is listed under
-            // fsn-special-char-exempt in the test resources, so its FSN may
+            // fsn-special-char-exempt.999999001000000104 in the test resources, so its FSN may
             // contain &.
             "id": "exempt-special-char",
             "active": true,
+            "moduleId": "999999001000000104", // synthetic module configured in the test resources
             "descriptions": [
                 {
                     "id": "exempt-special-char-fsn",

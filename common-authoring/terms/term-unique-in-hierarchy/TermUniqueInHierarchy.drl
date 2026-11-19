@@ -19,11 +19,20 @@ global ConceptService conceptService
 // A term is deliberately reused up and down a product package hierarchy: in AMT
 // the TPUU, TPP and CTPP FSNs differ only by their semantic tag, so their
 // preferred terms are identical by design. Exempt a pair only when every FSN
-// tag on both concepts is listed under duplicate-term-exempt and the two
+// tag on both concepts is listed under duplicate-term-exempt.<moduleId> and the two
 // concepts share no tag - two concepts with the SAME tag sharing a term is
 // still a duplicate, however many other FSNs either has. Membership is data, in
 // semantic-tag-hierarchies.txt, so an extension can name its own levels without
 // a rule change.
+//
+// The key is qualified by the module of the concept under validation, because
+// every semantic-tag-hierarchies* file is merged into one map per validation
+// instance, shared by every edition it validates. A module belongs to a single
+// extension, so only that extension's content is exempted. The validated
+// concept's module is used, not the duplicate's: the finding is raised against
+// the validated concept, so it is that concept's edition that decides, and the
+// duplicate may legitimately sit in a module the extension depends on. Each of
+// the duplicate's tags must still be listed under the same key.
 //
 // Only the tags are compared. Nothing checks that the two concepts belong to
 // the same product, so in an edition that sets the key, a term shared by
@@ -45,7 +54,7 @@ global ConceptService conceptService
 // checked against the key first, so an edition without the key - or a concept
 // with an unlisted tag - never pays for looking up the duplicate's FSNs.
 function boolean hasDifferentExemptTag(Concept concept, String duplicateConceptId, DescriptionService descriptionService) {
-	Set<String> key = new HashSet<String>(Arrays.asList("duplicate-term-exempt"));
+	Set<String> key = new HashSet<String>(Arrays.asList("duplicate-term-exempt." + concept.getModuleId()));
 	Set<String> tags = new HashSet<String>();
 	for (Description description : concept.getDescriptions()) {
 		if (description.isActive() && Constants.FSN.equals(description.getTypeId())

@@ -19,7 +19,7 @@ rule "For each active FSN there is a synonym that has the same text."
 		fsn : Description(active, conceptId == c.id, typeId == Constants.FSN && (acceptabilityMap["900000000000509007"] == Constants.ACCEPTABILITY_PREFERRED || acceptabilityMap["900000000000508004"] == Constants.ACCEPTABILITY_PREFERRED) && DescriptionHelper.getTag(term)
 						not in ("product", "medicinal product", "medicinal product form", "clinical drug", "substance", "product name", "packaged clinical drug", "real clinical drug",
 						"real medicinal product", "real packaged clinical drug", "supplier")
-						&& !descriptionService.isSemanticTagCompatibleWithinHierarchy(term, new HashSet(Arrays.asList("fsn-synonym-exempt"))))
+						&& !descriptionService.isSemanticTagCompatibleWithinHierarchy(term, new HashSet(Arrays.asList("fsn-synonym-exempt." + c.moduleId))))
 		ArrayList(size > 0) from collect (
 			Description(active, conceptId == c.id, typeId == Constants.SYNONYM)
 		)
